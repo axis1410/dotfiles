@@ -15,7 +15,7 @@ return {
         strings = "none",
         variables = "none",
       },
-      style = "dark", -- Choose from "dark", "darker", "cool", "deep", "warm", "warmer", (do not choose) "light"
+      style = "darker", -- Choose from "dark", "darker", "cool", "deep", "warm", "warmer", (do not choose) "light"
       lualine = {
         transparent = true,
       },
@@ -36,7 +36,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
+      colorscheme = "onedark",
+      -- colorscheme = "tokyonight-night",
       indentguides = false,
     },
   },
