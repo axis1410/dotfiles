@@ -45,4 +45,9 @@ return {
 		name = "rose-pine",
 		config = function() end,
 	},
+	{
+		"shaunsingh/nord.nvim",
+		priority = 1000,
+		lazy = false,
+	},
 }

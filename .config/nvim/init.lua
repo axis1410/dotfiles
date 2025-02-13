@@ -28,6 +28,7 @@ require("lazy").setup({
 	require("plugins.comments"),
 	require("plugins.mini"),
 	require("plugins.spectre"),
+	require("plugins.transparent"),
 })
 
 -- Load theme after plugins
