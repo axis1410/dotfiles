@@ -81,12 +81,12 @@ vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy", silent = tru
 vim.keymap.set("n", "<leader>y", [["+y]], { desc = "yank to system clipboard" })
 
 -- Delete operations without yanking
-vim.keymap.set("n", "<leader>dd", '"_dd', { desc = "delete line without yanking" }) -- Changed from 'dd' to '<leader>dd' to preserve default 'dd'
+vim.keymap.set("n", "<leader>dd", [["_dd]], { desc = "delete line without yanking" }) -- Changed from 'dd' to '<leader>dd' to preserve default 'dd'
 vim.keymap.set("v", "<leader>d", '"_d', { desc = "delete selection without yanking" }) -- Changed from 'dd' to '<leader>d' in visual mode
 vim.keymap.set("n", "<leader>dw", '"_diw', { desc = "delete inner word without yanking" }) -- Changed from 'diw' to '<leader>dw'
 
 -- Delete all lines without yanking
-vim.keymap.set("n", "<leader>da", 'gg0vg$"_d', { desc = "delete entire file's code without yanking" }) -- Changed from '<leader>d' to '<leader>da' to be more specific
+vim.keymap.set("n", "<leader>da", 'ggVG"_d', { desc = "Delete entire file's code without yanking", noremap = true })
 
 -- Move selected lines up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selected lines down" }) -- Changed from 'j' to 'J' to avoid breaking normal navigation

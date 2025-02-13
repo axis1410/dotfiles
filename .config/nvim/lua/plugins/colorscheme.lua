@@ -40,4 +40,9 @@ return {
 		"olimorris/onedarkpro.nvim",
 		priority = 1000,
 	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function() end,
+	},
 }
