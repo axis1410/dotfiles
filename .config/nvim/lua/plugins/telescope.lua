@@ -43,6 +43,15 @@ return {
 					require("telescope.themes").get_dropdown(),
 				},
 			},
+
+			colorscheme = {
+				enable_preview = true,
+				theme = "dropdown",
+				layout_config = {
+					width = 0.45,
+					height = 0.8,
+				},
+			},
 		})
 
 		-- Enable Telescope extensions if they are installed
@@ -61,6 +70,29 @@ return {
 		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+		vim.keymap.set("n", "<leader>th", function()
+			builtin.colorscheme({
+				enable_preview = true,
+				attach_mappings = function(prompt_bufnr, map)
+					-- Add persistence when selecting a theme
+					local actions = require("telescope.actions")
+					actions.select_default:replace(function()
+						local selection = require("telescope.actions.state").get_selected_entry()
+						actions.close(prompt_bufnr)
+						vim.cmd.colorscheme(selection.value)
+						-- Save the selected colorscheme to a file
+						local theme_file = vim.fn.stdpath("config") .. "/lua/core/theme.lua"
+						local file = io.open(theme_file, "w")
+						if file then
+							file:write(string.format('vim.cmd.colorscheme("%s")\n', selection.value))
+							file:close()
+						end
+					end)
+					return true
+				end,
+			})
+		end, { desc = "Select [Th]eme" })
 
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>/", function()
