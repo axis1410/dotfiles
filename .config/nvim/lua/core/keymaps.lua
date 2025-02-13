@@ -89,8 +89,31 @@ vim.keymap.set("n", "<leader>dw", '"_diw', { desc = "delete inner word without y
 vim.keymap.set("n", "<leader>da", 'ggVG"_d', { desc = "Delete entire file's code without yanking", noremap = true })
 
 -- Move selected lines up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move selected lines down" }) -- Changed from 'j' to 'J' to avoid breaking normal navigation
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move selected lines up" }) -- Changed from 'k' to 'K' to avoid breaking normal navigation
+
+-- Move selected lines up/down
+vim.keymap.set("v", "J", function()
+	-- Get the current visual selection boundaries
+	local start_line = vim.fn.line("'<")
+	local end_line = vim.fn.line("'>")
+
+	if start_line ~= 0 and end_line ~= 0 then
+		vim.cmd(string.format("'<,'>move '>+1"))
+		-- Reselect the moved lines
+		vim.cmd("normal! gv")
+	end
+end, { desc = "move selected lines down", silent = true })
+
+vim.keymap.set("v", "K", function()
+	-- Get the current visual selection boundaries
+	local start_line = vim.fn.line("'<")
+	local end_line = vim.fn.line("'>")
+
+	if start_line ~= 0 and end_line ~= 0 then
+		vim.cmd(string.format("'<,'>move '<-2"))
+		-- Reselect the moved lines
+		vim.cmd("normal! gv")
+	end
+end, { desc = "move selected lines up", silent = true })
 
 -- Select all text
 vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "select all text" })
