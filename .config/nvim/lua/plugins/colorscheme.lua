@@ -26,4 +26,14 @@ return {
 	{
 		"decaycs/decay.nvim",
 	},
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("onedark").setup({
+				borderless_pickers = true,
+			})
+		end,
+	},
 }

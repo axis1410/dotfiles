@@ -8,7 +8,7 @@ config = {
 	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" }),
 	font_size = 14,
 	window_decorations = "RESIZE",
-	color_scheme = "Oxocarbon Dark (Gogh)",
+	color_scheme = "Batman",
 	native_macos_fullscreen_mode = true,
 	window_padding = {
 		left = 3,
