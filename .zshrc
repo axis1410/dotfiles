@@ -372,3 +372,4 @@ alias vim=nvim
 
 
 eval "$(zoxide init zsh)"
+alias tmns="tmux new -s"

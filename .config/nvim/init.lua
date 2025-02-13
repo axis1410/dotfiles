@@ -22,7 +22,6 @@ require("lazy").setup({
 	require("plugins.lsp"),
 	require("plugins.autocomplete"),
 	require("plugins.none-ls"),
-	require("plugins.alpha"),
 	require("plugins.gitsigns"),
 	require("plugins.indent-blankline"),
 	require("plugins.misc"),
