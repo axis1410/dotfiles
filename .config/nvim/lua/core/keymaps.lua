@@ -98,13 +98,11 @@ vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "select all text" })
 -- Disable 's' from entering insert mode (since we use 's' for something else)
 -- vim.keymap.set("n", "s", "<Nop>", opts)
 
-
-
 -- Surround functionality
--- Usage: 
+-- Usage:
 -- Visual mode: select text then press S" or S) or S} etc
 -- Normal mode: ys<motion><char> e.g. ysiw" to surround word with quotes
-vim.keymap.set("v", "S\"", "<esc>`>a\"<esc>`<i\"<esc>", { desc = "surround with \"" })
+vim.keymap.set("v", 'S"', '<esc>`>a"<esc>`<i"<esc>', { desc = 'surround with "' })
 vim.keymap.set("v", "S'", "<esc>`>a'<esc>`<i'<esc>", { desc = "surround with '" })
 vim.keymap.set("v", "S`", "<esc>`>a`<esc>`<i`<esc>", { desc = "surround with `" })
 vim.keymap.set("v", "S)", "<esc>`>a)<esc>`<i(<esc>", { desc = "surround with ()" })
@@ -113,19 +111,22 @@ vim.keymap.set("v", "S]", "<esc>`>a]<esc>`<i[<esc>", { desc = "surround with []"
 vim.keymap.set("v", "S>", "<esc>`>a><esc>`<i<<esc>", { desc = "surround with <>" })
 
 -- Normal mode surround word
-vim.keymap.set("n", "ys\"", "ciw\"<C-r>\"\"<esc>", { desc = "surround word with \"" })
+vim.keymap.set("n", 'ys"', 'ciw"<C-r>""<esc>', { desc = 'surround word with "' })
 vim.keymap.set("n", "ys'", "ciw'<C-r>\"'<esc>", { desc = "surround word with '" })
-vim.keymap.set("n", "ys`", "ciw`<C-r>\"`<esc>", { desc = "surround word with `" })
-vim.keymap.set("n", "ys)", "ciw(<C-r>\")<esc>", { desc = "surround word with ()" })
-vim.keymap.set("n", "ys}", "ciw{<C-r>\"}<esc>", { desc = "surround word with {}" })
-vim.keymap.set("n", "ys]", "ciw[<C-r>\"]<esc>", { desc = "surround word with []" })
-vim.keymap.set("n", "ys>", "ciw<<C-r>\">><esc>", { desc = "surround word with <>" })
+vim.keymap.set("n", "ys`", 'ciw`<C-r>"`<esc>', { desc = "surround word with `" })
+vim.keymap.set("n", "ys)", 'ciw(<C-r>")<esc>', { desc = "surround word with ()" })
+vim.keymap.set("n", "ys}", 'ciw{<C-r>"}<esc>', { desc = "surround word with {}" })
+vim.keymap.set("n", "ys]", 'ciw[<C-r>"]<esc>', { desc = "surround word with []" })
+vim.keymap.set("n", "ys>", 'ciw<<C-r>">><esc>', { desc = "surround word with <>" })
 
 -- Delete surroundings
-vim.keymap.set("n", "ds\"", "di\"hPl2x", { desc = "delete surrounding \"" })
+vim.keymap.set("n", 'ds"', 'di"hPl2x', { desc = 'delete surrounding "' })
 vim.keymap.set("n", "ds'", "di'hPl2x", { desc = "delete surrounding '" })
 vim.keymap.set("n", "ds`", "di`hPl2x", { desc = "delete surrounding `" })
 vim.keymap.set("n", "ds)", "di)hPl2x", { desc = "delete surrounding ()" })
 vim.keymap.set("n", "ds}", "di}hPl2x", { desc = "delete surrounding {}" })
 vim.keymap.set("n", "ds]", "di]hPl2x", { desc = "delete surrounding []" })
 vim.keymap.set("n", "ds>", "di>hPl2x", { desc = "delete surrounding <>" })
+
+-- Buffer keymaps
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true })
