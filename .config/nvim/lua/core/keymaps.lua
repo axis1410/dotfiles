@@ -130,3 +130,17 @@ vim.keymap.set("n", "ds>", "di>hPl2x", { desc = "delete surrounding <>" })
 
 -- Buffer keymaps
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true })
+
+-- [S]earch and [R]eplace
+vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").open()<CR>', {
+	desc = "Open Spectre for search and replace",
+})
+vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+	desc = "Search current word",
+})
+vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+	desc = "Search on current file",
+})
