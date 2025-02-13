@@ -82,7 +82,7 @@ vim.keymap.set("n", "<leader>y", [["+y]], { desc = "yank to system clipboard" })
 
 -- Delete operations without yanking
 vim.keymap.set("n", "<leader>dd", [["_dd]], { desc = "delete line without yanking" }) -- Changed from 'dd' to '<leader>dd' to preserve default 'dd'
-vim.keymap.set("v", "<leader>d", '"_d', { desc = "delete selection without yanking" }) -- Changed from 'dd' to '<leader>d' in visual mode
+vim.keymap.set("v", "<leader>d", [["_d]], { desc = "delete selection without yanking" }) -- Changed from 'dd' to '<leader>d' in visual mode
 vim.keymap.set("n", "<leader>dw", '"_diw', { desc = "delete inner word without yanking" }) -- Changed from 'diw' to '<leader>dw'
 
 -- Delete all lines without yanking
