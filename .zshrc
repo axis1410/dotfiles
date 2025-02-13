@@ -186,6 +186,7 @@ alias drs="python manage.py runserver"
 alias dmmm="python manage.py makemigrations && python manage.py migrate"
 
 alias tmks="tmux kill-session -t"
+alias tmas="tmux attach -t"
 
 export PATH="/opt/homebrew/opt/mariadb@10.6/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@20/bin:$PATH"

@@ -25,28 +25,28 @@ config = {
 	},
 }
 local function center_window_once(window)
-    wezterm.GLOBAL.windows_centered = wezterm.GLOBAL.windows_centered or {}
-    local window_id = window:window_id() .. ""
-    if wezterm.GLOBAL.windows_centered[window_id] then
-        return
-    end
+	wezterm.GLOBAL.windows_centered = wezterm.GLOBAL.windows_centered or {}
+	local window_id = window:window_id() .. ""
+	if wezterm.GLOBAL.windows_centered[window_id] then
+		return
+	end
 
-    local screen = wezterm.gui.screens().active
+	local screen = wezterm.gui.screens().active
 
-    -- Set window size to 80% of screen size
-    local width = screen.width * 0.95
-    local height = screen.height * 0.95
+	-- Set window size to 80% of screen size
+	local width = screen.width * 0.95
+	local height = screen.height * 0.95
 
-    window:set_inner_size(width, height)
+	window:set_inner_size(width, height)
 
-    -- Calculate center position
-    local dimensions = window:get_dimensions()
-    local x = (screen.width - dimensions.pixel_width) / 2
-    local y = (screen.height - dimensions.pixel_height) / 2
+	-- Calculate center position
+	local dimensions = window:get_dimensions()
+	local x = (screen.width - dimensions.pixel_width) / 2
+	local y = (screen.height - dimensions.pixel_height) / 2
 
-    wezterm.GLOBAL.windows_centered[window_id] = true
+	wezterm.GLOBAL.windows_centered[window_id] = true
 
-    window:set_position(x, y)
+	window:set_position(x, y)
 end
 
 wezterm.on("update-status", function(window)
