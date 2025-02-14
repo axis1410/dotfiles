@@ -17,37 +17,18 @@ return {
 			vim.cmd.colorscheme("onedark")
 		end,
 	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-	{
-		"decaycs/decay.nvim",
-	},
+	{ "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
+	{ "decaycs/decay.nvim" },
 	{
 		"scottmckendry/cyberdream.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("onedark").setup({
-				borderless_pickers = true,
-			})
+			require("onedark").setup({ borderless_pickers = true })
 		end,
 	},
-	{
-		"olimorris/onedarkpro.nvim",
-		priority = 1000,
-	},
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function() end,
-	},
-	{
-		"shaunsingh/nord.nvim",
-		priority = 1000,
-		lazy = false,
-	},
+	{ "olimorris/onedarkpro.nvim", priority = 1000 },
+	{ "rose-pine/neovim", name = "rose-pine", config = function() end },
+	{ "shaunsingh/nord.nvim", priority = 1000, lazy = false },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
 }

@@ -1,3 +1,5 @@
+font-thicken = true
+font-thicken-strength = 100
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 14
 
@@ -9,7 +11,4 @@ theme = "Darkside"
 
 background-opacity = 0.98
 background-blur = 1
-
-
-
 

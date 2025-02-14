@@ -27,7 +27,8 @@ require("lazy").setup({
 	require("plugins.misc"),
 	require("plugins.comments"),
 	require("plugins.mini"),
-	require("plugins.spectre"),
+	require("plugins.plenary"),
+	require("plugins.harpoon"),
 	require("plugins.transparent"),
 })
 

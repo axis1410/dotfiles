@@ -7,12 +7,12 @@ config = {
 	window_close_confirmation = "NeverPrompt",
 	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" }),
 	font_size = 12,
-	window_decorations = "RESIZE",
-	color_scheme = "Batman",
+	window_decorations = "TITLE | RESIZE",
+	color_scheme = "Tokyo Night",
 	native_macos_fullscreen_mode = true,
 
-	window_background_opacity = 0.95,
-	macos_window_background_blur = 20,
+	window_background_opacity = 0.9,
+	macos_window_background_blur = 85,
 
 	window_padding = {
 		left = 3,
@@ -36,10 +36,8 @@ local function center_window_once(window)
 	end
 
 	local screen = wezterm.gui.screens().active
-
-	-- Set window size to 80% of screen size
-	local width = screen.width * 0.95
-	local height = screen.height * 0.95
+	local width = screen.width * 0.85
+	local height = screen.height * 0.85
 
 	window:set_inner_size(width, height)
 
