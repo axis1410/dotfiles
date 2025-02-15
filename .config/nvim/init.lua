@@ -30,6 +30,7 @@ require("lazy").setup({
 	require("plugins.plenary"),
 	require("plugins.harpoon"),
 	require("plugins.transparent"),
+	require("plugins.tw"),
 })
 
 -- Load theme after plugins
