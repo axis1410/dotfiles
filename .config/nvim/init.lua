@@ -31,9 +31,11 @@ require("lazy").setup({
 	require("plugins.harpoon"),
 	require("plugins.transparent"),
 	require("plugins.tw"),
+	require("plugins.autopairs"),
+	require("plugins.web-dev"),
+	require("plugins.formatting"),
 })
 
--- Load theme after plugins
 local success, theme = pcall(require, "core.theme")
 if success and theme then
 	theme.set_theme()

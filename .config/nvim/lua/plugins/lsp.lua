@@ -74,7 +74,7 @@ return {
 		})
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json" },
+			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", "*.scss", "*.html", "*.vue" },
 			callback = function()
 				vim.lsp.buf.format({ async = false })
 			end,
@@ -111,12 +111,24 @@ return {
 			ruff = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
-			tailwindcss = {},
 			dockerls = {},
 			sqlls = {},
 			terraformls = {},
 			jsonls = {},
 			yamlls = {},
+
+			tailwindcss = {
+				filetypes = { 
+				  'html', 'javascript', 'typescript', 'javascriptreact', 
+				  'typescriptreact', 'vue'
+				},
+			  },
+			  volar = {
+				filetypes = {
+				  'typescript', 'javascript', 'javascriptreact', 
+				  'typescriptreact', 'vue', 'json'
+				}
+			  },
 
 			lua_ls = {
 				-- cmd = {...},
