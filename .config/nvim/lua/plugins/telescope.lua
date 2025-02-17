@@ -28,7 +28,7 @@ return {
 			},
 			pickers = {
 				find_files = {
-					file_ignore_patterns = { "node_modules", ".git", ".venv" },
+					file_ignore_patterns = { "node_modules", "venv" },
 					hidden = true,
 				},
 			},
@@ -82,16 +82,16 @@ return {
 						actions.close(prompt_bufnr)
 						vim.cmd.colorscheme(selection.value)
 						-- Save the selected colorscheme to a file
-			local theme_file = vim.fn.stdpath("config") .. "/lua/core/theme.lua"
-			local file = io.open(theme_file, "w")
-			if file then
-				file:write("local M = {}\n\n")
-				file:write("M.set_theme = function()\n")
-				file:write(string.format('    vim.cmd.colorscheme("%s")\n', selection.value))
-				file:write("end\n\n")
-				file:write("return M")
-				file:close()
-			end
+						local theme_file = vim.fn.stdpath("config") .. "/lua/core/theme.lua"
+						local file = io.open(theme_file, "w")
+						if file then
+							file:write("local M = {}\n\n")
+							file:write("M.set_theme = function()\n")
+							file:write(string.format('    vim.cmd.colorscheme("%s")\n', selection.value))
+							file:write("end\n\n")
+							file:write("return M")
+							file:close()
+						end
 					end)
 					return true
 				end,

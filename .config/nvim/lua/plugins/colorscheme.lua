@@ -24,7 +24,14 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("onedark").setup({ borderless_pickers = true })
+			require("cyberdream").setup({
+				borderless_pickers = true,
+				saturation = 1,
+				cache = true,
+				extensions = {
+					telescope = true,
+				},
+			})
 		end,
 	},
 	{ "olimorris/onedarkpro.nvim", priority = 1000 },
