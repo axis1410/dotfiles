@@ -7,8 +7,8 @@ window-height = 50
 window-width = 150
 window-save-state = always
 
-theme = "Darkside"
+theme = "Monokai Pro Octagon"
 
-background-opacity = 0.98
+background-opacity = 0.94
 background-blur = 1
 
