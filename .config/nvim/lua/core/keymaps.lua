@@ -85,6 +85,9 @@ vim.keymap.set("n", "<leader>dd", [["_dd]], { desc = "delete line without yankin
 vim.keymap.set("v", "<leader>d", [["_d]], { desc = "delete selection without yanking" }) -- Changed from 'dd' to '<leader>d' in visual mode
 vim.keymap.set("n", "<leader>dw", '"_diw', { desc = "delete inner word without yanking" }) -- Changed from 'diw' to '<leader>dw'
 
+vim.keymap.set("n", "ciw", '"_ciw', { noremap = true })
+vim.keymap.set("n", "diw", '"_diw', { noremap = true })
+
 -- Delete all lines without yanking
 vim.keymap.set("n", "<leader>da", 'ggVG"_d', { desc = "Delete entire file's code without yanking", noremap = true })
 

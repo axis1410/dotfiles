@@ -6,12 +6,13 @@ config = {
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" }),
-	font_size = 12,
-	window_decorations = "TITLE | RESIZE",
+	font_size = 13,
+	window_decorations = "RESIZE",
+	-- window_decorations = "TITLE | RESIZE",
 	color_scheme = "Tokyo Night",
 	native_macos_fullscreen_mode = true,
 
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.8,
 	macos_window_background_blur = 85,
 
 	window_padding = {

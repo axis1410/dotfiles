@@ -1,11 +1,16 @@
 font-thicken = true
 font-thicken-strength = 100
 font-family = "JetBrainsMono Nerd Font Mono"
-font-size = 13
+
+# font-family = "Hack Nerd Font Mono"
+
+# font-size = 14
 
 window-height = 50
 window-width = 150
+
 window-padding-x = 3,3
+
 window-save-state = always
 
 theme = "Monokai Pro Octagon"
