@@ -34,6 +34,7 @@ require("lazy").setup({
 	require("plugins.autopairs"),
 	require("plugins.web-dev"),
 	require("plugins.formatting"),
+	require("plugins.smear"),
 })
 
 local success, theme = pcall(require, "core.theme")

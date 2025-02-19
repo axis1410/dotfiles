@@ -23,6 +23,13 @@ return {
 				desc = "harpoon quick menu",
 			},
 			{
+				"<leader>C",
+				function()
+					require("harpoon"):list():clear()
+				end,
+				desc = "Clear harpoon list",
+			},
+			{
 				"<leader>1",
 				function()
 					require("harpoon"):list():select(1)
