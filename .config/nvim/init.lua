@@ -23,7 +23,6 @@ require("lazy").setup({
 	require("plugins.autocomplete"),
 	require("plugins.none-ls"),
 	require("plugins.gitsigns"),
-	require("plugins.indent-blankline"),
 	require("plugins.misc"),
 	require("plugins.comments"),
 	require("plugins.mini"),
@@ -35,9 +34,12 @@ require("lazy").setup({
 	require("plugins.web-dev"),
 	require("plugins.formatting"),
 	require("plugins.smear"),
+
+	require("plugins.snacks"),
 	-- require("plugins.zen"),
 	-- require("plugins.twilight"),
-	require("plugins.snacks"),
+	-- require("plugins.smooth-scroll"),
+	-- require("plugins.indent-blankline"),
 })
 
 local success, theme = pcall(require, "core.theme")

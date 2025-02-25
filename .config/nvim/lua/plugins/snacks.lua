@@ -7,6 +7,7 @@ return {
 			bigfile = { enabled = true },
 			explorer = { enabled = true },
 			indent = { enabled = true },
+			animate = { enabled = false },
 			keys = {
 				{
 					"<leader><space>",

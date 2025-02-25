@@ -38,4 +38,5 @@ return {
 	{ "rose-pine/neovim", name = "rose-pine", config = function() end },
 	{ "shaunsingh/nord.nvim", priority = 1000, lazy = false },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
+	{ "neko-night/nvim", lazy = false, priority = 1000 },
 }
