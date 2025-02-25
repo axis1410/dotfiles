@@ -9,7 +9,10 @@ config = {
 	font_size = 13,
 	window_decorations = "RESIZE",
 	-- window_decorations = "TITLE | RESIZE",
-	color_scheme = "Tokyo Night",
+
+	-- color_scheme = "Tokyo Night",
+
+	color_scheme = "Hardcore (base16)",
 	native_macos_fullscreen_mode = true,
 
 	window_background_opacity = 0.8,
