@@ -35,8 +35,9 @@ require("lazy").setup({
 	require("plugins.web-dev"),
 	require("plugins.formatting"),
 	require("plugins.smear"),
-	require("plugins.zen"),
-	require("plugins.twilight"),
+	-- require("plugins.zen"),
+	-- require("plugins.twilight"),
+	require("plugins.snacks"),
 })
 
 local success, theme = pcall(require, "core.theme")
