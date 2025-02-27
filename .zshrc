@@ -218,8 +218,8 @@ function buse() {
 }
 
 function bsetup() {
-  bench drop-site "$1" --force --no-backup
-  bench new-site "$1" --db-name "db_$1" --db-root-password root --admin-password admin
+  bench drop-site "$1" --force --no-backup --db-root-password root
+  bench new-site "$1" --db-name "db_$1" --db-root-password root --db-root-username root --admin-password admin
   bench --site "$1" restore "$2" --db-root-password root
   bench set-maintenance-mode --site "$1" on
   bench --site "$1" migrate
