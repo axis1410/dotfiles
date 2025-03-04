@@ -227,7 +227,59 @@ function bsetup() {
 }
 
 
+# function gtag() {
+#     git tag "$1"
+#     git push origin "$1"
+# }
 
+
+# function gtagd() {
+#     git tag -d "$1"
+#     git push origin :refs/tags/"$1"
+#     git tag "$1"
+#     git push origin "$1"
+# }
+
+
+function gtag() {
+    if [ $# -lt 2 ]; then
+        echo "Usage: gtag <version> <message>"
+        echo "Example: gtag v1.1.0-stable 'Added new features and fixed bugs'"
+        return 1
+    fi
+    
+    VERSION=$1
+    shift  # Remove first parameter
+    MESSAGE="$*"  # Combine remaining parameters as message
+    
+    # Create annotated tag with version and message
+    git tag -a "$VERSION" -m "Release $VERSION
+
+Changelog:
+$MESSAGE"
+    
+    # Push the tag to your repository
+    git push origin "$VERSION"
+    
+    echo "✓ Created and pushed tag $VERSION to axis1410/plagiarism-remover"
+}
+
+function gtagd() {
+    if [ $# -lt 1 ]; then
+        echo "Usage: gtagd <version>"
+        echo "Example: gtagd v1.1.0-stable"
+        return 1
+    fi
+    
+    VERSION=$1
+    
+    # Delete local tag
+    git tag -d "$VERSION"
+    # Delete remote tag
+    git push origin :refs/tags/"$VERSION"
+    
+    echo "✓ Deleted tag $VERSION from local and remote repository"
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
