@@ -163,6 +163,14 @@ vim.keymap.set("n", "ds>", "di>hPl2x", { desc = "delete surrounding <>" })
 -- Buffer keymaps
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true })
 
+-- Toggle Transparency
+vim.keymap.set(
+	"n",
+	"<leader>tt",
+	":TransparentToggle<CR>",
+	{ desc = "Toggle Transparency", noremap = true, silent = true }
+)
+
 -- [S]earch and [R]eplace
 vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").open()<CR>', {
 	desc = "Open Spectre for search and replace",

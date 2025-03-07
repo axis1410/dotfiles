@@ -222,7 +222,7 @@ function bsetup() {
   bench new-site "$1" --db-name "db_$1" --db-root-password root --db-root-username root --admin-password admin
   bench --site "$1" restore "$2" --db-root-password root
   bench set-maintenance-mode --site "$1" on
-  bench --site "$1" migrate
+  bench --site "$1" migrate --skip-failing
   bench set-maintenance-mode --site "$1" off
 }
 
