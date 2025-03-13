@@ -218,14 +218,62 @@ function buse() {
 }
 
 function bsetup() {
-  bench drop-site "$1" --force --no-backup --db-root-password root
-  bench new-site "$1" --db-name "db_$1" --db-root-password root --db-root-username root --admin-password admin
-  bench --site "$1" restore "$2" --db-root-password root
-  bench set-maintenance-mode --site "$1" on
-  bench --site "$1" migrate --skip-failing
-  bench set-maintenance-mode --site "$1" off
+  # Store original arguments
+  local site_name="$1"
+  local backup_file="$2"
+  
+  # Extract backup directory path
+  local backup_dir=$(dirname "$backup_file")
+  
+  # Check if config.json exists
+  local config_file="${backup_dir}/config.json"
+  if [ ! -f "$config_file" ]; then
+    echo "Warning: Config file not found at $config_file"
+    echo "Proceeding without encryption key..."
+  else
+    # Extract the encryption key from config.json
+    local encryption_key=$(grep -o '"encryption_key": "[^"]*"' "$config_file" | cut -d'"' -f4)
+    
+    if [ -z "$encryption_key" ]; then
+      echo "Warning: encryption_key not found in config.json"
+      echo "Proceeding without encryption key..."
+    else
+      echo "Found encryption key in config.json"
+    fi
+  fi
+  
+  # Run the original setup commands
+  bench drop-site "$site_name" --force --no-backup --db-root-password root
+  bench new-site "$site_name" --db-name "db_$site_name" --db-root-password root --db-root-username root --admin-password admin
+  bench --site "$site_name" restore "$backup_file" --db-root-password root
+  bench set-maintenance-mode --site "$site_name" on
+  bench --site "$site_name" migrate --skip-failing
+  
+  # Set the encryption key if found
+  if [ ! -z "$encryption_key" ]; then
+    echo "Setting encryption key in site_config.json..."
+    # The site_config.json is located in sites/${site_name}/site_config.json
+    local site_config_path="./sites/${site_name}/site_config.json"
+    
+    # Check if the file exists
+    if [ -f "$site_config_path" ]; then
+      # Check if encryption_key already exists
+      if grep -q "encryption_key" "$site_config_path"; then
+        # Update existing key
+        sed -i '' "s/\"encryption_key\": \"[^\"]*\"/\"encryption_key\": \"$encryption_key\"/" "$site_config_path"
+      else
+        # Add new key (before the last closing brace)
+        sed -i '' "s/}$/,\n\t\"encryption_key\": \"$encryption_key\"\n}/" "$site_config_path"
+      fi
+      echo "Encryption key has been set successfully."
+    else
+      echo "Error: site_config.json not found at $site_config_path"
+    fi
+  fi
+  
+  bench set-maintenance-mode --site "$site_name" off
+  echo "Setup completed for site: $site_name"
 }
-
 
 # function gtag() {
 #     git tag "$1"

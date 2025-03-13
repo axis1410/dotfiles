@@ -74,7 +74,7 @@ return {
 		})
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", "*.scss", "*.html", "*.vue" },
+			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", "*.scss", "*.html", "*.vue", "*.py" },
 			callback = function()
 				vim.lsp.buf.format({ async = false })
 			end,
@@ -105,7 +105,7 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
-			pyright = {},
+			-- pyright = {},
 			ts_ls = {}, -- tsserver is deprecated
 			isort = {},
 			ruff = {},
@@ -118,17 +118,25 @@ return {
 			yamlls = {},
 
 			tailwindcss = {
-				filetypes = { 
-				  'html', 'javascript', 'typescript', 'javascriptreact', 
-				  'typescriptreact', 'vue'
-				},
-			  },
-			  volar = {
 				filetypes = {
-				  'typescript', 'javascript', 'javascriptreact', 
-				  'typescriptreact', 'vue', 'json'
-				}
-			  },
+					"html",
+					"javascript",
+					"typescript",
+					"javascriptreact",
+					"typescriptreact",
+					"vue",
+				},
+			},
+			volar = {
+				filetypes = {
+					"typescript",
+					"javascript",
+					"javascriptreact",
+					"typescriptreact",
+					"vue",
+					"json",
+				},
+			},
 
 			lua_ls = {
 				-- cmd = {...},
@@ -170,6 +178,10 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
 			"prettier",
+			"black",
+			"isort",
+			"flake8",
+			"mypy",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
