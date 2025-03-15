@@ -153,6 +153,10 @@ return {
 			"isort",
 			"flake8",
 			"mypy",
+			"gopls",
+			"gofumpt",
+			"goimports",
+			"golines",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
