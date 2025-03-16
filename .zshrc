@@ -482,24 +482,49 @@ if [[ -o zle ]]; then
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
 fi
 
+# Extract various compressed file types with a mandatory destination directory
 function extract() {
-  if [ -f "$1" ]; then
-    case "$1" in
-      *.tar.bz2)  tar -jxvf "$1" ;;
-      *.tar.gz)   tar -zxvf "$1" ;;
-      *.tar)      tar -xvf "$1"  ;;
-      *.tbz2)     tar -jxvf "$1" ;;
-      *.tgz)      tar -zxvf "$1" ;;
-      *.bz2)      bunzip2 "$1"   ;;
-      *.gz)       gunzip "$1"    ;;
-      *.zip)      unzip "$1"     ;;
-      *.Z)        uncompress "$1" ;;
-      *.7z)       7z x "$1"      ;;
-      *.rar)      unrar e "$1"   ;;
-      *)          echo "'$1' cannot be extracted via extract()" ;;
-    esac
+  if [ $# -lt 2 ]; then
+    echo "Usage: extract <archive_file> <destination_directory>"
+    echo "Example: extract archive.tar.gz ~/extracted_files"
+    return 1
+  fi
+  
+  if [ ! -f "$1" ]; then
+    echo "Error: '$1' is not a valid file"
+    return 1
+  fi
+  
+  local archive_file="$1"
+  local extract_dir="$2"
+  
+  # Create the directory if it doesn't exist
+  mkdir -p "$extract_dir" || return 1
+  
+  echo "Extracting '$archive_file' to '$extract_dir'..."
+  
+  case "$archive_file" in
+    *.tar.bz2)  tar -jxvf "$archive_file" -C "$extract_dir" ;;
+    *.tar.gz)   tar -zxvf "$archive_file" -C "$extract_dir" ;;
+    *.tar)      tar -xvf "$archive_file" -C "$extract_dir"  ;;
+    *.tbz2)     tar -jxvf "$archive_file" -C "$extract_dir" ;;
+    *.tgz)      tar -zxvf "$archive_file" -C "$extract_dir" ;;
+    *.bz2)      bunzip2 -c "$archive_file" > "$extract_dir/$(basename "$archive_file" .bz2)" ;;
+    *.gz)       gunzip -c "$archive_file" > "$extract_dir/$(basename "$archive_file" .gz)" ;;
+    *.zip)      unzip "$archive_file" -d "$extract_dir"     ;;
+    *.Z)        uncompress "$archive_file" -c > "$extract_dir/$(basename "$archive_file" .Z)" ;;
+    *.7z)       7z x "$archive_file" -o"$extract_dir"       ;;
+    *.rar)      unrar x "$archive_file" "$extract_dir"      ;;
+    *.xz)       tar -Jxvf "$archive_file" -C "$extract_dir" ;;
+    *.zst)      zstd -d "$archive_file" -o "$extract_dir/$(basename "$archive_file" .zst)" ;;
+    *)          echo "Error: '$archive_file' has an unsupported format" && return 1 ;;
+  esac
+  
+  if [ $? -eq 0 ]; then
+    echo "✅ Extraction complete"
   else
-    echo "'$1' is not a valid file"
+    echo "❌ Extraction failed"
+    return 1
   fi
 }
 
