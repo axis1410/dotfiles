@@ -83,6 +83,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+
+
 plugins=(git jsontools vscode docker docker-compose web-search)
 
 MAILCHECK=0
@@ -101,8 +104,17 @@ export PATH="$HOME/dev/shell_scripts:$PATH"
 # history setup
 setopt SHARE_HISTORY
 HISTFILE=$HOME/.zhistory
-SAVEHIST=1000
-HISTSIZE=999
+
+HISTSIZE=50000
+SAVEHIST=10000
+setopt extended_history       # Record timestamp of command
+setopt hist_expire_dups_first # Delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # Ignore duplicated commands
+setopt hist_ignore_space      # Ignore commands that start with space
+setopt hist_verify            # Show command with history expansion before running it
+setopt inc_append_history     # Add commands to HISTFILE in order of execution
+
+
 setopt HIST_EXPIRE_DUPS_FIRST
 
 
@@ -142,6 +154,12 @@ bindkey '\e[B' history-search-forward
 
 # eval "$(starship init zsh)"
 # eval "$(fzf --zsh)"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
 
 alias py="python3"
 alias python="python3"
@@ -464,12 +482,67 @@ if [[ -o zle ]]; then
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
 fi
 
-# =============================================================================
-#
-# To initialize zoxide, add this to your configuration (usually ~/.zshrc):
-#
+function extract() {
+  if [ -f "$1" ]; then
+    case "$1" in
+      *.tar.bz2)  tar -jxvf "$1" ;;
+      *.tar.gz)   tar -zxvf "$1" ;;
+      *.tar)      tar -xvf "$1"  ;;
+      *.tbz2)     tar -jxvf "$1" ;;
+      *.tgz)      tar -zxvf "$1" ;;
+      *.bz2)      bunzip2 "$1"   ;;
+      *.gz)       gunzip "$1"    ;;
+      *.zip)      unzip "$1"     ;;
+      *.Z)        uncompress "$1" ;;
+      *.7z)       7z x "$1"      ;;
+      *.rar)      unrar e "$1"   ;;
+      *)          echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# Create a directory and cd into it
+function mkcd() {
+  mkdir -p -- "$1" && cd -P -- "$1" || return
+}
+
+# Find files containing a string
+function findtext() {
+  grep -r "$1" .
+}
+
+# Get your external IP
+function myip() {
+  curl -s https://api.ipify.org
+}
+
+
 alias vim=nvim
 
 
 eval "$(zoxide init zsh)"
 alias tmns="tmux new -s"
+
+
+
+
+
+# eza integration (modern ls replacement)
+if command -v eza >/dev/null 2>&1; then
+  # Basic eza aliases
+  alias ls="eza --icons"
+  alias ll="eza --icons --long --header --git"
+  alias la="eza --icons --long --header --git --all"
+  alias lt="eza --icons --tree --level=2"
+  alias lta="eza --icons --tree --level=2 --all"
+  
+  # Sort aliases
+  alias lls="eza --icons --long --header --git --sort=size"
+  alias llm="eza --icons --long --header --git --sort=modified"
+  
+  # More detailed view
+  alias llg="eza --icons --long --header --git --grid"
+  alias llx="eza --icons --long --header --git --extended"
+fi

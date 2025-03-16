@@ -1,20 +1,32 @@
-font-thicken = true
-font-thicken-strength = 100
+
 font-family = "JetBrainsMono Nerd Font Mono"
 
-# font-family = "Hack Nerd Font Mono"
+font-size = 14
 
-# font-size = 14
 
 window-height = 50
 window-width = 150
-
 window-padding-x = 3,3
 
+window-padding-y = 3,3
 window-save-state = always
 
-theme = "Monokai Pro Octagon"
+window-decoration = none
 
+
+theme = "Monokai Pro Spectrum"
 background-opacity = 0.94
 background-blur = 1
 
+
+cursor-style = "bar"
+cursor-style-blink = true
+
+
+clipboard-trim-trailing-spaces = true
+
+
+mouse-hide-while-typing = true
+
+
+confirm-close-surface = false

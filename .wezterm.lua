@@ -8,9 +8,6 @@ config = {
 	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" }),
 	font_size = 13,
 	window_decorations = "RESIZE",
-	-- window_decorations = "TITLE | RESIZE",
-
-	-- color_scheme = "Tokyo Night",
 
 	color_scheme = "Hardcore (base16)",
 	native_macos_fullscreen_mode = true,
@@ -45,7 +42,6 @@ local function center_window_once(window)
 
 	window:set_inner_size(width, height)
 
-	-- Calculate center position
 	local dimensions = window:get_dimensions()
 	local x = (screen.width - dimensions.pixel_width) / 2
 	local y = (screen.height - dimensions.pixel_height) / 2
