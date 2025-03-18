@@ -54,6 +54,9 @@ return {
 						[[=='    _-'                        N E O V I M                         \/   `==]],
 						[[\   _-'                                                                `-_   /]],
 						[[ `''                                                                      ``' ]],
+						[[                                                                              ]],
+						[[                                                                              ]],
+						[[                                                                              ]],
 					},
 
 					center = {
@@ -76,7 +79,7 @@ return {
 							action = "Telescope find_files",
 						},
 						{
-							icon = " ",
+							icon = "T ",
 							icon_hl = "GitSignsAdd",
 							desc = "Find Text",
 							desc_hl = "Text",
@@ -106,7 +109,7 @@ return {
 					footer = {
 						" " .. time .. " ",
 						version .. " | " .. get_system_info(),
-						" " .. "Rip and Tear" .. " ",
+						" " .. "Rip & Tear" .. " ",
 					},
 				},
 			})
