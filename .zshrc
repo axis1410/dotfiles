@@ -260,8 +260,14 @@ function bsetup() {
     fi
   fi
   
-  # Run the original setup commands
-  bench drop-site "$site_name" --force --no-backup --db-root-password root
+  if [ -d "./sites/$site_name" ]; then
+    echo "Site $site_name exists. Dropping it now..."
+    bench drop-site "$site_name" --force --no-backup --db-root-password root
+  else
+      echo "Site $site_name does not exist. Proceeding to setup."
+  fi
+  
+  # Run the setup commands
   bench new-site "$site_name" --db-name "db_$site_name" --db-root-password root --db-root-username root --admin-password admin
   bench --site "$site_name" restore "$backup_file" --db-root-password root
   bench set-maintenance-mode --site "$site_name" on
@@ -292,6 +298,7 @@ function bsetup() {
   bench set-maintenance-mode --site "$site_name" off
   echo "Setup completed for site: $site_name"
 }
+
 
 # function gtag() {
 #     git tag "$1"
@@ -571,3 +578,4 @@ if command -v eza >/dev/null 2>&1; then
   alias llg="eza --icons --long --header --git --grid"
   alias llx="eza --icons --long --header --git --extended"
 fi
+
