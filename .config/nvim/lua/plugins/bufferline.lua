@@ -32,8 +32,9 @@ return {
 				always_show_bufferline = true,
 				show_tab_indicators = false,
 				indicator = {
-					style = "icon",
-					icon = "▎",
+					style = "none",
+					-- style = "icon",
+					-- icon = "▎",
 				},
 				icon_pinned = "󰐃",
 				padding = 1,
