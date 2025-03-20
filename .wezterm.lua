@@ -16,8 +16,8 @@ config = {
 	color_scheme = "Hardcore (base16)",
 	native_macos_fullscreen_mode = true,
 
-	window_background_opacity = 0.85,
-	macos_window_background_blur = 75,
+	window_background_opacity = 0.70,
+	macos_window_background_blur = 100,
 
 	window_padding = {
 		left = 3,

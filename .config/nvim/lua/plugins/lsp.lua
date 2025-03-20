@@ -88,7 +88,23 @@ return {
 			ts_ls = {},
 			isort = {},
 			ruff = {},
-			jedi_language_server = {},
+			jedi_language_server = {
+				init_options = {
+					completion = {
+						disableSnippets = false,
+						resolveEagerly = true,
+					},
+					diagnostics = {
+						enable = true,
+						didOPen = true,
+						didChange = true,
+						didSave = true,
+					},
+					hover = {
+						enabled = true,
+					},
+				},
+			},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			dockerls = {},
@@ -96,6 +112,22 @@ return {
 			terraformls = {},
 			jsonls = {},
 			yamlls = {},
+			-- pyright = {
+			-- 	settings = {
+			-- 		pyright = {
+			-- 			disableOrganizeImports = true,
+			-- 			disableWatchFileSystem = true,
+			-- 		},
+			-- 		python = {
+			-- 			analysis = {
+			-- 				autoSearchPaths = true,
+			-- 				diagnosticMode = "openFilesOnly",
+			-- 				useLibraryCodeForTypes = true,
+			-- 				typeCheckingMode = "basic",
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 
 			tailwindcss = {
 				filetypes = {
@@ -150,6 +182,7 @@ return {
 			"jedi_language_server",
 			"prettier",
 			"black",
+			"pyright",
 			"isort",
 			"flake8",
 			"mypy",

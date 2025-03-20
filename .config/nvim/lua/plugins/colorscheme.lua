@@ -41,4 +41,14 @@ return {
 	{ "neko-night/nvim", lazy = false, priority = 1000 },
 	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 	{ "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
+	{
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("vscode").setup({
+				transparent = true,
+			})
+		end,
+	},
 }

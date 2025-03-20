@@ -30,61 +30,36 @@ return {
 
 		local kind_icons = {
 			Text = "󰉿",
-			Method = "󰆧",
+			Method = "m",
 			Function = "󰊕",
-			Constructor = "󰆧",
-			Field = "󰜢",
-			Variable = "󰀫",
-			Class = "󰠱",
-			Interface = "󰕘",
-			Module = "󰏓",
-			Property = "󰜢",
-			Unit = "󰑭",
+			Constructor = "",
+			Field = "",
+			Variable = "󰆧",
+			Class = "󰌗",
+			Interface = "",
+			Module = "",
+			Property = "",
+			Unit = "",
 			Value = "󰎠",
-			Enum = "󰕘",
+			Enum = "",
 			Keyword = "󰌋",
-			Snippet = "󰅴",
+			Snippet = "",
 			Color = "󰏘",
 			File = "󰈙",
-			Reference = "󰈇",
+			Reference = "",
 			Folder = "󰉋",
-			EnumMember = "󰠳",
-			Constant = "󰏿",
-			Struct = "󰙅",
-			Event = "󰂓",
+			EnumMember = "",
+			Constant = "󰇽",
+			Struct = "",
+			Event = "",
 			Operator = "󰆕",
 			TypeParameter = "󰊄",
 		}
 
-		-- Custom highlight groups
-		vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#82AAFF", bold = true })
-		vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#82AAFF", bold = true })
-		vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#C792EA" })
-		vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#C792EA" })
-		vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#9EFFFF" })
-		vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = "#FFCB6B" })
-
-		local border_opts = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None,FloatBorder:FloatBorder",
-		}
-
 		cmp.setup({
 			window = {
-				completion = cmp.config.window.bordered({
-					border = border_opts.border,
-					winhighlight = border_opts.winhighlight,
-					scrollbar = false,
-					col_offset = -3,
-					side_padding = 1,
-				}),
-				documentation = cmp.config.window.bordered({
-					border = border_opts.border,
-					winhighlight = border_opts.winhighlight,
-					max_width = 50,
-					max_height = 30,
-					side_padding = 1,
-				}),
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 
 			snippet = {
@@ -102,6 +77,9 @@ return {
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
+
+				-- Remove the CR mapping to prevent auto-accepting completions
+				-- ['<CR>'] = cmp.mapping.confirm { select = true },
 
 				-- Manually trigger completion with Ctrl-Space
 				["<C-Space>"] = cmp.mapping.complete({}),
@@ -151,50 +129,18 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 			},
-
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
-					-- Kind icons with padding for better alignment
-					vim_item.kind = string.format(" %s %s ", kind_icons[vim_item.kind], vim_item.kind)
-
-					-- Add source info with icons
+					vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 					vim_item.menu = ({
-						nvim_lsp = " LSP",
-						luasnip = " Snippet",
-						buffer = " Buffer",
-						path = " Path",
-						lazydev = " LazyDev",
+						nvim_lsp = "[LSP]",
+						luasnip = "[Snippet]",
+						buffer = "[Buffer]",
+						path = "[Path]",
 					})[entry.source.name]
-
-					-- Set max width of text with ellipsis
-					local label_width = 30
-					local label = vim_item.abbr
-					if #label > label_width then
-						vim_item.abbr = vim.fn.strcharpart(label, 0, label_width) .. "…"
-					end
-
 					return vim_item
 				end,
-			},
-			-- Enable experimental features
-			experimental = {
-				ghost_text = {
-					hl_group = "Comment",
-				},
-			},
-			-- Add sorting with priority
-			sorting = {
-				comparators = {
-					cmp.config.compare.offset,
-					cmp.config.compare.exact,
-					cmp.config.compare.score,
-					cmp.config.compare.recently_used,
-					cmp.config.compare.kind,
-					cmp.config.compare.sort_text,
-					cmp.config.compare.length,
-					cmp.config.compare.order,
-				},
 			},
 		})
 	end,

@@ -1,12 +1,49 @@
 return {
-
 	{
 		"echasnovski/mini.completion",
 		version = false,
 		config = function()
-			require("mini.completion").setup()
+			require("mini.completion").setup({
+
+				delay = {
+					completion = 100,
+					info = 100,
+					signature = 50,
+				},
+
+				trigger_by_fallback = true,
+				tab_direction = "next",
+				lsp_completion = {
+					source_func = "omnifunc",
+					auto_setup = true,
+					skip_status_message = false,
+				},
+				fallback_completion = {
+					sources = {
+						"path",
+						"buffers",
+						"dictionary",
+						"spell",
+					},
+				},
+				window = {
+					info = { border = "single", height = 25, width = 80 },
+					signature = { border = "single", height = 25, width = 80 },
+				},
+				mappings = {
+					force_completion = "<C-Space>",
+					cancel = "<C-e>",
+					confirm = "<CR>",
+					select_next = "<Tab>",
+					select_prev = "<S-Tab>",
+				},
+			})
+
+			vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+			vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 		end,
 	},
+
 	{
 		"echasnovski/mini.bracketed",
 		version = false,
@@ -62,45 +99,60 @@ return {
 			})
 		end,
 	},
+
 	{
 		"echasnovski/mini.statusline",
 		config = function()
 			local statusline = require("mini.statusline")
+
+			local function section_time()
+				return os.date("%H:%M")
+			end
+
+			local function short_filename(args)
+				args = args or {}
+				local trunc_width = args.trunc_width or 0
+				local filename = statusline.section_filename({ trunc_width = trunc_width })
+
+				filename = filename:gsub(vim.env.HOME, "~")
+				filename = filename:gsub("([~%w]/)[^/]+/", "%1../"):gsub("%.%./%.%./%.%./", "../")
+
+				return filename
+			end
+
 			statusline.setup({
-				-- Set custom content for sections
 				content = {
 					active = function()
 						local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
 						local git = statusline.section_git({ trunc_width = 75 })
 						local diagnostics = statusline.section_diagnostics({ trunc_width = 75 })
-						local filename = statusline.section_filename({ trunc_width = 140 })
+						local filename = short_filename({ trunc_width = 140 })
 						local fileinfo = statusline.section_fileinfo({ trunc_width = 120 })
 						local location = statusline.section_location({ trunc_width = 75 })
+						local time = section_time()
 
 						return statusline.combine_groups({
 							{ hl = mode_hl, strings = { mode } },
 							{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
-							"%<", -- Mark general truncate point
+							"%<",
 							{ hl = "MiniStatuslineFilename", strings = { filename } },
-							"%=", -- Start right alignment
+							"%=",
 							{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+							{ hl = "MiniStatuslineDevinfo", strings = { time } },
 							{ hl = mode_hl, strings = { location } },
 						})
 					end,
 					inactive = function()
-						local filename = statusline.section_filename({ trunc_width = 140 })
+						local filename = short_filename({ trunc_width = 140 })
 						return statusline.combine_groups({
 							{ hl = "MiniStatuslineInactive", strings = { filename } },
 						})
 					end,
 				},
-				-- Use custom colors
 				use_icons = true,
-				-- Set statusline visibility
 				set_vim_settings = true,
 			})
 
-			-- Custom highlight groups for better looks
 			vim.cmd([[
                 highlight MiniStatuslineModeNormal guifg=#1a1b26 guibg=#7aa2f7
                 highlight MiniStatuslineModeInsert guifg=#1a1b26 guibg=#9ece6a
