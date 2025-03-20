@@ -1,49 +1,4 @@
 return {
-	-- {
-	-- 	"echasnovski/mini.completion",
-	-- 	version = false,
-	-- 	config = function()
-	-- 		require("mini.completion").setup({
-	--
-	-- 			delay = {
-	-- 				completion = 100,
-	-- 				info = 100,
-	-- 				signature = 50,
-	-- 			},
-	--
-	-- 			trigger_by_fallback = true,
-	-- 			tab_direction = "next",
-	-- 			lsp_completion = {
-	-- 				source_func = "omnifunc",
-	-- 				auto_setup = true,
-	-- 				skip_status_message = false,
-	-- 			},
-	-- 			fallback_completion = {
-	-- 				sources = {
-	-- 					"path",
-	-- 					"buffers",
-	-- 					"dictionary",
-	-- 					"spell",
-	-- 				},
-	-- 			},
-	-- 			window = {
-	-- 				info = { border = "single", height = 25, width = 80 },
-	-- 				signature = { border = "single", height = 25, width = 80 },
-	-- 			},
-	-- 			mappings = {
-	-- 				force_completion = "<C-Space>",
-	-- 				cancel = "<C-e>",
-	-- 				confirm = "<CR>",
-	-- 				select_next = "<Tab>",
-	-- 				select_prev = "<S-Tab>",
-	-- 			},
-	-- 		})
-	--
-	-- 		vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-	-- 		vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
-	-- 	end,
-	-- },
-
 	{
 		"echasnovski/mini.bracketed",
 		version = false,
@@ -69,7 +24,6 @@ return {
 			})
 		end,
 	},
-
 	{
 		"echasnovski/mini.pairs",
 		version = false,
