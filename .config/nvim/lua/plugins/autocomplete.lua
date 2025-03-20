@@ -69,7 +69,6 @@ return {
 			},
 			completion = {
 				completeopt = "menu,menuone,noinsert",
-				autocomplete = false, -- Disable automatic completion popup
 			},
 
 			mapping = cmp.mapping.preset.insert({
@@ -78,11 +77,11 @@ return {
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 
-				-- Remove the CR mapping to prevent auto-accepting completions
-				-- ['<CR>'] = cmp.mapping.confirm { select = true },
+				-- Add back the CR mapping to accept completions
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
 
 				-- Manually trigger completion with Ctrl-Space
-				["<C-Space>"] = cmp.mapping.complete({}),
+				["<C-Space>"] = cmp.mapping.complete(),
 
 				["<C-y>"] = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Insert,
@@ -119,16 +118,21 @@ return {
 					end
 				end, { "i", "s" }),
 			}),
-			sources = {
+			sources = cmp.config.sources({
 				{
-					name = "lazydev",
-					group_index = 0,
+					name = "nvim_lsp",
 				},
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "path" },
-			},
+				{
+					name = "luasnip",
+				},
+			}, {
+				{
+					name = "buffer",
+				},
+				{
+					name = "path",
+				},
+			}),
 			formatting = {
 				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
