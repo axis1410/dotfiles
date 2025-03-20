@@ -146,6 +146,7 @@ return {
 				show_buffer_close_icons = true,
 				show_close_icon = true,
 				show_tab_indicators = true,
+				indicator = { "underline" },
 				enforce_regular_tabs = false,
 				always_show_bufferline = true,
 				separator_style = "slant",
