@@ -35,8 +35,10 @@ return {
 		end,
 	},
 	{ "olimorris/onedarkpro.nvim", priority = 1000 },
-	{ "rose-pine/neovim", name = "rose-pine", config = function() end },
+	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "shaunsingh/nord.nvim", priority = 1000, lazy = false },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
 	{ "neko-night/nvim", lazy = false, priority = 1000 },
+	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	{ "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
 }

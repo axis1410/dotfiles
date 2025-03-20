@@ -19,7 +19,7 @@ return {
 				right_trunc_marker = "",
 				max_name_length = 30,
 				max_prefix_length = 30,
-				tab_size = 21,
+				tab_size = 18,
 				diagnostics = false,
 				diagnostics_update_in_insert = false,
 				color_icons = true,
@@ -32,22 +32,64 @@ return {
 				always_show_bufferline = true,
 				show_tab_indicators = false,
 				indicator = {
-
-					style = "none",
+					style = "icon",
+					icon = "▎",
 				},
 				icon_pinned = "󰐃",
-				minimum_padding = 1,
-				maximum_padding = 5,
-				maximum_length = 15,
+				padding = 1,
+				minimum_padding = 5,
+				maximum_padding = 10,
+				maximum_length = 30,
 				sort_by = "insert_at_end",
+				offsets = {
+					{
+						filetype = "NvimTree",
+						text = "File Explorer",
+						highlight = "Directory",
+						separator = true,
+					},
+				},
 			},
 			highlights = {
-				separator = {
-					fg = "#434C5E",
+				fill = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLineNC" },
+				},
+				background = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLine" },
+				},
+				buffer_visible = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "Normal" },
 				},
 				buffer_selected = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "Normal" },
 					bold = true,
 					italic = false,
+				},
+				separator = {
+					fg = { attribute = "bg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLine" },
+				},
+				separator_selected = {
+					fg = { attribute = "fg", highlight = "Special" },
+					bg = { attribute = "bg", highlight = "Normal" },
+				},
+				separator_visible = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLineNC" },
+				},
+				modified = {
+					fg = { attribute = "fg", highlight = "String" },
+				},
+				modified_selected = {
+					fg = { attribute = "fg", highlight = "String" },
+				},
+				duplicate = {
+					fg = { attribute = "fg", highlight = "Comment" },
+					italic = true,
 				},
 			},
 		})

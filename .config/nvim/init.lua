@@ -12,13 +12,19 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.opt.termguicolors = true
+
 require("lazy").setup({
 	require("plugins.dashboard"),
 	-- require("plugins.alpha"),
 	require("plugins.neotree"),
 	require("plugins.colorscheme"),
+
 	require("plugins.bufferline"),
-	require("plugins.lualine"),
+	-- require("plugins.tabby"),
+
+	-- require("plugins.lualine"),
+
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
 	require("plugins.lsp"),
@@ -38,6 +44,7 @@ require("lazy").setup({
 	require("plugins.smear"),
 	require("plugins.snacks"),
 	require("plugins.navic"),
+	require("plugins.incline"),
 })
 
 local success, theme = pcall(require, "core.theme")

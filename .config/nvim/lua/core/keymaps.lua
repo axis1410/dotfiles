@@ -46,6 +46,9 @@ vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
+-- Buffer keymaps
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true })
+
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
 vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
@@ -159,9 +162,6 @@ vim.keymap.set("n", "ds)", "di)hPl2x", { desc = "delete surrounding ()" })
 vim.keymap.set("n", "ds}", "di}hPl2x", { desc = "delete surrounding {}" })
 vim.keymap.set("n", "ds]", "di]hPl2x", { desc = "delete surrounding []" })
 vim.keymap.set("n", "ds>", "di>hPl2x", { desc = "delete surrounding <>" })
-
--- Buffer keymaps
-vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true })
 
 -- Toggle Transparency
 vim.keymap.set(
