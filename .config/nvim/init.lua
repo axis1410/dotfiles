@@ -21,6 +21,7 @@ require("lazy").setup({
 	require("plugins.colorscheme"),
 
 	require("plugins.bufferline"),
+	-- require("plugins.cokeline"),
 	-- require("plugins.tabby"),
 
 	-- require("plugins.lualine"),
@@ -44,7 +45,7 @@ require("lazy").setup({
 	require("plugins.smear"),
 	require("plugins.snacks"),
 	require("plugins.navic"),
-	require("plugins.incline"),
+	-- require("plugins.incline"),
 })
 
 local success, theme = pcall(require, "core.theme")
