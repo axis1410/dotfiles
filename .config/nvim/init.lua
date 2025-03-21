@@ -36,7 +36,6 @@ require("lazy").setup({
 	require("plugins.web-dev"),
 	require("plugins.formatting"),
 	require("plugins.smear"),
-	require("plugins.snacks"),
 	require("plugins.navic"),
 })
 

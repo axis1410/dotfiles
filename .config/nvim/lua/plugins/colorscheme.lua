@@ -46,9 +46,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("vscode").setup({
-				transparent = true,
-			})
+			require("vscode").setup({})
 		end,
 	},
 }
