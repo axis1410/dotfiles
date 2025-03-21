@@ -50,6 +50,17 @@ return {
 				cursor = {
 					enable = false,
 				},
+				showkeys = {
+					enable = true,
+					timeout = 1000,
+					width = 25,
+					style = {
+						position = "br",
+						bg = "#1a1b26",
+						fg = "#a9b1d6",
+						border = "rounded",
+					},
+				},
 			})
 		end,
 	},
@@ -91,7 +102,7 @@ return {
 							"%<",
 							{ hl = "MiniStatuslineFilename", strings = { filename } },
 							"%=",
-							{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+							-- { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
 							{ hl = "MiniStatuslineDevinfo", strings = { time } },
 							{ hl = mode_hl, strings = { location } },
 						})

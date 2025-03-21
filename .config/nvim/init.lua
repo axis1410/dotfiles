@@ -45,7 +45,7 @@ require("lazy").setup({
 	require("plugins.smear"),
 	require("plugins.snacks"),
 	require("plugins.navic"),
-	-- require("plugins.incline"),
+	-- require("plugins.noice"),
 })
 
 local success, theme = pcall(require, "core.theme")
