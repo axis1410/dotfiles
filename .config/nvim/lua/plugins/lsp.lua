@@ -162,10 +162,10 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua",
+			"ruff",
 			"jedi_language_server",
 			"prettier",
 			"isort",
-			"flake8",
 			"mypy",
 			"gopls",
 			"gofumpt",
@@ -183,6 +183,33 @@ return {
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
+		})
+
+		require("lspconfig").ruff.setup({
+			settings = {
+				lineLength = 120,
+				format = {
+					quote_style = "double",
+				},
+				lint = {
+					select = {
+						"E", -- pycodestyle errors
+						"F", -- pyflakes
+						"I", -- isort
+						"UP", -- pyupgrade
+						"Q", -- quotes
+					},
+				},
+				isort = {
+					combinedAsImports = true,
+					linesAfterImports = 2,
+				},
+			},
+			-- init_options = {
+			-- 	settings = {
+			-- 		path = vim.fn.expand("~/.config/nvim/lsp/ruff.toml"),
+			-- 	},
+			-- },
 		})
 	end,
 }
