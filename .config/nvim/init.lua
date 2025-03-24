@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
 require("lazy").setup({
+	require("plugins.indent-blankline"),
 	require("plugins.dashboard"),
 	require("plugins.neotree"),
 	require("plugins.colorscheme"),
