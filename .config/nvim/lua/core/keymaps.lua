@@ -24,8 +24,8 @@ vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 
-vim.keymap.set("n", "j", "jzz", opts)
-vim.keymap.set("n", "k", "kzz", opts)
+-- vim.keymap.set("n", "j", "jzz", opts)
+-- vim.keymap.set("n", "k", "kzz", opts)
 
 vim.keymap.set("n", "<C-f>", "<C-f>zz", opts)
 vim.keymap.set("n", "<C-b>", "<C-b>zz", opts)
@@ -93,6 +93,7 @@ vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Open Lazy", silent = tru
 vim.keymap.set("n", "<leader>y", [["+y]], { desc = "yank to system clipboard" })
 
 -- Delete operations without yanking
+vim.keymap.set("n", "dd", [["_dd]])
 vim.keymap.set("n", "<leader>dd", [["_dd]], { desc = "delete line without yanking" }) -- Changed from 'dd' to '<leader>dd' to preserve default 'dd'
 vim.keymap.set("v", "<leader>d", [["_d]], { desc = "delete selection without yanking" }) -- Changed from 'dd' to '<leader>d' in visual mode
 vim.keymap.set("n", "<leader>dw", '"_diw', { desc = "delete inner word without yanking" }) -- Changed from 'diw' to '<leader>dw'

@@ -25,6 +25,7 @@ return {
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			go = { "golines", "gofumpt", "goimports" },
+			python = { "ruff", "ruff_organize_imports", "ruff_format" },
 		},
 		format_on_save = {
 			timeout_ms = 500,

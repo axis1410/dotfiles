@@ -31,7 +31,7 @@ require("lazy").setup({
 	require("plugins.mini"),
 	require("plugins.plenary"),
 	require("plugins.harpoon"),
-	require("plugins.transparent"),
+	-- require("plugins.transparent"),
 	require("plugins.tw"),
 	require("plugins.autopairs"),
 	require("plugins.web-dev"),
