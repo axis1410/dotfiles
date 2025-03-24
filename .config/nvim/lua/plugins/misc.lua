@@ -22,12 +22,32 @@ return {
 		config = true,
 		opts = {},
 	},
-	{
 
+	{
 		"folke/todo-comments.nvim",
-		event = "VimEnter",
+		event = { "VimEnter", ":BufReadPre", "BufNewFile" },
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
+		optional = true,
+		config = function()
+			require("todo-comments").setup({
+				keys = {
+					{
+						"<leader>pt",
+						function()
+							require("snacks").picker.todo_comments()
+						end,
+						desc = "Todo",
+					},
+					{
+						"<leader>pT",
+						function()
+							require("snacks").picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+						end,
+						desc = "Todo/Fix/Fixme",
+					},
+				},
+			})
+		end,
 	},
 	{
 

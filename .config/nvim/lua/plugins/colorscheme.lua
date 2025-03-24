@@ -17,24 +17,19 @@ return {
 			vim.cmd.colorscheme("onedark")
 		end,
 	},
-	{ "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
-	-- {
-	-- 	"scottmckendry/cyberdream.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("cyberdream").setup({
-	-- 			borderless_pickers = true,
-	-- 			saturation = 1,
-	-- 			cache = true,
-	-- 			extensions = {
-	-- 				telescope = true,
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	{ "folke/tokyonight.nvim", lazy = false, priority = 1000 },
+	{ "olimorris/onedarkpro.nvim", priority = 1000, lazy = false },
+	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("cyberdream").setup({})
+		end,
+	},
+	{ "projekt0n/github-nvim-theme", name = "github-theme" },
 	-- { "decaycs/decay.nvim" },
-	-- { "olimorris/onedarkpro.nvim", priority = 1000 },
 	-- { "rose-pine/neovim", name = "rose-pine" },
 	-- { "shaunsingh/nord.nvim", priority = 1000, lazy = false },
 	-- { "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
@@ -48,5 +43,4 @@ return {
 	-- 		require("vscode").setup({})
 	-- 	end,
 	-- },
-	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 }

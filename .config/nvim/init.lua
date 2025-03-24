@@ -16,8 +16,9 @@ vim.opt.termguicolors = true
 
 require("lazy").setup({
 	require("plugins.indent-blankline"),
-	require("plugins.dashboard"),
-	require("plugins.neotree"),
+	-- require("plugins.lualine"),
+	-- require("plugins.dashboard"),
+	-- require("plugins.neotree"),
 	require("plugins.colorscheme"),
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
@@ -39,6 +40,7 @@ require("lazy").setup({
 	require("plugins.smear"),
 	require("plugins.navic"),
 	require("plugins.trouble"),
+	require("plugins.snacks"),
 })
 
 local success, theme = pcall(require, "core.theme")
