@@ -552,6 +552,7 @@ function myip() {
 
 
 alias vim=nvim
+alias vi=nvim
 
 
 eval "$(zoxide init zsh)"

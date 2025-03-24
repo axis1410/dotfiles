@@ -194,3 +194,5 @@ vim.keymap.set("n", "<leader>dv", ":DiffviewOpen<CR>", { noremap = true, silent 
 
 -- Map leader+dc to :DiffviewClose
 vim.keymap.set("n", "<leader>dc", ":DiffviewClose<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "diagnostics (Trouble)" })

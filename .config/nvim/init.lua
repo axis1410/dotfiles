@@ -31,13 +31,14 @@ require("lazy").setup({
 	require("plugins.mini"),
 	require("plugins.plenary"),
 	require("plugins.harpoon"),
-	-- require("plugins.transparent"),
+	require("plugins.transparent"),
 	require("plugins.tw"),
 	require("plugins.autopairs"),
 	require("plugins.web-dev"),
 	require("plugins.formatting"),
 	require("plugins.smear"),
 	require("plugins.navic"),
+	require("plugins.trouble"),
 })
 
 local success, theme = pcall(require, "core.theme")
