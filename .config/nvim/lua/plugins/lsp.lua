@@ -164,7 +164,6 @@ return {
 			"stylua",
 			"jedi_language_server",
 			"prettier",
-			"black",
 			"isort",
 			"flake8",
 			"mypy",
