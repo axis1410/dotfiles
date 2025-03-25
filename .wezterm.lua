@@ -14,8 +14,8 @@ config = {
 	window_decorations = "RESIZE",
 
 	-- color_scheme = "Operator Mono Dark",
-	-- color_scheme = "Hardcore (base16)",
-	color_scheme = "Tokyo Night Storm",
+	color_scheme = "Hardcore (base16)",
+	-- color_scheme = "Tokyo Night Storm",
 	-- color_scheme = "Batman",
 
 	native_macos_fullscreen_mode = true,

@@ -29,7 +29,6 @@ vim.o.pumheight = 10
 vim.o.conceallevel = 0
 vim.wo.signcolumn = "yes"
 vim.o.fileencoding = "utf-8"
-vim.o.cmdheight = 1
 vim.o.breakindent = true
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
