@@ -156,6 +156,7 @@ return {
 					"~/Downloads",
 				},
 			},
+
 			dashboard = {
 				enabled = true,
 				sections = {
@@ -194,6 +195,7 @@ return {
 					{ section = "startup" },
 				},
 			},
+
 			-- dashboard = {
 			-- 	enabled = true,
 			-- 	sections = {
@@ -202,7 +204,7 @@ return {
 			-- 		{ section = "startup" },
 			-- 		{
 			-- 			section = "terminal",
-			-- 			cmd = "ascii-image-converter ~/.config/nvim/images/slayer.jpeg -C -c",
+			-- 			cmd = "ascii-image-converter ~/.config/nvim/images/slayer_bw.jpg -C -c",
 			-- 			random = 10,
 			-- 			pane = 2,
 			-- 			indent = 4,
