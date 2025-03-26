@@ -15,10 +15,10 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
 require("lazy").setup({
-	-- require("plugins.lualine"),
 	-- require("plugins.dashboard"),
 	-- require("plugins.neotree"),
 	-- require("plugins.none-ls"),
+	require("plugins.lualine"),
 	require("plugins.indent-blankline"),
 	require("plugins.colorscheme"),
 	require("plugins.bufferline"),

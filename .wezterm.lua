@@ -20,8 +20,8 @@ config = {
 
 	native_macos_fullscreen_mode = true,
 
-	window_background_opacity = 0.95,
-	macos_window_background_blur = 95,
+	-- window_background_opacity = 0.95,
+	-- macos_window_background_blur = 95,
 
 	window_padding = {
 		left = 3,
