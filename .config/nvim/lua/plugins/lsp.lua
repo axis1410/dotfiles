@@ -205,11 +205,6 @@ return {
 					linesAfterImports = 2,
 				},
 			},
-			-- init_options = {
-			-- 	settings = {
-			-- 		path = vim.fn.expand("~/.config/nvim/lsp/ruff.toml"),
-			-- 	},
-			-- },
 		})
 	end,
 }
