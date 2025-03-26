@@ -155,6 +155,7 @@ return {
 			"gofumpt",
 			"goimports",
 			"golines",
+			"pyproject-fmt",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -170,23 +171,9 @@ return {
 		})
 
 		require("lspconfig").ruff.setup({
-			settings = {
-				lineLength = 120,
-				format = {
-					quote_style = "double",
-				},
-				lint = {
-					select = {
-						"E", -- pycodestyle errors
-						"F", -- pyflakes
-						"I", -- isort
-						"UP", -- pyupgrade
-						"Q", -- quotes
-					},
-				},
-				isort = {
-					combinedAsImports = true,
-					linesAfterImports = 2,
+			init_options = {
+				settings = {
+					configuration = "~/.config/nvim/ruff.toml",
 				},
 			},
 		})
