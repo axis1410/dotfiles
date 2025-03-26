@@ -31,6 +31,7 @@ return {
 			"tsx",
 			"css",
 			"html",
+			"rust",
 		},
 
 		auto_install = true,

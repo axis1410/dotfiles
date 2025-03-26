@@ -580,3 +580,4 @@ if command -v eza >/dev/null 2>&1; then
   alias llx="eza --icons --long --header --git --extended"
 fi
 
+

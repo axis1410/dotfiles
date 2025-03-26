@@ -117,6 +117,7 @@ return {
 				},
 			},
 
+			rust_analyzer = {},
 			lua_ls = {
 
 				settings = {
