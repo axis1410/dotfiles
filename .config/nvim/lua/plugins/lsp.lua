@@ -88,23 +88,7 @@ return {
 			ts_ls = {},
 			isort = {},
 			ruff = {},
-			jedi_language_server = {
-				-- init_options = {
-				-- 	completion = {
-				-- 		disableSnippets = false,
-				-- 		resolveEagerly = true,
-				-- 	},
-				-- 	diagnostics = {
-				-- 		enable = true,
-				-- 		didOPen = true,
-				-- 		didChange = true,
-				-- 		didSave = true,
-				-- 	},
-				-- 	hover = {
-				-- 		enabled = true,
-				-- 	},
-				-- },
-			},
+			jedi_language_server = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			dockerls = {},
