@@ -269,9 +269,11 @@ function bsetup() {
   
   # Run the setup commands
   bench new-site "$site_name" --db-name "db_$site_name" --db-root-password root --db-root-username root --admin-password admin
+  bench --site "$site_name" enable-scheduler
   bench --site "$site_name" restore "$backup_file" --db-root-password root
   bench set-maintenance-mode --site "$site_name" on
   bench --site "$site_name" migrate --skip-failing
+  bench --site "$site_name" set-config allow_tests true 
   
   # Set the encryption key if found
   if [ ! -z "$encryption_key" ]; then
@@ -581,3 +583,5 @@ if command -v eza >/dev/null 2>&1; then
 fi
 
 
+
+export PATH="$HOME/bin:$PATH"
