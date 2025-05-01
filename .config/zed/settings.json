@@ -1,4 +1,7 @@
 {
+  "formatter": "prettier",
+  "preferred_line_length": 120,
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
@@ -6,27 +9,33 @@
     },
     "version": "2"
   },
-  "theme": "Vercel Dark",
-  "base_keymap": "VSCode",
-  // "buffer_font_size": 14,
-  "vim_mode": true,
-  "buffer_font_family": "JetBrains Mono NL",
-
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
-
   "file_finder": {
     "modal_max_width": "medium"
   },
-  "soft_wrap": "editor_width",
-
-  "tabs": {
-    "file_icons": true
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
   },
-
+  "theme": "Tokyo Night Storm",
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "buffer_font_family": "Monaspace Neon",
+  "buffer_font_size": 14,
   "buffer_line_height": "standard",
-
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "soft_wrap": "editor_width",
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+    "show_diagnostics": "errors"
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
   "completions": {
     "words": "enabled",
     "lsp": true
@@ -35,29 +44,30 @@
     "use_system_clipboard": "never",
     "highlight_on_yank_duration": 200
   },
-
-  "ui_font_family": "JetBrains Mono",
   "terminal": {
-    "font_family": "JetBrainsMono Nerd Font Mono",
+    "font_size": 14,
+    "font_family": "MonaspiceNe Nerd Font Mono",
     "dock": "bottom",
-    "line_height": "standard"
+    "line_height": "standard",
+    "cursor_shape": "bar"
   },
   "git": {
     "inline_blame": {
       "enabled": false
     }
   },
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "typeCheckingMode": "off"
+        }
+      }
+    }
+  },
   "languages": {
     "JSON": {
-      "language_servers": ["json-language-server"],
-      "format_on_save": "on",
-      "formatter": [
-        {
-          "language_server": {
-            "name": "json-language-server"
-          }
-        }
-      ]
+      "format_on_save": "on"
     },
     "Python": {
       "language_servers": ["pyright", "ruff"],
@@ -76,18 +86,44 @@
         }
       ]
     },
-    "JavaScript": {
-      "language_servers": ["prettier", "tailwindcss-language-server"]
+    "TSX": {
+      "format_on_save": "on"
     },
-    "TOML": {
-      "formatter": [
-        {
-          "language_server": {
-            "name": "TOML"
-          }
-        }
-      ]
+    // "JavaScript": {
+    //   "language_servers": ["prettier", "tailwindcss-language-server"],
+    //   "format_on_save": "on",
+    //   "formatter": [
+    //     {
+    //       "code_actions": {
+    //         "source.organizeImports": true
+    //       }
+    //     }
+    //   ]
+    // },
+    "Go": {
+      "language_servers": ["gopls"],
+      "format_on_save": "on"
     }
   },
-  "relative_line_numbers": true
+  "relative_line_numbers": true,
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/__pycache__",
+    "**/.ruff_cache",
+    "**/.ropeproject",
+    "**/node_modules",
+    "**/*.egg-info",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings"
+  ],
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
 }

@@ -6,9 +6,10 @@ config = {
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 
-	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" }),
+	-- font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" }),
 	-- font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" }),
 	-- font = wezterm.font("Hack Nerd Font", { weight = "Regular" }),
+	font = wezterm.font("MonaSpiceNe Nerd Font Mono"),
 
 	font_size = 13,
 	window_decorations = "RESIZE",
