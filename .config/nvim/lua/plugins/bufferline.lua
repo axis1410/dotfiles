@@ -10,7 +10,7 @@ return {
 		bufferline.setup({
 			options = {
 				mode = "buffers",
-				separator_style = "slant",
+				-- separator_style = "slant",
 				diagnostics = "nvim_lsp",
 				color_icons = true,
 			},

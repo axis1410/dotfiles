@@ -24,8 +24,8 @@ vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 
--- vim.keymap.set("n", "j", "jzz", opts)
--- vim.keymap.set("n", "k", "kzz", opts)
+vim.keymap.set("n", "j", "jzz", opts)
+vim.keymap.set("n", "k", "kzz", opts)
 
 vim.keymap.set("n", "<C-f>", "<C-f>zz", opts)
 vim.keymap.set("n", "<C-b>", "<C-b>zz", opts)
