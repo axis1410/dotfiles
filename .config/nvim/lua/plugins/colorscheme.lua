@@ -32,6 +32,7 @@ return {
 	{ "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000, lazy = false },
 	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	{ "morhetz/gruvbox", lazy = false, priority = 1000 },
 
 	-- {
 	-- 	dir = vim.fn.stdpath("config") .. "/lua/plugins/themes/vercel.lua",
