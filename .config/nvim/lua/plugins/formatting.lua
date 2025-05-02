@@ -36,15 +36,15 @@ return {
 			timeout_ms = 500,
 		},
 		formatters = {
-			ruff = {
-				prepend_args = { "--config", vim.fn.expand("~/.config/nvim/ruff.toml") },
-			},
-			ruff_format = {
-				prepend_args = { "--config", vim.fn.expand("~/.config/nvim/ruff.toml") },
-			},
-			ruff_organize_imports = {
-				prepend_args = { "--config", vim.fn.expand("~/.config/nvim/ruff.toml") },
-			},
+			-- ruff = {
+			-- 	prepend_args = { "--config", vim.fn.expand("~/.config/nvim/ruff.toml") },
+			-- },
+			-- ruff_format = {
+			-- 	prepend_args = { "--config", vim.fn.expand("~/.config/nvim/ruff.toml") },
+			-- },
+			-- ruff_organize_imports = {
+			-- 	prepend_args = { "--config", vim.fn.expand("~/.config/nvim/ruff.toml") },
+			-- },
 		},
 	},
 }

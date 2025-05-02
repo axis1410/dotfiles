@@ -88,7 +88,7 @@ return {
 			ts_ls = {},
 			isort = {},
 			ruff = {},
-			jedi_language_server = {},
+			-- jedi_language_server = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			dockerls = {},
@@ -96,6 +96,7 @@ return {
 			terraformls = {},
 			jsonls = {},
 			yamlls = {},
+			pyright = {},
 			tailwindcss = {
 				filetypes = {
 					"html",
@@ -119,7 +120,6 @@ return {
 
 			rust_analyzer = {},
 			lua_ls = {
-
 				settings = {
 					Lua = {
 						completion = {
@@ -148,9 +148,10 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"ruff",
-			"jedi_language_server",
+			-- "jedi_language_server",
 			"prettier",
 			"isort",
+			"pyright",
 			"mypy",
 			"gopls",
 			"gofumpt",
@@ -172,11 +173,11 @@ return {
 		})
 
 		require("lspconfig").ruff.setup({
-			init_options = {
-				settings = {
-					configuration = "~/.config/nvim/ruff.toml",
-				},
-			},
+			-- init_options = {
+			-- 	settings = {
+			-- 		configuration = "~/.config/nvim/ruff.toml",
+			-- 	},
+			-- },
 		})
 	end,
 }
