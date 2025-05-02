@@ -41,6 +41,10 @@ require("lazy").setup({
 	require("plugins.navic"),
 	require("plugins.trouble"),
 	require("plugins.snacks"),
+	require("plugins.linter"),
+	-- require("plugins.errorlens"),
+	require("plugins.pyvenv"),
+	require("plugins.fidget"),
 })
 
 local success, theme = pcall(require, "core.theme")

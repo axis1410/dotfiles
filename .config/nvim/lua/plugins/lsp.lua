@@ -179,5 +179,7 @@ return {
 			-- 	},
 			-- },
 		})
+
+		require("lspconfig").pyright.setup({})
 	end,
 }
