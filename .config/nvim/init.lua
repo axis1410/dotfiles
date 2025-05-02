@@ -24,7 +24,8 @@ require("lazy").setup({
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
-	require("plugins.lsp"),
+	require("plugins.lsp"), -- TODO: Remove Comment Later
+	require("plugins.formatting"), -- TODO: Remove Comment Later
 	require("plugins.autocomplete"),
 	require("plugins.gitsigns"),
 	require("plugins.misc"),
@@ -36,7 +37,6 @@ require("lazy").setup({
 	require("plugins.tw"),
 	require("plugins.autopairs"),
 	require("plugins.web-dev"),
-	require("plugins.formatting"),
 	-- require("plugins.smear"),
 	require("plugins.navic"),
 	require("plugins.trouble"),
@@ -45,6 +45,7 @@ require("lazy").setup({
 	-- require("plugins.errorlens"),
 	require("plugins.pyvenv"),
 	require("plugins.fidget"),
+	require("plugins.flash"),
 })
 
 local success, theme = pcall(require, "core.theme")

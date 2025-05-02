@@ -10,6 +10,13 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
+		vim.diagnostic.config({
+			virtual_text = true,
+			signs = true,
+			underline = true,
+			update_in_insert = false,
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -29,9 +36,7 @@ return {
 				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
-
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -89,6 +94,7 @@ return {
 			isort = {},
 			ruff = {},
 			-- jedi_language_server = {},
+			pylsp = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			dockerls = {},
@@ -96,7 +102,6 @@ return {
 			terraformls = {},
 			jsonls = {},
 			yamlls = {},
-			pyright = {},
 			tailwindcss = {
 				filetypes = {
 					"html",
@@ -150,14 +155,14 @@ return {
 			"ruff",
 			-- "jedi_language_server",
 			"prettier",
-			"isort",
-			"pyright",
+			"shfmt",
 			"mypy",
 			"gopls",
 			"gofumpt",
 			"goimports",
 			"golines",
 			"pyproject-fmt",
+			"pylsp",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -172,14 +177,23 @@ return {
 			},
 		})
 
-		require("lspconfig").ruff.setup({
-			-- init_options = {
-			-- 	settings = {
-			-- 		configuration = "~/.config/nvim/ruff.toml",
-			-- 	},
-			-- },
+		-- require("lspconfig").jedi_language_server.setup({})
+		require("lspconfig").ruff.setup({})
+		require("lspconfig").pylsp.setup({
+			settings = {
+				pylsp = {
+					plugins = {
+						autopep8 = { enabled = false },
+						yapf = { enabled = false },
+						black = { enabled = false },
+						pyls_isort = { enabled = false },
+						ruff = { enabled = false },
+						pyflakes = { enabled = false },
+						pycodestyle = { enabled = false },
+						mccabe = { enabled = false },
+					},
+				},
+			},
 		})
-
-		require("lspconfig").pyright.setup({})
 	end,
 }
