@@ -24,6 +24,9 @@ require("lazy").setup({
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
+
+	require("plugins.frappe-lsp"),
+
 	require("plugins.lsp"), -- TODO: Remove Comment Later
 	require("plugins.formatting"), -- TODO: Remove Comment Later
 	require("plugins.autocomplete"),
