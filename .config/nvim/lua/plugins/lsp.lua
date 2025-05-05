@@ -91,10 +91,10 @@ return {
 
 		local servers = {
 			ts_ls = {},
+			pyright = {},
 			isort = {},
 			ruff = {},
 			-- jedi_language_server = {},
-			pylsp = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			dockerls = {},
@@ -162,7 +162,7 @@ return {
 			"goimports",
 			"golines",
 			"pyproject-fmt",
-			"pylsp",
+			"pyright",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -179,21 +179,6 @@ return {
 
 		-- require("lspconfig").jedi_language_server.setup({})
 		require("lspconfig").ruff.setup({})
-		require("lspconfig").pylsp.setup({
-			settings = {
-				pylsp = {
-					plugins = {
-						autopep8 = { enabled = false },
-						yapf = { enabled = false },
-						black = { enabled = false },
-						pyls_isort = { enabled = false },
-						ruff = { enabled = false },
-						pyflakes = { enabled = false },
-						pycodestyle = { enabled = false },
-						mccabe = { enabled = false },
-					},
-				},
-			},
-		})
+		require("lspconfig").pyright.setup({})
 	end,
 }
