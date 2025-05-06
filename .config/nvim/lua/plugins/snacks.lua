@@ -39,8 +39,8 @@ return {
 				layout = {
 					-- presets options : "default" , "ivy" , "ivy-split" , "telescope" , "vscode", "select" , "sidebar"
 					-- override picker layout in keymaps function as a param below
-					preset = "select",
-					cycle = true,
+					preset = "telescope",
+					cycle = false,
 				},
 				layouts = {
 					select = {

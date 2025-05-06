@@ -15,6 +15,7 @@ return {
 			signs = true,
 			underline = true,
 			update_in_insert = false,
+			float = { source = "always" },
 		})
 
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -39,7 +40,6 @@ return {
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -114,16 +114,10 @@ return {
 			},
 			volar = {
 				filetypes = {
-					"typescript",
-					"javascript",
-					"javascriptreact",
-					"typescriptreact",
 					"vue",
-					"json",
 				},
 			},
 
-			rust_analyzer = {},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -177,7 +171,6 @@ return {
 			},
 		})
 
-		-- require("lspconfig").jedi_language_server.setup({})
 		require("lspconfig").ruff.setup({})
 		require("lspconfig").pyright.setup({})
 	end,

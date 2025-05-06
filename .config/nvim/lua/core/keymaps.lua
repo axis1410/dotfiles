@@ -135,3 +135,7 @@ end, { desc = "Treesitter Search" })
 vim.keymap.set("c", "<C-s>", function()
 	require("flash").toggle()
 end, { desc = "Toggle Flash Search" })
+
+vim.keymap.set("n", "<leader>cd", function()
+	vim.diagnostic.open_float(0, { scope = "line" })
+end, { desc = "Open Diagnostics" })

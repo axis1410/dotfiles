@@ -155,6 +155,8 @@ bindkey '\e[B' history-search-forward
 # eval "$(starship init zsh)"
 # eval "$(fzf --zsh)"
 
+alias drsta="docker restart $(docker ps -q)"
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

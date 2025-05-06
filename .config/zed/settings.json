@@ -113,7 +113,7 @@
     "**/__pycache__",
     "**/.ruff_cache",
     "**/.ropeproject",
-    "**/node_modules",
+    // "**/node_modules",
     "**/*.egg-info",
     "**/.jj",
     "**/CVS",
