@@ -5,6 +5,7 @@ return {
 		lazy = false,
 		-- NOTE: Options
 		opts = {
+			indent = {},
 			explorer = {
 				enabled = true,
 				layout = {

@@ -152,7 +152,7 @@ bindkey '\e[B' history-search-forward
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 # eval "$(fzf --zsh)"
 
 alias drsta="docker restart $(docker ps -q)"
@@ -586,7 +586,6 @@ if command -v eza >/dev/null 2>&1; then
 fi
 
 
-eval "$(starship init zsh)"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"

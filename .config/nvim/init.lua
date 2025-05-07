@@ -19,7 +19,7 @@ require("lazy").setup({
 	-- require("plugins.neotree"),
 	-- require("plugins.none-ls"),
 	require("plugins.lualine"),
-	require("plugins.indent-blankline"),
+	-- require("plugins.indent-blankline"),
 	require("plugins.colorscheme"),
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
