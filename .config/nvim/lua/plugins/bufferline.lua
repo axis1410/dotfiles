@@ -23,15 +23,15 @@ return {
 				close_icon = "",
 				left_trunc_marker = "",
 				right_trunc_marker = "",
-				diagnostics = "nvim_lsp",
-				diagnostics_indicator = function(count, level, diagnostics_dict, context)
-					local s = " "
-					for e, n in pairs(diagnostics_dict) do
-						local sym = e == "error" and " " or (e == "warning" and " " or " ")
-						s = s .. sym .. n
-					end
-					return s
-				end,
+				-- diagnostics = "nvim_lsp",
+				-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+				-- 	local s = " "
+				-- 	for e, n in pairs(diagnostics_dict) do
+				-- 		local sym = e == "error" and " " or (e == "warning" and " " or " ")
+				-- 		s = s .. sym .. n
+				-- 	end
+				-- 	return s
+				-- end,
 				diagnostics_update_in_insert = false,
 				offsets = {
 					{

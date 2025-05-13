@@ -91,10 +91,10 @@ return {
 
 		local servers = {
 			ts_ls = {},
-			pyright = {},
+			-- pyright = {},
 			isort = {},
 			ruff = {},
-			-- jedi_language_server = {},
+			jedi_language_server = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			dockerls = {},
@@ -147,16 +147,16 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"ruff",
-			-- "jedi_language_server",
 			"prettier",
 			"shfmt",
 			"mypy",
-			"gopls",
-			"gofumpt",
-			"goimports",
-			"golines",
+			-- "gopls",
+			-- "gofumpt",
+			-- "goimports",
+			-- "golines",
 			"pyproject-fmt",
-			"pyright",
+			"jedi_language_server",
+			-- "pyright",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -171,7 +171,8 @@ return {
 			},
 		})
 
+		require("lspconfig").jedi_language_server.setup({})
 		require("lspconfig").ruff.setup({})
-		require("lspconfig").pyright.setup({})
+		-- require("lspconfig").pyright.setup({})
 	end,
 }

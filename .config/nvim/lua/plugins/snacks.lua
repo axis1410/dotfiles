@@ -158,45 +158,45 @@ return {
 				},
 			},
 
-			dashboard = {
-				enabled = true,
-				sections = {
-					{ section = "header" },
-					-- {
-					-- 	pane = 2,
-					-- 	section = "terminal",
-					-- 	cmd = "colorscript -e square",
-					-- 	height = 5,
-					-- 	padding = 1,
-					-- },
-					{ section = "keys", gap = 1, padding = 1 },
-					{
-						pane = 2,
-						icon = " ",
-						title = "Recent Files",
-						section = "recent_files",
-						indent = 2,
-						padding = 1,
-					},
-					{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-					{
-						pane = 2,
-						icon = " ",
-						title = "Git Status",
-						section = "terminal",
-						enabled = function()
-							return Snacks.git.get_root() ~= nil
-						end,
-						cmd = "git status --short --branch --renames",
-						height = 5,
-						padding = 1,
-						ttl = 5 * 60,
-						indent = 3,
-					},
-					{ section = "startup" },
-				},
-			},
-
+			-- dashboard = {
+			-- 	enabled = true,
+			-- 	sections = {
+			-- 		{ section = "header" },
+			-- 		-- {
+			-- 		-- 	pane = 2,
+			-- 		-- 	section = "terminal",
+			-- 		-- 	cmd = "colorscript -e square",
+			-- 		-- 	height = 5,
+			-- 		-- 	padding = 1,
+			-- 		-- },
+			-- 		{ section = "keys", gap = 1, padding = 1 },
+			-- 		{
+			-- 			pane = 2,
+			-- 			icon = " ",
+			-- 			title = "Recent Files",
+			-- 			section = "recent_files",
+			-- 			indent = 2,
+			-- 			padding = 1,
+			-- 		},
+			-- 		{ pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+			-- 		{
+			-- 			pane = 2,
+			-- 			icon = " ",
+			-- 			title = "Git Status",
+			-- 			section = "terminal",
+			-- 			enabled = function()
+			-- 				return Snacks.git.get_root() ~= nil
+			-- 			end,
+			-- 			cmd = "git status --short --branch --renames",
+			-- 			height = 5,
+			-- 			padding = 1,
+			-- 			ttl = 5 * 60,
+			-- 			indent = 3,
+			-- 		},
+			-- 		{ section = "startup" },
+			-- 	},
+			-- },
+			--
 			-- dashboard = {
 			-- 	enabled = true,
 			-- 	sections = {
@@ -213,6 +213,15 @@ return {
 			-- 		},
 			-- 	},
 			-- },
+
+			dashboard = {
+				enabled = true,
+				sections = {
+					{ section = "header" },
+					{ section = "startup" },
+					{ section = "recent_files" },
+				},
+			},
 		},
 		-- NOTE: Keymaps
 		keys = {
@@ -253,21 +262,23 @@ return {
 			},
 
 			-- Snacks Picker
-			{
-				"<leader>pf",
-				function()
-					require("snacks").picker.files({
-						finder = "files",
-						format = "file",
-						show_empty = true,
-						hidden = true,
-						ignored = false,
-						follow = false,
-						supports_live = true,
-					})
-				end,
-				desc = "Find Files (Snacks Picker)",
-			},
+
+			-- {
+			-- 	"<leader>pf",
+			-- 	function()
+			-- 		require("snacks").picker.files({
+			-- 			finder = "files",
+			-- 			format = "file",
+			-- 			show_empty = true,
+			-- 			hidden = true,
+			-- 			ignored = false,
+			-- 			follow = false,
+			-- 			supports_live = true,
+			-- 		})
+			-- 	end,
+			-- 	desc = "Find Files (Snacks Picker)",
+			-- },
+
 			{
 				"<leader>pc",
 				function()
@@ -275,13 +286,15 @@ return {
 				end,
 				desc = "Find Config File",
 			},
-			{
-				"<leader>ps",
-				function()
-					require("snacks").picker.grep({ layout = "telescope" })
-				end,
-				desc = "Grep word",
-			},
+
+			-- {
+			-- 	"<leader>ps",
+			-- 	function()
+			-- 		require("snacks").picker.grep({ layout = "telescope" })
+			-- 	end,
+			-- 	desc = "Grep word",
+			-- },
+
 			{
 				"<leader>pws",
 				function()

@@ -15,17 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.termguicolors = true
 
 require("lazy").setup({
+	require("plugins.lualine"),
 	-- require("plugins.dashboard"),
 	-- require("plugins.neotree"),
 	-- require("plugins.none-ls"),
-	require("plugins.lualine"),
 	-- require("plugins.indent-blankline"),
 	require("plugins.colorscheme"),
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
-
-	require("plugins.frappe-lsp"),
 
 	require("plugins.lsp"), -- TODO: Remove Comment Later
 	require("plugins.formatting"), -- TODO: Remove Comment Later
@@ -41,14 +39,15 @@ require("lazy").setup({
 	require("plugins.autopairs"),
 	require("plugins.web-dev"),
 	-- require("plugins.smear"),
-	require("plugins.navic"),
+	-- require("plugins.navic"),
 	require("plugins.trouble"),
 	require("plugins.snacks"),
-	require("plugins.linter"),
+	-- require("plugins.linter"),
 	-- require("plugins.errorlens"),
-	require("plugins.pyvenv"),
-	require("plugins.fidget"),
+	-- require("plugins.pyvenv"),
+	-- require("plugins.fidget"),
 	require("plugins.flash"),
+	-- require("plugins.markdown"),
 })
 
 local success, theme = pcall(require, "core.theme")

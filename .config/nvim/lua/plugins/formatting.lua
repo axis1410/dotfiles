@@ -15,9 +15,9 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
-			sh = {"shfmt"},
-			bash = {"shfmt"},
-			zsh = {"shfmt"},
+			sh = { "shfmt" },
+			bash = { "shfmt" },
+			zsh = { "shfmt" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			javascriptreact = { "prettier" },
@@ -28,7 +28,7 @@ return {
 			json = { "prettier" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
-			go = { "golines", "gofumpt", "goimports" },
+			-- go = { "golines", "gofumpt", "goimports" },
 			python = { "ruff", "ruff_organize_imports", "ruff_format" },
 			lua = { "stylua" },
 			toml = { "pyproject-fmt" },

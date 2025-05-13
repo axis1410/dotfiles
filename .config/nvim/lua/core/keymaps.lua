@@ -88,13 +88,6 @@ vim.keymap.set("n", "diw", '"_diw', { noremap = true })
 vim.keymap.set("n", "<leader>da", 'ggVG"_d', { desc = "Delete entire file's code without yanking", noremap = true })
 vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "select all text" })
 
-vim.keymap.set(
-	"n",
-	"<leader>tt",
-	":TransparentToggle<CR>",
-	{ desc = "Toggle Transparency", noremap = true, silent = true }
-)
-
 vim.keymap.set("n", "<leader>dv", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>dc", ":DiffviewClose<CR>", { noremap = true, silent = true })
 

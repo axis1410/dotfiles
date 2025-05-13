@@ -75,6 +75,13 @@ return {
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", blend = 10 })
 
 			vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2a2e36", blend = 15 })
+
+			vim.keymap.set(
+				"n",
+				"<leader>tt",
+				":TransparentToggle<CR>",
+				{ desc = "Toggle Transparency", noremap = true, silent = true }
+			)
 		end,
 	},
 }
