@@ -12,7 +12,7 @@ return {
 
 	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
 	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
-	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 	-- {
 	-- 	"navarasu/onedark.nvim",
 	-- 	lazy = false,
