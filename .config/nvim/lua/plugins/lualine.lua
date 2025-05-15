@@ -34,7 +34,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "auto",
+				-- theme = "auto",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "alpha", "neo-tree", "NvimTree" },
@@ -72,7 +72,7 @@ return {
 						symbols = { modified = " ●", readonly = " ", unnamed = " [No Name]", newfile = " [New]" },
 						shorting_target = 40,
 					},
-					{ cwd, color = { fg = "#7aa2f7", gui = "bold" }, cond = hide_in_width },
+					-- { cwd, color = { fg = "#7aa2f7", gui = "bold" }, cond = hide_in_width },
 					-- { python_venv, color = { fg = "#e0af68" }, cond = hide_in_width },
 				},
 				lualine_x = {

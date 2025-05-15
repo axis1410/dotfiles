@@ -72,14 +72,14 @@ return {
 					end,
 				},
 			},
-			highlights = (function()
-				local ok, catppuccin = pcall(require, "catppuccin.groups.integrations.bufferline")
-				if ok then
-					return catppuccin.get()
-				else
-					return {}
-				end
-			end)(),
+			-- highlights = (function()
+			-- 	local ok, catppuccin = pcall(require, "catppuccin.groups.integrations.bufferline")
+			-- 	if ok then
+			-- 		return catppuccin.get()
+			-- 	else
+			-- 		return {}
+			-- 	end
+			-- end)(),
 		})
 	end,
 }

@@ -25,9 +25,8 @@ return {
 
 	{
 		"folke/todo-comments.nvim",
-		event = { "VimEnter", ":BufReadPre", "BufNewFile" },
+		event = { "VimEnter", "BufReadPre", "BufNewFile" },
 		dependencies = { "nvim-lua/plenary.nvim" },
-		optional = true,
 		config = function()
 			require("todo-comments").setup({
 				keys = {

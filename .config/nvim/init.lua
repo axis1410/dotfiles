@@ -16,7 +16,7 @@ vim.opt.termguicolors = true
 
 require("lazy").setup({
 	require("plugins.lualine"),
-	require("plugins.explorer"),
+	-- require("plugins.explorer"),
 	require("plugins.noice"),
 	-- require("plugins.dashboard"),
 	-- require("plugins.neotree"),
