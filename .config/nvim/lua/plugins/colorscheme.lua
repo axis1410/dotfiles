@@ -13,24 +13,36 @@ return {
 	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
 	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
 	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
-	-- {
-	-- 	"navarasu/onedark.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("onedark").setup({
-	--
-	-- 			style = "darker",
-	-- 			code_style = {
-	-- 				comments = "italic",
-	-- 				keywords = "none",
-	-- 				functions = "none",
-	-- 				strings = "none",
-	-- 				variables = "none",
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"navarasu/onedark.nvim",
+		lazy = false,
+		priority = 1000,
+		-- config = function()
+		-- 	require("onedark").setup({
+		--
+		-- 		style = "darker",
+		-- 		code_style = {
+		-- 			comments = "italic",
+		-- 			keywords = "none",
+		-- 			functions = "none",
+		-- 			strings = "none",
+		-- 			variables = "none",
+		-- 		},
+		-- 	})
+		-- end,
+	},
+	{
+		"vague2k/vague.nvim",
+	},
+	{
+		"olivercederborg/poimandres.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("poimandres").setup({})
+		end,
+	},
+
 	-- { "olimorris/onedarkpro.nvim", priority = 1000, lazy = false },
 	-- {
 	-- 	"scottmckendry/cyberdream.nvim",
