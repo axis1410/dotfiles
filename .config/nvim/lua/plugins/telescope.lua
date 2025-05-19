@@ -25,11 +25,15 @@ return {
 						["<C-l>"] = require("telescope.actions").select_default, -- open file
 					},
 				},
+				layout_config = {
+					prompt_position = "top",
+				},
 			},
 			pickers = {
 				find_files = {
 					file_ignore_patterns = { "node_modules", "venv" },
 					hidden = true,
+					previewer = false,
 				},
 			},
 			live_grep = {
@@ -60,6 +64,7 @@ return {
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
+
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles" })
