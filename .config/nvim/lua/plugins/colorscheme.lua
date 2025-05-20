@@ -5,7 +5,7 @@ return {
 	{ "sainnhe/gruvbox-material", lazy = false },
 	{ "sainnhe/edge", lazy = false },
 	{ "sainnhe/sonokai", lazy = false },
-
+	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
 	-- { "morhetz/gruvbox", lazy = false, priority = 1000 },
 	-- { "shaunsingh/oxocarbon.nvim", lazy = false, priority = 1000 },
 	-- { "decaycs/decay.nvim" },
