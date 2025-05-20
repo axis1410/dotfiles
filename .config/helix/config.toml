@@ -56,7 +56,6 @@ display-inlay-hints = true
 
 [editor.file-picker]
 hidden = false
-git-ignore = false
 
 [keys.normal]
 "G" = "goto_file_end"
