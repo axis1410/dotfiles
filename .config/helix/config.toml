@@ -1,23 +1,49 @@
-theme = "onedark"
+theme = "catppuccin_macchiato"
 
 [editor]
 line-number = "relative"
-bufferline = "always"
+bufferline = "multiple"
+cursorline = true
 indent-guides.enable = true
 indent-guides.render = true
 auto-pairs = true
 color-modes = true
 true-color = true
+rulers = [120]
+mouse = false
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
+
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "file-modification-indicator"]
-center = ["diagnostics"]
-right = ["selections", "position", "file-encoding", "file-type"]
+left = [
+  "mode",
+  "spacer",
+  "version-control",
+  "spacer",
+  "separator",
+  "file-name",
+  "file-modification-indicator",
+]
+right = [
+  "spinner",
+  "spacer",
+  "workspace-diagnostics",
+  "separator",
+  "spacer",
+  "diagnostics",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type",
+]
+separator = "╎"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 
 [editor.soft-wrap]
@@ -29,45 +55,49 @@ display-messages = true
 display-inlay-hints = true
 
 [editor.file-picker]
-hidden = true
+hidden = false
+git-ignore = false
 
 [keys.normal]
-# "C-d" = ["half_page_down", "goto_window_center"]
-# "C-u" = ["half_page_up", "goto_window_center"]
-G = "goto_file_end"
+"G" = "goto_file_end"
 "$" = "goto_line_end"
 "0" = "goto_line_start"
 "y" = "yank"
 "J" = [
-    "extend_to_line_bounds",
-    "delete_selection",
-    "move_line_down",
-    "paste_before",
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_down",
+  "paste_before",
 ]
 "K" = [
-    "extend_to_line_bounds",
-    "delete_selection",
-    "move_line_up",
-    "paste_before",
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
 ]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 
 [keys.select]
-G = "goto_file_end"
+"G" = "goto_file_end"
 "$" = "goto_line_end"
 "0" = "goto_line_start"
 "y" = "yank"
 "J" = [
-    "extend_to_line_bounds",
-    "delete_selection",
-    "move_line_down",
-    "paste_before",
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_down",
+  "paste_before",
 ]
 "K" = [
-    "extend_to_line_bounds",
-    "delete_selection",
-    "move_line_up",
-    "paste_before",
+  "extend_to_line_bounds",
+  "delete_selection",
+  "move_line_up",
+  "paste_before",
 ]
+"{" = "goto_prev_paragraph"
+"}" = "goto_next_paragraph"
 
 [keys.normal.space]
 x = ":buffer-close"
+r = ":config-reload"
