@@ -117,7 +117,8 @@ return {
 					"vue",
 				},
 			},
-
+			rust_analyzer = {},
+			rustfmt = {},
 			lua_ls = {
 				settings = {
 					Lua = {
