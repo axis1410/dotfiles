@@ -1,11 +1,27 @@
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
-	opts = {},
-	-- Change key mappings to avoid conflict with mini.move
+	opts = {
+		modes = {
+			search = {
+				enabled = false, -- disable flash for regular search
+			},
+		},
+		label = {
+			-- allow only lowercase keys for faster input
+			uppercase = false,
+			rainbow = {
+				enabled = true,
+				shade = 5,
+			},
+		},
+		jump = {
+			autojump = true,  -- automatically jump when there is only one match
+		},
+	},
 	keys = {
 		{
-			"<leader>s",
+			"s",
 			mode = { "n", "x", "o" },
 			function()
 				require("flash").jump()
@@ -13,7 +29,7 @@ return {
 			desc = "Flash",
 		},
 		{
-			"<leader>S",
+			"S",
 			mode = { "n", "x", "o" },
 			function()
 				require("flash").treesitter()

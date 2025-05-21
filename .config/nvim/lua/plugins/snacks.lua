@@ -6,13 +6,13 @@ return {
 		-- NOTE: Options
 		opts = {
 			indent = {},
-			explorer = {
-				enabled = true,
-				layout = {
-					cycle = true,
-				},
-				filters = { dotfiles = false, hide_gitignored = true },
-			},
+			-- explorer = {
+			-- 	enabled = true,
+			-- 	layout = {
+			-- 		cycle = true,
+			-- 	},
+			-- 	filters = { dotfiles = false, hide_gitignored = true },
+			-- },
 			input = {
 				enabled = true,
 				win = {
@@ -224,9 +224,57 @@ return {
 			dashboard = {
 				enabled = true,
 				sections = {
-					{ section = "header" },
+					{
+						title = "🔍  Recent Files",
+						icon = "",
+						section = "recent_files",
+						max_items = 6,
+						padding = 1,
+						with_icon = true,
+					},
+					{
+						title = "📂  Projects",
+						icon = "",
+						section = "projects",
+						max_items = 4,
+						padding = 1,
+						with_icon = true,
+					},
+					{
+						pane = 2,
+						title = "⚡ Quick Actions",
+						section = "keys",
+						max_items = 5,
+						padding = 1,
+						with_icon = true,
+						keys = {
+							{ key = "ff", icon = "🔎", desc = "Find Files", action = "Telescope find_files" },
+							{ key = "fg", icon = "📝", desc = "Live Grep", action = "Telescope live_grep" },
+							{ key = "e", icon = "🌲", desc = "File Explorer", action = "Yazi" },
+							{ key = "gg", icon = "📊", desc = "Git Status", action = "LazyGit" },
+							{ key = "qq", icon = "🚪", desc = "Quit Neovim", action = "qa" },
+						},
+					},
+					{
+						pane = 2,
+						title = "📊  Git Status",
+						section = "terminal",
+						enabled = function()
+							return require("snacks").git and require("snacks").git.get_root() ~= nil
+						end,
+						cmd = "git status --short --branch",
+						height = 6,
+						padding = 1,
+						ttl = 5 * 60,
+					},
 					{ section = "startup" },
-					{ section = "recent_files" },
+				},
+				options = {
+					layout = {
+						size = { width = 0.8, height = 0.8 },
+						border = "rounded",
+						backdrop = true,
+					},
 				},
 			},
 		},
@@ -246,13 +294,13 @@ return {
 			-- 		end,
 			-- 		desc = "Lazygit Logs",
 			-- 	},
-			{
-				"<leader>e",
-				function()
-					require("snacks").explorer({ hidden = true })
-				end,
-				desc = "Open Snacks Explorer",
-			},
+			-- {
+			-- 	"<leader>e",
+			-- 	function()
+			-- 		require("snacks").explorer({ hidden = true })
+			-- 	end,
+			-- 	desc = "Open Snacks Explorer",
+			-- },
 			-- 	{
 			-- 		"<leader>rN",
 			-- 		function()

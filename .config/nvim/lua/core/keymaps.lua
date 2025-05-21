@@ -109,6 +109,14 @@ vim.keymap.set("v", "c", '"_c', { noremap = true })
 vim.keymap.set("n", "d", '"_d', { noremap = true })
 vim.keymap.set("v", "d", '"_d', { noremap = true })
 
+-- Disable default 's' and 'S' keybindings to avoid delay with flash.nvim
+vim.keymap.set("n", "s", "<Nop>", opts)
+vim.keymap.set("n", "S", "<Nop>", opts)
+vim.keymap.set("v", "s", "<Nop>", opts)
+vim.keymap.set("v", "S", "<Nop>", opts)
+vim.keymap.set("o", "s", "<Nop>", opts)
+vim.keymap.set("o", "S", "<Nop>", opts)
+
 -- vim.keymap.set({ "n", "x", "o" }, "s", function()
 -- 	require("flash").jump()
 -- end, { desc = "Flash" })
