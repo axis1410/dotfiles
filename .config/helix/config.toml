@@ -40,10 +40,10 @@ right = [
   "file-line-ending",
   "file-type",
 ]
-separator = "╎"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+# separator = "╎"
+# mode.normal = "NORMAL"
+# mode.insert = "INSERT"
+# mode.select = "SELECT"
 
 
 [editor.soft-wrap]

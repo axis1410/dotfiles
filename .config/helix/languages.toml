@@ -5,7 +5,6 @@ injection-regex = "python"
 file-types = ["py", "pyi", "pyc", "pyd", "pyw"]
 shebangs = ["python"]
 roots = ["pyproject.toml", "setup.py", "poetry.lock", "requirements.txt"]
-comment-token = "#"
 language-servers = ["pyright"]
 indent = { tab-width = 4, unit = "    " }
 formatter = { command = "ruff", args = ["format", "-"] }
@@ -36,3 +35,15 @@ auto-format = true
 [language-server.taplo]
 command = "taplo"
 args = ["lsp", "stdio"]
+
+
+[[language]]
+name = "rust"
+scope = "source.rust"
+injection-regex = "rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+auto-format = true
+language-servers = ["rust-analyzer"]
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "rustfmt", args = ["--edition", "2021"] }

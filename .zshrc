@@ -593,3 +593,5 @@ eval "$(pyenv init -)"
 
 
 fastfetch
+
+. "$HOME/.cargo/env"
