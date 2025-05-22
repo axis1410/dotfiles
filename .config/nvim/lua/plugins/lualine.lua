@@ -3,30 +3,6 @@ return {
 	event = "VeryLazy",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		-- local function python_venv()
-		-- 	local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_DEFAULT_ENV")
-		-- 	if venv then
-		-- 		return " " .. vim.fn.fnamemodify(venv, ":t")
-		-- 	end
-		-- 	return ""
-		-- end
-
-		-- local function lsp_status()
-		-- 	local buf_clients = vim.lsp.get_active_clients({ bufnr = 0 })
-		-- 	if #buf_clients == 0 then
-		-- 		return "  No LSP"
-		-- 	end
-		-- 	local names = {}
-		-- 	for _, client in ipairs(buf_clients) do
-		-- 		table.insert(names, client.name)
-		-- 	end
-		-- 	return "  " .. table.concat(names, ", ")
-		-- end
-
-		local function cwd()
-			return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-		end
-
 		local hide_in_width = function()
 			return vim.fn.winwidth(0) > 80
 		end
@@ -34,7 +10,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				-- theme = "auto",
+
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "alpha", "neo-tree", "NvimTree" },
@@ -49,7 +25,7 @@ return {
 						separator = { left = "", right = "" },
 						color = {
 							fg = "#1a1b26",
-							-- bg = "#7aa2f7",
+
 							gui = "bold",
 						},
 					},
@@ -72,8 +48,6 @@ return {
 						symbols = { modified = " ●", readonly = " ", unnamed = " [No Name]", newfile = " [New]" },
 						shorting_target = 40,
 					},
-					-- { cwd, color = { fg = "#7aa2f7", gui = "bold" }, cond = hide_in_width },
-					-- { python_venv, color = { fg = "#e0af68" }, cond = hide_in_width },
 				},
 				lualine_x = {
 					{
@@ -85,15 +59,6 @@ return {
 						update_in_insert = false,
 						always_visible = false,
 					},
-
-					-- { lsp_status, color = { fg = "#9ece6a" }, cond = hide_in_width },
-
-					-- {
-					-- 	"fileformat",
-					-- 	icons_enabled = true,
-					-- 	symbols = { unix = "", dos = "", mac = "" },
-					-- 	color = { fg = "#bb9af7" },
-					-- },
 
 					{ "encoding", fmt = string.upper, color = { fg = "#e0af68" } },
 					{ "filetype", icon_only = true },

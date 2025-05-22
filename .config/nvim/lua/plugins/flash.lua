@@ -4,11 +4,11 @@ return {
 	opts = {
 		modes = {
 			search = {
-				enabled = false, -- disable flash for regular search
+				enabled = false,
 			},
 		},
 		label = {
-			-- allow only lowercase keys for faster input
+
 			uppercase = false,
 			rainbow = {
 				enabled = true,
@@ -16,7 +16,7 @@ return {
 			},
 		},
 		jump = {
-			autojump = true,  -- automatically jump when there is only one match
+			autojump = true,
 		},
 	},
 	keys = {

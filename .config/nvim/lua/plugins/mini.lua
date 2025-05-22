@@ -70,32 +70,26 @@ return {
 		config = function()
 			require("mini.surround").setup({
 				mappings = {
-					add = "sa", -- Add surroundings in Normal and Visual modes
-					delete = "sd", -- Delete surroundings
-					find = "sf", -- Find surroundings (to the right)
-					find_left = "sF", -- Find surroundings (to the left)
-					highlight = "sh", -- Highlight surroundings
-					replace = "sr", -- Replace surroundings
-					update_n_lines = "sn", -- Update `n_lines`
+					add = "sa",
+					delete = "sd",
+					find = "sf",
+					find_left = "sF",
+					highlight = "sh",
+					replace = "sr",
+					update_n_lines = "sn",
 				},
 			})
 		end,
 		opts = {
 			mappings = {
-				add = "sa", -- Add surroundings in Normal and Visual modes
-				delete = "sd", -- Delete surroundings
-				find = "sf", -- Find surroundings (to the right)
-				find_left = "sF", -- Find surroundings (to the left)
-				highlight = "sh", -- Highlight surroundings
-				replace = "sr", -- Replace surroundings
-				update_n_lines = "sn", -- Update `n_lines`
+				add = "sa",
+				delete = "sd",
+				find = "sf",
+				find_left = "sF",
+				highlight = "sh",
+				replace = "sr",
+				update_n_lines = "sn",
 			},
 		},
 	},
-	-- {
-	-- 	"echasnovski/mini.starter",
-	-- 	config = function()
-	-- 		require("mini.starter").setup({})
-	-- 	end,
-	-- },
 }

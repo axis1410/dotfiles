@@ -72,7 +72,19 @@ return {
 		})
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", "*.scss", "*.html", "*.vue", "*.py" },
+			pattern = {
+				"*.js",
+				"*.jsx",
+				"*.ts",
+				"*.tsx",
+				"*.json",
+				"*.css",
+				"*.scss",
+				"*.html",
+				"*.vue",
+				"*.py",
+				"*.go",
+			},
 			callback = function()
 				vim.lsp.buf.format({ async = false })
 			end,
@@ -112,11 +124,6 @@ return {
 					"vue",
 				},
 			},
-			volar = {
-				filetypes = {
-					"vue",
-				},
-			},
 			rust_analyzer = {},
 			rustfmt = {},
 			lua_ls = {
@@ -149,9 +156,9 @@ return {
 			"stylua",
 			"ruff",
 			"prettier",
-			"shfmt",
+			-- "shfmt",
 			"mypy",
-			-- "gopls",
+			"gopls",
 			-- "gofumpt",
 			-- "goimports",
 			-- "golines",
@@ -174,6 +181,7 @@ return {
 
 		require("lspconfig").jedi_language_server.setup({})
 		require("lspconfig").ruff.setup({})
+		require("lspconfig").gopls.setup({})
 		-- require("lspconfig").pyright.setup({})
 	end,
 }

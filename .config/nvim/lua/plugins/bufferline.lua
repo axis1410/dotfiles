@@ -6,6 +6,7 @@ return {
 	},
 	config = function()
 		local bufferline = require("bufferline")
+
 		bufferline.setup({
 			options = {
 				mode = "buffers",
@@ -23,15 +24,6 @@ return {
 				close_icon = "",
 				left_trunc_marker = "",
 				right_trunc_marker = "",
-				-- diagnostics = "nvim_lsp",
-				-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-				-- 	local s = " "
-				-- 	for e, n in pairs(diagnostics_dict) do
-				-- 		local sym = e == "error" and " " or (e == "warning" and " " or " ")
-				-- 		s = s .. sym .. n
-				-- 	end
-				-- 	return s
-				-- end,
 				diagnostics_update_in_insert = false,
 				offsets = {
 					{
@@ -72,14 +64,11 @@ return {
 					end,
 				},
 			},
-			-- highlights = (function()
-			-- 	local ok, catppuccin = pcall(require, "catppuccin.groups.integrations.bufferline")
-			-- 	if ok then
-			-- 		return catppuccin.get()
-			-- 	else
-			-- 		return {}
-			-- 	end
-			-- end)(),
 		})
+
+		vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
+		vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
+		vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts)
+		vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts)
 	end,
 }

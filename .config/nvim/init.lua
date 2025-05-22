@@ -14,16 +14,16 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.opt.termguicolors = true
 
--- Optimize Neovim startup
 vim.loader.enable()
 
 require("lazy").setup({
-	require("plugins.lualine"),
+
+	require("plugins.staline"),
 	require("plugins.colorscheme"),
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
-	require("plugins.lsp"), 
+	require("plugins.lsp"),
 	require("plugins.formatting"),
 	require("plugins.autocomplete"),
 	require("plugins.gitsigns"),
@@ -34,34 +34,15 @@ require("lazy").setup({
 	require("plugins.trouble"),
 	require("plugins.snacks"),
 	require("plugins.yazi"),
-	require("plugins.misc"),     -- Contains vim-fugitive and other utilities
-	require("plugins.lazygit"),  -- LazyGit integration
-	require("plugins.tw"),       -- Tailwind CSS colors
-	require("plugins.web-dev"),  -- Web development tools including nvim-ts-autotag
-	
-	-- Lightweight alternatives
-	require("plugins.mini"),    -- mini.nvim provides lightweight alternatives to many plugins
-	
-	-- Optional plugins, uncomment if needed
-	-- require("plugins.noice"),
-	-- require("plugins.explorer"),
-	-- require("plugins.neotree"),
-	-- require("plugins.dashboard"),
-	-- require("plugins.none-ls"),
-	-- require("plugins.indent-blankline"),
-	-- require("plugins.comments"),
-	-- require("plugins.autopairs"),
-	-- require("plugins.smear"),
-	-- require("plugins.navic"),
-	-- require("plugins.linter"),
-	-- require("plugins.errorlens"),
-	-- require("plugins.pyvenv"),
-	-- require("plugins.fidget"),
-	-- require("plugins.markdown"),
+	require("plugins.misc"),
+	require("plugins.lazygit"),
+	require("plugins.tw"),
+	require("plugins.web-dev"),
+	require("plugins.noice"),
+	require("plugins.mini"),
 })
 
 local success, theme = pcall(require, "core.theme")
 if success and theme then
 	theme.set_theme()
 end
-
