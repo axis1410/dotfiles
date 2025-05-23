@@ -106,7 +106,6 @@ return {
 			-- pyright = {},
 			isort = {},
 			ruff = {},
-			jedi_language_server = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			dockerls = {},
@@ -156,15 +155,8 @@ return {
 			"stylua",
 			"ruff",
 			"prettier",
-			-- "shfmt",
 			"mypy",
-			"gopls",
-			-- "gofumpt",
-			-- "goimports",
-			-- "golines",
 			"pyproject-fmt",
-			"jedi_language_server",
-			-- "pyright",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -179,7 +171,6 @@ return {
 			},
 		})
 
-		require("lspconfig").jedi_language_server.setup({})
 		require("lspconfig").ruff.setup({})
 		require("lspconfig").gopls.setup({})
 		-- require("lspconfig").pyright.setup({})

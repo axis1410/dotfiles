@@ -31,4 +31,5 @@ return {
 	{
 		"sindrets/diffview.nvim",
 	},
+	{ "nvim-tree/nvim-web-devicons", opts = {} },
 }

@@ -17,8 +17,8 @@ vim.opt.termguicolors = true
 vim.loader.enable()
 
 require("lazy").setup({
-
-	require("plugins.staline"),
+	-- require("plugins.staline"),
+	require("plugins.lualine"),
 	require("plugins.colorscheme"),
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
@@ -40,6 +40,8 @@ require("lazy").setup({
 	require("plugins.web-dev"),
 	require("plugins.noice"),
 	require("plugins.mini"),
+	-- require("plugins.screenkey"),
+	require("plugins.tabout"),
 })
 
 local success, theme = pcall(require, "core.theme")
