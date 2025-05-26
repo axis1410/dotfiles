@@ -19,7 +19,7 @@ return {
 					style = "icon",
 					icon = "▎",
 				},
-				buffer_close_icon = "",
+				buffer_close_icon = "x",
 				modified_icon = "●",
 				close_icon = "",
 				left_trunc_marker = "",

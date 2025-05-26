@@ -10,6 +10,7 @@ config = {
 	-- font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" }),
 	-- font = wezterm.font("Hack Nerd Font", { weight = "Regular" }),
 	font = wezterm.font("MonaSpiceNe Nerd Font Mono"),
+	-- font = wezterm.font("Monaspice HuHanMe NF"),
 
 	font_size = 13,
 	window_decorations = "RESIZE",
