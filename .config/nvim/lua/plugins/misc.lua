@@ -32,4 +32,13 @@ return {
 		"sindrets/diffview.nvim",
 	},
 	{ "nvim-tree/nvim-web-devicons", opts = {} },
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
+		config = function()
+			require("todo-comments").setup({})
+			vim.keymap.set("n", "<leader>td", ":TodoTelescope keywords=TODO,FIX<CR>", { noremap = true })
+		end,
+	},
 }

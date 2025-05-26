@@ -15,6 +15,8 @@ config = {
 	font_size = 13,
 	window_decorations = "RESIZE",
 	dpi = 75,
+	max_fps = 120,
+	enable_kitty_graphics = true,
 
 	-- color_scheme = "Operator Mono Dark",
 	color_scheme = "Hardcore (base16)",

@@ -35,13 +35,14 @@ require("lazy").setup({
 	require("plugins.snacks"),
 	require("plugins.yazi"),
 	require("plugins.misc"),
-	require("plugins.lazygit"),
 	require("plugins.tw"),
 	require("plugins.web-dev"),
 	require("plugins.noice"),
 	require("plugins.mini"),
-	-- require("plugins.screenkey"),
 	require("plugins.tabout"),
+	require("plugins.diffview"),
+	require("plugins.lazygit"),
+	require("plugins.diffview"),
 })
 
 local success, theme = pcall(require, "core.theme")
