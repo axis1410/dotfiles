@@ -22,8 +22,6 @@ vim.keymap.set("n", "x", '"_x', { noremap = true })
 vim.keymap.set("n", "X", '"_X', { noremap = true })
 vim.keymap.set("v", "d", '"_d', { noremap = true })
 vim.keymap.set("v", "D", '"_D', { noremap = true })
-vim.keymap.set("v", "x", '"_x', { noremap = true })
-vim.keymap.set("v", "X", '"_X', { noremap = true })
 
 vim.keymap.set("n", "<leader>d", "d", { noremap = true, desc = "Cut (delete to clipboard)" })
 vim.keymap.set("v", "<leader>d", "d", { noremap = true, desc = "Cut (delete to clipboard)" })

@@ -11,9 +11,16 @@ return {
 			vim.g.gruvbox_material_background = "medium"
 		end,
 	},
+	{
+		"neanias/everforest-nvim",
+		-- Optional; default configuration will be used if setup isn't called.
+		config = function()
+			require("everforest").setup()
+		end,
+	},
 	-- { "sainnhe/edge", lazy = false },
 	-- { "sainnhe/sonokai", lazy = false },
-	-- { "rose-pine/neovim", lazy = false, name = "rose-pine" },
+	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
 	-- { "morhetz/gruvbox", lazy = false, priority = 1000 },
 	-- { "shaunsingh/oxocarbon.nvim", lazy = false, priority = 1000 },
 	-- { "decaycs/decay.nvim" },
@@ -21,24 +28,24 @@ return {
 	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
 	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
 	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
-	-- {
-	-- 	"navarasu/onedark.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("onedark").setup({
-	--
-	-- 			style = "darker",
-	-- 			code_style = {
-	-- 				comments = "italic",
-	-- 				keywords = "none",
-	-- 				functions = "none",
-	-- 				strings = "none",
-	-- 				variables = "none",
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"navarasu/onedark.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("onedark").setup({
+
+				style = "warmer",
+				-- code_style = {
+				-- 	comments = "italic",
+				-- 	keywords = "none",
+				-- 	functions = "none",
+				-- 	strings = "none",
+				-- 	variables = "none",
+				-- },
+			})
+		end,
+	},
 	{
 		"vague2k/vague.nvim",
 	},

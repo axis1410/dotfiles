@@ -40,7 +40,6 @@ require("lazy").setup({
 	require("plugins.noice"),
 	require("plugins.mini"),
 	require("plugins.tabout"),
-	require("plugins.diffview"),
 	require("plugins.lazygit"),
 	require("plugins.diffview"),
 })
