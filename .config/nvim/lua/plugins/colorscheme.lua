@@ -1,7 +1,5 @@
 return {
 	{ "folke/tokyonight.nvim", lazy = false },
-	-- { "catppuccin/nvim", name = "catppuccin", lazy = false },
-	{ "rebelot/kanagawa.nvim", lazy = false },
 	{
 		"sainnhe/gruvbox-material",
 		lazy = false,
@@ -18,16 +16,7 @@ return {
 			require("everforest").setup()
 		end,
 	},
-	-- { "sainnhe/edge", lazy = false },
-	-- { "sainnhe/sonokai", lazy = false },
 	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
-	-- { "morhetz/gruvbox", lazy = false, priority = 1000 },
-	-- { "shaunsingh/oxocarbon.nvim", lazy = false, priority = 1000 },
-	-- { "decaycs/decay.nvim" },
-
-	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
-	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
-	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 	{
 		"navarasu/onedark.nvim",
 		lazy = false,
@@ -46,9 +35,21 @@ return {
 			})
 		end,
 	},
-	{
-		"vague2k/vague.nvim",
-	},
+	{ "vague2k/vague.nvim" },
+	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	-- { "catppuccin/nvim", name = "catppuccin", lazy = false },
+	-- { "rebelot/kanagawa.nvim", lazy = false },
+	-- { "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
+
+	-- { "sainnhe/edge", lazy = false },
+	-- { "sainnhe/sonokai", lazy = false },
+	-- { "morhetz/gruvbox", lazy = false, priority = 1000 },
+	-- { "shaunsingh/oxocarbon.nvim", lazy = false, priority = 1000 },
+	-- { "decaycs/decay.nvim" },
+
+	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
+	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
+
 	-- {
 	-- 	"olivercederborg/poimandres.nvim",
 	-- 	lazy = false,
