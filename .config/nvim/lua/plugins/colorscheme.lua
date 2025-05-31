@@ -11,12 +11,15 @@ return {
 	},
 	{
 		"neanias/everforest-nvim",
-		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
 			require("everforest").setup()
 		end,
 	},
-	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
+	{
+		"rose-pine/neovim",
+		lazy = false,
+		name = "rose-pine",
+	},
 	{
 		"navarasu/onedark.nvim",
 		lazy = false,
@@ -25,19 +28,25 @@ return {
 			require("onedark").setup({
 
 				style = "warmer",
-				-- code_style = {
-				-- 	comments = "italic",
-				-- 	keywords = "none",
-				-- 	functions = "none",
-				-- 	strings = "none",
-				-- 	variables = "none",
-				-- },
+				code_style = {
+					comments = "italic",
+					keywords = "none",
+					functions = "none",
+					strings = "none",
+					variables = "none",
+				},
 			})
 		end,
 	},
 	{ "vague2k/vague.nvim" },
-	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
-	-- { "catppuccin/nvim", name = "catppuccin", lazy = false },
+
+	{
+		"nickkadutskyi/jb.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
+	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 	-- { "rebelot/kanagawa.nvim", lazy = false },
 	-- { "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
 
@@ -81,12 +90,14 @@ return {
 	-- { "shaunsingh/nord.nvim", priority = 1000, lazy = false },
 	-- { "neko-night/nvim", lazy = false, priority = 1000 },
 	-- { "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
-	-- {
-	-- 	"Mofiqul/vscode.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("vscode").setup({})
-	-- 	end,
-	-- },
+	{
+		"Mofiqul/vscode.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{
+		"realbucksavage/riderdark.vim",
+		lazy = false,
+		priority = 1000,
+	},
 }

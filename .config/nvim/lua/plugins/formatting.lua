@@ -22,7 +22,7 @@ return {
 			vue = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
-			json = { "prettier" },
+			-- json = { "prettier" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			go = { "golines", "gofumpt", "goimports" },

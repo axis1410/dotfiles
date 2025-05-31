@@ -77,7 +77,7 @@ return {
 				"*.jsx",
 				"*.ts",
 				"*.tsx",
-				"*.json",
+				-- "*.json",
 				"*.css",
 				"*.scss",
 				"*.html",
@@ -111,7 +111,7 @@ return {
 			dockerls = {},
 			sqlls = {},
 			terraformls = {},
-			jsonls = {},
+			-- jsonls = {},
 			yamlls = {},
 			tailwindcss = {
 				filetypes = {

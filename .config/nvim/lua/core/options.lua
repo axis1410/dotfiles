@@ -31,7 +31,7 @@ vim.o.conceallevel = 0
 vim.wo.signcolumn = "yes"
 vim.o.fileencoding = "utf-8"
 vim.o.breakindent = true
-vim.opt.cmdheight = 0 -- Hide command line when not in use
+-- vim.opt.cmdheight = 1 -- Hide command line when not in use
 
 -- Performance related
 -- vim.o.updatetime = 100 -- Faster completion
