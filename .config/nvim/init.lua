@@ -17,12 +17,12 @@ vim.opt.termguicolors = true
 vim.loader.enable()
 
 require("lazy").setup({
-	-- require("plugins.staline"),
-	require("plugins.lualine"),
+	require("plugins.statusline"),
 	require("plugins.colorscheme"),
 	require("plugins.bufferline"),
 	require("plugins.treesitter"),
 	require("plugins.telescope"),
+	-- require("plugins.fzf"),
 	require("plugins.lsp"),
 	require("plugins.formatting"),
 	require("plugins.autocomplete"),

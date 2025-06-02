@@ -1,5 +1,11 @@
 return {
 	{ "folke/tokyonight.nvim", lazy = false },
+	{ "neanias/everforest-nvim", lazy = false },
+	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
+	{ "vague2k/vague.nvim" },
+	{ "nickkadutskyi/jb.nvim", lazy = false, priority = 1000 },
+	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
+	{ "rebelot/kanagawa.nvim", lazy = false },
 	{
 		"sainnhe/gruvbox-material",
 		lazy = false,
@@ -8,17 +14,6 @@ return {
 			vim.g.gruvbox_material_enable_italic = true
 			vim.g.gruvbox_material_background = "medium"
 		end,
-	},
-	{
-		"neanias/everforest-nvim",
-		config = function()
-			require("everforest").setup()
-		end,
-	},
-	{
-		"rose-pine/neovim",
-		lazy = false,
-		name = "rose-pine",
 	},
 	{
 		"navarasu/onedark.nvim",
@@ -38,16 +33,7 @@ return {
 			})
 		end,
 	},
-	{ "vague2k/vague.nvim" },
-
-	{
-		"nickkadutskyi/jb.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
 	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
-	-- { "rebelot/kanagawa.nvim", lazy = false },
 	-- { "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
 
 	-- { "sainnhe/edge", lazy = false },

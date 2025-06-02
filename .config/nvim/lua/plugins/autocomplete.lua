@@ -156,20 +156,21 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
+		version = "1.*",
+		build = "cargo +nightly build --release",
 		opts = {
 			snippets = {
 				expand = function(snippet)
 					vim.snippet.expand(snippet.body)
 				end,
 			},
-			appearance = {
-				-- use nvim-cmp highlight groups if your theme supports them
-				use_nvim_cmp_as_default = true,
-			},
 			completion = {
 				documentation = {
 					auto_show = true,
 				},
+			},
+			fuzzy = {
+				implementation = "prefer_rust",
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
