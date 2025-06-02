@@ -32,6 +32,18 @@ return {
 					border = "rounded",
 				},
 			},
+			buffers = {
+				file_icons = true,
+				color_icons = true,
+				previewer = false,
+				winopts = {
+					height = 0.40,
+					width = 0.60,
+					row = 0.35,
+					col = 0.5,
+					border = "rounded",
+				},
+			},
 			grep = {
 				file_ignore_patterns = { "node_modules", ".git", ".venv" },
 				rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512",
@@ -47,7 +59,7 @@ return {
 		vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>fs", fzf.builtin, { desc = "[S]earch [S]elect FZF" })
 		vim.keymap.set("n", "<leader>fw", fzf.grep_cword, { desc = "[S]earch current [W]ord" })
-		vim.keymap.set("n", "<leader>fg", fzf.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<leader>fg", fzf.live_grep_native, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>fd", fzf.diagnostics_document, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>fr", fzf.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>f.", fzf.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })

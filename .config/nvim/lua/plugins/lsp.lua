@@ -137,6 +137,7 @@ return {
 			},
 			rust_analyzer = {},
 			rustfmt = {},
+
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -151,7 +152,30 @@ return {
 								unpack(vim.api.nvim_get_runtime_file("", true)),
 							},
 						},
-						diagnostics = { disable = { "missing-fields" } },
+						diagnostics = {
+							globals = {
+								"vim",
+								"require",
+								"pcall",
+								"ipairs",
+								"pairs",
+								"table",
+								"string",
+								"math",
+								"os",
+								"print",
+								"type",
+								"tostring",
+								"tonumber",
+								"error",
+								"assert",
+								"unpack",
+								"select",
+							},
+							disable = {
+								"missing-fields",
+							},
+						},
 						format = {
 							enable = false,
 						},
