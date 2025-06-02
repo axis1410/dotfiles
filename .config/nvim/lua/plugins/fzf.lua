@@ -22,10 +22,22 @@ return {
 				hidden = true,
 				git_icons = true,
 				file_ignore_patterns = { "node_modules", "venv" },
+				previewer = false,
+				color_icons = true,
+				winopts = {
+					height = 0.40,
+					width = 0.60,
+					row = 0.35,
+					col = 0.5,
+					border = "rounded",
+				},
 			},
 			grep = {
 				file_ignore_patterns = { "node_modules", ".git", ".venv" },
 				rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512",
+			},
+			fzf_colors = {
+				true,
 			},
 		})
 
@@ -40,11 +52,8 @@ return {
 		vim.keymap.set("n", "<leader>fr", fzf.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>f.", fzf.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", fzf.buffers, { desc = "[ ] Find existing buffers" })
-
-		-- Current buffer search (similar to telescope's fuzzy find)
 		vim.keymap.set("n", "<leader>/", fzf.blines, { desc = "[/] Fuzzily search in current buffer" })
 
-		-- Colorscheme selector with persistence
 		vim.keymap.set("n", "<leader>th", function()
 			fzf.colorschemes({
 				winopts = {
