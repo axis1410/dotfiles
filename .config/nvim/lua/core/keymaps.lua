@@ -30,9 +30,15 @@ vim.keymap.set("v", "<leader>d", "d", { noremap = true, desc = "Cut (delete to c
 vim.keymap.set("n", "ciw", '"_ciw', { desc = "Change in word (no yank)" })
 vim.keymap.set("n", 'ci"', '"_ci"', { desc = "Change in quotes (no yank)" })
 vim.keymap.set("n", "ci'", "\"_ci'", { desc = "Change in single quotes (no yank)" })
+
 vim.keymap.set("n", "ci(", '"_ci(', { desc = "Change in parentheses (no yank)" })
+vim.keymap.set("n", "ci)", '"_ci)', { desc = "Change in parentheses (no yank)" })
+
 vim.keymap.set("n", "ci{", '"_ci{', { desc = "Change in braces (no yank)" })
+vim.keymap.set("n", "ci}", '"_ci}', { desc = "Change in braces (no yank)" })
+
 vim.keymap.set("n", "ci[", '"_ci[', { desc = "Change in brackets (no yank)" })
+vim.keymap.set("n", "ci]", '"_ci]', { desc = "Change in brackets (no yank)" })
 
 -- Delete in without yanking
 vim.keymap.set("n", "diw", '"_diw', { desc = "Delete in word (no yank)" })
