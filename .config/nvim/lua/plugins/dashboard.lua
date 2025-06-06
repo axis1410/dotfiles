@@ -76,7 +76,7 @@ return {
 							desc_hl = "Text",
 							key = "f",
 							key_hl = "GitSignsAdd",
-							action = "Telescope find_files",
+							action = "Fzf files",
 						},
 						{
 							icon = "T ",
@@ -85,7 +85,7 @@ return {
 							desc_hl = "Text",
 							key = "t",
 							key_hl = "GitSignsAdd",
-							action = "Telescope live_grep",
+							action = "Fzf live_grep",
 						},
 						{
 							icon = "󰗼 ",
@@ -103,7 +103,7 @@ return {
 							desc_hl = "Text",
 							key = "c",
 							key_hl = "GitSignsAdd",
-							action = "Telescope colorscheme",
+							action = "Fzf colorschemes",
 						},
 					},
 					footer = {

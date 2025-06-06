@@ -12,14 +12,14 @@ config = {
 	font = wezterm.font("MonaSpiceNe Nerd Font Mono"),
 	-- font = wezterm.font("Monaspice HuHanMe NF"),
 
-	font_size = 13,
-	window_decorations = "RESIZE",
+	-- font_size = 13,
+	-- window_decorations = "RESIZE",
 	dpi = 75,
 	max_fps = 120,
 	enable_kitty_graphics = true,
 
-	-- color_scheme = "Operator Mono Dark",
-	color_scheme = "Hardcore (base16)",
+	color_scheme = "Operator Mono Dark",
+	-- color_scheme = "Hardcore (base16)",
 	-- color_scheme = "Tokyo Night Storm",
 	-- color_scheme = "Batman",
 
@@ -42,6 +42,7 @@ config = {
 		},
 	},
 }
+
 local function center_window_once(window)
 	wezterm.GLOBAL.windows_centered = wezterm.GLOBAL.windows_centered or {}
 	local window_id = window:window_id() .. ""
