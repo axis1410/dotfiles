@@ -43,6 +43,7 @@ require("lazy").setup({
 	require("plugins.tabout"),
 	require("plugins.lazygit"),
 	require("plugins.diffview"),
+	require("plugins.markdown-viewer"),
 })
 
 local success, theme = pcall(require, "core.theme")

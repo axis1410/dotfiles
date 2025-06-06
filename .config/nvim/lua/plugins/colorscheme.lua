@@ -6,6 +6,26 @@ return {
 	{ "nickkadutskyi/jb.nvim", lazy = false, priority = 1000 },
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
 	{ "rebelot/kanagawa.nvim", lazy = false },
+	{ "deparr/tairiki.nvim", lazy = false, priority = 1000 },
+	{ "Mofiqul/adwaita.nvim", lazy = false, priority = 1000 },
+	{
+		"loctvl842/monokai-pro.nvim",
+		config = function()
+			require("monokai-pro").setup()
+		end,
+	},
+
+	{
+		"armannikoyan/rusty",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("rusty").setup({
+				transparent = false,
+			})
+		end,
+	},
+
 	{
 		"sainnhe/gruvbox-material",
 		lazy = false,
@@ -33,16 +53,15 @@ return {
 			})
 		end,
 	},
-	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
-	-- { "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
-
-	-- { "sainnhe/edge", lazy = false },
-	-- { "sainnhe/sonokai", lazy = false },
+	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	{ "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
+	{ "sainnhe/edge", lazy = false },
+	{ "sainnhe/sonokai", lazy = false },
+	{ "decaycs/decay.nvim", lazy = false },
 	-- { "morhetz/gruvbox", lazy = false, priority = 1000 },
 	-- { "shaunsingh/oxocarbon.nvim", lazy = false, priority = 1000 },
-	-- { "decaycs/decay.nvim" },
 
-	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
+	{ "projekt0n/github-nvim-theme", name = "github-theme" },
 	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
 
 	-- {
@@ -75,7 +94,7 @@ return {
 	-- { "rose-pine/neovim", name = "rose-pine" },
 	-- { "shaunsingh/nord.nvim", priority = 1000, lazy = false },
 	-- { "neko-night/nvim", lazy = false, priority = 1000 },
-	-- { "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
+	{ "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
 	{
 		"Mofiqul/vscode.nvim",
 		lazy = false,

@@ -2,7 +2,7 @@
   "formatter": "prettier",
   "preferred_line_length": 120,
   "icon_theme": "Colored Zed Icons Theme Dark",
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-7-sonnet-latest"
@@ -17,7 +17,7 @@
       "enabled": true
     }
   },
-  "theme": "Tokyo Night Storm",
+  "theme": "One Dark Pro",
   "base_keymap": "VSCode",
   "vim_mode": true,
   "buffer_font_family": "Monaspace Neon",
