@@ -7,7 +7,7 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
 	{ "rebelot/kanagawa.nvim", lazy = false },
 	{ "deparr/tairiki.nvim", lazy = false, priority = 1000 },
-	{ "Mofiqul/adwaita.nvim", lazy = false, priority = 1000 },
+
 	{
 		"loctvl842/monokai-pro.nvim",
 		config = function()
