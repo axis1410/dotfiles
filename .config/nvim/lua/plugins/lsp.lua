@@ -115,8 +115,7 @@ return {
 
 		local servers = {
 			ts_ls = {},
-			-- pyright = {},
-			isort = {},
+			pyright = {},
 			ruff = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
@@ -136,7 +135,6 @@ return {
 				},
 			},
 			rust_analyzer = {},
-			rustfmt = {},
 
 			lua_ls = {
 				settings = {

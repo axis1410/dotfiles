@@ -176,7 +176,6 @@ return {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
 			keymap = {
-				-- use the same keybinds as your nvim-cmp configuration
 				["<C-n>"] = { "select_next", "fallback" },
 				["<C-p>"] = { "select_prev", "fallback" },
 				["<C-b>"] = { "scroll_documentation_up", "fallback" },

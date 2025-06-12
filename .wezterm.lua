@@ -18,11 +18,11 @@ config = {
 	max_fps = 120,
 	enable_kitty_graphics = true,
 
-	-- color_scheme = "Operator Mono Dark",
+	color_scheme = "Operator Mono Dark",
 	-- color_scheme = "Hardcore (base16)",
-	-- color_scheme = "Tokyo Night Storm",
+	-- color_scheme = "Tokyo Night",
 	-- color_scheme = "Batman",
-	color_scheme = "PaperColor Dark (base16)",
+	-- color_scheme = "PaperColor Dark (base16)",
 
 	native_macos_fullscreen_mode = true,
 
