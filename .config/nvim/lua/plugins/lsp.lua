@@ -204,9 +204,5 @@ return {
 				end,
 			},
 		})
-
-		require("lspconfig").ruff.setup({})
-		require("lspconfig").gopls.setup({})
-		-- require("lspconfig").pyright.setup({})
 	end,
 }
