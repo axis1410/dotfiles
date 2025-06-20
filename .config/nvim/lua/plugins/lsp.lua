@@ -191,6 +191,8 @@ return {
 			"prettier",
 			"mypy",
 			"pyproject-fmt",
+			"ruff",
+			"pyright",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
