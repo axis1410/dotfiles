@@ -122,7 +122,6 @@ return {
 			dockerls = {},
 			sqlls = {},
 			terraformls = {},
-			-- jsonls = {},
 			yamlls = {},
 			tailwindcss = {
 				filetypes = {
@@ -190,8 +189,8 @@ return {
 			"ruff",
 			"prettier",
 			"mypy",
-			"pyproject-fmt",
 			"ruff",
+			"taplo",
 			"pyright",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

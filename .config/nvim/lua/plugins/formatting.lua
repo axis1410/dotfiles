@@ -28,7 +28,7 @@ return {
 			go = { "golines", "gofumpt", "goimports" },
 			python = { "ruff", "ruff_organize_imports", "ruff_format" },
 			lua = { "stylua" },
-			toml = { "pyproject-fmt" },
+			toml = { "taplo" },
 		},
 		format_on_save = {
 			lsp_format = true,
