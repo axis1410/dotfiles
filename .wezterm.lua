@@ -18,7 +18,8 @@ config = {
 	max_fps = 120,
 	enable_kitty_graphics = true,
 
-	color_scheme = "Operator Mono Dark",
+	color_scheme = "Tomorrow (dark) (terminal.sexy)",
+	-- color_scheme = "Operator Mono Dark",
 	-- color_scheme = "Hardcore (base16)",
 	-- color_scheme = "Tokyo Night",
 	-- color_scheme = "Batman",
@@ -26,8 +27,8 @@ config = {
 
 	native_macos_fullscreen_mode = true,
 
-	-- window_background_opacity = 0.95,
-	-- macos_window_background_blur = 95,
+	window_background_opacity = 0.95,
+	macos_window_background_blur = 95,
 
 	window_padding = {
 		left = 3,

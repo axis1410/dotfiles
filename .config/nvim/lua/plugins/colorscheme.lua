@@ -7,22 +7,14 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
 	{ "rebelot/kanagawa.nvim", lazy = false },
 	{ "deparr/tairiki.nvim", lazy = false, priority = 1000 },
+	{ "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
+	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
+	{ "realbucksavage/riderdark.vim", lazy = false, priority = 1000 },
 
 	{
 		"loctvl842/monokai-pro.nvim",
 		config = function()
 			require("monokai-pro").setup()
-		end,
-	},
-
-	{
-		"armannikoyan/rusty",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("rusty").setup({
-				transparent = false,
-			})
 		end,
 	},
 
@@ -58,10 +50,11 @@ return {
 	{ "sainnhe/edge", lazy = false },
 	{ "sainnhe/sonokai", lazy = false },
 	{ "decaycs/decay.nvim", lazy = false },
+	{ "projekt0n/github-nvim-theme", name = "github-theme" },
+
 	-- { "morhetz/gruvbox", lazy = false, priority = 1000 },
 	-- { "shaunsingh/oxocarbon.nvim", lazy = false, priority = 1000 },
 
-	{ "projekt0n/github-nvim-theme", name = "github-theme" },
 	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
 
 	-- {
@@ -82,27 +75,18 @@ return {
 	-- 		require("cyberdream").setup({})
 	-- 	end,
 	-- },
-	-- {
-	-- 	dir = vim.fn.stdpath("config") .. "/lua/plugins/themes/vercel.lua",
-	-- 	name = "midnight_noir",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("lua.plugins.themes.vercel").setup()
-	-- 	end,
-	-- },
 	-- { "rose-pine/neovim", name = "rose-pine" },
 	-- { "shaunsingh/nord.nvim", priority = 1000, lazy = false },
 	-- { "neko-night/nvim", lazy = false, priority = 1000 },
-	{ "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
+
 	{
-		"Mofiqul/vscode.nvim",
+		"Mofiqul/adwaita.nvim",
 		lazy = false,
 		priority = 1000,
-	},
-	{
-		"realbucksavage/riderdark.vim",
-		lazy = false,
-		priority = 1000,
+		config = function()
+			vim.g.adwaita_darker = false
+			vim.g.adwaita_disable_cursorline = false
+			vim.g.adwaita_transparent = false
+		end,
 	},
 }
