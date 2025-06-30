@@ -105,8 +105,8 @@ export PATH="$HOME/dev/shell_scripts:$PATH"
 setopt SHARE_HISTORY
 HISTFILE=$HOME/.zhistory
 
-HISTSIZE=50000
-SAVEHIST=10000
+HISTSIZE=5000
+SAVEHIST=1000
 setopt extended_history       # Record timestamp of command
 setopt hist_expire_dups_first # Delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # Ignore duplicated commands
