@@ -1,7 +1,7 @@
 local M = {}
 
 M.set_theme = function()
-    vim.cmd.colorscheme("tairiki-dimmed")
+    vim.cmd.colorscheme("onedark")
 end
 
 return M
