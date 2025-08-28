@@ -34,7 +34,7 @@ return {
 		config = function()
 			require("onedark").setup({
 
-				style = "darker",
+				style = "dark",
 				code_style = {
 					comments = "italic",
 					keywords = "none",
