@@ -225,9 +225,7 @@ alias ghstcon="cd $HOME/Library/Application\ Support/com.mitchellh.ghostty/"
 
 
 function bmig() {
-  bench set-maintenance-mode --site "$1" on
-  bench --site "$1" migrate
-  bench set-maintenance-mode --site "$1" off
+  bench --site "$1" migrate --skip-failing
 }
 
 function bcon() {
@@ -272,26 +270,18 @@ function bsetup() {
   
   # Run the setup commands
   bench new-site "$site_name" --db-name "db_$site_name" --db-root-password root --db-root-username root --admin-password admin
-  bench --site "$site_name" enable-scheduler
   bench --site "$site_name" restore "$backup_file" --db-root-password root
-  bench set-maintenance-mode --site "$site_name" on
   bench --site "$site_name" migrate --skip-failing
   bench --site "$site_name" set-config allow_tests true 
   
-  # Set the encryption key if found
   if [ ! -z "$encryption_key" ]; then
     echo "Setting encryption key in site_config.json..."
-    # The site_config.json is located in sites/${site_name}/site_config.json
     local site_config_path="./sites/${site_name}/site_config.json"
     
-    # Check if the file exists
     if [ -f "$site_config_path" ]; then
-      # Check if encryption_key already exists
       if grep -q "encryption_key" "$site_config_path"; then
-        # Update existing key
         sed -i '' "s/\"encryption_key\": \"[^\"]*\"/\"encryption_key\": \"$encryption_key\"/" "$site_config_path"
       else
-        # Add new key (before the last closing brace)
         sed -i '' "s/}$/,\n\t\"encryption_key\": \"$encryption_key\"\n}/" "$site_config_path"
       fi
       echo "Encryption key has been set successfully."
@@ -300,7 +290,6 @@ function bsetup() {
     fi
   fi
   
-  bench set-maintenance-mode --site "$site_name" off
   echo "Setup completed for site: $site_name"
 }
 
