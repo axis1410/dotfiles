@@ -5,31 +5,14 @@ config = {
 	automatically_reload_config = true,
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
-
-	-- font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" }),
-	-- font = wezterm.font("Iosevka Nerd Font", { weight = "Regular" }),
-	-- font = wezterm.font("Hack Nerd Font", { weight = "Regular" }),
 	font = wezterm.font("MonaSpiceNe Nerd Font Mono"),
-	-- font = wezterm.font("Monaspice HuHanMe NF"),
-
-	-- font_size = 13,
-	-- window_decorations = "RESIZE",
 	dpi = 75,
 	max_fps = 120,
 	enable_kitty_graphics = true,
-
 	color_scheme = "Tomorrow (dark) (terminal.sexy)",
-	-- color_scheme = "Operator Mono Dark",
-	-- color_scheme = "Hardcore (base16)",
-	-- color_scheme = "Tokyo Night",
-	-- color_scheme = "Batman",
-	-- color_scheme = "PaperColor Dark (base16)",
-
 	native_macos_fullscreen_mode = true,
-
 	window_background_opacity = 0.95,
 	macos_window_background_blur = 95,
-
 	window_padding = {
 		left = 3,
 		right = 3,
