@@ -291,6 +291,8 @@ function bsetup() {
   fi
   
   echo "Setup completed for site: $site_name"
+
+  bench --site "$site_name" set-maintenance-mode off
 }
 
 
