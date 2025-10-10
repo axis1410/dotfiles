@@ -43,6 +43,11 @@ return {
 					"line_column",
 					" ",
 					"cwd",
+					" ",
+					function()
+						local path = vim.fn.expand("%:.")
+						return path ~= "" and path or "[No Name]"
+					end,
 				},
 			},
 			mode_colors = {

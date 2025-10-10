@@ -157,6 +157,9 @@ eval "$(starship init zsh)"
 
 alias drsta="docker restart $(docker ps -q)"
 
+
+alias lg="lazygit"
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -587,3 +590,5 @@ fastfetch
 
 . "$HOME/.cargo/env"
 export PATH="/opt/homebrew/opt/mariadb@10.6/bin:$PATH"
+
+
