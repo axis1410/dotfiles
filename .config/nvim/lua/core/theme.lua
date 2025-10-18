@@ -1,7 +1,7 @@
 local M = {}
 
 M.set_theme = function()
-    vim.cmd.colorscheme("catppuccin-frappe")
+    vim.cmd.colorscheme("edge")
 end
 
 return M

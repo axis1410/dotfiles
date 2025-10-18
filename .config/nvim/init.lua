@@ -27,7 +27,7 @@ require("lazy").setup({
 	require("plugins.formatting"),
 	require("plugins.autocomplete"),
 	require("plugins.gitsigns"),
-	require("plugins.plenary"),
+	-- require("plugins.plenary"),
 	require("plugins.harpoon"),
 	require("plugins.flash"),
 	require("plugins.trouble"),

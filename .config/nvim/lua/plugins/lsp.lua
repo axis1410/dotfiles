@@ -7,7 +7,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
 		"SmiteshP/nvim-navic",
-		"hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
 		vim.diagnostic.config({
@@ -53,28 +53,28 @@ return {
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 				map("<leader>k", vim.lsp.buf.hover, "Hover Documentation")
 
-				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.document_highlight,
-					})
+				-- if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+				-- 	local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+				-- 	vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				-- 		buffer = event.buf,
+				-- 		group = highlight_augroup,
+				-- 		callback = vim.lsp.buf.document_highlight,
+				-- 	})
 
-					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.clear_references,
-					})
+				-- 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				-- 		buffer = event.buf,
+				-- 		group = highlight_augroup,
+				-- 		callback = vim.lsp.buf.clear_references,
+				-- 	})
 
-					vim.api.nvim_create_autocmd("LspDetach", {
-						group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-						callback = function(event2)
-							vim.lsp.buf.clear_references()
-							vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
-						end,
-					})
-				end
+				-- 	vim.api.nvim_create_autocmd("LspDetach", {
+				-- 		group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+				-- 		callback = function(event2)
+				-- 			vim.lsp.buf.clear_references()
+				-- 			vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+				-- 		end,
+				-- 	})
+				-- end
 
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 					map("<leader>tH", function()
@@ -102,17 +102,10 @@ return {
 				vim.lsp.buf.format({ async = false })
 			end,
 		})
-		vim.g.prettier = {
-			tabWidth = 4,
-			useTabs = false,
-			singleQuote = false,
-			trailingComma = "es5",
-			semi = true,
-			printWidth = 120,
-		}
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+		-- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		local servers = {
 			ts_ls = {},
@@ -190,7 +183,6 @@ return {
 			"ruff",
 			"prettier",
 			"mypy",
-			"ruff",
 			"taplo",
 			"pyright",
 		})

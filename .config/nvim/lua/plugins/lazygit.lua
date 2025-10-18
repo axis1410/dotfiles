@@ -11,5 +11,9 @@ return {
 				desc = "Open LazyGit",
 			},
 		},
+
+		options = {
+			lazygit_floating_window_winblend = 1,
+		},
 	},
 }

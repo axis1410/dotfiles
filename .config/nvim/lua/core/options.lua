@@ -34,8 +34,9 @@ vim.o.breakindent = true
 -- vim.opt.cmdheight = 1 -- Hide command line when not in use
 
 -- Performance related
--- vim.o.updatetime = 100 -- Faster completion
--- vim.o.timeoutlen = 250 -- Speed up timeout for keymaps
+vim.o.updatetime = 200 -- Faster completion
+vim.o.timeoutlen = 250 -- Speed up timeout for keymaps
+
 -- vim.o.backup = false -- No backup files
 -- vim.o.writebackup = false -- No backup while editing
 -- vim.o.undofile = true -- Persistent undo history
