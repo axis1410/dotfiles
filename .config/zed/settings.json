@@ -3,11 +3,11 @@
   "preferred_line_length": 120,
   "icon_theme": "Colored Zed Icons Theme Dark",
   "agent": {
+    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-7-sonnet-latest"
-    },
-    "version": "2"
+    }
   },
   "file_finder": {
     "modal_max_width": "medium"

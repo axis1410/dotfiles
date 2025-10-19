@@ -8,16 +8,17 @@ font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 # font-family = JetBrains Mono NL
 
 
-font-size = 15
+font-size = 16
 font-synthetic-style = true
 
 
-theme = "CutiePro"
+theme = "Cutie Pro"
+# theme = "Adwaita Dark"
 
 
 # config-file = ghostty-theme
 
-cursor-style = "block"
+cursor-style = block
 cursor-style-blink = true
 
 clipboard-trim-trailing-spaces = true
@@ -25,3 +26,8 @@ clipboard-trim-trailing-spaces = true
 mouse-hide-while-typing = true
 
 window-colorspace = display-p3
+
+# custom-shader = ./shaders/matrix-hallway.glsl
+
+macos-icon = xray
+macos-option-as-alt = true
