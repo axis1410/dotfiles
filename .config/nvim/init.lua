@@ -44,6 +44,7 @@ require("lazy").setup({
 	require("plugins.markdown-viewer"),
 	require("plugins.dashboard"),
 	require("plugins.transparent"),
+	require("plugins.which-key"),
 })
 
 local success, theme = pcall(require, "core.theme")

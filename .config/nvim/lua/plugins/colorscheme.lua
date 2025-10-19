@@ -1,4 +1,20 @@
 return {
+	{
+		"ray-x/starry.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			italics = {
+				comments = true,
+				strings = true,
+				keywords = true,
+			},
+			style = {
+				name = "mariana",
+			},
+		},
+	},
+	{ "embark-theme/vim", lazy = false, priority = 1000, name = "embark" },
 	{ "folke/tokyonight.nvim", lazy = false },
 	{ "neanias/everforest-nvim", lazy = false },
 	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
@@ -34,7 +50,7 @@ return {
 		config = function()
 			require("onedark").setup({
 
-				style = "dark",
+				style = "warmer",
 				code_style = {
 					comments = "italic",
 					keywords = "none",
