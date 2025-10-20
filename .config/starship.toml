@@ -1,29 +1,27 @@
-# ~/.config/starship.toml
-# Minimal & Clean Prompt — directory + git + duration
 
-format = """$directory$git_branch$git_status$cmd_duration$character"""
+
+
+format = """$directory$git_branch$git_status$character"""
+right_format = """$cmd_duration"""
 add_newline = false
 
-# Prompt symbol
+
 [character]
 success_symbol = "❯ "
 error_symbol = "❯ "
 vicmd_symbol = "❮ "
 
-# Directory
 [directory]
 style = "bold cyan"
 truncation_length = 3
 truncation_symbol = "…/"
 format = "[$path]($style) "
 
-# Git branch
 [git_branch]
 symbol = ""
 style = "bold yellow"
 format = "on [$branch]($style) "
 
-# Git status
 [git_status]
 format = "([$all_status$ahead_behind]($style)) "
 style = "bold red"
@@ -38,13 +36,13 @@ staged = "+"
 renamed = "»"
 deleted = "✘"
 
-# Command duration (only if slow)
+
 [cmd_duration]
-min_time = 2000
-format = "took [$duration]($style) "
+min_time = 500
+format = "took [$duration]($style)"
 style = "dimmed yellow"
 
-# Disable everything else
+
 [shell]
 disabled = true
 [username]
