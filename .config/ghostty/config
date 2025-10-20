@@ -9,8 +9,10 @@ font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
 
 # font-size = 16
-font-size = 19
+font-size = 18
 font-synthetic-style = true
+font-thicken = true
+font-thicken-strength = 255
 
 
 # theme = "Cutie Pro"
