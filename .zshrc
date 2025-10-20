@@ -586,7 +586,7 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 
-fastfetch
+# fastfetch
 
 . "$HOME/.cargo/env"
 export PATH="/opt/homebrew/opt/mariadb@10.6/bin:$PATH"
