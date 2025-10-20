@@ -1,4 +1,5 @@
 return {
+	{ "thembones79/mine-pine", name = "mine-pine", lazy = false, priority = 1000 },
 	{ "tiagovla/tokyodark.nvim", lazy = false, priority = 1000 },
 	{ "datsfilipe/min-theme.nvim", lazy = false, priority = 1000 },
 	{ "github-main-user/lytmode.nvim", lazy = false, priority = 1000 },

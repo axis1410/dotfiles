@@ -1,46 +1,57 @@
-format = """
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_state\
-$git_status\
-$cmd_duration\
-$line_break\
-$python\
-$character"""
+# ~/.config/starship.toml
+# Minimal & Clean Prompt — directory + git + duration
 
-[directory]
-style = "blue"
+format = """$directory$git_branch$git_status$cmd_duration$character"""
+add_newline = false
 
+# Prompt symbol
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = "❯ "
+error_symbol = "❯ "
+vicmd_symbol = "❮ "
 
+# Directory
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncation_symbol = "…/"
+format = "[$path]($style) "
+
+# Git branch
 [git_branch]
-format = "[$branch]($style)"
-style = "bright-black"
+symbol = ""
+style = "bold yellow"
+format = "on [$branch]($style) "
 
+# Git status
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+format = "([$all_status$ahead_behind]($style)) "
+style = "bold red"
+conflicted = "!"
+ahead = "↑${count}"
+behind = "↓${count}"
+diverged = "⇕"
+untracked = "?"
+stashed = "S"
+modified = "~"
+staged = "+"
+renamed = "»"
+deleted = "✘"
 
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
-
+# Command duration (only if slow)
 [cmd_duration]
-format = "[$duration]($style) "
-style = "yellow"
+min_time = 2000
+format = "took [$duration]($style) "
+style = "dimmed yellow"
 
-[python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
+# Disable everything else
+[shell]
+disabled = true
+[username]
+disabled = true
+[hostname]
+disabled = true
+[package]
+disabled = true
+[time]
+disabled = true

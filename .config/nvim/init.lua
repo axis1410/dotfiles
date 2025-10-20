@@ -45,6 +45,7 @@ require("lazy").setup({
 	require("plugins.dashboard"),
 	require("plugins.transparent"),
 	require("plugins.which-key"),
+	-- require("plugins.motion"),
 })
 
 local success, theme = pcall(require, "core.theme")

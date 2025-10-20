@@ -8,13 +8,15 @@ font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 # font-family = JetBrains Mono NL
 
 
-font-size = 16
+# font-size = 16
+font-size = 19
 font-synthetic-style = true
 
 
-theme = "Cutie Pro"
+# theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 
+theme = "Catppuccin Mocha"
 
 # config-file = ghostty-theme
 
