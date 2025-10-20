@@ -1,4 +1,14 @@
 return {
+	{ "tiagovla/tokyodark.nvim", lazy = false, priority = 1000 },
+	{ "datsfilipe/min-theme.nvim", lazy = false, priority = 1000 },
+	{ "github-main-user/lytmode.nvim", lazy = false, priority = 1000 },
+	{ "rafamadriz/neon", lazy = false, priority = 1000 },
+	{
+		"glepnir/zephyr-nvim",
+		lazy = false,
+		priority = 1000,
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 	{
 		"ray-x/starry.nvim",
 		lazy = false,
@@ -50,7 +60,7 @@ return {
 		config = function()
 			require("onedark").setup({
 
-				style = "warmer",
+				style = "darker",
 				code_style = {
 					comments = "italic",
 					keywords = "none",
@@ -94,6 +104,7 @@ return {
 	-- { "rose-pine/neovim", name = "rose-pine" },
 	-- { "shaunsingh/nord.nvim", priority = 1000, lazy = false },
 	-- { "neko-night/nvim", lazy = false, priority = 1000 },
+	-- { "datsfilipe/vesper.nvim", lazy = false, priority = 1000 },
 
 	{
 		"Mofiqul/adwaita.nvim",
