@@ -1,2 +1,3 @@
 theme.lua
 .tmux/plugins/tpm/
+.tmux/plugins/tmux-battery/
