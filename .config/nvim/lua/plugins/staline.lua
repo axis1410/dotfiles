@@ -1,10 +1,9 @@
 return {
 	"tamton-aquib/staline.nvim",
 	dependencies = {
-		"lewis6991/gitsigns.nvim", -- Make sure gitsigns is installed
+		"lewis6991/gitsigns.nvim",
 	},
 	config = function()
-		-- Setup stabline (top bufferline)
 		require("stabline").setup({
 			font_active = "none",
 			stab_start = "  %#Identifier#  ",
@@ -14,7 +13,6 @@ return {
 			fg = "#95c561",
 		})
 
-		-- Setup staline (bottom statusline)
 		require("staline").setup({
 			sections = {
 				left = {
@@ -51,10 +49,10 @@ return {
 				},
 			},
 			mode_colors = {
-				n = "#95c561", -- Normal
-				i = "#fabd2f", -- Insert
-				c = "#fe8019", -- Command
-				v = "#ff00ff", -- Visual (this is now magenta)
+				n = "#95c561",
+				i = "#fabd2f",
+				c = "#fe8019",
+				v = "#ff00ff",
 			},
 			defaults = {
 				fg = "#ffffff",
@@ -64,8 +62,5 @@ return {
 				font_active = "none",
 			},
 		})
-
-		-- Optional: Setup gitsigns
-		-- require("gitsigns").setup()
 	end,
 }
