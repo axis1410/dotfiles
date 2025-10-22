@@ -6,6 +6,7 @@ config = {
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	font = wezterm.font("MonaSpiceNe Nerd Font Mono"),
+	font_size = 14,
 	dpi = 75,
 	max_fps = 120,
 	enable_kitty_graphics = true,
@@ -28,6 +29,7 @@ config = {
 		},
 	},
 	window_decorations = "RESIZE",
+	freetype_load_target = "VerticalLcd",
 }
 
 local function center_window_once(window)
