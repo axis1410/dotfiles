@@ -9,7 +9,7 @@ font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
 
 # font-size = 16
-font-size = 18
+# font-size = 18
 font-synthetic-style = true
 font-thicken = true
 font-thicken-strength = 255
@@ -37,4 +37,4 @@ macos-icon = xray
 macos-option-as-alt = true
 maximize = true
 
-
+window-inherit-font-size = true

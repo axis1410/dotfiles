@@ -4,8 +4,27 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
-vim.keymap.set("n", "<C-f>", "<C-f>zz", opts)
-vim.keymap.set("n", "<C-b>", "<C-b>zz", opts)
+vim.keymap.set({ "n", "i", "s" }, "<C-f>", function()
+  local ok, lsp = pcall(require, "noice.lsp")
+  if ok and lsp.scroll(4) then
+    return ""
+  end
+  if vim.api.nvim_get_mode().mode == "n" then
+    return "<C-f>zz"
+  end
+  return "<C-f>"
+end, { silent = true, expr = true, desc = "Scroll hover forward" })
+
+vim.keymap.set({ "n", "i", "s" }, "<C-b>", function()
+  local ok, lsp = pcall(require, "noice.lsp")
+  if ok and lsp.scroll(-4) then
+    return ""
+  end
+  if vim.api.nvim_get_mode().mode == "n" then
+    return "<C-b>zz"
+  end
+  return "<C-b>"
+end, { silent = true, expr = true, desc = "Scroll hover backward" })
 vim.keymap.set("n", "}", "}zz", opts)
 vim.keymap.set("n", "{", "{zz", opts)
 
