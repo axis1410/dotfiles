@@ -15,10 +15,10 @@ font-thicken = true
 font-thicken-strength = 255
 
 
-# theme = "Cutie Pro"
+theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 
-theme = "Catppuccin Macchiato"
+# theme = "Catppuccin Macchiato"
 
 # config-file = ghostty-theme
 
@@ -30,6 +30,11 @@ clipboard-trim-trailing-spaces = true
 mouse-hide-while-typing = true
 
 window-colorspace = display-p3
+window-decoration = false
+
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = hidden
+macos-non-native-fullscreen = false
 
 # custom-shader = ./shaders/matrix-hallway.glsl
 
