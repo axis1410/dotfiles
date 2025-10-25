@@ -1,7 +1,7 @@
-font-family = MonaspiceNe Nerd Font Mono
-font-style-bold = MonaspiceNe Nerd Font Mono Bold
-font-style-italic = MonaspiceNe Nerd Font Mono Italic
-font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
+# font-family = MonaspiceNe Nerd Font Mono
+# font-style-bold = MonaspiceNe Nerd Font Mono Bold
+# font-style-italic = MonaspiceNe Nerd Font Mono Italic
+# font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
 
 
@@ -15,9 +15,10 @@ font-thicken = true
 font-thicken-strength = 255
 
 
-theme = "Cutie Pro"
+#theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 # theme = "Dracula+"
+theme = "JetBrains Darcula"
 
 # theme = "Catppuccin Macchiato"
 
