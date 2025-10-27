@@ -30,7 +30,7 @@ return {
 					mode = mode or "n"
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
-
+				--
 				-- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 				-- map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 				-- map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
@@ -60,13 +60,13 @@ return {
 				-- 		group = highlight_augroup,
 				-- 		callback = vim.lsp.buf.document_highlight,
 				-- 	})
-
+				--
 				-- 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
 				-- 		buffer = event.buf,
 				-- 		group = highlight_augroup,
 				-- 		callback = vim.lsp.buf.clear_references,
 				-- 	})
-
+				--
 				-- 	vim.api.nvim_create_autocmd("LspDetach", {
 				-- 		group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
 				-- 		callback = function(event2)
@@ -75,7 +75,7 @@ return {
 				-- 		end,
 				-- 	})
 				-- end
-
+				--
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 					map("<leader>tH", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))

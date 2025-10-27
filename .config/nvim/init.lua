@@ -22,7 +22,6 @@ require("lazy").setup({
 	require("plugins.colorscheme"),
 	require("plugins.staline"),
 	require("plugins.treesitter"),
-	require("plugins.fzf"),
 	require("plugins.lsp"),
 	require("plugins.formatting"),
 	require("plugins.autocomplete"),
@@ -44,7 +43,9 @@ require("lazy").setup({
 	require("plugins.markdown-viewer"),
 	require("plugins.dashboard"),
 	require("plugins.transparent"),
-	require("plugins.which-key"),
+	-- require("plugins.which-key"),
+	require("plugins.fzf"),
+	-- require("plugins.telescope"),
 	-- require("plugins.motion"),
 })
 

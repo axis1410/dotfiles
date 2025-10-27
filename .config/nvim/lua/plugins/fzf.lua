@@ -1,7 +1,7 @@
 return {
 	"ibhagwan/fzf-lua",
 	event = "VimEnter",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
 	config = function()
 		local fzf = require("fzf-lua")
 
@@ -18,7 +18,7 @@ return {
 				},
 			},
 			files = {
-				file_icons = true,
+				file_icons = "mini",
 				hidden = true,
 				git_icons = true,
 				file_ignore_patterns = { "node_modules", "venv" },
@@ -45,6 +45,7 @@ return {
 				},
 			},
 			grep = {
+				prompt = "Rg❯ ",
 				file_ignore_patterns = { "node_modules", ".git", ".venv" },
 				rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512",
 			},

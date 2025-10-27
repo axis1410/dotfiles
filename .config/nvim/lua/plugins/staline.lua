@@ -9,8 +9,9 @@ return {
 			stab_start = "  %#Identifier#  ",
 			stab_bg = "none",
 			stab_left = "",
-			inactive_fg = "none",
-			fg = "#95c561",
+			inactive_fg = "#757877",
+			-- fg = "#95c561",
+			fg = "#cacccb",
 		})
 
 		require("staline").setup({
@@ -53,6 +54,7 @@ return {
 				i = "#fabd2f",
 				c = "#fe8019",
 				v = "#ff00ff",
+				V = "#ff00ff",
 			},
 			defaults = {
 				fg = "#ffffff",

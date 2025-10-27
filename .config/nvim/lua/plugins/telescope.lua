@@ -33,7 +33,7 @@ return {
 				find_files = {
 					file_ignore_patterns = { "node_modules", "venv" },
 					hidden = true,
-					previewer = false,
+					previewer = true,
 					theme = "dropdown",
 				},
 			},
@@ -50,7 +50,7 @@ return {
 			},
 
 			colorscheme = {
-				enable_preview = true,
+				enable_preview = false,
 				layout_config = {
 					width = 0.45,
 					height = 0.8,

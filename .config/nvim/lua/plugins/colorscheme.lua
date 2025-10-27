@@ -30,7 +30,7 @@ return {
 	{ "neanias/everforest-nvim", lazy = false },
 	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
 	{ "vague2k/vague.nvim" },
-	{ "nickkadutskyi/jb.nvim", lazy = false, priority = 1000 },
+	{ "nickkadutskyi/jb.nvim", lazy = false, priority = 100 },
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
 	{ "rebelot/kanagawa.nvim", lazy = false },
 	{ "deparr/tairiki.nvim", lazy = false, priority = 1000 },
