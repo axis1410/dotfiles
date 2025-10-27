@@ -1,4 +1,5 @@
 {
+  "Ghostty Theme": { "branch": "master", "commit": "b09d4d51f614cd1c14444d8586e0ba3ba3119787" },
   "LuaSnip": { "branch": "master", "commit": "f958d9837c8fa7816bb8fb54977e658affc63c31" },
   "adwaita.nvim": { "branch": "main", "commit": "334d918d5241262816624e8c80410574ccdb25dc" },
   "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },

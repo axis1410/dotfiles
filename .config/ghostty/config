@@ -15,14 +15,11 @@ font-thicken = true
 font-thicken-strength = 255
 
 
-#theme = "Cutie Pro"
+# theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 # theme = "Dracula+"
 theme = "JetBrains Darcula"
-
 # theme = "Catppuccin Macchiato"
-
-# config-file = ghostty-theme
 
 cursor-style = block
 cursor-style-blink = true
@@ -32,7 +29,7 @@ clipboard-trim-trailing-spaces = true
 mouse-hide-while-typing = true
 
 window-colorspace = display-p3
-window-decoration = false
+window-decoration = auto
 
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = hidden
@@ -45,3 +42,6 @@ macos-option-as-alt = true
 maximize = true
 
 window-inherit-font-size = true
+
+background-blur = true
+background-opacity = 0.9

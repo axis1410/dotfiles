@@ -1,4 +1,5 @@
 return {
+	{ "nkxxll/ghostty-default-style-dark.nvim", lazy = false, priority = 1000, name = "Ghostty Theme" },
 	{ "thembones79/mine-pine", name = "mine-pine", lazy = false, priority = 1000 },
 	{ "tiagovla/tokyodark.nvim", lazy = false, priority = 1000 },
 	{ "datsfilipe/min-theme.nvim", lazy = false, priority = 1000 },
