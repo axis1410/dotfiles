@@ -68,4 +68,4 @@ vim.o.timeoutlen = 250 -- Speed up timeout for keymaps
 -- vim.g.loaded_netrwSettings = 1
 -- vim.g.loaded_netrwFileHandlers = 1
 
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"

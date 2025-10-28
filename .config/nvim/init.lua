@@ -40,12 +40,13 @@ require("lazy").setup({
 	require("plugins.tabout"),
 	require("plugins.lazygit"),
 	require("plugins.diffview"),
+	require("plugins.markdown"),
 	require("plugins.markdown-viewer"),
 	require("plugins.dashboard"),
 	require("plugins.transparent"),
 	-- require("plugins.which-key"),
-	require("plugins.fzf"),
-	-- require("plugins.telescope"),
+	-- require("plugins.fzf"),
+	require("plugins.telescope"),
 	-- require("plugins.motion"),
 })
 

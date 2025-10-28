@@ -38,7 +38,7 @@ return {
 		opts = {},
 		config = function()
 			require("todo-comments").setup({})
-			-- vim.keymap.set("n", "<leader>td", ":TodoTelescope keywords=TODO,FIX<CR>", { noremap = true })
+			vim.keymap.set("n", "<leader>td", ":TodoTelescope keywords=TODO,FIX<CR>", { noremap = true })
 		end,
 	},
 }

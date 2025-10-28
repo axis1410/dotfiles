@@ -21,7 +21,8 @@ return {
 			typescriptreact = { "prettier" },
 			vue = { "prettier" },
 			css = { "prettier" },
-			html = { "prettier" },
+			html = { "djlint", "prettier" },
+			jinja = { "djlint" },
 			json = { "prettier" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
@@ -30,10 +31,10 @@ return {
 			lua = { "stylua" },
 			toml = { "taplo" },
 		},
-		format_on_save = {
-			lsp_format = true,
-			async = false,
-			timeout_ms = 500,
-		},
+			format_on_save = {
+				lsp_format = "fallback",
+				async = false,
+				timeout_ms = 500,
+			},
 	},
 }
