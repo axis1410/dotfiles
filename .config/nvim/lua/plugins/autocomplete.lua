@@ -157,7 +157,7 @@ return {
 			"rafamadriz/friendly-snippets",
 		},
 		version = "1.*",
-		build = "cargo +nightly build --release",
+		build = "cargo build --release",
 		opts = {
 			snippets = {
 				expand = function(snippet)
