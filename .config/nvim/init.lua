@@ -44,10 +44,11 @@ require("lazy").setup({
 	require("plugins.markdown-viewer"),
 	require("plugins.dashboard"),
 	require("plugins.transparent"),
-	-- require("plugins.which-key"),
+	require("plugins.log_highlight"),
 	require("plugins.fzf"),
 	-- require("plugins.telescope"),
 	-- require("plugins.motion"),
+	-- require("plugins.which-key"),
 })
 
 local success, theme = pcall(require, "core.theme")
