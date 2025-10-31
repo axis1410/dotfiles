@@ -114,7 +114,7 @@ return {
 			-- 		"vue",
 			-- 	},
 			-- },
-			pyright = {},
+			-- pyright = {},
 			ruff = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			jinja_lsp = {
@@ -193,7 +193,8 @@ return {
 			"prettier",
 			"mypy",
 			"taplo",
-			"pyright",
+			"basedpyright",
+			-- "pyright",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
