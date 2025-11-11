@@ -5,7 +5,7 @@
 
 
 
-font-family = JetBrains Mono NL
+font-family = JetBrains Mono
 
 
 # font-size = 16
@@ -45,3 +45,5 @@ window-inherit-font-size = true
 
 background-blur = true
 background-opacity = 0.9
+
+window-padding-balance = true
