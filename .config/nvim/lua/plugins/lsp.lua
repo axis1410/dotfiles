@@ -107,14 +107,14 @@ return {
 		-- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		local servers = {
-			-- ts_ls = {
-			-- 	filetypes = {
-			-- 		"ts",
-			-- 		"tsx",
-			-- 		"vue",
-			-- 	},
-			-- },
-			-- pyright = {},
+			ts_ls = {
+				filetypes = {
+					"ts",
+					"tsx",
+					"vue",
+				},
+			},
+			pyright = {},
 			ruff = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
 			jinja_lsp = {
@@ -193,8 +193,8 @@ return {
 			"prettier",
 			"mypy",
 			"taplo",
-			"basedpyright",
-			-- "pyright",
+			-- "basedpyright",
+			"pyright",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

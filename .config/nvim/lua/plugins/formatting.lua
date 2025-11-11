@@ -31,10 +31,10 @@ return {
 			lua = { "stylua" },
 			toml = { "taplo" },
 		},
-			format_on_save = {
-				lsp_format = "fallback",
-				async = false,
-				timeout_ms = 500,
-			},
+		format_on_save = {
+			lsp_format = "fallback",
+			async = false,
+			timeout_ms = 500,
+		},
 	},
 }
