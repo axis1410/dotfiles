@@ -630,5 +630,3 @@ export NVM_DIR="$HOME/.nvm"
 # echo -ne '\e[5 q' # Use beam shape cursor on startup.
 # preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-alias cd="z"
-alias cdi="zi"
