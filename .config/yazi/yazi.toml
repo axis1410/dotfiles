@@ -1,0 +1,11 @@
+# ~/.config/yazi/yazi.toml
+
+[mgr]
+show_hidden = true # Show hidden files by default
+
+# You can keep other Yazi settings below if needed
+[preview]
+tab_size = 2 # Tab characters display as 2 spaces
+
+[opener]
+edit = [{ run = 'nvim "$@"' }]
