@@ -4,6 +4,8 @@ return {
 	{ "tiagovla/tokyodark.nvim", lazy = false, priority = 1000 },
 	{ "datsfilipe/min-theme.nvim", lazy = false, priority = 1000 },
 	{ "github-main-user/lytmode.nvim", lazy = false, priority = 1000 },
+
+	{ "olivercederborg/poimandres.nvim", lazy = false, priority = 1000, opts = {} },
 	{ "rafamadriz/neon", lazy = false, priority = 1000 },
 	{
 		"glepnir/zephyr-nvim",
@@ -62,7 +64,7 @@ return {
 		config = function()
 			require("onedark").setup({
 
-				style = "darker",
+				style = "warmer",
 				code_style = {
 					comments = "italic",
 					keywords = "none",
