@@ -1,52 +1,61 @@
 return {
-	{ "nkxxll/ghostty-default-style-dark.nvim", lazy = false, priority = 1000, name = "Ghostty Theme" },
-	{ "thembones79/mine-pine", name = "mine-pine", lazy = false, priority = 1000 },
-	{ "tiagovla/tokyodark.nvim", lazy = false, priority = 1000 },
-	{ "datsfilipe/min-theme.nvim", lazy = false, priority = 1000 },
-	{ "github-main-user/lytmode.nvim", lazy = false, priority = 1000 },
-
-	{ "olivercederborg/poimandres.nvim", lazy = false, priority = 1000, opts = {} },
-	{ "rafamadriz/neon", lazy = false, priority = 1000 },
-	{
-		"glepnir/zephyr-nvim",
-		lazy = false,
-		priority = 1000,
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-	},
-	{
-		"ray-x/starry.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			italics = {
-				comments = true,
-				strings = true,
-				keywords = true,
-			},
-			style = {
-				name = "mariana",
-			},
-		},
-	},
-	{ "embark-theme/vim", lazy = false, priority = 1000, name = "embark" },
 	{ "folke/tokyonight.nvim", lazy = false },
 	{ "neanias/everforest-nvim", lazy = false },
 	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
-	{ "vague2k/vague.nvim" },
 	{ "nickkadutskyi/jb.nvim", lazy = false, priority = 100 },
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
-	{ "rebelot/kanagawa.nvim", lazy = false },
 	{ "deparr/tairiki.nvim", lazy = false, priority = 1000 },
-	{ "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
-	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
-	{ "realbucksavage/riderdark.vim", lazy = false, priority = 1000 },
+	{ "sainnhe/edge", lazy = false },
+	{ "sainnhe/sonokai", lazy = false },
 
-	{
-		"loctvl842/monokai-pro.nvim",
-		config = function()
-			require("monokai-pro").setup()
-		end,
-	},
+	-- { "decaycs/decay.nvim", lazy = false },
+	-- { "nkxxll/ghostty-default-style-dark.nvim", lazy = false, priority = 1000, name = "Ghostty Theme" },
+	-- { "thembones79/mine-pine", name = "mine-pine", lazy = false, priority = 1000 },
+	-- { "tiagovla/tokyodark.nvim", lazy = false, priority = 1000 },
+	-- { "datsfilipe/min-theme.nvim", lazy = false, priority = 1000 },
+	-- { "github-main-user/lytmode.nvim", lazy = false, priority = 1000 },
+	-- { "olivercederborg/poimandres.nvim", lazy = false, priority = 1000, opts = {} },
+	-- { "rafamadriz/neon", lazy = false, priority = 1000 },
+	-- { "embark-theme/vim", lazy = false, priority = 1000, name = "embark" },
+	-- { "vague2k/vague.nvim" },
+	-- { "rebelot/kanagawa.nvim", lazy = false },
+
+	-- { "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
+	-- { "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
+	-- { "realbucksavage/riderdark.vim", lazy = false, priority = 1000 },
+	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	-- { "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
+	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
+
+	-- {
+	-- 	"glepnir/zephyr-nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	dependencies = { "nvim-treesitter/nvim-treesitter" },
+	-- },
+
+	-- {
+	-- 	"ray-x/starry.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		italics = {
+	-- 			comments = true,
+	-- 			strings = true,
+	-- 			keywords = true,
+	-- 		},
+	-- 		style = {
+	-- 			name = "mariana",
+	-- 		},
+	-- 	},
+	-- },
+
+	-- {
+	-- 	"loctvl842/monokai-pro.nvim",
+	-- 	config = function()
+	-- 		require("monokai-pro").setup()
+	-- 	end,
+	-- },
 
 	{
 		"sainnhe/gruvbox-material",
@@ -75,14 +84,18 @@ return {
 			})
 		end,
 	},
-	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
-	{ "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
-	{ "sainnhe/edge", lazy = false },
-	{ "sainnhe/sonokai", lazy = false },
-	{ "decaycs/decay.nvim", lazy = false },
-	{ "projekt0n/github-nvim-theme", name = "github-theme" },
+
+	-- {
+	-- 	"AlexvZyl/nordic.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("nordic").load()
+	-- 	end,
+	-- },
 
 	-- { "morhetz/gruvbox", lazy = false, priority = 1000 },
+
 	-- { "shaunsingh/oxocarbon.nvim", lazy = false, priority = 1000 },
 
 	-- { "ss77a/carbonfox.nvim", lazy = false, priority = 1000 },
@@ -96,7 +109,7 @@ return {
 	-- 	end,
 	-- },
 
-	-- { "olimorris/onedarkpro.nvim", priority = 1000, lazy = false },
+	-- { "olimorris/onedarkpro.nvim", priority = 1000, lazy = false, name = "OneDark Pro" },
 	-- {
 	-- 	"scottmckendry/cyberdream.nvim",
 	-- 	lazy = false,
@@ -110,14 +123,14 @@ return {
 	-- { "neko-night/nvim", lazy = false, priority = 1000 },
 	-- { "datsfilipe/vesper.nvim", lazy = false, priority = 1000 },
 
-	{
-		"Mofiqul/adwaita.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.g.adwaita_darker = false
-			vim.g.adwaita_disable_cursorline = false
-			vim.g.adwaita_transparent = false
-		end,
-	},
+	-- {
+	-- 	"Mofiqul/adwaita.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.g.adwaita_darker = false
+	-- 		vim.g.adwaita_disable_cursorline = false
+	-- 		vim.g.adwaita_transparent = false
+	-- 	end,
+	-- },
 }
