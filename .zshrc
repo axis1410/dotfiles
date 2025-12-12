@@ -630,3 +630,11 @@ export NVM_DIR="$HOME/.nvm"
 # echo -ne '\e[5 q' # Use beam shape cursor on startup.
 # preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+
+
+alias git-clean-gone="git branch -vv | grep 'gone]' | awk '{print \$1}' | xargs git branch -D"
+
+
+fh() {
+  eval "$(history | fzf | sed 's/^ *[0-9]* *//')"
+}

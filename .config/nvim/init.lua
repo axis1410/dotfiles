@@ -46,6 +46,7 @@ require("lazy").setup({
 	require("plugins.transparent"),
 	require("plugins.log_highlight"),
 	require("plugins.fzf"),
+	-- require("plugins.neorg"),
 	-- require("plugins.telescope"),
 	-- require("plugins.motion"),
 	-- require("plugins.which-key"),

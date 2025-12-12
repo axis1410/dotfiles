@@ -63,9 +63,16 @@ vim.o.timeoutlen = 250 -- Speed up timeout for keymaps
 -- vim.g.loaded_2html_plugin = 1
 -- vim.g.loaded_logiPat = 1
 -- vim.g.loaded_rrhelper = 1
--- vim.g.loaded_netrw = 1 -- We use our own file explorer
--- vim.g.loaded_netrwPlugin = 1 -- We use our own file explorer
+vim.g.loaded_netrw = 1 -- We use our own file explorer
+vim.g.loaded_netrwPlugin = 1 -- We use our own file explorer
 -- vim.g.loaded_netrwSettings = 1
 -- vim.g.loaded_netrwFileHandlers = 1
 
 -- vim.opt.colorcolumn = "120"
+
+vim.g.neovide_scroll_animation_length = 0
+vim.g.neovide_scroll_animation_far_lines = 0
+vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_cursor_short_animation_length = 0
+vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_cursor_smooth_blink = true
