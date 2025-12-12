@@ -15,13 +15,14 @@ font-thicken = true
 font-thicken-strength = 255
 
 
-# theme = "Cutie Pro"
+theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 # theme = "Dracula+"
-theme = "JetBrains Darcula"
+# theme = "JetBrains Darcula"
 # theme = "Catppuccin Macchiato"
+# theme = "Nord"
 
-cursor-style = block
+cursor-style = "block"
 cursor-style-blink = true
 
 clipboard-trim-trailing-spaces = true
