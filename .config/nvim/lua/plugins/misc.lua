@@ -41,4 +41,13 @@ return {
 			vim.keymap.set("n", "<leader>td", ":TodoFzfLua keywords=TODO,FIX<CR>", { noremap = true })
 		end,
 	},
+	{
+		"refractalize/oil-git-status.nvim",
+
+		dependencies = {
+			"stevearc/oil.nvim",
+		},
+
+		config = true,
+	},
 }

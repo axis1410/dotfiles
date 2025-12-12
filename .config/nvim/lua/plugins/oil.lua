@@ -20,6 +20,7 @@ return {
 		oil.setup({
 
 			win_options = {
+				signcolumn = "yes:2",
 				winbar = "%!v:lua.get_oil_winbar()",
 			},
 			view_options = {
