@@ -1,13 +1,15 @@
 return {
 	{ "folke/tokyonight.nvim", lazy = false },
-	{ "neanias/everforest-nvim", lazy = false },
 	{ "rose-pine/neovim", lazy = false, name = "rose-pine" },
 	{ "nickkadutskyi/jb.nvim", lazy = false, priority = 100 },
 	{ "catppuccin/nvim", name = "catppuccin", lazy = false },
 	{ "deparr/tairiki.nvim", lazy = false, priority = 1000 },
-	{ "sainnhe/edge", lazy = false },
 	{ "sainnhe/sonokai", lazy = false },
+	{ "Shatur/neovim-ayu", lazy = false, priority = 1000 },
+	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 
+	-- { "neanias/everforest-nvim", lazy = false },
+	-- { "sainnhe/edge", lazy = false },
 	-- { "decaycs/decay.nvim", lazy = false },
 	-- { "nkxxll/ghostty-default-style-dark.nvim", lazy = false, priority = 1000, name = "Ghostty Theme" },
 	-- { "thembones79/mine-pine", name = "mine-pine", lazy = false, priority = 1000 },
@@ -19,11 +21,9 @@ return {
 	-- { "embark-theme/vim", lazy = false, priority = 1000, name = "embark" },
 	-- { "vague2k/vague.nvim" },
 	-- { "rebelot/kanagawa.nvim", lazy = false },
-
 	-- { "nyoom-engineering/oxocarbon.nvim", lazy = false, priority = 1000 },
 	-- { "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
 	-- { "realbucksavage/riderdark.vim", lazy = false, priority = 1000 },
-	-- { "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 	-- { "shaunsingh/nord.nvim", lazy = false, priority = 1000 },
 	-- { "projekt0n/github-nvim-theme", name = "github-theme" },
 

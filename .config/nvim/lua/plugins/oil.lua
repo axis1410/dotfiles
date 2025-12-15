@@ -18,18 +18,29 @@ return {
 		end
 
 		oil.setup({
-
 			win_options = {
 				signcolumn = "yes:2",
 				winbar = "%!v:lua.get_oil_winbar()",
 			},
+
 			view_options = {
 				show_hidden = true,
 				is_hidden_file = function(name, _)
-					local m = name:match("^%.")
-					return m ~= nil
+					return name:match("^%.") ~= nil
 				end,
-				is_always_hidden = function(_, _)
+				is_always_hidden = function(name, _)
+					local hidden_patterns = {
+						"^node_modules$",
+						"^__pycache__$",
+						"^%.DS_Store$",
+					}
+
+					for _, pattern in ipairs(hidden_patterns) do
+						if name:match(pattern) then
+							return true
+						end
+					end
+
 					return false
 				end,
 				natural_order = "fast",
@@ -49,7 +60,6 @@ return {
 			},
 
 			watch_for_changes = true,
-
 			default_file_explorer = true,
 			constrain_cursor = "editable",
 
