@@ -8,9 +8,17 @@ return {
 	{ "Shatur/neovim-ayu", lazy = false, priority = 1000 },
 	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
 	{ "frenzyexists/aquarium-vim", lazy = false },
+	{
+		"sainnhe/edge",
+		lazy = false,
+		config = function()
+			vim.g.edge_better_performance = 1
+			vim.g.edge_enable_italic = 1
+			vim.g.edge_dim_inactive_windows = 1
+		end,
+	},
 
 	-- { "neanias/everforest-nvim", lazy = false },
-	-- { "sainnhe/edge", lazy = false },
 	-- { "decaycs/decay.nvim", lazy = false },
 	-- { "nkxxll/ghostty-default-style-dark.nvim", lazy = false, priority = 1000, name = "Ghostty Theme" },
 	-- { "thembones79/mine-pine", name = "mine-pine", lazy = false, priority = 1000 },

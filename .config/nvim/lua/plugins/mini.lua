@@ -39,31 +39,32 @@ return {
 		end,
 	},
 
-	{
-		"echasnovski/mini.animate",
-		event = "VeryLazy",
-		config = function()
-			require("mini.animate").setup({
-				scroll = {
-					enable = false,
-				},
-				cursor = {
-					enable = false,
-				},
-				showkeys = {
-					enable = true,
-					timeout = 1000,
-					width = 25,
-					style = {
-						position = "br",
-						bg = "#1a1b26",
-						fg = "#a9b1d6",
-						border = "rounded",
-					},
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"echasnovski/mini.animate",
+	-- 	event = "VeryLazy",
+	-- 	config = function()
+	-- 		require("mini.animate").setup({
+	-- 			scroll = {
+	-- 				enable = false,
+	-- 			},
+	-- 			cursor = {
+	-- 				enable = false,
+	-- 			},
+	-- 			showkeys = {
+	-- 				enable = true,
+	-- 				timeout = 1000,
+	-- 				width = 25,
+	-- 				style = {
+	-- 					position = "br",
+	-- 					bg = "#1a1b26",
+	-- 					fg = "#a9b1d6",
+	-- 					border = "rounded",
+	-- 				},
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
+
 	{
 		"echasnovski/mini.surround",
 		version = false,
@@ -92,4 +93,12 @@ return {
 			},
 		},
 	},
+
+	-- {
+	-- 	"nvim-mini/mini.indentscope",
+	-- 	version = false,
+	-- 	config = function()
+	-- 		require("mini.indentscope").setup()
+	-- 	end,
+	-- },
 }
