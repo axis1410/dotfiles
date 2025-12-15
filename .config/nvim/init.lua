@@ -44,7 +44,7 @@ require("lazy").setup({
 	require("plugins.lazygit"),
 	require("plugins.diffview"),
 	require("plugins.markdown"),
-	require("plugins.markdown-viewer"),
+	-- require("plugins.markdown-viewer"),
 	require("plugins.dashboard"),
 	require("plugins.transparent"),
 	require("plugins.log_highlight"),
