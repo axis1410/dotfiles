@@ -7,6 +7,7 @@ return {
 	{ "sainnhe/sonokai", lazy = false },
 	{ "Shatur/neovim-ayu", lazy = false, priority = 1000 },
 	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 },
+	{ "frenzyexists/aquarium-vim", lazy = false },
 
 	-- { "neanias/everforest-nvim", lazy = false },
 	-- { "sainnhe/edge", lazy = false },
