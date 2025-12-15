@@ -5,7 +5,9 @@ return {
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		lazy = false,
 		config = function()
-			require("oil").setup({
+			oil = require("oil")
+
+			oil.setup({
 
 				default_file_explorer = true,
 
@@ -71,17 +73,25 @@ return {
 				use_default_keymaps = true,
 				view_options = {
 
-					show_hidden = false,
-
-					is_hidden_file = function(name, bufnr)
-						local m = name:match("^%.")
-						return m ~= nil
+					show_hidden = true,
+					is_hidden_file = function(name, _)
+						return name:match("^%.") ~= nil
 					end,
+					is_always_hidden = function(name, _)
+						local hidden_patterns = {
+							"^node_modules$",
+							"^__pycache__$",
+							"^%.DS_Store$",
+						}
 
-					is_always_hidden = function(name, bufnr)
+						for _, pattern in ipairs(hidden_patterns) do
+							if name:match(pattern) then
+								return true
+							end
+						end
+
 						return false
 					end,
-
 					natural_order = "fast",
 
 					case_insensitive = false,
@@ -187,4 +197,8 @@ return {
 			})
 		end,
 	},
+
+	vim.keymap.set("n", "<leader>e", function()
+		oil.open()
+	end, { desc = "Open Oil file explorer" }),
 }
