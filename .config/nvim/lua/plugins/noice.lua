@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 		},
-		event="VeryLazy",
+		event = "VeryLazy",
 		opts = {
 			lsp = {
 				override = {
