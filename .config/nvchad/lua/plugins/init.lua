@@ -3,6 +3,19 @@ local plugins = {
   { "nvim-tree/nvim-tree.lua",       enabled = false },
   { "nvim-telescope/telescope.nvim", enabled = false },
   {
+    "folke/flash.nvim",
+    lazy = true,
+    opts = function() return require "configs.flash" end,
+    keys = function() return require "keys.flash" end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    opts = function()
+      return require "configs.treesitter"
+    end
+  },
+  {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     opts = function()
@@ -36,8 +49,8 @@ local plugins = {
 }
 
 local nvim_plugins = {
-  require "nvim_plugins.statusline",
-  require "nvim_plugins.treesitter",
+  -- require "nvim_plugins.statusline",
+  -- require "nvim_plugins.treesitter",
   require "nvim_plugins.gitsigns",
   require "nvim_plugins.flash",
   require "nvim_plugins.trouble",
