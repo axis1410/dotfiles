@@ -638,3 +638,4 @@ alias git-clean-gone="git branch -vv | grep 'gone]' | awk '{print \$1}' | xargs 
 fh() {
   eval "$(history | fzf | sed 's/^ *[0-9]* *//')"
 }
+alias nvchad='NVIM_APPNAME=nvchad nvim'
