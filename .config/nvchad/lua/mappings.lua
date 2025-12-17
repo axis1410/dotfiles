@@ -88,7 +88,14 @@ if ok_fzf then
   map("n", "<leader>f.", fzf.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
   map("n", "<leader><leader>", fzf.buffers, { desc = "[ ] Find existing buffers" })
   map("n", "<leader>/", fzf.blines, { desc = "[/] Fuzzily search in current buffer" })
+  map("n", "gd", fzf.lsp_definitions, { desc = "[G]oto [D]efinition" })
+  map("n", "gr", fzf.lsp_references, { desc = "[G]oto [R]eferences" })
+  map("n", "gI", fzf.lsp_implementations, { desc = "[G]oto [I]mplementation" })
+  map("n", "<leader>D", fzf.lsp_typedefs, { desc = "Type [D]efinition" })
+  map("n", "<leader>ds", fzf.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
+  map("n", "<leader>ws", fzf.lsp_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
 end
 
-map("n", "<leader>bd", function() require("mini.bufremove").delete(0, false) end, {desc="Delete Buffer (keep window)"})
-map("n", "<leader>bD", function() require("mini.bufremove").delete(0, true) end, {desc="Delete Buffer (keep window)"})
+map("n", "<leader>bd", function() require("mini.bufremove").delete(0, false) end,
+  { desc = "Delete Buffer (keep window)" })
+map("n", "<leader>bD", function() require("mini.bufremove").delete(0, true) end, { desc = "Delete Buffer (keep window)" })
