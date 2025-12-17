@@ -1,15 +1,13 @@
 local plugins = {
-  { "folke/which-key.nvim", enabled = false },
+  { "folke/which-key.nvim",          enabled = false },
+  { "nvim-tree/nvim-tree.lua",       enabled = false },
+  { "nvim-telescope/telescope.nvim", enabled = false },
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- uncomment for format on save
-    config = function()
-      require "configs.conform"
+    event = "BufWritePre",
+    opts = function()
+      return require "configs.conform"
     end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    enabled = false,
   },
   {
     "neovim/nvim-lspconfig",
@@ -25,7 +23,16 @@ local plugins = {
     opts = function()
       return require "configs.mini_move"
     end,
-  }
+  },
+
+  {
+    "echasnovski/mini.surround",
+    version = false,
+    lazy = false,
+    opts = function()
+      return require "configs.mini_surround"
+    end,
+  },
 }
 
 local nvim_plugins = {

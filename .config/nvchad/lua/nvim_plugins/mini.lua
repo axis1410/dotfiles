@@ -67,34 +67,7 @@ return {
   -- 	end,
   -- },
 
-  {
-    "echasnovski/mini.surround",
-    version = false,
-    config = function()
-      require("mini.surround").setup({
-        mappings = {
-          add = "<leader>sa",
-          delete = "<leader>sd",
-          find = "<leader>sf",
-          find_left = "<leader>sF",
-          highlight = "<leader>sh",
-          replace = "<leader>sr",
-          update_n_lines = "<leader>sn",
-        },
-      })
-    end,
-    opts = {
-      mappings = {
-        add = "<leader>sa",
-        delete = "<leader>sd",
-        find = "<leader>sf",
-        find_left = "<leader>sF",
-        highlight = "<leader>sh",
-        replace = "<leader>sr",
-        update_n_lines = "<leader>sn",
-      },
-    },
-  },
+  -- mini.surround configured via nvchad/lua/plugins/init.lua + configs/mini_surround.lua
 
   {
     "echasnovski/mini.bufremove",
