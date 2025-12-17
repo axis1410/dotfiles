@@ -18,3 +18,16 @@ local servers = {
 }
 
 vim.lsp.enable(servers)
+
+vim.lsp.config("pyright", {
+  root_markers = { "pyproject.toml", "pyrightconfig.json", ".git" },
+  settings = {
+    python = {
+      analysis = {
+        diagnosticSeverityOverrides = {
+          reportUnusedFunction = "none",
+        },
+      },
+    },
+  },
+})
