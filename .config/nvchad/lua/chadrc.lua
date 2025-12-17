@@ -12,7 +12,7 @@ M.base46 = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-  transparency = true
+  transparency = false
 }
 
 M.nvdash = {
@@ -23,6 +23,7 @@ M.nvdash = {
     { txt = "󰈭  Find Word", keys = "fw", cmd = "FzfLua live_grep_native" },
     { txt = "  Themes", keys = "th", cmd = "FzfLua colorschemes" },
     { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+    { txt = "Q  Quit", keys = "q", cmd = "quit" }
   },
 }
 

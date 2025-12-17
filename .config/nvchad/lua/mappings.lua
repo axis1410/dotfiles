@@ -71,8 +71,15 @@ map("n", "di(", '"_di(', { desc = "Delete in parentheses (no yank)" })
 map("n", "di{", '"_di{', { desc = "Delete in braces (no yank)" })
 map("n", "di[", '"_di[', { desc = "Delete in brackets (no yank)" })
 map("v", "c", '"_c')
-map("n", "<Tab>", ":bnext<CR>", opts)
-map("n", "<S-Tab>", ":bprevious<CR>", opts)
+-- map("n", "<Tab>", ":bnext<CR>", opts)
+-- map("n", "<S-Tab>", ":bprevious<CR>", opts)
+
+map('n', "<Tab>", function() require("nvchad.tabufline").next() end)
+map("n", "<S-Tab>", function() require("nvchad.tabufline").prev() end)
+
+
+map("n", "<leader>tt", function() require("base46").toggle_transparency() end)
+
 
 local ok_oil, oil = pcall(require, "oil")
 if ok_oil then
