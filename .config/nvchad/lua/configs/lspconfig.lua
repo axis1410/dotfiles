@@ -1,6 +1,20 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls" }
-vim.lsp.enable(servers)
+-- LSP servers to enable (install these with :Mason or :MasonInstallAll)
+local servers = {
+  "ts_ls",
+  "pyright",
+  "ruff",
+  "html",
+  "jinja_lsp",
+  "cssls",
+  "dockerls",
+  "sqlls",
+  "terraformls",
+  "yamlls",
+  "tailwindcss",
+  "rust_analyzer",
+  "lua_ls",
+}
 
--- read :h vim.lsp.config for changing options of lsp servers 
+vim.lsp.enable(servers)
