@@ -1,17 +1,14 @@
 require "nvchad.mappings"
 
+local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-nomap("n", "<leader>n")
-nomap("n", "<leader>rn")
-nomap("n", "<leader>fz")
-nomap("n", "<leader>fb")
-nomap("n", "<leader>fa")
-nomap("n", "<leader>cm")
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
@@ -40,3 +37,10 @@ local ok_todo, _ = pcall(require, "todo-comments")
 if ok_todo then
   map("n", "<leader>td", ":TodoFzfLua keywords=TODO,FIX<CR>", { noremap = true })
 end
+
+nomap("n", "<leader>n")
+nomap("n", "<leader>rn")
+nomap("n", "<leader>fz")
+nomap("n", "<leader>fb")
+nomap("n", "<leader>fa")
+nomap("n", "<leader>cm")

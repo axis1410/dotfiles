@@ -30,37 +30,37 @@ M.base46 = {
   },
 }
 
-M.nvdash = {
-  load_on_startup = true,
-  buttons = {
-    { txt = "  Find File", keys = "ff", cmd = "FzfLua files" },
-    { txt = "󰈚  Recent Files", keys = "fo", cmd = "FzfLua oldfiles" },
-    { txt = "󰈭  Find Word", keys = "fw", cmd = "FzfLua live_grep_native" },
-    { txt = "  Themes", keys = "th", cmd = "FzfLua colorschemes" },
-    { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
-    { txt = "Q  Quit", keys = "q", cmd = "quit" },
-
-    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
-
-    {
-      txt = function()
-        local stats = require("lazy").stats()
-        return "  Loaded "
-          .. stats.loaded
-          .. "/"
-          .. stats.count
-          .. " plugins in "
-          .. math.floor(stats.startuptime)
-          .. " ms"
-      end,
-      hl = "NvDashFooter",
-      no_gap = true,
-      content = "fit",
-    },
-
-    { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
-  },
-}
+-- M.nvdash = {
+--   load_on_startup = true,
+--   buttons = {
+--     { txt = "  Find File", keys = "ff", cmd = "FzfLua files" },
+--     { txt = "󰈚  Recent Files", keys = "fo", cmd = "FzfLua oldfiles" },
+--     { txt = "󰈭  Find Word", keys = "fw", cmd = "FzfLua live_grep_native" },
+--     { txt = "  Themes", keys = "th", cmd = "FzfLua colorschemes" },
+--     { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+--     { txt = "Q  Quit", keys = "q", cmd = "quit" },
+--
+--     { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+--
+--     {
+--       txt = function()
+--         local stats = require("lazy").stats()
+--         return "  Loaded "
+--           .. stats.loaded
+--           .. "/"
+--           .. stats.count
+--           .. " plugins in "
+--           .. math.floor(stats.startuptime)
+--           .. " ms"
+--       end,
+--       hl = "NvDashFooter",
+--       no_gap = true,
+--       content = "fit",
+--     },
+--
+--     { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+--   },
+-- }
 
 M.lsp = {
   signature = true,

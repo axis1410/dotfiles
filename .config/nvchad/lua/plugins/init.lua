@@ -30,5 +30,6 @@ return {
   { import = "plugins.lazygit" },
   { import = "plugins.color-highlight" },
   { import = "plugins.disabled" },
+  { import = "plugins.dashboard" },
   { import = "nvchad.blink.lazyspec" },
 }
