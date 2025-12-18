@@ -31,5 +31,7 @@ return {
   { import = "plugins.color-highlight" },
   { import = "plugins.disabled" },
   { import = "plugins.dashboard" },
+  { import = "plugins.trouble" },
+
   -- { import = "nvchad.blink.lazyspec" },
 }

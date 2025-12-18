@@ -36,6 +36,10 @@ map("i", "<C-Space>", function()
   require("cmp").complete()
 end, { desc = "Trigger completion" })
 
+-- map("i", "<C-Space>", function()
+--   require("blink.cmp").complete()
+-- end, { desc = "Blink: trigger completion" })
+
 local ok_todo, _ = pcall(require, "todo-comments")
 if ok_todo then
   map("n", "<leader>td", ":TodoFzfLua keywords=TODO,FIX<CR>", { noremap = true })
@@ -47,3 +51,4 @@ nomap("n", "<leader>fz")
 nomap("n", "<leader>fb")
 nomap("n", "<leader>fa")
 nomap("n", "<leader>cm")
+nomap("n", "<leader>x")

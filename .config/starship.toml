@@ -1,64 +1,33 @@
-format = """$directory$python$git_branch$git_status$character"""
-right_format = """$cmd_duration"""
+format = "$directory$git_branch$git_status$python$cmd_duration$time$character"
 add_newline = false
 
-
 [character]
-success_symbol = "❯ "
-error_symbol = "❯ "
-vicmd_symbol = "❮ "
-
+success_symbol = "❯"
+error_symbol = "❯"
 
 [directory]
-style = "bold cyan"
 truncation_length = 3
-truncation_symbol = "…/"
-format = "[$path]($style) "
-
-
-[python]
-format = "($virtualenv) "
-style = "dimmed green"
-pyenv_version_name = false
-python_binary = "python"
-detect_extensions = []
-detect_files = []
-detect_folders = [".venv", "venv", "env"]
-
+style = "bold cyan"
 
 [git_branch]
-symbol = ""
-style = "bold yellow"
-format = "on [$branch]($style) "
+symbol = " "
+style = "bold purple"
 
 [git_status]
-format = "([$all_status$ahead_behind]($style)) "
-style = "bold red"
-conflicted = "!"
-ahead = "↑${count}"
-behind = "↓${count}"
-diverged = "⇕"
-untracked = "?"
-stashed = "S"
-modified = "~"
-staged = "+"
-renamed = "»"
-deleted = "✘"
+style = "purple"
+format = "([$all_status$ahead_behind]($style) )"
 
+[python]
+format = "[( $virtualenv)](yellow) "
+detect_extensions = []
+detect_files = []
+detect_folders = []
 
 [cmd_duration]
-min_time = 500
-format = "took [$duration]($style)"
-style = "dimmed yellow"
+min_time = 200
+format = "[(⏱ $duration)](bright-black) "
 
-
-[shell]
-disabled = true
-[username]
-disabled = true
-[hostname]
-disabled = true
-[package]
-disabled = true
 [time]
-disabled = true
+disabled = false
+format = "[( $time)](bright-black) "
+time_format = "%H:%M:%S"
