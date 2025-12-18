@@ -32,8 +32,11 @@ if ok_fzf then
   map("n", "<leader>/", fzf.blines, { desc = "[/] Fuzzily search in current buffer" })
 end
 
-local ok_todo, _ = pcall(require, "todo-comments")
+map("i", "<C-Space>", function()
+  require("cmp").complete()
+end, { desc = "Trigger completion" })
 
+local ok_todo, _ = pcall(require, "todo-comments")
 if ok_todo then
   map("n", "<leader>td", ":TodoFzfLua keywords=TODO,FIX<CR>", { noremap = true })
 end
