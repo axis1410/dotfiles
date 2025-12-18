@@ -1,6 +1,5 @@
 require("nvchad.configs.lspconfig").defaults()
 
--- LSP servers to enable (install these with :Mason or :MasonInstallAll)
 local servers = {
   "ts_ls",
   "pyright",
@@ -16,18 +15,6 @@ local servers = {
   "rust_analyzer",
   "lua_ls",
 }
-
 vim.lsp.enable(servers)
 
-vim.lsp.config("pyright", {
-  root_markers = { "pyproject.toml", "pyrightconfig.json", ".git" },
-  settings = {
-    python = {
-      analysis = {
-        diagnosticSeverityOverrides = {
-          reportUnusedFunction = "none",
-        },
-      },
-    },
-  },
-})
+-- read :h vim.lsp.config for changing options of lsp servers

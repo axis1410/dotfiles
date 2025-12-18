@@ -1,8 +1,14 @@
 require "nvchad.options"
 
--- add yours here!
+local o = vim.o
+local g = vim.g
 
-local opt = vim.opt
-opt.number = true
-opt.relativenumber = true
-vim.o.showtabline = 2
+o.cursorlineopt = "both"
+o.relativenumber = true
+o.smartcase = true
+o.colorcolumn = "120"
+o.termguicolors = true
+o.hlsearch = false
+
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1

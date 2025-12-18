@@ -1,85 +1,19 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 local nomap = vim.keymap.del
-
-
-nomap("n", "<C-N>")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+nomap("n", "<leader>n")
+nomap("n", "<leader>rn")
+nomap("n", "<leader>fz")
+nomap("n", "<leader>fb")
+nomap("n", "<leader>fa")
+nomap("n", "<leader>cm")
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
-local opts = { noremap = true, silent = true }
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-map("n", "<C-d>", "<C-d>zz", opts)
-map("n", "<C-u>", "<C-u>zz", opts)
-map({ "n", "i", "s" }, "<C-f>", function()
-  local ok, lsp = pcall(require, "noice.lsp")
-  if ok and lsp.scroll(4) then
-    return ""
-  end
-  if vim.api.nvim_get_mode().mode == "n" then
-    return "<C-f>zz"
-  end
-  return "<C-f>"
-end, { silent = true, expr = true, desc = "Scroll hover forward" })
-
-map({ "n", "i", "s" }, "<C-b>", function()
-  local ok, lsp = pcall(require, "noice.lsp")
-  if ok and lsp.scroll(-4) then
-    return ""
-  end
-  if vim.api.nvim_get_mode().mode == "n" then
-    return "<C-b>zz"
-  end
-  return "<C-b>"
-end, { silent = true, expr = true, desc = "Scroll hover backward" })
-map("n", "}", "}zz", opts)
-map("n", "{", "{zz", opts)
-map("n", "<leader>y", [["+y]], { desc = "yank to system clipboard" })
-map("n", "dd", [["_dd]])
-map("i", "jj", "<Esc>")
-map("n", "d", '"_d', { noremap = true })
-map("n", "D", '"_D', { noremap = true })
-map("n", "x", '"_x', { noremap = true })
-map("n", "X", '"_X', { noremap = true })
-map("v", "d", '"_d', { noremap = true })
-map("v", "D", '"_D', { noremap = true })
-map("n", "<leader>d", "d", { noremap = true, desc = "Cut (delete to clipboard)" })
-map("v", "<leader>d", "d", { noremap = true, desc = "Cut (delete to clipboard)" })
-
-map("n", "ciw", '"_ciw', { desc = "Change in word (no yank)" })
-map("n", 'ci"', '"_ci"', { desc = "Change in quotes (no yank)" })
-map("n", "ci'", "\"_ci'", { desc = "Change in single quotes (no yank)" })
-map("n", "ci(", '"_ci(', { desc = "Change in parentheses (no yank)" })
-map("n", "ci)", '"_ci)', { desc = "Change in parentheses (no yank)" })
-map("n", "ci{", '"_ci{', { desc = "Change in braces (no yank)" })
-map("n", "ci}", '"_ci}', { desc = "Change in braces (no yank)" })
-map("n", "ci[", '"_ci[', { desc = "Change in brackets (no yank)" })
-map("n", "ci]", '"_ci]', { desc = "Change in brackets (no yank)" })
-
-map("n", "diw", '"_diw', { desc = "Delete in word (no yank)" })
-map("n", 'di"', '"_di"', { desc = "Delete in quotes (no yank)" })
-map("n", "di'", "\"_di'", { desc = "Delete in single quotes (no yank)" })
-map("n", "di(", '"_di(', { desc = "Delete in parentheses (no yank)" })
-map("n", "di{", '"_di{', { desc = "Delete in braces (no yank)" })
-map("n", "di[", '"_di[', { desc = "Delete in brackets (no yank)" })
-map("v", "c", '"_c')
--- map("n", "<Tab>", ":bnext<CR>", opts)
--- map("n", "<S-Tab>", ":bprevious<CR>", opts)
-
-map('n', "<Tab>", function() require("nvchad.tabufline").next() end)
-map("n", "<S-Tab>", function() require("nvchad.tabufline").prev() end)
-
-
-map("n", "<leader>tt", function() require("base46").toggle_transparency() end)
-
 
 local ok_oil, oil = pcall(require, "oil")
 if ok_oil then
@@ -99,14 +33,10 @@ if ok_fzf then
   map("n", "<leader>f.", fzf.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
   map("n", "<leader><leader>", fzf.buffers, { desc = "[ ] Find existing buffers" })
   map("n", "<leader>/", fzf.blines, { desc = "[/] Fuzzily search in current buffer" })
-  map("n", "gd", fzf.lsp_definitions, { desc = "[G]oto [D]efinition" })
-  map("n", "gr", fzf.lsp_references, { desc = "[G]oto [R]eferences" })
-  map("n", "gI", fzf.lsp_implementations, { desc = "[G]oto [I]mplementation" })
-  map("n", "<leader>D", fzf.lsp_typedefs, { desc = "Type [D]efinition" })
-  map("n", "<leader>ds", fzf.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
-  map("n", "<leader>ws", fzf.lsp_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
 end
 
-map("n", "<leader>bd", function() require("mini.bufremove").delete(0, false) end,
-  { desc = "Delete Buffer (keep window)" })
-map("n", "<leader>bD", function() require("mini.bufremove").delete(0, true) end, { desc = "Delete Buffer (keep window)" })
+local ok_todo, _ = pcall(require, "todo-comments")
+
+if ok_todo then
+  map("n", "<leader>td", ":TodoFzfLua keywords=TODO,FIX<CR>", { noremap = true })
+end

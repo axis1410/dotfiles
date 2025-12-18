@@ -30,6 +30,7 @@ return {
   },
   auto_install = true,
   highlight = {
+    use_languagetree = true,
     enable = true,
     additional_vim_regex_highlighting = { "ruby" },
   },
