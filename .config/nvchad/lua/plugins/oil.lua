@@ -66,6 +66,7 @@ return {
               "^node_modules$",
               "^__pycache__$",
               "^%.DS_Store$",
+              "%.egg%-info$",
             }
 
             for _, pattern in ipairs(hidden_patterns) do

@@ -32,6 +32,7 @@ return {
   { import = "plugins.disabled" },
   { import = "plugins.dashboard" },
   { import = "plugins.trouble" },
+  { import = "plugins.cursorline" },
 
   -- { import = "nvchad.blink.lazyspec" },
 }
