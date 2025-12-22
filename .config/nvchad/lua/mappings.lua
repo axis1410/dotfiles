@@ -12,6 +12,10 @@ map("n", "<C-u>", "<C-u>zz", opts)
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+map("n", "<leader>tt", function()
+  require("base46").toggle_transparency()
+end)
+
 local ok_oil, oil = pcall(require, "oil")
 if ok_oil then
   map("n", "<leader>e", oil.open, { desc = "Open Oil file explorer" })
