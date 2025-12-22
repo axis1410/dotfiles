@@ -9,13 +9,16 @@ position = { x = 0, y = 0 }
 decorations = "Buttonless"
 dynamic_padding = true
 blur = true
-opacity = 0.9
+opacity = 0.95
 decorations_theme_variant = "Dark"
 startup_mode = "SimpleFullscreen"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Mono" }
 size = 12
+
+# normal = { family = "MonaSpiceNe Nerd Font Mono" }
+# normal = { family = "MonoLisa Nerd Font Mono" }
 
 [mouse]
 hide_when_typing = true
