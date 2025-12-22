@@ -1,5 +1,7 @@
 [general]
+import = ["~/.config/alacritty/themes/themes/one_dark.toml"]
 live_config_reload = true
+
 
 [window]
 dimensions = { columns = 200, lines = 50 }
@@ -20,32 +22,3 @@ hide_when_typing = true
 
 [selection]
 save_to_clipboard = true
-
-
-[colors.primary]
-background = '#1c2023'
-foreground = '#c7ccd1'
-
-[colors.cursor]
-text = '#1c2023'
-cursor = '#c7ccd1'
-
-[colors.normal]
-black = '#1c2023'
-red = '#c7ae95'
-green = '#95c7ae'
-yellow = '#aec795'
-blue = '#ae95c7'
-magenta = '#c795ae'
-cyan = '#95aec7'
-white = '#c7ccd1'
-
-[colors.bright]
-black = '#747c84'
-red = '#c7ae95'
-green = '#95c7ae'
-yellow = '#aec795'
-blue = '#ae95c7'
-magenta = '#c795ae'
-cyan = '#95aec7'
-white = '#f3f4f5'
