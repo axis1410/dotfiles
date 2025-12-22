@@ -35,5 +35,5 @@ return {
   { import = "plugins.cursorline" },
   { import = "plugins.log-highlight" },
 
-  { import = "nvchad.blink.lazyspec" },
+  -- { import = "nvchad.blink.lazyspec" },
 }
