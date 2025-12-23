@@ -4,8 +4,8 @@ local lsp = vim.lsp
 
 local servers = {
   "ts_ls",
-  -- "pyright",
-  "basedpyright",
+  "pyright",
+  -- "basedpyright",
   "ruff",
   "html",
   "jinja_lsp",
