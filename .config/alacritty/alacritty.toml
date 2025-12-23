@@ -13,11 +13,13 @@ dynamic_padding = true
 blur = true
 opacity = 0.95
 decorations_theme_variant = "Dark"
-startup_mode = "Maximized"
+startup_mode = "SimpleFullScreen"
+# startup_mode = "Maximized"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Mono" }
 size = 12
+# offset = { x = 0, y = 1 }
 
 # normal = { family = "MonaSpiceNe Nerd Font Mono" }
 # normal = { family = "MonoLisa Nerd Font Mono" }
