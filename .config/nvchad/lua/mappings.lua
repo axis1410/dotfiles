@@ -21,6 +21,17 @@ if ok_oil then
   map("n", "<leader>e", oil.open, { desc = "Open Oil file explorer" })
 end
 
+local ok_zen, zen = pcall(require, "zen-mode")
+if ok_zen then
+  map("n", "<leader>zz", function()
+    zen.toggle {
+      window = {
+        width = 0.80,
+      },
+    }
+  end, opts)
+end
+
 local ok_fzf, fzf = pcall(require, "fzf-lua")
 if ok_fzf then
   map("n", "<leader>fh", fzf.help_tags, { desc = "[S]earch [H]elp" })

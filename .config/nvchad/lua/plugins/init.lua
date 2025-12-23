@@ -34,6 +34,7 @@ return {
   { import = "plugins.trouble" },
   { import = "plugins.cursorline" },
   { import = "plugins.log-highlight" },
+  -- { import = "plugins.zen" },
 
   -- { import = "nvchad.blink.lazyspec" },
 }
