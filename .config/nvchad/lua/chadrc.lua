@@ -63,7 +63,7 @@ M.base46 = {
 -- }
 
 M.lsp = {
-  signature = true,
+  signature = false,
 }
 
 M.ui = {
