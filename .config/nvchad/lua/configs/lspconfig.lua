@@ -4,11 +4,10 @@ local lsp = vim.lsp
 
 local servers = {
   "ts_ls",
-  "pyright",
-  -- "basedpyright",
   "ruff",
   "html",
   "jinja_lsp",
+  "basedpyright",
   "cssls",
   "dockerls",
   "sqlls",
@@ -28,7 +27,6 @@ lsp.config("ruff", {
         return
       end
       if client.name == "ruff" then
-        -- Disable hover in favor of Pyright
         client.server_capabilities.hoverProvider = false
       end
     end,
@@ -40,6 +38,18 @@ lsp.config("ruff", {
   },
 })
 
+lsp.config("basedpyright", {
+  filetypes = { "python" },
+  single_file_support = true,
+  settings = {
+    basedpyright = {
+      analysis = {
+        autoImportCompletions = true,
+        typeCheckingMode = "off",
+      },
+    },
+  },
+})
+
 vim.lsp.enable(servers)
 
--- read :h vim.lsp.config for changing options of lsp servers

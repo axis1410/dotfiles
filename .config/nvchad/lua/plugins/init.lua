@@ -20,6 +20,8 @@ return {
     end,
   },
 
+  { import = "plugins.autotag" },
+
   { import = "plugins.oil" },
   { import = "plugins.mini" },
   { import = "plugins.fzf" },
@@ -36,5 +38,5 @@ return {
   { import = "plugins.log-highlight" },
   -- { import = "plugins.zen" },
 
-  -- { import = "nvchad.blink.lazyspec" },
+  { import = "nvchad.blink.lazyspec" },
 }
