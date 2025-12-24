@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/themes/ashes_dark.toml"]
+import = ["~/.config/alacritty/themes/themes/tokyo_night.toml"]
 live_config_reload = true
 
 [env]
