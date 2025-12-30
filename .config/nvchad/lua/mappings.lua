@@ -5,10 +5,10 @@ local map = vim.keymap.set
 local nomap = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+map("i", "jj", "<ESC>")
 
-map("n", "<C-d>", "<C-d>zz", opts)
-map("n", "<C-u>", "<C-u>zz", opts)
+-- map("n", "<C-d>", "<C-d>zz", opts)
+-- map("n", "<C-u>", "<C-u>zz", opts)
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
@@ -51,9 +51,9 @@ map("i", "<C-Space>", function()
   require("cmp").complete()
 end, { desc = "Trigger completion" })
 
--- map("i", "<C-Space>", function()
---   require("blink.cmp").complete()
--- end, { desc = "Blink: trigger completion" })
+map("i", "<C-Space>", function()
+  require("blink.cmp").complete()
+end, { desc = "Blink: trigger completion" })
 
 local ok_todo, _ = pcall(require, "todo-comments")
 if ok_todo then
