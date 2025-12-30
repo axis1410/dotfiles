@@ -7,7 +7,7 @@ local servers = {
   "ruff",
   "html",
   "jinja_lsp",
-  "basedpyright",
+  "pyright",
   "cssls",
   "dockerls",
   "sqlls",
@@ -52,4 +52,3 @@ lsp.config("basedpyright", {
 })
 
 vim.lsp.enable(servers)
-
