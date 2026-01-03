@@ -6,22 +6,15 @@ return {
     opts = require "configs.conform",
   },
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require "configs.treesitter"
-    end,
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   config = function()
+  --     require "configs.lspconfig"
+  --   end,
+  -- },
 
   { import = "plugins.autotag" },
-
+  { import = "plugins.treesitter" },
   { import = "plugins.oil" },
   { import = "plugins.mini" },
   { import = "plugins.fzf" },
@@ -39,4 +32,5 @@ return {
   -- { import = "plugins.zen" },
 
   { import = "nvchad.blink.lazyspec" },
+  { import = "plugins.lsp" },
 }

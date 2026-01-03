@@ -1,4 +1,7 @@
 return {
+
+    "nvim-treesitter/nvim-treesitter",
+    build=":TSUpdate",
   ensure_installed = {
     "lua",
     "python",
