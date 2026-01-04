@@ -42,6 +42,8 @@ require("lazy").setup({
 	require("plugins.transparent"),
 	require("plugins.log_highlight"),
 	require("plugins.fzf"),
+
+	checker = { enabled = true },
 })
 
 local success, theme = pcall(require, "core.theme")

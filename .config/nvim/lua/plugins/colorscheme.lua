@@ -19,7 +19,6 @@ return {
 	},
 	{
 		"axis1410/cursor-dark.nvim",
-		branch = "fix-cursor-visibility",
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -30,6 +29,20 @@ return {
 			})
 		end,
 	},
+
+	-- {
+	-- 	"ydkulks/cursor-dark.nvim",
+	-- 	-- branch = "fix/broken-navigation-binds",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("cursor-dark").setup({
+	-- 			-- style = "dark-midnight",
+	-- 			-- transparent = false,
+	-- 			-- dashboard = true,
+	-- 		})
+	-- 	end,
+	-- },
 
 	-- { "neanias/everforest-nvim", lazy = false },
 	-- { "decaycs/decay.nvim", lazy = false },
