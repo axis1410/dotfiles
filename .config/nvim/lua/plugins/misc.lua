@@ -23,11 +23,20 @@ return {
 		opts = {},
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
+		"brenoprata10/nvim-highlight-colors",
 		config = function()
-			require("colorizer").setup()
+			require("nvim-highlight-colors").setup({
+				render = "virtual",
+				enable_tailwind = true,
+			})
 		end,
 	},
+	-- {
+	-- 	"norcalli/nvim-colorizer.lua",
+	-- 	config = function()
+	-- 		require("colorizer").setup()
+	-- 	end,
+	-- },
 	{
 		"sindrets/diffview.nvim",
 	},

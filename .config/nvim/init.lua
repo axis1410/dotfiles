@@ -1,6 +1,7 @@
 require("core.globals")
 require("core.options")
 require("core.keymaps")
+require("core.autocmd")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -12,34 +13,24 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 vim.opt.rtp:prepend(lazypath)
-
 vim.opt.termguicolors = true
-
 vim.loader.enable()
 
 require("lazy").setup({
 	require("plugins.statusline"),
-	-- require("plugins.indentmini"),
-	-- require("plugins.indent-blankline"),
 	require("plugins.colorscheme"),
-	-- require("plugins.staline"),
 	require("plugins.treesitter"),
 	require("plugins.lsp"),
 	require("plugins.formatting"),
 	require("plugins.autocomplete"),
 	require("plugins.gitsigns"),
-	-- require("plugins.plenary"),
-	-- require("plugins.harpoon"),
 	require("plugins.flash"),
 	require("plugins.trouble"),
 	require("plugins.snacks"),
 	require("plugins.explorer"),
-	-- require("plugins.yazi"),
-	-- require("plugins.oil"),
 	require("plugins.misc"),
 	require("plugins.tw"),
 	require("plugins.web-dev"),
-	-- require("plugins.incline"),
 	require("plugins.bufferline"),
 	require("plugins.noice"),
 	require("plugins.mini"),
@@ -47,18 +38,15 @@ require("lazy").setup({
 	require("plugins.lazygit"),
 	require("plugins.diffview"),
 	require("plugins.markdown"),
-	-- require("plugins.markdown-viewer"),
 	require("plugins.dashboard"),
 	require("plugins.transparent"),
 	require("plugins.log_highlight"),
 	require("plugins.fzf"),
-	-- require("plugins.neorg"),
-	-- require("plugins.telescope"),
-	-- require("plugins.motion"),
-	-- require("plugins.which-key"),
 })
 
 local success, theme = pcall(require, "core.theme")
 if success and theme then
 	theme.set_theme()
 end
+
+pcall(require, "core.highlights")

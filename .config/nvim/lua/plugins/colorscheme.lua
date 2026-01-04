@@ -18,14 +18,15 @@ return {
 		end,
 	},
 	{
-		"ydkulks/cursor-dark.nvim",
+		"axis1410/cursor-dark.nvim",
+		branch = "fix-cursor-visibility",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			require("cursor-dark").setup({
-				style = "dark-midnight",
-				transparent = false,
-				dashboard = true,
+				-- style = "dark-midnight",
+				-- transparent = false,
+				-- dashboard = true,
 			})
 		end,
 	},

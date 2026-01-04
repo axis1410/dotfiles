@@ -29,21 +29,21 @@ return {
 	},
 
 	-- Tailwind colors inline
-	{
-		"NvChad/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup({
-				filetypes = {
-					"*",
-					"!vim",
-				},
-				user_default_options = {
-					tailwind = true,
-					mode = "background",
-					css = true,
-					css_fn = true,
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"NvChad/nvim-colorizer.lua",
+	-- 	config = function()
+	-- 		require("colorizer").setup({
+	-- 			filetypes = {
+	-- 				"*",
+	-- 				"!vim",
+	-- 			},
+	-- 			user_default_options = {
+	-- 				tailwind = true,
+	-- 				mode = "background",
+	-- 				css = true,
+	-- 				css_fn = true,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 }
