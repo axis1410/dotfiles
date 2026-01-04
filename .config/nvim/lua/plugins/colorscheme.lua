@@ -17,6 +17,18 @@ return {
 			vim.g.edge_dim_inactive_windows = 1
 		end,
 	},
+	{
+		"ydkulks/cursor-dark.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("cursor-dark").setup({
+				style = "dark-midnight",
+				transparent = false,
+				dashboard = true,
+			})
+		end,
+	},
 
 	-- { "neanias/everforest-nvim", lazy = false },
 	-- { "decaycs/decay.nvim", lazy = false },
