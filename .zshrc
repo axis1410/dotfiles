@@ -639,3 +639,4 @@ fh() {
   eval "$(history | fzf | sed 's/^ *[0-9]* *//')"
 }
 alias nvchad='NVIM_APPNAME=nvchad nvim'
+alias nvims='NVIM_APPNAME=nvims nvim'
