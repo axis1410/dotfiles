@@ -3,9 +3,9 @@ return {
 	event = "VimEnter",
 	dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
 	config = function()
-		local fzf = require("fzf-lua")
+		local fzf = require "fzf-lua"
 
-		fzf.setup({
+		fzf.setup {
 			defaults = {
 				prompt = "  ",
 				file_ignore_patterns = { "node_modules", "venv", ".git" },
@@ -52,9 +52,8 @@ return {
 			fzf_colors = {
 				true,
 			},
-		})
+		}
 
-		-- Keymaps (mimicking your Telescope setup)
 		vim.keymap.set("n", "<leader>fh", fzf.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>fk", fzf.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "[S]earch [F]iles" })
@@ -66,9 +65,8 @@ return {
 		vim.keymap.set("n", "<leader>f.", fzf.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", fzf.buffers, { desc = "[ ] Find existing buffers" })
 		vim.keymap.set("n", "<leader>/", fzf.blines, { desc = "[/] Fuzzily search in current buffer" })
-
 		vim.keymap.set("n", "<leader>th", function()
-			fzf.colorschemes({
+			fzf.colorschemes {
 				winopts = {
 					preview = {
 						vertical = "down:70%",
@@ -81,20 +79,19 @@ return {
 						local colorscheme = selected[1]
 						vim.cmd.colorscheme(colorscheme)
 
-						-- Persist the colorscheme selection
-						local theme_file = vim.fn.stdpath("config") .. "/lua/core/theme.lua"
+						local theme_file = vim.fn.stdpath "config" .. "/lua/core/theme.lua"
 						local file = io.open(theme_file, "w")
 						if file then
-							file:write("local M = {}\n\n")
-							file:write("M.set_theme = function()\n")
+							file:write "local M = {}\n\n"
+							file:write "M.set_theme = function()\n"
 							file:write(string.format('    vim.cmd.colorscheme("%s")\n', colorscheme))
-							file:write("end\n\n")
-							file:write("return M")
+							file:write "end\n\n"
+							file:write "return M"
 							file:close()
 						end
 					end,
 				},
-			})
+			}
 		end, { desc = "Select [Th]eme" })
 	end,
 }
