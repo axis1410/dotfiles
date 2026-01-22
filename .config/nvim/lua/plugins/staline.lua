@@ -4,7 +4,7 @@ return {
 		"lewis6991/gitsigns.nvim",
 	},
 	config = function()
-		require("stabline").setup({
+		require("stabline").setup {
 			font_active = "none",
 			stab_start = "  %#Identifier#  ",
 			stab_bg = "none",
@@ -12,7 +12,7 @@ return {
 			inactive_fg = "#757877",
 			-- fg = "#95c561",
 			fg = "#cacccb",
-		})
+		}
 
 		-- require("staline").setup({
 		-- 	sections = {

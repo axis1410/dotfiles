@@ -18,6 +18,7 @@ vim.loader.enable()
 
 require("lazy").setup {
 	require "plugins.statusline",
+	require "plugins.staline",
 	require "plugins.colorscheme",
 	require "plugins.treesitter",
 	require "plugins.lsp",
