@@ -88,6 +88,7 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     local servers = {
+      gopls = {},
       ts_ls = {
         filetypes = {
           "ts",

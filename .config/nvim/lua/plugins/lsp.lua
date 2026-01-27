@@ -10,13 +10,13 @@ return {
 		-- "hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
-		vim.diagnostic.config({
+		vim.diagnostic.config {
 			virtual_text = true,
 			signs = true,
 			underline = true,
 			update_in_insert = false,
 			float = { source = "always" },
-		})
+		}
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -59,12 +59,12 @@ return {
 						group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
 						callback = function(event2)
 							vim.lsp.buf.clear_references()
-							vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+							vim.api.nvim_clear_autocmds { group = "kickstart-lsp-highlight", buffer = event2.buf }
 						end,
 					})
 				end
 
-				local fzf = require("fzf-lua")
+				local fzf = require "fzf-lua"
 				map("gd", fzf.lsp_definitions, "[G]oto [D]efinition")
 				map("gr", fzf.lsp_references, "[G]oto [R]eferences")
 				map("gI", fzf.lsp_implementations, "[G]oto [I]mplementation")
@@ -78,7 +78,7 @@ return {
 
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 					map("<leader>tH", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
 					end, "[T]oggle Inlay [H]ints")
 				end
 			end,
@@ -99,7 +99,7 @@ return {
 				"*.go",
 			},
 			callback = function()
-				vim.lsp.buf.format({ async = false })
+				vim.lsp.buf.format { async = false }
 			end,
 		})
 
@@ -125,6 +125,9 @@ return {
 			sqlls = {},
 			terraformls = {},
 			yamlls = {},
+			golines = {},
+			gofumpt = {},
+			goimports = {},
 			tailwindcss = {
 				filetypes = {
 					"html",
@@ -193,12 +196,13 @@ return {
 			"prettier",
 			"mypy",
 			"taplo",
+			"gopls",
 			-- "basedpyright",
 			"pyright",
 		})
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+		require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
-		require("mason-lspconfig").setup({
+		require("mason-lspconfig").setup {
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
@@ -207,6 +211,6 @@ return {
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
-		})
+		}
 	end,
 }
