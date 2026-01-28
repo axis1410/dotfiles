@@ -1,75 +1,158 @@
 return {
-	"stevearc/oil.nvim",
-	dependencies = {
-		{ "nvim-mini/mini.icons", opts = {} },
-	},
-	lazy = false,
-	config = function()
-		local oil = require("oil")
+  {
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    lazy = false,
+    config = function()
+      local oil = require "oil"
 
-		function _G.get_oil_winbar()
-			local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
-			local dir = require("oil").get_current_dir(bufnr)
-			if dir then
-				return vim.fn.fnamemodify(dir, ":~")
-			else
-				return vim.api.nvim_buf_get_name(0)
-			end
-		end
+      oil.setup {
+        default_file_explorer = true,
+        columns = {
+          "icon",
+        },
+        buf_options = {
+          buflisted = false,
+          bufhidden = "hide",
+        },
+        win_options = {
+          wrap = false,
+          signcolumn = "yes:2",
+          cursorcolumn = false,
+          foldcolumn = "0",
+          spell = false,
+          list = false,
+          conceallevel = 3,
+          concealcursor = "nvic",
+        },
+        delete_to_trash = false,
+        skip_confirm_for_simple_edits = false,
+        prompt_save_on_select_new_entry = true,
+        cleanup_delay_ms = 2000,
+        lsp_file_methods = {
+          enabled = true,
+          timeout_ms = 1000,
+          autosave_changes = false,
+        },
+        constrain_cursor = "editable",
+        watch_for_changes = false,
+        keymaps = {
+          ["g?"] = { "actions.show_help", mode = "n" },
+          ["<CR>"] = "actions.select",
+          ["<C-s>"] = { "actions.select", opts = { vertical = true } },
+          ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
+          ["<C-t>"] = { "actions.select", opts = { tab = true } },
+          ["<C-p>"] = "actions.preview",
+          ["<C-c>"] = { "actions.close", mode = "n" },
+          ["<C-l>"] = "actions.refresh",
+          ["-"] = { "actions.parent", mode = "n" },
+          ["_"] = { "actions.open_cwd", mode = "n" },
+          ["`"] = { "actions.cd", mode = "n" },
+          ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+          ["gs"] = { "actions.change_sort", mode = "n" },
+          ["gx"] = "actions.open_external",
+          ["g."] = { "actions.toggle_hidden", mode = "n" },
+          ["g\\"] = { "actions.toggle_trash", mode = "n" },
+        },
+        use_default_keymaps = true,
+        view_options = {
+          show_hidden = true,
+          is_hidden_file = function(name, _)
+            return name:match "^%." ~= nil
+          end,
+          is_always_hidden = function(name, _)
+            local hidden_patterns = {
+              "^node_modules$",
+              "^__pycache__$",
+              "^%.DS_Store$",
+              "%.egg%-info$",
+            }
 
-		oil.setup({
-			win_options = {
-				signcolumn = "yes:2",
-				winbar = "%!v:lua.get_oil_winbar()",
-			},
+            for _, pattern in ipairs(hidden_patterns) do
+              if name:match(pattern) then
+                return true
+              end
+            end
 
-			view_options = {
-				show_hidden = true,
-				is_hidden_file = function(name, _)
-					return name:match("^%.") ~= nil
-				end,
-				is_always_hidden = function(name, _)
-					local hidden_patterns = {
-						"^node_modules$",
-						"^__pycache__$",
-						"^%.DS_Store$",
-					}
-
-					for _, pattern in ipairs(hidden_patterns) do
-						if name:match(pattern) then
-							return true
-						end
-					end
-
-					return false
-				end,
-				natural_order = "fast",
-				case_insensitive = false,
-				sort = {
-					{ "type", "asc" },
-					{ "name", "asc" },
-				},
-			},
-
-			preview_win = {
-				update_on_cursor_moved = true,
-				preview_method = "fast_scratch",
-				disable_preview = function(_)
-					return false
-				end,
-			},
-
-			watch_for_changes = true,
-			default_file_explorer = true,
-			constrain_cursor = "editable",
-
-			float = {
-				preview_split = "right",
-			},
-		})
-
-		vim.keymap.set("n", "<leader>e", function()
-			oil.open()
-		end, { desc = "Open Oil file explorer" })
-	end,
+            return false
+          end,
+          natural_order = "fast",
+          case_insensitive = false,
+          sort = {
+            { "type", "asc" },
+            { "name", "asc" },
+          },
+          highlight_filename = function(_, _, _, _)
+            return nil
+          end,
+        },
+        extra_scp_args = {},
+        git = {
+          add = function(_)
+            return false
+          end,
+          mv = function(_, _)
+            return false
+          end,
+          rm = function(_)
+            return false
+          end,
+        },
+        float = {
+          padding = 2,
+          max_width = 0,
+          max_height = 0,
+          border = "rounded",
+          win_options = {
+            winblend = 0,
+          },
+          get_win_title = nil,
+          preview_split = "auto",
+          override = function(conf)
+            return conf
+          end,
+        },
+        preview_win = {
+          update_on_cursor_moved = true,
+          preview_method = "fast_scratch",
+          disable_preview = function(_)
+            return false
+          end,
+          win_options = {},
+        },
+        confirmation = {
+          max_width = 0.9,
+          min_width = { 40, 0.4 },
+          width = nil,
+          max_height = 0.9,
+          min_height = { 5, 0.1 },
+          height = nil,
+          border = "rounded",
+          win_options = {
+            winblend = 0,
+          },
+        },
+        progress = {
+          max_width = 0.9,
+          min_width = { 40, 0.4 },
+          width = nil,
+          max_height = { 10, 0.9 },
+          min_height = { 5, 0.1 },
+          height = nil,
+          border = "rounded",
+          minimized_border = "none",
+          win_options = {
+            winblend = 0,
+          },
+        },
+        ssh = {
+          border = "rounded",
+        },
+        keymaps_help = {
+          border = "rounded",
+        },
+      }
+    end,
+  },
 }

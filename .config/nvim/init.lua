@@ -1,55 +1,38 @@
-require "core.globals"
-require "core.options"
-require "core.keymaps"
-require "core.autocmd"
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
+-- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
-	if vim.v.shell_error ~= 0 then
-		error("Error cloning lazy.nvim:\n" .. out)
-	end
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
+
 vim.opt.rtp:prepend(lazypath)
-vim.opt.termguicolors = true
-vim.loader.enable()
 
-require("lazy").setup {
-	require "plugins.statusline",
-	require "plugins.staline",
-	require "plugins.colorscheme",
-	require "plugins.treesitter",
-	require "plugins.lsp",
-	require "plugins.formatting",
-	require "plugins.autocomplete",
-	require "plugins.gitsigns",
-	require "plugins.flash",
-	require "plugins.trouble",
-	require "plugins.snacks",
-	require "plugins.explorer",
-	require "plugins.misc",
-	require "plugins.tw",
-	require "plugins.web-dev",
-	require "plugins.bufferline",
-	require "plugins.noice",
-	require "plugins.mini",
-	require "plugins.tabout",
-	require "plugins.lazygit",
-	require "plugins.diffview",
-	require "plugins.markdown",
-	require "plugins.dashboard",
-	require "plugins.transparent",
-	require "plugins.log_highlight",
-	require "plugins.fzf",
+local lazy_config = require "configs.lazy"
 
-	checker = { enabled = true },
-}
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
 
-local success, theme = pcall(require, "core.theme")
-if success and theme then
-	theme.set_theme()
-end
+  { import = "plugins" },
+}, lazy_config)
 
-pcall(require, "core.highlights")
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "options"
+require "autocmds"
+require "globals"
+
+vim.schedule(function()
+  require "mappings"
+end)
