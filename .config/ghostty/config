@@ -1,14 +1,14 @@
-# font-family = MonaspiceNe Nerd Font Mono
+font-family = MonaspiceNe Nerd Font Mono
 # font-style-bold = MonaspiceNe Nerd Font Mono Bold
 # font-style-italic = MonaspiceNe Nerd Font Mono Italic
 # font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
-font-family = MonoLisa Nerd Font Mono
+# font-family = MonoLisa Nerd Font Mono
 # Only to be used with MonoLisa
-adjust-cell-height = 3
+# adjust-cell-height = 3
 
 
-# font-family = JetBrains Mono
+# font-family = JetBrainsMono Nerd Font Mono
 
 
 # font-size = 16
@@ -18,7 +18,7 @@ font-thicken = true
 font-thicken-strength = 255
 
 
-theme = "Cutie Pro"
+# theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 # theme = "Dracula+"
 # theme = "JetBrains Darcula"
@@ -51,3 +51,29 @@ background-blur = true
 background-opacity = 0.9
 
 window-padding-balance = true
+
+
+palette = 0=#505050
+palette = 1=#BF616A
+palette = 2=#A3BE8C
+palette = 3=#EFB080
+palette = 4=#85C1FC
+palette = 5=#AA9BF5
+palette = 6=#88C0D0
+palette = 7=#D8DEE9
+
+palette = 8=#505050
+palette = 9=#BF616A
+palette = 10=#A3BE8C
+palette = 11=#EBC88D
+palette = 12=#85C1FC
+palette = 13=#C582BF
+palette = 14=#83D6C5
+palette = 15=#D8DEE9
+
+background = #1A1A1A
+foreground = #D8DEE9
+cursor-color = #AA9BF5
+cursor-text = #1A1A1A
+selection-background = #D8DEE9
+selection-foreground = #1A1A1A

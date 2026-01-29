@@ -1,9 +1,12 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    python = {'ruff'},
-    go = {'golines', 'gofumpt', 'goimports'},
-    rust = {'rust_analyzer'}
+    python = { "ruff", "ruff_organize_imports", "ruff_format" },
+    go = { "golines", "gofumpt", "goimports" },
+    rust = { "rust_analyzer" },
+    json = { "prettier" },
+    yaml = { "prettier" },
+    toml = { "taplo" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },

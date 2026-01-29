@@ -15,6 +15,7 @@ local options = {
     python = { "ruff", "ruff_organize_imports", "ruff_format" },
     lua = { "stylua" },
     toml = { "taplo" },
+    sql = { "sql_formatter" },
   },
 
   format_on_save = {

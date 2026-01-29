@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "cursor_dark_midnight",
+  theme = "cursor_dark",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -17,11 +17,11 @@ M.base46 = {
 M.lsp = { signature = false }
 
 M.ui = {
-  tabufline = { lazyload = false },
+  tabufline = { lazyload = false, bufwidth = 30 },
 
   statusline = {
     enabled = true,
-    theme = "minimal",
+    theme = "default",
     separator_style = "round",
     modules = {
       filepath = function()

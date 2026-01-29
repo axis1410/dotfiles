@@ -28,6 +28,7 @@ return {
         "gofumpt",
         "golines",
         "rust_analyzer",
+        "taplo",
       },
     },
   },

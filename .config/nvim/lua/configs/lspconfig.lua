@@ -11,7 +11,12 @@ local servers = {
   "goimports",
   "golines",
   "lua_ls",
+  "prettier",
+  "taplo",
   "rust_analyzer",
+  "docker_compose_language_service",
+  "dockerfile_language_server",
+  "sql_formatter",
 }
 vim.lsp.enable(servers)
 
