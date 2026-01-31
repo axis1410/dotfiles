@@ -16,6 +16,11 @@ map("n", "<leader>tt", function()
   require("base46").toggle_transparency()
 end)
 
+map("n", "<leader>e", function()
+  require("lazy").load { plugins = { "oil.nvim" } }
+  require("oil").open()
+end, { desc = "Open Oil file explorer" })
+
 local ok_zen, zen = pcall(require, "zen-mode")
 if ok_zen then
   map("n", "<leader>zz", function()
