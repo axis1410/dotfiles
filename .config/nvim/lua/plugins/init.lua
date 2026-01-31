@@ -1,3 +1,5 @@
+local specs = require "configs.plugin_specs"
+
 return {
   {
     "stevearc/conform.nvim",
@@ -16,43 +18,31 @@ return {
   { import = "nvchad.blink.lazyspec" },
   {
     "williamboman/mason.nvim",
-    cmd = "Mason",
+    lazy = false,
     opts = {
-      ensure_installed = {
-        "gopls",
-        "ruff",
-        "pyright",
-        "prettier",
-        "eslint",
-        "typescript_language_server",
-        "lua_ls",
-        "goimports",
-        "gofumpt",
-        "golines",
-        "rust_analyzer",
-        "taplo",
-      },
+      ensure_installed = specs.mason_tools,
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    event = "VeryLazy",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      ensure_installed = specs.mason_tools,
+      run_on_start = true,
+      start_delay = 3000,
+      debounce_hours = 24,
     },
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "javascript",
-        "go",
-        "python",
-        "typescript",
-        "tsx",
-        "jinja",
-        "rust",
-      },
-    },
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      vim.schedule(function()
+        require("nvim-treesitter").install(specs.treesitter_parsers)
+      end)
+    end,
   },
 }
