@@ -3,7 +3,16 @@ return {
     "stevearc/oil.nvim",
     opts = {},
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    lazy = false,
+    cmd = "Oil",
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("oil").open()
+        end,
+        desc = "Open Oil file explorer",
+      },
+    },
     config = function()
       local oil = require "oil"
 

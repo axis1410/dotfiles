@@ -2,10 +2,17 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = "TodoFzfLua",
+    keys = {
+      {
+        "<leader>td",
+        "<cmd>TodoFzfLua keywords=TODO,FIX<CR>",
+        desc = "Todo",
+      },
+    },
     opts = {},
     config = function()
       require("todo-comments").setup {}
-      vim.keymap.set("n", "<leader>td", ":TodoFzfLua keywords=TODO,FIX<CR>", { noremap = true })
     end,
   },
 
@@ -29,7 +36,6 @@ return {
 
   {
     "abecodes/tabout.nvim",
-    lazy = false,
     config = function()
       require("tabout").setup {
         tabkey = "<Tab>",

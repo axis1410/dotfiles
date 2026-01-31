@@ -7,6 +7,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require "configs.lspconfig"
     end,
@@ -15,6 +16,7 @@ return {
   { import = "nvchad.blink.lazyspec" },
   {
     "williamboman/mason.nvim",
+    cmd = "Mason",
     opts = {
       ensure_installed = {
         "gopls",
@@ -35,6 +37,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
     opts = {
       ensure_installed = {
         "vim",

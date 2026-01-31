@@ -2,7 +2,7 @@ return {
 
   {
     "echasnovski/mini.surround",
-    lazy = false,
+    event = "VeryLazy",
     version = false,
     config = function()
       require("mini.surround").setup {
@@ -32,23 +32,31 @@ return {
 
   {
     "echasnovski/mini.bufremove",
-    lazy = false,
     version = false,
+    keys = {
+      {
+        "<leader>bd",
+        function()
+          require("mini.bufremove").delete(0, false)
+        end,
+        desc = "Delete buffer",
+      },
+      {
+        "<leader>bD",
+        function()
+          require("mini.bufremove").delete(0, true)
+        end,
+        desc = "Force delete buffer",
+      },
+    },
     config = function()
       require("mini.bufremove").setup()
-      vim.keymap.set("n", "<leader>bd", function()
-        require("mini.bufremove").delete(0, false)
-      end, { desc = "Delete buffer (keep window)" })
-
-      vim.keymap.set("n", "<leader>bD", function()
-        require("mini.bufremove").delete(0, true)
-      end, { desc = "Force delete buffer" })
     end,
   },
 
   {
     "echasnovski/mini.move",
-    lazy = false,
+    event = "VeryLazy",
     version = false,
     config = function()
       require("mini.move").setup {
