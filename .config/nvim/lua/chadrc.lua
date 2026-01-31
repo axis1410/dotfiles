@@ -6,15 +6,15 @@
 local M = {}
 
 M.base46 = {
-  theme = "cursor_dark",
+  theme = "catppuccin",
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
 }
 
-M.lsp = { signature = false }
+M.lsp = { signature = true }
 
 M.ui = {
   tabufline = { lazyload = false, bufwidth = 30 },
@@ -40,7 +40,7 @@ M.ui = {
 
     order = {
       "mode",
-      "file",
+      -- "file",
       "filepath",
       "git",
       "%=",

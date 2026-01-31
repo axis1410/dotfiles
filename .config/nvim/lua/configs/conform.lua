@@ -7,6 +7,7 @@ local options = {
     json = { "prettier" },
     yaml = { "prettier" },
     toml = { "taplo" },
+    javascript = { "prettier" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
