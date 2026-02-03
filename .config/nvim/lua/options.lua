@@ -5,7 +5,6 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
-
 local o = vim.o
 local g = vim.g
 
@@ -15,6 +14,7 @@ o.smartcase = true
 o.colorcolumn = "120"
 o.termguicolors = true
 o.hlsearch = false
+o.cursorlineopt = "both"
 -- vim.opt.cursorline = true
 
 g.loaded_netrw = 1

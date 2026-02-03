@@ -14,10 +14,22 @@ M.base46 = {
   },
 }
 
+M.colorify = {
+  enabled = true,
+  mode = "virtual",
+}
+
 M.lsp = { signature = true }
 
 M.ui = {
   tabufline = { lazyload = false, bufwidth = 30 },
+
+  cmp = {
+    style = "atom",
+    format_colors = {
+      tailwind = false,
+    },
+  },
 
   statusline = {
     enabled = true,

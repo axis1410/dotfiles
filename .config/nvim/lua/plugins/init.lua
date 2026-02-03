@@ -15,7 +15,7 @@ return {
     end,
   },
 
-  { import = "nvchad.blink.lazyspec" },
+  -- { import = "nvchad.blink.lazyspec" },
   {
     "williamboman/mason.nvim",
     lazy = false,
