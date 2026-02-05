@@ -12,7 +12,7 @@ return {
       uppercase = false,
       rainbow = {
         enabled = true,
-        shade = 5,
+        shade = 7,
       },
     },
     jump = {

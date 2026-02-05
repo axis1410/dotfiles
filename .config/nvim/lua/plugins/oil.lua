@@ -2,7 +2,7 @@ return {
   {
     "stevearc/oil.nvim",
     opts = {},
-    lazy = false,
+    lazy = true,
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     cmd = "Oil",
     keys = {
@@ -18,6 +18,9 @@ return {
       local oil = require "oil"
 
       oil.setup {
+        preview = {
+          enabled = true,
+        },
         default_file_explorer = true,
         columns = {
           "icon",
