@@ -4,5 +4,6 @@ theme.lua
 .tmux/plugins/tpm/
 .tmux/plugins/tmux-battery/
 .config/nvim/lazy-lock.json
+*.lazy-lock.json
 ./*/.DS_STORE
 .config/nvim/lazy-lock.json
