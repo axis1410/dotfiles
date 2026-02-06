@@ -17,6 +17,13 @@ return {
   },
 
   {
+    "fei6409/log-highlight.nvim",
+    ft = { "log" },
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
     "refractalize/oil-git-status.nvim",
 
     dependencies = {
