@@ -139,9 +139,9 @@ map({ "n", "v" }, "D", '"_D', opts)
 map({ "n", "v" }, "c", '"_c', opts)
 map({ "n", "v" }, "C", '"_C', opts)
 
--- Cut (x/s) without yank
-map({ "n", "v" }, "x", '"_x', opts)
-map({ "n", "v" }, "X", '"_X', opts)
+-- -- Cut (x/s) without yank
+-- map({ "n", "v" }, "x", '"_x', opts)
+-- map({ "n", "v" }, "X", '"_X', opts)
 
 -- Visual mode delete/change
 map("v", "p", '"_dP', opts) -- paste over selection without yanking it

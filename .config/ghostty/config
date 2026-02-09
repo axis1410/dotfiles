@@ -1,4 +1,4 @@
-font-family = MonaspiceNe Nerd Font Mono
+# font-family = MonaspiceNe Nerd Font Mono
 # font-style-bold = MonaspiceNe Nerd Font Mono Bold
 # font-style-italic = MonaspiceNe Nerd Font Mono Italic
 # font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
@@ -8,7 +8,7 @@ font-family = MonaspiceNe Nerd Font Mono
 # adjust-cell-height = 3
 
 
-# font-family = JetBrainsMono Nerd Font Mono
+font-family = JetBrainsMono Nerd Font Mono
 
 
 # font-size = 16

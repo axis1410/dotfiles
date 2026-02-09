@@ -15,11 +15,11 @@ return {
     end,
   },
 
-  { import = "nvchad.blink.lazyspec" },
-  {
-    "Saghen/blink.cmp",
-    opts = require "configs.blink",
-  },
+  -- { import = "nvchad.blink.lazyspec" },
+  -- {
+  --   "Saghen/blink.cmp",
+  --   opts = require "configs.blink",
+  -- },
 
   {
     "williamboman/mason.nvim",
