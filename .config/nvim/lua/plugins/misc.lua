@@ -2,7 +2,7 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    cmd = "TodoFzfLua",
+    event = "BufEnter",
     keys = {
       {
         "<leader>td",
