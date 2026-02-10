@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "catppuccin",
+  theme = "cursor_dark",
 
   hl_override = {
     Comment = { italic = true },
@@ -96,7 +96,7 @@ M.nvdash = {
 }
 
 M.term = {
-  base46_colors = false,
+  base46_colors = true,
   winopts = {},
   sizes = {},
   float = {},
