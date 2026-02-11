@@ -14,6 +14,7 @@ o.colorcolumn = "120"
 o.termguicolors = true
 o.hlsearch = false
 o.cursorlineopt = "both"
+o.cursorline = true
 -- vim.opt.cursorline = true
 
 g.loaded_netrw = 1

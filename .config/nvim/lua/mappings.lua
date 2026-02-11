@@ -7,6 +7,11 @@ local nomap = vim.keymap.del
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jj", "<ESC>")
 
+map("n", "<C-d>", "<C-d>zz", { desc = "move down in buffer with cursor centered" })
+map("n", "<C-u>", "<C-u>zz", { desc = "move up in buffer with cursor centered" })
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+
 -- map("n", "<C-d>", "<C-d>zz", opts)
 -- map("n", "<C-u>", "<C-u>zz", opts)
 
@@ -112,6 +117,10 @@ if ok_fzf then
   map("n", "<leader>/", function()
     fzf.blines()
   end, { desc = "[/] Fuzzily search in current buffer" })
+
+  map("n", "<leader>ca", function()
+    fzf.lsp_code_actions()
+  end, { desc = "[C]ode [A]ctions", silent = true })
 end
 
 map("i", "<C-Space>", function()
@@ -129,6 +138,8 @@ nomap("n", "<leader>fb")
 nomap("n", "<leader>fa")
 nomap("n", "<leader>cm")
 nomap("n", "<leader>x")
+nomap("n", "<leader>v")
+nomap("n", "<leader>h")
 nomap("n", "<C-N>")
 
 -- Delete without yank
