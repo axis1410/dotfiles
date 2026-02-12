@@ -16,6 +16,9 @@ M.mason_tools = {
 }
 
 M.treesitter_parsers = {
+  "json",
+  "toml",
+  "yaml",
   "vim",
   "lua",
   "vimdoc",
