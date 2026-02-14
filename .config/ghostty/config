@@ -21,11 +21,11 @@ font-thicken-strength = 255
 
 
 # theme = "Catppuccin Mocha"
-# theme = "Cutie Pro"
+theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 # theme = "Dracula+"
 # theme = "JetBrains Darcula"
-theme = "Catppuccin Macchiato"
+# theme = "Catppuccin Macchiato"
 # theme = "Nord"
 
 cursor-style = "block"

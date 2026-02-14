@@ -10,6 +10,8 @@ return {
 
       indent = {
         enabled = false,
+        only_scope = true,
+        only_current = false,
       },
 
       input = {
@@ -161,55 +163,56 @@ return {
         },
       },
 
-      -- dashboard = {
-      -- 	enabled = true,
-      -- 	sections = {
-      -- 		{
-      -- 			title = "🔍  Recent Files",
-      -- 			icon = "",
-      -- 			section = "recent_files",
-      -- 			max_items = 9,
-      -- 			padding = 1,
-      -- 			with_icon = true,
-      -- 		},
-      -- 		-- {
-      -- 		-- 	pane = 2,
-      -- 		-- 	title = "⚡ Quick Actions",
-      -- 		-- 	section = "keys",
-      -- 		-- 	max_items = 5,
-      -- 		-- 	padding = 1,
-      -- 		-- 	with_icon = true,
-      -- 		-- 	keys = {
-      -- 		-- 		{ key = "ff", icon = "🔎", desc = "Find Files", action = "Fzf files" },
-      -- 		-- 		{ key = "fg", icon = "📝", desc = "Live Grep", action = "Telescope live_grep" },
-      -- 		-- 		{ key = "e", icon = "🌲", desc = "File Explorer", action = "Yazi" },
-      -- 		-- 		{ key = "gg", icon = "📊", desc = "Git Status", action = "LazyGit" },
-      -- 		-- 		{ key = "qq", icon = "🚪", desc = "Quit Neovim", action = "qa" },
-      -- 		-- 	},
-      -- 		-- },
-      -- 		-- {
-      -- 		-- 	pane = 2,
-      -- 		-- 	title = "📊  Git Status",
-      -- 		-- 	section = "terminal",
-      -- 		-- 	enabled = function()
-      -- 		-- 		return require("snacks").git and require("snacks").git.get_root() ~= nil
-      -- 		-- 	end,
-      -- 		-- 	cmd = "git status --short --branch",
-      -- 		-- 	height = 6,
-      -- 		-- 	padding = 1,
-      -- 		-- 	ttl = 5 * 60,
-      -- 		-- },
-      -- 		{ section = "startup" },
-      -- 	},
-      -- 	options = {
-      -- 		layout = {
-      -- 			size = { width = 0.8, height = 0.8 },
-      -- 			border = "rounded",
-      -- 			backdrop = true,
-      -- 		},
-      -- 	},
-      -- },
+      dashboard = {
+        enabled = true,
+        sections = {
+          {
+            title = "🔍  Recent Files",
+            icon = "",
+            section = "recent_files",
+            max_items = 9,
+            padding = 1,
+            with_icon = true,
+          },
+          {
+            pane = 2,
+            title = "⚡ Quick Actions",
+            section = "keys",
+            max_items = 5,
+            padding = 1,
+            with_icon = true,
+            keys = {
+              { key = "ff", icon = "🔎", desc = "Find Files", action = "Fzf files" },
+              { key = "fg", icon = "📝", desc = "Live Grep", action = "Fzf live_grep_native" },
+              { key = "e", icon = "🌲", desc = "File Explorer", action = "Oil" },
+              { key = "gg", icon = "📊", desc = "Git Status", action = "LazyGit" },
+              { key = "qq", icon = "🚪", desc = "Quit Neovim", action = "qa" },
+            },
+          },
+          {
+            pane = 2,
+            title = "📊  Git Status",
+            section = "terminal",
+            enabled = function()
+              return require("snacks").git and require("snacks").git.get_root() ~= nil
+            end,
+            cmd = "git status --short --branch",
+            height = 6,
+            padding = 1,
+            ttl = 5 * 60,
+          },
+          { section = "startup" },
+        },
+        options = {
+          layout = {
+            size = { width = 0.8, height = 0.8 },
+            border = "rounded",
+            backdrop = true,
+          },
+        },
+      },
     },
+
     keys = {},
   },
 }

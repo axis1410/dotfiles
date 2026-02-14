@@ -8,6 +8,10 @@ return {
 
   { "folke/tokyonight.nvim", lazy = false },
 
+  { "rebelot/kanagawa.nvim", lazy = false },
+
+  { "nickkadutskyi/jb.nvim", lazy = false },
+
   {
     "axis1410/cursor-dark.nvim",
     lazy = false,
@@ -19,11 +23,5 @@ return {
         dashboard = true,
       }
     end,
-  },
-
-  {
-    "nickkadutskyi/jb.nvim",
-    lazy = false,
-    opts = {},
   },
 }

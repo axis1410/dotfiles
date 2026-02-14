@@ -6,14 +6,14 @@ live_config_reload = true
 TERM = "xterm-256color"
 
 [window]
-dimensions = { columns = 200, lines = 50 }
+dimensions = { columns = 165, lines = 50 }
 position = { x = 0, y = 0 }
 decorations = "Buttonless"
 dynamic_padding = true
 blur = true
 opacity = 0.95
 decorations_theme_variant = "Dark"
-startup_mode = "Fullscreen"
+# startup_mode = "Fullscreen"
 # startup_mode = "SimpleFullScreen"
 # startup_mode = "Maximized"
 

@@ -22,30 +22,26 @@ return {
       enable = true,
     },
   },
-  config = function() 
-	  local ensure_installed = {
-		  "lua",
-		  "python",
-		  "yaml",
-		  "toml",
-		  "json",
-		  "javascript",
-		  "typescript",
-		  "html",
-		  "css",
-		  "go",
-		  "rust",
-		  "tsx",
-		  "jsx",
-		  "jinja"
-	  }
+  config = function()
+    local ensure_installed = {
+      "lua",
+      "python",
+      "yaml",
+      "toml",
+      "json",
+      "javascript",
+      "typescript",
+      "html",
+      "css",
+      "go",
+      "rust",
+      "tsx",
+      "jsx",
+      "jinja",
+    }
 
-	  vim.schedule(function ()
-		  require("nvim-treesitter").install(ensure_installed)
-	  end
-	  )
-
-
-  end
+    vim.schedule(function()
+      require("nvim-treesitter").install(ensure_installed)
+    end)
+  end,
 }
-
