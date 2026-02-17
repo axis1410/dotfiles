@@ -13,9 +13,11 @@ return {
     "echasnovski/mini.tabline",
     enabled = false,
     opts = {
+      show_icons = true,
       format = function(buf_id, label)
         return " " .. require("mini.tabline").default_format(buf_id, label) .. " "
       end,
+      tabpage_section = "right",
     },
   },
 
@@ -43,9 +45,7 @@ return {
     "echasnovski/mini.pairs",
     event = "BufEnter",
     version = false,
-    config = function()
-      require("mini.pairs").setup()
-    end,
+    opts = {},
   },
 
   {
@@ -55,6 +55,7 @@ return {
       draw = {
         delay = 50,
       },
+      -- symbol = "|",
     },
   },
 
@@ -62,9 +63,7 @@ return {
     "echasnovski/mini.comment",
     event = "BufEnter",
     version = false,
-    config = function()
-      require("mini.comment").setup()
-    end,
+    opts = {},
   },
 
   {

@@ -1,0 +1,2 @@
+WRN 2026-02-17T17:44:47.878 ?.39884    server_start:199: Failed to start server: operation not permitted: /var/folders/s1/_p73_m1s6c73yn39_l3d6w3w0000gn/T/nvim.navtech/7ZhDf8/nvim.39884.0
+WRN 2026-02-17T17:45:20.693 ?.41666    server_start:199: Failed to start server: operation not permitted: /var/folders/s1/_p73_m1s6c73yn39_l3d6w3w0000gn/T/nvim.navtech/UY5WO5/nvim.41666.0

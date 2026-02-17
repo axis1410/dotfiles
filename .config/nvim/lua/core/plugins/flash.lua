@@ -6,6 +6,17 @@ return {
       search = {
         enabled = false,
       },
+      treesitter = {
+        enabled = true,
+        jump = {
+          pos = "range",
+        },
+      },
+      treesitter_search = {
+        jump = {
+          pos = "range",
+        },
+      },
     },
     label = {
 
@@ -32,7 +43,11 @@ return {
       "S",
       mode = { "n", "x", "o" },
       function()
-        require("flash").treesitter()
+        require("flash").treesitter({
+          jump = {
+            autojump = false,
+          },
+        })
       end,
       desc = "Flash Treesitter",
     },

@@ -1,8 +1,9 @@
 return {
   {
     "folke/snacks.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
 
+    lazy = false,
     opts = {
       lazygit = {
         opts = {},
@@ -164,7 +165,7 @@ return {
       },
 
       dashboard = {
-        enabled = true,
+        enabled = false,
         sections = {
           {
             title = "🔍  Recent Files",
