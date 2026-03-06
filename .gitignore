@@ -8,3 +8,4 @@ theme.lua
 ./*/.DS_STORE
 .config/nvim/lazy-lock.json
 *.log
+*.nvimlog

@@ -635,6 +635,8 @@ export NVM_DIR="$HOME/.nvm"
 alias git-clean-gone="git branch -vv | grep 'gone]' | awk '{print \$1}' | xargs git branch -D"
 
 
+export PATH=$PATH:$(go env GOPATH)/bin
+
 fh() {
   eval "$(history | fzf | sed 's/^ *[0-9]* *//')"
 }

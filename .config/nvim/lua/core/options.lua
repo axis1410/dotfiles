@@ -17,13 +17,22 @@ o.termguicolors = true
 
 opt.swapfile = false
 opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
 opt.undofile = true
 opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:block"
-opt.isfname:append("@-@")
+opt.isfname:append "@-@"
 opt.updatetime = 50
 opt.colorcolumn = "120"
-opt.clipboard:append("unnamedplus")
+opt.clipboard:append "unnamedplus"
 opt.mouse = "a"
 opt.splitbelow = true
 opt.splitright = true
+
+vim.filetype.add {
+  filename = {
+    ["docker-compose.yml"] = "yaml.docker-compose",
+    ["docker-compose.yaml"] = "yaml.docker-compose",
+    ["compose.yml"] = "yaml.docker-compose",
+    ["compose.yaml"] = "yaml.docker-compose",
+  },
+}

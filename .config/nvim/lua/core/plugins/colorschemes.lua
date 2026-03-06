@@ -12,6 +12,10 @@ return {
 
   { "nickkadutskyi/jb.nvim", lazy = false },
 
+  { "deparr/tairiki.nvim", lazy = false, priority = 1000 },
+
+  { "frenzyexists/aquarium-vim", lazy = false, priority = 1000 },
+
   {
     "axis1410/cursor-dark.nvim",
     lazy = false,

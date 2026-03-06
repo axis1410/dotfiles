@@ -2,14 +2,15 @@ return {
   {
     "stevearc/oil.nvim",
     opts = {},
-    lazy = true,
+    lazy = false,
+    enabled = true,
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     cmd = "Oil",
     keys = {
       {
         "<leader>e",
         function()
-require("oil").open(nil, { preview = { vertical = true } })
+          require("oil").open(nil, { preview = { vertical = true } })
         end,
         desc = "Open Oil file explorer",
       },

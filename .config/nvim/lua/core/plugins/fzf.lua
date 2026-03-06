@@ -17,6 +17,13 @@ return {
       desc = "[S]earch [K]eymaps",
     },
     {
+      "<leader>fo",
+      function()
+        require("fzf-lua").oldfiles()
+      end,
+      desc = "Search [O]ld [F]iles",
+    },
+    {
       "<leader>ff",
       function()
         require("fzf-lua").files()
@@ -82,26 +89,26 @@ return {
     {
       "<leader>th",
       function()
-        local fzf = require("fzf-lua")
-        local colorscheme = require("colorscheme")
-        fzf.colorschemes({
+        local fzf = require "fzf-lua"
+        local colorscheme = require "colorscheme"
+        fzf.colorschemes {
           prompt = "Themes> ",
           actions = {
             ["default"] = function(selected)
               if not selected or not selected[1] then
                 return
               end
-              local name = selected[1]:match("^%s*(.-)%s*$")
+              local name = selected[1]:match "^%s*(.-)%s*$"
               local ok = colorscheme.set(name)
               if not ok then
                 vim.notify("Failed to set colorscheme: " .. name, vim.log.levels.ERROR)
               end
             end,
           },
-        })
+        }
       end,
-      desc = "Select Color Schemes"
-    }
+      desc = "Select Color Schemes",
+    },
   },
   dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
   config = function()
@@ -135,7 +142,7 @@ return {
           border = "rounded",
 
           preview = {
-            layout = "vertical",    -- main option
+            layout = "vertical", -- main option
             vertical = "right:50%", -- preview on right taking 50% space
           },
         },

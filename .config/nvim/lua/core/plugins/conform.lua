@@ -1,5 +1,5 @@
 return {
-  'stevearc/conform.nvim',
+  "stevearc/conform.nvim",
   event = "BufWritePre",
   opts = {
     formatters_by_ft = {
@@ -10,11 +10,13 @@ return {
       json = { "prettier" },
       yaml = { "prettier" },
       toml = { "taplo" },
+      html = { "prettier" },
       javascript = { "prettier" },
+      sql = { "sleek" },
     },
 
     format_on_save = {
-      timeout_ms = 2000,
+      timeout_ms = 5000,
       lsp_format = "fallback",
     },
   },
