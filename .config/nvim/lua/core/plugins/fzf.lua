@@ -162,7 +162,17 @@ return {
       grep = {
         prompt = "Rg❯ ",
         file_ignore_patterns = { "node_modules", ".git", ".venv" },
-        rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=512",
+        rg_opts = table.concat({
+          "--column",
+          "--line-number",
+          "--no-heading",
+          "--color=always",
+          "--smart-case",
+          "--max-columns=4096",
+          "--glob '!**/.git/*'",
+          "-e",
+        }, " "),
+        git_icons = true,
       },
       fzf_colors = {
         true,
