@@ -66,13 +66,6 @@ return {
       desc = "[S]earch [R]esume",
     },
     {
-      "<leader>f.",
-      function()
-        require("fzf-lua").oldfiles()
-      end,
-      desc = '[S]earch Recent Files ("." for repeat)',
-    },
-    {
       "<leader><leader>",
       function()
         require("fzf-lua").buffers()
@@ -170,6 +163,9 @@ return {
           "--smart-case",
           "--max-columns=4096",
           "--glob '!**/.git/*'",
+          "--glob '!**/*.{mo,pot,po}'",
+          "--glob '!**/*env/*'",
+          "--glob '!**/*venv/*'",
           "-e",
         }, " "),
         git_icons = true,
