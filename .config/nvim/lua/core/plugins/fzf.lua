@@ -109,8 +109,22 @@ return {
 
     fzf.setup {
       defaults = {
-        prompt = "  ",
+        prompt = "    ",
         file_ignore_patterns = { "node_modules", "venv", ".git" },
+        winopts = {
+          height = 0.84,
+          width = 0.9,
+          row = 0.5,
+          col = 0.5,
+          border = "rounded",
+          preview = {
+            border = "rounded",
+            layout = "flex",
+            flex = "column",
+            vertical = "right:55%",
+            horizontal = "down:45%",
+          },
+        },
       },
       keymap = {
         builtin = {
@@ -128,15 +142,17 @@ return {
         color_icons = true,
 
         winopts = {
-          height = 0.60,
-          width = 0.80,
-          row = 0.35,
+          height = 0.8,
+          width = 0.9,
+          row = 0.5,
           col = 0.5,
           border = "rounded",
 
           preview = {
-            layout = "vertical", -- main option
-            vertical = "right:50%", -- preview on right taking 50% space
+            layout = "flex",
+            flex = "column",
+            vertical = "right:55%",
+            horizontal = "down:45%",
           },
         },
       },
@@ -145,9 +161,9 @@ return {
         color_icons = true,
         previewer = false,
         winopts = {
-          height = 0.40,
-          width = 0.60,
-          row = 0.35,
+          height = 0.5,
+          width = 0.75,
+          row = 0.5,
           col = 0.5,
           border = "rounded",
         },
@@ -172,6 +188,21 @@ return {
       },
       fzf_colors = {
         true,
+      },
+      fzf_opts = {
+        ["--layout"] = "default",
+        ["--info"] = "right",
+        ["--pointer"] = "▌",
+        ["--marker"] = "●",
+        ["--cycle"] = "",
+      },
+      hls = {
+        border = "FloatBorder",
+        title = "Title",
+        preview_title = "Title",
+        cursorline = "CursorLine",
+        cursorlinenr = "CursorLineNr",
+        search = "IncSearch",
       },
     }
   end,
