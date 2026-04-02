@@ -86,6 +86,17 @@ return {
         local colorscheme = require "colorscheme"
         fzf.colorschemes {
           prompt = "Themes> ",
+          winopts = {
+            height = 0.62,
+            width = 0.62,
+            row = 0.5,
+            col = 0.5,
+            border = "rounded",
+            preview = {
+              layout = "vertical",
+              vertical = "right:50%",
+            },
+          },
           actions = {
             ["default"] = function(selected)
               if not selected or not selected[1] then
@@ -182,6 +193,7 @@ return {
           "--glob '!**/*.{mo,pot,po}'",
           "--glob '!**/*env/*'",
           "--glob '!**/*venv/*'",
+          "--glob '!**/*.lock*'",
           "-e",
         }, " "),
         git_icons = true,

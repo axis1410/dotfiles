@@ -14,6 +14,8 @@ return {
 
   { "deparr/tairiki.nvim", lazy = false, priority = 1000 },
 
+  { "pmouraguedes/neodarcula.nvim", lazy = false, priority = 1000 },
+
   -- { "frenzyexists/aquarium-vim", lazy = false, priority = 1000 },
 
   {
