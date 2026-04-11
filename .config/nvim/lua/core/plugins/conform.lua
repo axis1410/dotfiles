@@ -13,6 +13,8 @@ return {
       html = { "prettier" },
       javascript = { "prettier" },
       sql = { "sleek" },
+      sh = { "shfmt" },
+      zsh = { "shfmt" },
     },
 
     format_on_save = {

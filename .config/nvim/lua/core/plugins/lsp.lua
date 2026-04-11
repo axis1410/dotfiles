@@ -90,6 +90,10 @@ return {
       },
     })
 
+    vim.lsp.config("bashls", {
+      filetypes = { "sh", "zsh" },
+    })
+
     vim.lsp.config("sqls", {
       on_attach = function(client, bufnr)
         -- disable sqls formatter (it breaks Postgres $1 → $ 1)
