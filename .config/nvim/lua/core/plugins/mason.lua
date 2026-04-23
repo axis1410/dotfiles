@@ -1,18 +1,15 @@
 local ensure_installed = {
   "stylua",
-  "gopls",
+  "css-lsp",
+  "html-lsp",
   "ruff",
   "pyright",
   "prettier",
   "eslint_d",
   "typescript-language-server",
   "lua-language-server",
-  "goimports",
-  "gofumpt",
-  "golines",
-  "rust-analyzer",
   "taplo",
-  "tailwindcss-language-server",
+  "vue-language-server",
 }
 
 return {

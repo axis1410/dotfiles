@@ -31,6 +31,7 @@ return {
       "tsx",
       "jsx",
       "jinja",
+      "vue",
     })
 
     vim.schedule(function()

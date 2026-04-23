@@ -254,6 +254,9 @@ return {
     },
   },
   config = function(_, opts)
+    vim.cmd "cabbrev message Noice history"
+    vim.cmd "cabbrev messages Noice history"
+
     require("notify").setup {
       fps = 60,
       render = "compact",

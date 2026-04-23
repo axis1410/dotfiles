@@ -1,8 +1,14 @@
 return {
   "coder/claudecode.nvim",
-  enabled = false,
   dependencies = { "folke/snacks.nvim" },
-  config = true,
+  opts = {
+    terminal = {
+      split_side = "right",
+      split_width_percentage = 0.35,
+      provider = "snacks",
+      auto_close = true,
+    },
+  },
   cmd = {
     "ClaudeCode",
     "ClaudeCodeFocus",
@@ -31,5 +37,10 @@ return {
     -- Diff management
     { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
+    -- Navigate out of Claude terminal pane
+    { "<C-h>", "<C-\\><C-n><C-w>h", mode = "t", desc = "Move to left pane" },
+    { "<C-l>", "<C-\\><C-n><C-w>l", mode = "t", desc = "Move to right pane" },
+    { "<C-j>", "<C-\\><C-n><C-w>j", mode = "t", desc = "Move to lower pane" },
+    { "<C-k>", "<C-\\><C-n><C-w>k", mode = "t", desc = "Move to upper pane" },
   },
 }

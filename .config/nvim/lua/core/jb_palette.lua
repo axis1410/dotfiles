@@ -65,6 +65,7 @@ local dark = {
   ["@diff.plus"] = { fg = "#549159" },
   ["@diff.minus"] = { fg = "#868A91" },
   ["@diff.delta"] = { fg = "#375FAD" },
+  ["HTML_InjectedLanguageFragment"] = { bg = "NONE" },
 }
 
 local light_call_blue = "#1750EB"
@@ -132,6 +133,7 @@ local light = {
   ["@diff.plus"] = { fg = "#2E7D32" },
   ["@diff.minus"] = { fg = "#B42318" },
   ["@diff.delta"] = { fg = "#174AD4" },
+  ["HTML_InjectedLanguageFragment"] = { bg = "NONE" },
 }
 
 function M.apply()

@@ -39,3 +39,18 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
 map("n", "<leader>v", "<cmd>vsplit<CR>")
+
+-- Close all buffers
+map("n", "<leader>ba", function()
+  local bufremove = require "mini.bufremove"
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted then
+      bufremove.delete(buf, false)
+    end
+  end
+end, { desc = "Close all buffers" })
+
+map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+-- local ok_outline, _ = pcall(require, "outline")
+-- if ok_outline then
+-- end

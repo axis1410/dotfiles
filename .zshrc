@@ -632,3 +632,30 @@ function nic() {
 	tmux send-keys -t "$session_name" 'nvim' C-m
 	tmux attach-session -t "$session_name"
 }
+
+function ghswitch() {
+	gh auth switch --user "$1"
+	case "$1" in
+	axis1410)
+		git config --global user.email "adityasingh14102001@gmail.com"
+		;;
+	aditya-singh-n1410)
+		git config --global user.email "aditya.s@navtech.io"
+		;;
+	esac
+	echo "Switched to $1"
+}
+
+_ghswitch() {
+	local users
+	users=(
+		'axis1410:adityasingh14102001@gmail.com'
+		'aditya-singh-n1410:aditya.s@navtech.io'
+	)
+	_describe 'github account' users
+}
+
+compdef _ghswitch ghswitch
+
+# Added by Antigravity
+export PATH="/Users/navtech/.antigravity/antigravity/bin:$PATH"

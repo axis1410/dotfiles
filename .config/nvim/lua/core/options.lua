@@ -35,4 +35,13 @@ vim.filetype.add {
     ["compose.yml"] = "yaml.docker-compose",
     ["compose.yaml"] = "yaml.docker-compose",
   },
+  extension = {
+    j2 = "jinja",
+    jinja = "jinja",
+    jinja2 = "jinja",
+  },
+  pattern = {
+    [".*/templates/.*%.html"] = "htmldjango",
+    [".*/print_format/.*%.html"] = "htmldjango",
+  },
 }
