@@ -14,6 +14,7 @@ return {
         cursorline = true,
         cursorcolumn = true,
       },
+
       plugins = {
         todo = { enabled = true },
         gitsigns = { enabled = true },

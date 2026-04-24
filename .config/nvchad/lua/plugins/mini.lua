@@ -1,6 +1,15 @@
 return {
 
   {
+    "echasnovski/mini.bracketed",
+    event = "BufEnter",
+    version = false,
+    config = function()
+      require("mini.bracketed").setup()
+    end,
+  },
+
+  {
     "echasnovski/mini.surround",
     lazy = false,
     version = false,
@@ -64,5 +73,29 @@ return {
         },
       }
     end,
+  },
+
+  {
+    "echasnovski/mini.pairs",
+    event = "BufEnter",
+    version = false,
+    opts = {},
+  },
+
+  {
+    "echasnovski/mini.indentscope",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      draw = {
+        delay = 50,
+      },
+    },
+  },
+
+  {
+    "echasnovski/mini.comment",
+    event = "BufEnter",
+    version = false,
+    opts = {},
   },
 }

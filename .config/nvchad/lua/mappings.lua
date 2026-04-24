@@ -45,6 +45,7 @@ if ok_fzf then
   map("n", "<leader>f.", fzf.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
   map("n", "<leader><leader>", fzf.buffers, { desc = "[ ] Find existing buffers" })
   map("n", "<leader>/", fzf.blines, { desc = "[/] Fuzzily search in current buffer" })
+  map("n", "<leader>fo", fzf.oldfiles, { desc = "[F]ind [O]ld files" })
 end
 
 map("i", "<C-Space>", function()
@@ -67,3 +68,6 @@ nomap("n", "<leader>fb")
 nomap("n", "<leader>fa")
 nomap("n", "<leader>cm")
 nomap("n", "<leader>x")
+
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")

@@ -17,14 +17,14 @@ return {
         },
       },
 
-      image = {
-        enabled = true,
-        doc = {
-          float = false,
-          inline = true,
-          max_width = 50,
-          max_height = 30,
-          wo = {
+        image = {
+          enabled = false,
+          doc = {
+            float = false,
+            inline = false,
+            max_width = 50,
+            max_height = 30,
+            wo = {
             wrap = true,
           },
         },

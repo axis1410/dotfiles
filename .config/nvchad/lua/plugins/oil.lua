@@ -4,10 +4,23 @@ return {
     opts = {},
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     lazy = false,
+    cmd = "Oil",
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("oil").open(nil, { preview = { vertical = true } })
+        end,
+        desc = "Open Oil file explorer",
+      },
+    },
     config = function()
       local oil = require "oil"
 
       oil.setup {
+        preview = {
+          enabled = true,
+        },
         default_file_explorer = true,
         columns = {
           "icon",
@@ -31,7 +44,7 @@ return {
         prompt_save_on_select_new_entry = true,
         cleanup_delay_ms = 2000,
         lsp_file_methods = {
-          enabled = true,
+          enabled = false,
           timeout_ms = 1000,
           autosave_changes = false,
         },

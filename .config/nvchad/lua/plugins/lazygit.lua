@@ -4,6 +4,13 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
     keys = {
       {
         "<leader>gg",
@@ -11,9 +18,8 @@ return {
         desc = "Open LazyGit",
       },
     },
-
-    options = {
-      lazygit_floating_window_winblend = 1,
-    },
+    init = function()
+      vim.g.lazygit_floating_window_winblend = 1
+    end,
   },
 }

@@ -1,7 +1,17 @@
 return {
   { "0xleodevv/oc-2.nvim", lazy = false },
 
-  { "catppuccin/nvim", lazy = false },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    config = function()
+      require("catppuccin").setup {
+        integrations = {
+          blink_cmp = true,
+        },
+      }
+    end,
+  },
 
   { "rose-pine/neovim", lazy = false },
 
@@ -17,7 +27,20 @@ return {
 
   { "pmouraguedes/neodarcula.nvim", lazy = false, priority = 1000 },
 
-  -- { "frenzyexists/aquarium-vim", lazy = false, priority = 1000 },
+  { "frenzyexists/aquarium-vim", lazy = false, priority = 1000 },
+
+  {
+    "vague-theme/vague.nvim",
+    lazy = false,
+    config = function()
+      local v = require "vague"
+      v.setup {
+        transparent = false,
+        bold = false,
+        italic = false,
+      }
+    end,
+  },
 
   {
     "projekt0n/github-nvim-theme",
