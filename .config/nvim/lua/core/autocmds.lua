@@ -13,3 +13,9 @@ vim.api.nvim_create_autocmd("OptionSet", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.opt.mouse = ""
+  end,
+})

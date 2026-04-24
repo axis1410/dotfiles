@@ -129,10 +129,6 @@ return {
     throttle = 1000 / 30,
     routes = {
       {
-        filter = { event = "msg_show", kind = "search_count" },
-        opts = { skip = true },
-      },
-      {
         filter = { event = "msg_show", kind = "", find = "%d+L, %d+B" },
         opts = { skip = true },
       },
