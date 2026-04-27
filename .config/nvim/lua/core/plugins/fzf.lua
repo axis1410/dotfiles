@@ -101,12 +101,12 @@ return {
           row = 0.5,
           col = 0.5,
           border = "rounded",
-          preview = {
-            border = "rounded",
-            layout = "flex",
-            flex = "column",
-            vertical = "right:55%",
-            horizontal = "down:45%",
+preview = {
+            border = [[rounded]],
+            layout = [[flex]],
+            flex = [[row]],
+            vertical = [[right:55%]],
+            horizontal = [[down:45%]],
           },
         },
       },
@@ -117,12 +117,12 @@ return {
           ["<C-l>"] = "select",
         },
       },
-      files = {
-        file_icons = "mini",
+files = {
+        file_icons = true,
         hidden = true,
         git_icons = true,
-        file_ignore_patterns = { "node_modules", "venv" },
-        previewer = true,
+        file_ignore_patterns = { [[node_modules]], [[venv]] },
+        previewer = false,
         color_icons = true,
 
         winopts = {
@@ -132,12 +132,12 @@ return {
           col = 0.5,
           border = "rounded",
 
-          preview = {
-            layout = "flex",
-            flex = "column",
-            vertical = "right:55%",
-            horizontal = "down:45%",
-          },
+          -- preview = {
+          --   layout = "flex",
+          --   flex = "column",
+          --   vertical = "right:55%",
+          --   horizontal = "down:45%",
+          -- },
         },
       },
       buffers = {

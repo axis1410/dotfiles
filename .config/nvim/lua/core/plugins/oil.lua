@@ -10,7 +10,7 @@ return {
       {
         "<leader>e",
         function()
-          require("oil").open(nil, { preview = { vertical = true } })
+          require("oil").open_float(nil, { preview = { vertical = true } })
         end,
         desc = "Open Oil file explorer",
       },
@@ -115,8 +115,8 @@ return {
         },
         float = {
           padding = 2,
-          max_width = 0,
-          max_height = 0,
+          max_width = 0.85,
+          max_height = 0.8,
           border = "rounded",
           win_options = {
             winblend = 0,

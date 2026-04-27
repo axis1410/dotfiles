@@ -1,5 +1,6 @@
 return {
   "xiyaowong/transparent.nvim",
+  enabled = false,
   cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
   keys = {
     {

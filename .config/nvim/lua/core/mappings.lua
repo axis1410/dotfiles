@@ -75,3 +75,8 @@ map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
 -- local ok_outline, _ = pcall(require, "outline")
 -- if ok_outline then
 -- end
+
+map("n", "<leader>tt", function()
+  require("base46").toggle_transparency()
+end)
+

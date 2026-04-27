@@ -112,7 +112,7 @@ return {
       },
     },
     signature = {
-      enabled = true,
+      enabled = false,
       window = {
         border = "rounded",
         show_documentation = true,
