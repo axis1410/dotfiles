@@ -190,7 +190,7 @@ return {
           "--smart-case",
           "--max-columns=4096",
           "--glob '!**/.git/*'",
-          "--glob '!**/*.{mo,pot,po}'",
+          "--glob '!**/*.{mo,pot,po,csv}'",
           "--glob '!**/*env/*'",
           "--glob '!**/*venv/*'",
           "--glob '!**/*.lock*'",

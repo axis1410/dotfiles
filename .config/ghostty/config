@@ -1,16 +1,16 @@
-font-family = MonaspiceNe Nerd Font Mono
+# font-family = MonaspiceNe Nerd Font Mono
 # font-style-bold = MonaspiceNe Nerd Font Mono Bold
 # font-style-italic = MonaspiceNe Nerd Font Mono Italic
 # font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
 # font-family = MonoLisa Nerd Font Mono
-# # # Only to be used with MonoLisa
+# # Only to be used with MonoLisa
 # adjust-cell-height = 3
 
 # font-family = 0xProto Nerd Font Mono
 
 
-# font-family = JetBrainsMono Nerd Font Mono
+font-family = JetBrainsMono Nerd Font Mono
 
 
 # font-size = 16
@@ -52,7 +52,7 @@ maximize = true
 window-inherit-font-size = true
 
 background-blur = true
-background-opacity = 0.98
+background-opacity = 0.94
 
 window-padding-balance = true
 
