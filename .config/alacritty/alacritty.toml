@@ -1,5 +1,7 @@
 [general]
-import = ["~/.config/alacritty/themes/alacritty-theme/themes/cursor_dark.toml"]
+import = [
+  "~/.config/alacritty/themes/alacritty-theme/themes/tomorrow_night.toml",
+]
 live_config_reload = true
 
 [env]
@@ -15,12 +17,15 @@ opacity = 0.95
 decorations_theme_variant = "Dark"
 # startup_mode = "Fullscreen"
 # startup_mode = "SimpleFullScreen"
-# startup_mode = "Maximized"
+startup_mode = "Maximized"
 
 [font]
 # normal = { family = "0xProto Nerd Font Mono" }
-normal = { family = "JetBrainsMono Nerd Font Mono" }
-size = 16
+# normal = { family = "JetBrainsMono Nerd Font Mono" }
+# normal = { family = "Iosevka Nerd Font Mono" }
+normal = { family = "CommitMono Nerd Font Mono" }
+# normal = { family = "Hack Nerd Font Mono" }
+size = 15
 # offset = { x = 0, y = 1 }
 
 # normal = { family = "MonaSpiceNe Nerd Font Mono" }
