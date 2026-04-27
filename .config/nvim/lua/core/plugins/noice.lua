@@ -259,6 +259,14 @@ return {
       stages = "fade",
       timeout = 3200,
       top_down = false,
+      background_colour = "#000000",
+      icons = {
+        ERROR = "",
+        WARN = "",
+        INFO = "",
+        DEBUG = "",
+        TRACE = "✎",
+      },
       max_height = function()
         return math.floor(vim.o.lines * 0.7)
       end,

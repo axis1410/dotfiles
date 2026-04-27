@@ -1,6 +1,7 @@
 return {
   {
     "echasnovski/mini.statusline",
+    enabled = false,
     event = "BufEnter",
     dependencies = {
       "echasnovski/mini-git",

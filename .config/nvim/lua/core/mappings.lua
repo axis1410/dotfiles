@@ -3,8 +3,23 @@ local unmap = vim.keymap.del
 local opts = { silent = true, noremap = true }
 
 -- Buffer movement
-map("n", "<Tab>", "<CMD>:bnext<CR>", opts)
-map("n", "<S-Tab>", "<CMD>:bprev<CR>", opts)
+map("n", "<Tab>", function()
+  local ok, tabufline = pcall(require, "nvchad.tabufline")
+  if ok then
+    tabufline.next()
+    return
+  end
+  vim.cmd.bnext()
+end, vim.tbl_extend("force", opts, { desc = "Next buffer" }))
+
+map("n", "<S-Tab>", function()
+  local ok, tabufline = pcall(require, "nvchad.tabufline")
+  if ok then
+    tabufline.prev()
+    return
+  end
+  vim.cmd.bprev()
+end, vim.tbl_extend("force", opts, { desc = "Previous buffer" }))
 
 -- Clear highlight
 map("n", "<Esc>", "<Esc><Cmd>nohlsearch<CR>", opts)
@@ -39,6 +54,12 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
 map("n", "<leader>v", "<cmd>vsplit<CR>")
+
+map("n", "<leader>th", function()
+  require("nvchad.themes").open { style = "bordered" }
+end, { desc = "Open NvUI themes" })
+
+map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Open cheatsheet" })
 
 -- Close all buffers
 map("n", "<leader>ba", function()

@@ -34,4 +34,14 @@ require("lazy").setup {
   },
 }
 
-require("colorscheme").apply_saved()
+local cache_dir = vim.g.base46_cache
+local fs = vim.uv or vim.loop
+
+if type(cache_dir) == "string" and fs.fs_stat(cache_dir) then
+  for _, file in ipairs(vim.fn.readdir(cache_dir)) do
+    local path = cache_dir .. file
+    if fs.fs_stat(path) then
+      dofile(path)
+    end
+  end
+end

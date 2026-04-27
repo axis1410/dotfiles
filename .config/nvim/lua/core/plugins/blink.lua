@@ -1,26 +1,26 @@
 return {
-  'saghen/blink.cmp',
+  "saghen/blink.cmp",
   event = "BufEnter",
   dependencies = {
-    'rafamadriz/friendly-snippets',
+    "rafamadriz/friendly-snippets",
     {
-      'xzbdmw/colorful-menu.nvim',
+      "xzbdmw/colorful-menu.nvim",
       event = "BufEnter",
       config = function()
-        require('colorful-menu').setup({
+        require("colorful-menu").setup {
           ls = {
             fallback = true,
-            fallback_extra_info_hl = '@comment',
+            fallback_extra_info_hl = "@comment",
           },
-          fallback_highlight = '@variable',
+          fallback_highlight = "@variable",
           max_width = 60,
-        })
+        }
       end,
     },
   },
 
   -- use a release tag to download pre-built binaries
-  version = '1.*',
+  version = "1.*",
   -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
   -- build = 'cargo build --release',
   -- If you use nix, you can build from source using latest nightly rust with:
@@ -42,13 +42,13 @@ return {
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
-      preset = 'enter',
-      ['<C-k>'] = false,
-      ['<C-s>'] = { 'show_signature', 'hide_signature', 'fallback' },
+      preset = "enter",
+      ["<C-k>"] = false,
+      ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
     },
 
     appearance = {
-      nerd_font_variant = 'mono'
+      nerd_font_variant = "mono",
     },
     completion = {
       list = {
@@ -58,8 +58,13 @@ return {
         },
       },
       menu = {
+        border = "rounded",
+        winblend = 0,
         winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:Visual,Search:None",
+        scrollbar = false,
         draw = {
+          padding = { 1, 1 },
+          gap = 2,
           columns = {
             { "kind_icon" },
             { "label", gap = 1 },
@@ -96,19 +101,28 @@ return {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
+        window = {
+          border = "rounded",
+          winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+        },
       },
       ghost_text = {
         enabled = true,
+        show_with_menu = false,
       },
     },
     signature = {
       enabled = true,
+      window = {
+        border = "rounded",
+        show_documentation = true,
+      },
     },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -116,7 +130,7 @@ return {
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust" }
+    fuzzy = { implementation = "prefer_rust" },
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { "sources.default" },
 }

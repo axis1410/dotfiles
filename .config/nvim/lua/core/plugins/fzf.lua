@@ -82,36 +82,9 @@ return {
     {
       "<leader>th",
       function()
-        local fzf = require "fzf-lua"
-        local colorscheme = require "colorscheme"
-        fzf.colorschemes {
-          prompt = "Themes> ",
-          winopts = {
-            height = 0.62,
-            width = 0.62,
-            row = 0.5,
-            col = 0.5,
-            border = "rounded",
-            preview = {
-              layout = "vertical",
-              vertical = "right:50%",
-            },
-          },
-          actions = {
-            ["default"] = function(selected)
-              if not selected or not selected[1] then
-                return
-              end
-              local name = selected[1]:match "^%s*(.-)%s*$"
-              local ok = colorscheme.set(name)
-              if not ok then
-                vim.notify("Failed to set colorscheme: " .. name, vim.log.levels.ERROR)
-              end
-            end,
-          },
-        }
+        require("nvchad.themes").open { style = "bordered" }
       end,
-      desc = "Select Color Schemes",
+      desc = "Open NvUI themes",
     },
   },
   dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },

@@ -27,6 +27,7 @@ opt.clipboard:append "unnamedplus"
 opt.mouse = "a"
 opt.splitbelow = true
 opt.splitright = true
+opt.winborder = "rounded"
 
 vim.filetype.add {
   filename = {
