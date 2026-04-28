@@ -3,12 +3,12 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "tomorrow_night",
+  theme = "ashes",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "tomorrow_night", "one_light" },
+  theme_toggle = { "ashes", "one_light" },
   -- transparency: Enable transparent background for some components
-  transparency = true,
+  transparency = false,
   -- integrations: Enable highlight support for these plugins
   --   Available: blink, cmp, conform, diffview, flash, git, gitsigns,
   --              indentline, lazy, mason, navic, noice, notify, nvimtree,
@@ -74,7 +74,7 @@ M.ui = {
     -- enabled: Enable the tabufline plugin
     enabled = true,
     -- lazyload: Delay loading until 2+ buffers open (faster startup)
-    lazyload = true,
+    lazyload = false,
     -- bufwidth: Width of buffer name tabs (in characters)
     bufwidth = 26,
   },

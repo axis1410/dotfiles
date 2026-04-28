@@ -101,7 +101,7 @@ return {
           row = 0.5,
           col = 0.5,
           border = "rounded",
-preview = {
+          preview = {
             border = [[rounded]],
             layout = [[flex]],
             flex = [[row]],
@@ -117,7 +117,7 @@ preview = {
           ["<C-l>"] = "select",
         },
       },
-files = {
+      files = {
         file_icons = true,
         hidden = true,
         git_icons = true,
@@ -126,8 +126,8 @@ files = {
         color_icons = true,
 
         winopts = {
-          height = 0.8,
-          width = 0.9,
+          height = 0.6,
+          width = 0.6,
           row = 0.5,
           col = 0.5,
           border = "rounded",

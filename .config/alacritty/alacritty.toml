@@ -13,17 +13,17 @@ position = { x = 0, y = 0 }
 decorations = "Buttonless"
 dynamic_padding = true
 blur = true
-opacity = 0.95
+opacity = 0.75
 decorations_theme_variant = "Dark"
 # startup_mode = "Fullscreen"
 # startup_mode = "SimpleFullScreen"
 startup_mode = "Maximized"
 
 [font]
-# normal = { family = "0xProto Nerd Font Mono" }
+normal = { family = "0xProto Nerd Font Mono" }
 # normal = { family = "JetBrainsMono Nerd Font Mono" }
 # normal = { family = "Iosevka Nerd Font Mono" }
-normal = { family = "CommitMono Nerd Font Mono" }
+# normal = { family = "CommitMono Nerd Font Mono" }
 # normal = { family = "Hack Nerd Font Mono" }
 size = 15
 # offset = { x = 0, y = 1 }

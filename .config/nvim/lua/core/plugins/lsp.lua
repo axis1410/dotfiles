@@ -90,6 +90,12 @@ return {
       },
     })
 
+    vim.lsp.config("marksman", {
+      filetypes = { "markdown" },
+    })
+
+    vim.lsp.config("hydra_lsp", { filetypes = { "yaml" } })
+
     vim.lsp.config("bashls", {
       filetypes = { "sh", "zsh" },
     })
