@@ -7,7 +7,8 @@
 # # Only to be used with MonoLisa
 # adjust-cell-height = 3
 
-font-family = 0xProto Nerd Font Mono
+# font-family = 0xProto Nerd Font Mono
+font-family = CommitMono Nerd Font Mono
 
 
 # font-family = JetBrainsMono Nerd Font Mono
@@ -21,6 +22,7 @@ font-thicken-strength = 255
 
 
 # theme = "Catppuccin Frappe"
+theme = "Catppuccin Mocha"
 # theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 # theme = "Dracula+"
@@ -28,7 +30,7 @@ font-thicken-strength = 255
 # theme = "Catppuccin Macchiato"
 # theme = "Nord"
 # theme = "GitHub Dark"
-theme = "Tomorrow Night"
+# theme = "Tomorrow Night"
 
 cursor-style = "block"
 cursor-style-blink = true
