@@ -5,13 +5,13 @@
 
 # font-family = MonoLisa Nerd Font Mono
 # # Only to be used with MonoLisa
-# adjust-cell-height = 3
+adjust-cell-height = -4
 
 # font-family = 0xProto Nerd Font Mono
-font-family = CommitMono Nerd Font Mono
+# font-family = CommitMono Nerd Font Mono
 
 
-# font-family = JetBrainsMono Nerd Font Mono
+font-family = JetBrainsMono Nerd Font Mono
 
 
 # font-size = 16
@@ -20,9 +20,10 @@ font-synthetic-style = true
 font-thicken = true
 font-thicken-strength = 255
 
+alpha-blending = linear-corrected
 
 # theme = "Catppuccin Frappe"
-theme = "Catppuccin Mocha"
+# theme = "Catppuccin Mocha"
 # theme = "Cutie Pro"
 # theme = "Adwaita Dark"
 # theme = "Dracula+"
@@ -30,7 +31,7 @@ theme = "Catppuccin Mocha"
 # theme = "Catppuccin Macchiato"
 # theme = "Nord"
 # theme = "GitHub Dark"
-# theme = "Tomorrow Night"
+theme = "Tomorrow Night"
 
 cursor-style = "block"
 cursor-style-blink = true
@@ -46,7 +47,7 @@ macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = false
 
-# custom-shader = ./shaders/matrix-hallway.glsl
+# custom-shader = ./shaders/bloom.glsl
 
 macos-icon = xray
 macos-option-as-alt = true
@@ -54,8 +55,9 @@ maximize = true
 
 window-inherit-font-size = true
 
-background-blur = true
-background-opacity = 0.94
+background-blur = 95
+background-opacity = 0.95
+background-opacity-cells = true
 
 window-padding-balance = true
 

@@ -25,6 +25,7 @@ return {
       "python",
       "javascript",
       "typescript",
+      "sql",
     },
     auto_install = true,
     indent = {

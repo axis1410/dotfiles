@@ -3,10 +3,10 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "catppuccin",
+  theme = "rosepine",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "catppuccin", "one_light" },
+  theme_toggle = { "rosepine", "one_light" },
   -- transparency: Enable transparent background for some components
   transparency = false,
   -- integrations: Enable highlight support for these plugins
@@ -46,6 +46,7 @@ M.ui = {
   --       - bordered:   Classic bordered look
   telescope = { style = "bordered" },
   -- statusline: Bottom status bar
+
   statusline = {
     -- enabled: Enable NvChad statusline
     enabled = true,
@@ -64,11 +65,32 @@ M.ui = {
     --   Note: default/round/block/arrow work only with `default` theme.
     --   `minimal` supports only `round` and `block`.
     separator_style = "round",
-    -- order: Custom module order. `nil` = NvChad default order.
-    order = nil,
-    -- modules: Custom module functions. `nil` = no extra modules.
-    modules = nil,
+    modules = {
+      filepath = function()
+        local path = vim.api.nvim_buf_get_name(0)
+        if path == "" then
+          return ""
+        end
+
+        path = vim.fn.fnamemodify(path, ":~:.")
+
+        return "%#" .. (vim.bo.modified and "StFilePathModified" or "StFilePath") .. "# " .. path .. " "
+      end,
+    },
+
+    order = {
+      "mode",
+      "file",
+      "filepath",
+      "git",
+      "%=",
+      "lsp",
+      "diagnostics",
+      "cwd",
+      "cursor",
+    },
   },
+
   -- tabufline: Tab/buffer line (tabs + buffer manager)
   tabufline = {
     -- enabled: Enable the tabufline plugin

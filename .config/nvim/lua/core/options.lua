@@ -24,7 +24,7 @@ opt.isfname:append "@-@"
 opt.updatetime = 50
 opt.colorcolumn = "120"
 opt.clipboard:append "unnamedplus"
-opt.mouse = "a"
+opt.mouse = ""
 opt.splitbelow = true
 opt.splitright = true
 opt.winborder = "rounded"

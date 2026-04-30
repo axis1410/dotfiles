@@ -1,0 +1,9 @@
+customCommands:
+  - key: "o"
+    context: "files"
+    description: "Open file in Neovim"
+    command: 'nvim --server "$NVIM" --remote-tab {{.SelectedFile.Name | quote}}'
+  - key: "o"
+    context: "commitFiles"
+    description: "Open file in Neovim"
+    command: 'nvim --server "$NVIM" --remote-tab {{.SelectedCommitFile.Name | quote}}'
