@@ -3,10 +3,10 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "rosepine",
+  theme = "onenord",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "rosepine", "one_light" },
+  theme_toggle = { "onenord", "one_light" },
   -- transparency: Enable transparent background for some components
   transparency = false,
   -- integrations: Enable highlight support for these plugins

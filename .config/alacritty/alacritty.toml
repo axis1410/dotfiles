@@ -9,7 +9,8 @@ TERM = "xterm-256color"
 
 [window]
 dimensions = { columns = 165, lines = 50 }
-position = { x = 0, y = 0 }
+position = { x = 0, y = 1 }
+padding = { x = 0, y = 2 }
 decorations = "Buttonless"
 dynamic_padding = true
 blur = true
@@ -21,12 +22,12 @@ startup_mode = "Maximized"
 
 [font]
 # normal = { family = "0xProto Nerd Font Mono" }
-# normal = { family = "JetBrainsMono Nerd Font Mono" }
+normal = { family = "JetBrainsMono Nerd Font Mono" }
 # normal = { family = "Iosevka Nerd Font Mono" }
-normal = { family = "CommitMono Nerd Font Mono" }
+# normal = { family = "CommitMono Nerd Font Mono" }
 # normal = { family = "Hack Nerd Font Mono" }
-size = 15
-# offset = { x = 0, y = 1 }
+size = 14
+offset = { x = 0, y = -2 }
 
 # normal = { family = "MonaSpiceNe Nerd Font Mono" }
 # normal = { family = "MonoLisa Nerd Font Mono" }
@@ -36,3 +37,9 @@ hide_when_typing = true
 
 [selection]
 save_to_clipboard = true
+
+
+[[keyboard.bindings]]
+key = "Enter"
+mods = "Shift"
+chars = "\u001b[13;2u"

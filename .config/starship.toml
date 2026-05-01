@@ -1,36 +1,43 @@
-format = "$directory$git_branch$git_status$python$cmd_duration$time$character"
+format = "$directory$git_branch$git_status$python$cmd_duration$character"
 add_newline = false
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
+success_symbol = "[>](bold white)"
+error_symbol = "[>](bold red)"
 
 [directory]
 truncation_length = 3
-style = "bold blue"
+style = "bold cyan"
+read_only = " [ro]"
+truncation_symbol = "…/"
 
 [git_branch]
-symbol = " "
-style = "bold purple"
+symbol = ""
+style = "bold magenta"
+format = "[$symbol$branch]($style) "
 
 [git_status]
-style = "yellow"
-format = "([$all_status$ahead_behind]($style) )"
-ahead = "⇡ ${count} "
-behind = "⇣ ${count} "
-diverged = "⇕ ⇡${ahead_count}⇣${behind_count} "
+style = "bold yellow"
+format = "([$all_status$ahead_behind]($style)) "
+ahead = "↑${count}"
+behind = "↓${count}"
+diverged = "↕ ↑${ahead_count}↓${behind_count}"
+conflicted = "="
+deleted = "✘"
+renamed = "»"
+modified = "!"
+staged = "+"
+untracked = "?"
 
 [python]
-format = "[( $virtualenv)](bright-green) "
-detect_extensions = []
-detect_files = []
-detect_folders = []
+symbol = ""
+style = "bold green"
+format = "[$symbol$virtualenv]($style) "
+detect_extensions = ["py"]
+detect_files = ["pyproject.toml", "setup.py", "requirements.txt"]
+detect_folders = ["__pycache__"]
 
 [cmd_duration]
 min_time = 200
-format = "[(⏱ $duration)](bright-black) "
-
-[time]
-disabled = false
-format = "[( $time)](bright-black) "
-time_format = "%H:%M:%S"
+format = "[${duration}]($style) "
+style = "bold white"
