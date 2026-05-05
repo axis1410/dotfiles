@@ -59,7 +59,7 @@ return {
     },
     popupmenu = {
       enabled = true,
-      backend = "nui",
+      backend = "cmp",
     },
     notify = {
       enabled = true,

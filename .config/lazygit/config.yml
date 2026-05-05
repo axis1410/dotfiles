@@ -1,3 +1,114 @@
+gui:
+  # Modern appearance
+  showFileTree: true
+  showRandomTip: false
+  showCommandLog: false
+  showBottomLine: true
+  expandFocusedSidePanel: false
+  mainPanelSplitMode: "flexible"
+  enlargedSideViewLocation: "left"
+  skipDiscardChangeWarning: false
+  skipStashWarning: false
+
+  theme:
+    activeBorderColor:
+      - "#94e2d5"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    inactiveViewSelectedLineBgColor:
+      - "#6c7086"
+    cherryPickedCommitFgColor:
+      - "#94e2d5"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    markedBaseCommitFgColor:
+      - "#89b4fa"
+    markedBaseCommitBgColor:
+      - "#f9e2af"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+
+  authorColors:
+    "*": "#b4befe"
+
+  # Theme - Catppuccin Mocha
+  # theme:
+  #   activeBorderColor:
+  #     - "#b4befe"
+  #     - "bold"
+  #   inactiveBorderColor:
+  #     - "#6c7086"
+  #   searchingActiveBorderColor:
+  #     - "#f9e2af"
+  #   optionsTextColor:
+  #     - "#89b4fa"
+  #   selectedLineBgColor:
+  #     - "#313244"
+  #   cherryPickedCommitBgColor:
+  #     - "#313244"
+  #   cherryPickedCommitFgColor:
+  #     - "#cba6f7"
+  #   unstagedChangesColor:
+  #     - "#f38ba8"
+  #   defaultFgColor:
+  #     - "#cdd6f4"
+  # Commit length
+  commitLength:
+    show: true
+  # Status panel
+  statusPanel:
+    showRefreshOptions: true
+  # Side panel width
+  sidePanelWidth: 0.3333
+  # Vertical split ratio
+  splitDiff: "always"
+# Git settings
+git:
+  # Auto-fetch
+  autoFetch: true
+  autoRefresh: true
+  fetchAll: true
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"
+  overrideGpg: false
+  disableForcePushing: false
+  # Commit
+  commit:
+    signOff: false
+    autoWrapCommitMessage: true
+    autoWrapWidth: 72
+  # Merging
+  merging:
+    manualCommit: false
+    args: ""
+  # Paging
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --features=catppuccin-mocha
+  # Commits
+  commits:
+    trimSubjectPrefix: true
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative --pretty=medium
+# Keybinding customizations
+keybinding:
+  universal:
+    edit: "e"
+    openFile: "o"
+# OS-specific
+os:
+  edit: 'nvim --server "$NVIM" --remote-tab {{filename}}'
+  editAtLine: 'nvim --server "$NVIM" --remote-tab +{{line}} {{filename}}'
+  editAtLineAndWait: 'nvim --server "$NVIM" --remote-tab +{{line}} {{filename}}'
+# Custom commands (existing)
 customCommands:
   - key: "o"
     context: "files"
@@ -7,3 +118,11 @@ customCommands:
     context: "commitFiles"
     description: "Open file in Neovim"
     command: 'nvim --server "$NVIM" --remote-tab {{.SelectedCommitFile.Name | quote}}'
+# Prompt configurations
+prompt:
+  showInBottomPanel: true
+# Refresher
+refresher:
+  fetchInterval: 60
+# Not a bug patch - allows for better UX
+disableStartupPopups: false

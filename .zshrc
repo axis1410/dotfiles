@@ -657,5 +657,34 @@ _ghswitch() {
 
 compdef _ghswitch ghswitch
 
+function cdmenu() {
+	local dir
+	dir="$(find "$HOME" "$HOME/dev" "$HOME/projects" "$HOME/Desktop" "$HOME/Documents" "$HOME/Downloads" -maxdepth 5 -type d \
+		-not -path '*/node_modules/*' \
+		-not -path '*/.local/lib/*' \
+		-not -path '*/site-packages/*' \
+		-not -path '*/__pycache__/*' \
+		-not -path '*/.venv/*' \
+		-not -path '*/venv/*' \
+		-not -path '*/.git/' \
+		-not -path '*/.git' \
+		-not -path '*/.git/*' \
+		2>/dev/null | fzf --prompt='cd> ' --preview='ls -A {} | head -20' --height=40%)" && cd "$dir"
+}
+
+# Fuzzy find files and open in nvim
+function nvimf() {
+	local file
+	file="$(find . -type f \
+		-not -path '*/__pycache__/*' \
+		-not -path '*/node_modules/*' \
+		-not -path '*/site-packages/*' \
+		-not -path '*/.git/*' \
+		-not -path '*/.venv/*' \
+		-not -path '*/venv/*' \
+		-not -path '*/.local/*' \
+		2>/dev/null | fzf --prompt='nvim> ' --preview='bat --color=always --style=numbers --line-range=:500 {}' --height=40%)" && nvim "$file"
+}
+
 # Added by Antigravity
 export PATH="/Users/navtech/.antigravity/antigravity/bin:$PATH"

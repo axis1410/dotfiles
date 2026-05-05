@@ -1,7 +1,7 @@
 return {
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       {
         "L3MON4D3/LuaSnip",
@@ -27,6 +27,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
       "https://codeberg.org/FelipeLema/cmp-async-path.git",
     },
     opts = function()
@@ -34,7 +35,7 @@ return {
 
       local cmp = require "cmp"
 
-      local options = {
+      local options = vim.tbl_deep_extend("force", {
         completion = { completeopt = "menu,menuone" },
 
         snippet = {
@@ -90,9 +91,27 @@ return {
           { name = "nvim_lua" },
           { name = "async_path" },
         },
-      }
+      }, require "nvchad.cmp")
 
-      return vim.tbl_deep_extend("force", options, require "nvchad.cmp")
+      cmp.setup.cmdline({ "/", "?" }, {
+        completion = { autocomplete = { cmp.TriggerEvent.TextChanged } },
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
+
+      cmp.setup.cmdline(":", {
+        completion = { autocomplete = { cmp.TriggerEvent.TextChanged } },
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "async_path" },
+        }, {
+          { name = "cmdline" },
+        }),
+      })
+
+      return options
     end,
   },
 }

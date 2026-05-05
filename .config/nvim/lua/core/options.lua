@@ -46,3 +46,4 @@ vim.filetype.add {
     [".*/print_format/.*%.html"] = "htmldjango",
   },
 }
+
