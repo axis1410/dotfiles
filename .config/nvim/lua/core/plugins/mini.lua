@@ -51,6 +51,7 @@ return {
   {
     "echasnovski/mini.indentscope",
     event = { "BufReadPost", "BufNewFile" },
+    enabled = false,
     opts = {
       draw = {
         delay = 50,

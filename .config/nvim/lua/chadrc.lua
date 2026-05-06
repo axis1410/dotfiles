@@ -34,7 +34,7 @@ M.ui = {
     --   - flat_dark:    Flat design with dark background (recommended for dark themes)
     --   - atom:         Atom/VS Code style single-line
     --   - atom_colored: Atom style with colored icons
-    style = "flat_dark",
+    style = "default",
     -- format_colors: How to display colors in completion menu
     --   - lsp:   Show colors from tailwind/css/astro LSP servers
     --   - icon:  Icon prefix for color swatches (default: 󱓻)
