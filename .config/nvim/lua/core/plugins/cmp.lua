@@ -1,6 +1,7 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
+    version = "1.*",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       {
@@ -18,100 +19,53 @@ return {
         },
         config = function(_, opts)
           require("nvim-autopairs").setup(opts)
-
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
       },
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-cmdline",
-      "https://codeberg.org/FelipeLema/cmp-async-path.git",
     },
-    opts = function()
-      dofile(vim.g.base46_cache .. "cmp")
-
-      local cmp = require "cmp"
-
-      local options = vim.tbl_deep_extend("force", {
-        completion = { completeopt = "menu,menuone" },
-
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
-        },
-
-        mapping = {
-          ["<C-p>"] = cmp.mapping.select_prev_item(),
-          ["<C-n>"] = cmp.mapping.select_next_item(),
-          ["<Up>"] = cmp.mapping.select_prev_item(),
-          ["<Down>"] = cmp.mapping.select_next_item(),
-          ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.close(),
-
-          ["<CR>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
+    opts = {
+      fuzzy = { implementation = "prefer_rust" },
+      snippets = { preset = "luasnip" },
+      keymap = {
+        preset = "none",
+        ["<C-p>"] = { "select_prev", "fallback" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+        ["<C-f>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-e>"] = { "hide", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-y>"] = { "accept", "fallback" },
+        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+      },
+      appearance = {
+        nerd_font_variant = "mono",
+        use_nvim_cmp_as_default = true,
+      },
+      completion = {
+        accept = { auto_brackets = { enabled = true } },
+        documentation = { auto_show = true, auto_show_delay_ms = 200 },
+        menu = {
+          border = "rounded",
+          draw = {
+            treesitter = { "lsp" },
           },
-          ["<C-y>"] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-          },
-
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif require("luasnip").expand_or_jumpable() then
-              require("luasnip").expand_or_jump()
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif require("luasnip").jumpable(-1) then
-              require("luasnip").jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
         },
-
-        sources = {
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "nvim_lua" },
-          { name = "async_path" },
+        ghost_text = {
+          enabled = true,
         },
-      }, require "nvchad.cmp")
-
-      cmp.setup.cmdline({ "/", "?" }, {
-        completion = { autocomplete = { cmp.TriggerEvent.TextChanged } },
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      })
-
-      cmp.setup.cmdline(":", {
-        completion = { autocomplete = { cmp.TriggerEvent.TextChanged } },
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "async_path" },
-        }, {
-          { name = "cmdline" },
-        }),
-      })
-
-      return options
-    end,
+      },
+      signature = { enabled = true, trigger = { enabled = true, show_on_keyword = true }, window = { winblend = 1 } },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
+      cmdline = {
+        enabled = true,
+        keymap = { ["<Tab>"] = { "show", "accept" } },
+        completion = { menu = { auto_show = true } },
+      },
+    },
   },
 }

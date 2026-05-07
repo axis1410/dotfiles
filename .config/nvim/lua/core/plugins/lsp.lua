@@ -6,12 +6,12 @@ return {
     "mason-org/mason.nvim",
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     "ibhagwan/fzf-lua",
   },
   config = function()
     local fzf = require "fzf-lua"
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local function toggle_inlay_hints(bufnr)
       if not (vim.lsp and vim.lsp.inlay_hint) then

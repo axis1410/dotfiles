@@ -1,5 +1,5 @@
 return {
   "fei6409/log-highlight.nvim",
   opts = {},
-  event = "BufEnter",
+  ft = "log",
 }

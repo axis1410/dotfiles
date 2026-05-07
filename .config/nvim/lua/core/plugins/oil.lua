@@ -2,7 +2,6 @@ return {
   {
     "stevearc/oil.nvim",
     opts = {},
-    lazy = false,
     enabled = true,
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     cmd = "Oil",
@@ -172,11 +171,10 @@ return {
 
   {
     "refractalize/oil-git-status.nvim",
-
     dependencies = {
       "stevearc/oil.nvim",
     },
-
+    ft = "oil",
     config = true,
   },
 }

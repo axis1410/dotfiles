@@ -4,15 +4,15 @@ return {
   opts = {
     chunk = {
       enable = true,
-      delay = 10,
-      duration = 100,
+      delay = 80,
+      duration = 80,
     },
     indent = {
       enable = true,
     },
     line_num = {
-      enable = true,
-      use_treesitter = true,
+      enable = false,
+      use_treesitter = false,
     },
     blank = {
       enable = false,

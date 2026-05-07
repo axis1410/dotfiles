@@ -2,7 +2,7 @@ return {
 
   {
     "echasnovski/mini.bracketed",
-    event = "BufEnter",
+    event = "VeryLazy",
     version = false,
     config = function()
       require("mini.bracketed").setup()
@@ -23,7 +23,7 @@ return {
 
   {
     "echasnovski/mini.move",
-    event = "BufEnter",
+    event = "VeryLazy",
     version = false,
     config = function()
       require("mini.move").setup {
@@ -43,7 +43,7 @@ return {
 
   {
     "echasnovski/mini.pairs",
-    event = "BufEnter",
+    event = "InsertEnter",
     version = false,
     opts = {},
   },
@@ -62,14 +62,14 @@ return {
 
   {
     "echasnovski/mini.comment",
-    event = "BufEnter",
+    event = "VeryLazy",
     version = false,
     opts = {},
   },
 
   {
     "echasnovski/mini.surround",
-    event = "BufEnter",
+    event = "VeryLazy",
     version = false,
     config = function()
       require("mini.surround").setup {
@@ -100,6 +100,10 @@ return {
   {
     "echasnovski/mini.bufremove",
     version = false,
+    keys = {
+      { "<leader>bd", desc = "Delete buffer (keep window)" },
+      { "<leader>bD", desc = "Force delete buffer" },
+    },
     config = function()
       require("mini.bufremove").setup()
       vim.keymap.set("n", "<leader>bd", function()

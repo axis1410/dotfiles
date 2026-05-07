@@ -1,5 +1,5 @@
 local ensure_installed = {
-  "hydra_lsp",
+  -- "hydra_lsp",
   "stylua",
   "css-lsp",
   "html-lsp",
@@ -54,6 +54,15 @@ end
 return {
   {
     "mason-org/mason.nvim",
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonInstallAll",
+      "MasonLog",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonUpdate",
+    },
     config = function()
       require("mason").setup {}
       local registry = require "mason-registry"
@@ -68,6 +77,7 @@ return {
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    lazy = true,
     dependencies = { "mason-org/mason.nvim" },
     opts = {
       ensure_installed = ensure_installed,

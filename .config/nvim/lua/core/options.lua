@@ -21,7 +21,9 @@ opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
 opt.undofile = true
 opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:block"
 opt.isfname:append "@-@"
-opt.updatetime = 50
+opt.updatetime = 200
+opt.redrawtime = 1500
+opt.synmaxcol = 240
 opt.colorcolumn = "120"
 opt.clipboard:append "unnamedplus"
 opt.mouse = ""
@@ -46,4 +48,3 @@ vim.filetype.add {
     [".*/print_format/.*%.html"] = "htmldjango",
   },
 }
-

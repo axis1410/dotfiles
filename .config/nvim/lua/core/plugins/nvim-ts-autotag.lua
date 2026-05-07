@@ -1,6 +1,6 @@
 return {
   "windwp/nvim-ts-autotag",
-  lazy = false,
+  ft = { "html", "javascriptreact", "typescriptreact", "vue", "svelte", "xml", "tsx", "jsx" },
   opts = {
     opts = {
       enable_close = true,

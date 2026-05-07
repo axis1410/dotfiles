@@ -1,9 +1,7 @@
 return {
   {
     "folke/snacks.nvim",
-    -- event = "VeryLazy",
-
-    lazy = false,
+    event = "VeryLazy",
     opts = {
       lazygit = {
         opts = {},

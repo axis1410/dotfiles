@@ -3,10 +3,10 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "aquarium",
+  theme = "ashes",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "aquarium", "one_light" },
+  theme_toggle = { "ashes", "one_light" },
   -- transparency: Enable transparent background for some components
   transparency = false,
   -- integrations: Enable highlight support for these plugins
@@ -14,12 +14,15 @@ M.base46 = {
   --              indentline, lazy, mason, navic, noice, notify, nvimtree,
   --              outline, snacks, spectacle, telescope, trouble, whichkey
   integrations = {
-    "cmp",
+    "blink",
     "diffview",
     "flash",
     "git",
     "notify",
     "trouble",
+  },
+  excluded = {
+    "cmp",
   },
 }
 
@@ -34,7 +37,7 @@ M.ui = {
     --   - flat_dark:    Flat design with dark background (recommended for dark themes)
     --   - atom:         Atom/VS Code style single-line
     --   - atom_colored: Atom style with colored icons
-    style = "default",
+    style = "atom_colored",
     -- format_colors: How to display colors in completion menu
     --   - lsp:   Show colors from tailwind/css/astro LSP servers
     --   - icon:  Icon prefix for color swatches (default: 󱓻)
@@ -160,7 +163,7 @@ M.cheatsheet = {
 -- LSP configuration
 M.lsp = {
   -- signature: Show function signature help as you type
-  signature = true,
+  signature = false,
 }
 
 -- Color picker/highlighter (colorify plugin)

@@ -1,11 +1,14 @@
 return {
   "nvim-pack/nvim-spectre",
-  lazy = false,
+  cmd = "Spectre",
   build = "bash ./build.sh",
-
-  config = function()
-    vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
+  keys = {
+    {
+      "<leader>S",
+      function()
+        require("spectre").toggle()
+      end,
       desc = "Toggle Spectre",
-    })
-  end,
+    },
+  },
 }

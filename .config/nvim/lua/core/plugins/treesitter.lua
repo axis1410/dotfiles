@@ -108,15 +108,20 @@ return {
       "vue",
     })
 
-    vim.schedule(function()
+    vim.defer_fn(function()
       ts.install(ensure_installed)
-    end)
+    end, 5000)
 
     local group = vim.api.nvim_create_augroup("user_treesitter_start", { clear = true })
     vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "FileType" }, {
       group = group,
       callback = function(args)
         if vim.bo[args.buf].buftype ~= "" then
+          return
+        end
+
+        local ok_stat, stat = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
+        if ok_stat and stat and stat.size > 512 * 1024 then
           return
         end
 
