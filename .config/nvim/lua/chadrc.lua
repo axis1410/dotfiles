@@ -3,12 +3,12 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "kanagawa-dragon",
+  theme = "aquarium",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "kanagawa-dragon", "one_light" },
+  theme_toggle = { "aquarium", "one_light" },
   -- transparency: Enable transparent background for some components
-  transparency = true,
+  transparency = false,
   -- integrations: Enable highlight support for these plugins
   --   Available: blink, cmp, conform, diffview, flash, git, gitsigns,
   --              indentline, lazy, mason, navic, noice, notify, nvimtree,
@@ -23,6 +23,12 @@ M.base46 = {
   },
   excluded = {
     "cmp",
+  },
+
+  hl_override = {
+    PmenuSel = { bg = "#7E9CD8", fg = "#1F1F28", bold = true },
+    CursorLine = { bg = "#2A2A3A" },
+    Visual = { bg = "#7E9CD8", fg = "#1F1F28" },
   },
 }
 
