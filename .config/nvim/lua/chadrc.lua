@@ -3,12 +3,12 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "ashes",
+  theme = "kanagawa-dragon",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "ashes", "one_light" },
+  theme_toggle = { "kanagawa-dragon", "one_light" },
   -- transparency: Enable transparent background for some components
-  transparency = false,
+  transparency = true,
   -- integrations: Enable highlight support for these plugins
   --   Available: blink, cmp, conform, diffview, flash, git, gitsigns,
   --              indentline, lazy, mason, navic, noice, notify, nvimtree,
