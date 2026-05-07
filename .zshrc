@@ -689,3 +689,8 @@ function nvimf() {
 # Added by Antigravity
 export PATH="/Users/navtech/.antigravity/antigravity/bin:$PATH"
 export CLAUDE_CODE_SUBAGENT_MODEL="claude-haiku-4-5"
+
+function sp() {
+	sesh picker
+
+}
