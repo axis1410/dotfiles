@@ -25,6 +25,7 @@ opt.updatetime = 200
 opt.redrawtime = 1500
 opt.synmaxcol = 240
 opt.colorcolumn = "120"
+opt.cmdheight = 1
 opt.clipboard:append "unnamedplus"
 opt.mouse = ""
 opt.splitbelow = true
@@ -48,3 +49,11 @@ vim.filetype.add {
     [".*/print_format/.*%.html"] = "htmldjango",
   },
 }
+
+vim.api.nvim_create_autocmd({ "VimEnter", "UIEnter", "ColorScheme" }, {
+  callback = function()
+    vim.o.cmdheight = 1
+    vim.api.nvim_set_hl(0, "MsgArea", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "ModeMsg", { link = "Normal" })
+  end,
+})

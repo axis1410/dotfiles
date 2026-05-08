@@ -30,27 +30,9 @@ return {
     },
   },
   opts = {
-    cmdline = {
-      enabled = true,
-      view = "cmdline_popup",
-      opts = {},
-      format = {
-        cmdline = { pattern = "^:", icon = "  ", lang = "vim" },
-        search_down = { kind = "search", pattern = "^/", icon = "󰍉 ", lang = "regex" },
-        search_up = { kind = "search", pattern = "^%?", icon = "󰍊 ", lang = "regex" },
-        filter = { pattern = "^:%s*!", icon = "╱ ", lang = "bash" },
-        lua = {
-          pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" },
-          icon = "󰢱 ",
-          lang = "lua",
-        },
-        help = { pattern = "^:%s*he?l?p?%s+", icon = "󰋖 " },
-        calculator = { pattern = "^=", icon = "󰃬 ", lang = "vimnormal" },
-        input = { view = "cmdline_input", icon = "󰥻 " },
-      },
-    },
+    cmdline = { enabled = false },
     messages = {
-      enabled = true,
+      enabled = false,
       view = "notify",
       view_error = "notify",
       view_warn = "notify",
@@ -58,7 +40,7 @@ return {
       view_search = "virtualtext",
     },
     popupmenu = {
-      enabled = true,
+      enabled = false,
       backend = "nui",
     },
     notify = {
@@ -120,7 +102,7 @@ return {
     },
     presets = {
       bottom_search = false,
-      command_palette = true,
+      command_palette = false,
       long_message_to_split = true,
       inc_rename = false,
       lsp_doc_border = true,
@@ -153,28 +135,6 @@ return {
       },
     },
     views = {
-      cmdline_popup = {
-        border = {
-          style = "rounded",
-          padding = { 0, 2 },
-        },
-        size = {
-          min_width = 72,
-          width = "auto",
-          height = "auto",
-        },
-        win_options = {
-          winhighlight = {
-            Normal = "NoiceCmdlinePopup",
-            FloatTitle = "NoiceCmdlinePopupTitle",
-            FloatBorder = "NoiceCmdlinePopupBorder",
-            IncSearch = "",
-            CurSearch = "",
-            Search = "",
-          },
-        },
-        filter_opts = { reverse = false },
-      },
       mini = {
         align = "message-right",
         position = {
@@ -218,23 +178,6 @@ return {
         },
         text = {
           top = "  ",
-        },
-      },
-      popupmenu = {
-        border = {
-          style = "rounded",
-          padding = { 0, 1 },
-        },
-        size = {
-          max_height = 16,
-        },
-        win_options = {
-          winhighlight = {
-            Normal = "NoicePopupmenu",
-            FloatBorder = "NoicePopupmenuBorder",
-            CursorLine = "NoicePopupmenuSelected",
-            PmenuMatch = "NoicePopupmenuMatch",
-          },
         },
       },
     },
