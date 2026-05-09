@@ -52,6 +52,12 @@ require("lazy").setup {
 local cache_dir = vim.g.base46_cache
 local fs = vim.uv or vim.loop
 
+if type(cache_dir) == "string" and not fs.fs_stat(cache_dir .. "tbline") then
+  pcall(function()
+    require("base46").compile()
+  end)
+end
+
 if type(cache_dir) == "string" and fs.fs_stat(cache_dir) then
   for _, file in ipairs(vim.fn.readdir(cache_dir)) do
     local path = cache_dir .. file

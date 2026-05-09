@@ -31,10 +31,17 @@ return {
     end
 
     vim.diagnostic.config {
-      virtual_text = true,
+      virtual_text = {
+        prefix = "●",
+        source = "if_many",
+      },
       severity_sort = true,
       underline = true,
       update_in_insert = false,
+      float = {
+        border = "rounded",
+        source = true,
+      },
     }
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -65,7 +72,7 @@ return {
         map("n", "<leader>uh", function()
           toggle_inlay_hints(event.buf)
         end, "Toggle inlay hints")
-        map("n", "<leader>lr", vim.lsp.codelens.refresh, "LSP codelens refresh")
+        map("n", "<leader>lr", vim.lsp.codelens.enable, "LSP codelens refresh")
         map("n", "<leader>lR", vim.lsp.codelens.run, "LSP codelens run")
       end,
     })
@@ -83,6 +90,9 @@ return {
           workspace = {
             checkThirdParty = false,
           },
+          library = {
+            vim.fn.stdpath "data" .. "/lazy/base46",
+          },
           completion = {
             callSnippet = "Replace",
           },
@@ -95,18 +105,21 @@ return {
     })
 
     vim.lsp.config("hydra_lsp", { filetypes = { "yaml" } })
-
-    vim.lsp.config("bashls", {
-      filetypes = { "sh", "zsh" },
-    })
-
-    vim.lsp.config("html", {
-      filetypes = { "html", "htmldjango", "jinja" },
-    })
-
-    vim.lsp.config("cssls", {
-      filetypes = { "css" },
-    })
+    vim.lsp.config("bashls", { filetypes = { "sh", "zsh" } })
+    vim.lsp.config("html", { filetypes = { "html", "htmldjango", "jinja" } })
+    vim.lsp.config("just-lsp", { filetypes = { "just" } })
+    vim.lsp.config("cssls", { filetypes = { "css" } })
+    vim.lsp.config("mbake", { filetypes = { "makefile" } })
+    vim.lsp.config(
+      "taplo",
+      {
+        schema = {
+          associations = {
+            [".*sesh\\.toml$"] = "https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json",
+          },
+        },
+      }
+    )
 
     local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
     local vue_ts_plugin = mason_packages .. "/vue-language-server/node_modules/@vue/typescript-plugin"

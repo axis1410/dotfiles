@@ -31,6 +31,10 @@ opt.mouse = ""
 opt.splitbelow = true
 opt.splitright = true
 opt.winborder = "rounded"
+opt.scrolloff = 8
+opt.wrap = false
+opt.pumheight = 10
+opt.timeoutlen = 300
 
 vim.filetype.add {
   filename = {

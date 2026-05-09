@@ -83,7 +83,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git jsontools vscode docker docker-compose)
+# plugins=(git jsontools vscode docker docker-compose)
 
 MAILCHECK=0
 

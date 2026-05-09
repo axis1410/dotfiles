@@ -1,12 +1,13 @@
+---@type Base46Table
 local M = {}
 
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "aquarium",
+  theme = "catppuccin",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "aquarium", "one_light" },
+  theme_toggle = { "catppuccin", "one_light" },
   -- transparency: Enable transparent background for some components
   transparency = false,
   -- integrations: Enable highlight support for these plugins
@@ -25,10 +26,34 @@ M.base46 = {
     "cmp",
   },
 
+  changed_themes = {
+    -- vesper = {
+    --   base_30 = {
+    --     darker_black = "#1e1e1e",
+    --     black = "#262626",
+    --     black2 = "#2e2e2e",
+    --     one_bg = "#353535",
+    --     one_bg2 = "#3a3a3a",
+    --     one_bg3 = "#464646",
+    --     statusline_bg = "#2e2e2e",
+    --     lightbg = "#3a3a3a",
+    --     line = "#3a3a3a",
+    --   },
+    --   base_16 = {
+    --     base00 = "#262626",
+    --     base01 = "#2e2e2e",
+    --     base02 = "#353535",
+    --   },
+    -- },
+  },
+
   hl_override = {
-    PmenuSel = { bg = "#7E9CD8", fg = "#1F1F28", bold = true },
-    CursorLine = { bg = "#2A2A3A" },
-    Visual = { bg = "#7E9CD8", fg = "#1F1F28" },
+    CursorLine   = { bg = "#2E2E2E" },
+    CursorLineNr = { bold = true },
+    Visual       = { bg = "#3A3A3A" },
+    PmenuSel     = { bold = true },
+    Search       = { bold = true, underline = true },
+    IncSearch    = { reverse = true, bold = true },
   },
 }
 

@@ -59,7 +59,14 @@ return {
       },
       signature = { enabled = true, trigger = { enabled = true, show_on_keyword = true }, window = { winblend = 1 } },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
       },
       cmdline = {
         enabled = true,
