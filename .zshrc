@@ -686,6 +686,47 @@ function nvimf() {
 		2>/dev/null | fzf --prompt='nvim> ' --preview='bat --color=always --style=numbers --line-range=:500 {}' --height=40%)" && nvim "$file"
 }
 
+# Insert a file or directory from the current working tree into the prompt.
+function __fzf_path_insert() {
+	local selected preview_cmd
+
+	if ! command -v fzf >/dev/null 2>&1; then
+		zle -M "fzf not found"
+		return 1
+	fi
+
+	if command -v bat >/dev/null 2>&1; then
+		preview_cmd='if [ -d {} ]; then ls -A {}; else bat --color=always --style=numbers --line-range=:500 {}; fi'
+	else
+		preview_cmd='if [ -d {} ]; then ls -A {}; else sed -n "1,200p" {}; fi'
+	fi
+
+	if command -v fd >/dev/null 2>&1; then
+		selected="$(fd --hidden --follow --exclude .git --exclude node_modules --exclude __pycache__ --exclude site-packages --exclude .venv --exclude venv --exclude .local . . |
+			fzf --prompt='path> ' --height=40% --preview="$preview_cmd")"
+	else
+		selected="$(find . \( \
+			-path '*/.git/*' -o \
+			-path '*/node_modules/*' -o \
+			-path '*/__pycache__/*' -o \
+			-path '*/site-packages/*' -o \
+			-path '*/.venv/*' -o \
+			-path '*/venv/*' -o \
+			-path '*/.local/*' \
+			\) -prune -o \( -type f -o -type d \) -print 2>/dev/null |
+			sed 's#^\./##' |
+			fzf --prompt='path> ' --height=40% --preview="$preview_cmd")"
+	fi
+
+	[[ -n "$selected" ]] || return 0
+
+	LBUFFER+="${(q-)selected}"
+	zle reset-prompt
+}
+
+zle -N __fzf_path_insert
+bindkey '^T' __fzf_path_insert
+
 # Added by Antigravity
 export PATH="/Users/navtech/.antigravity/antigravity/bin:$PATH"
 export CLAUDE_CODE_SUBAGENT_MODEL="claude-haiku-4-5"

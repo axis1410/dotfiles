@@ -1,25 +1,25 @@
-font-family = MonaspiceNe Nerd Font Mono
+# font-family = MonaspiceNe Nerd Font Mono
 # font-style-bold = MonaspiceNe Nerd Font Mono Bold
 # font-style-italic = MonaspiceNe Nerd Font Mono Italic
 # font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
 # font-family = MonoLisa Nerd Font Mono
 # # Only to be used with MonoLisa
-adjust-cell-height = -2
+# adjust-cell-height = -2
 adjust-cell-width = 0
 
 # font-family = 0xProto Nerd Font Mono
-# font-family = CommitMono Nerd Font Mono
+font-family = CommitMono Nerd Font Mono
 
 
 # font-family = JetBrainsMono Nerd Font Mono
 
 
-# font-size = 16
+font-size = 14
 # font-size = 18
 font-synthetic-style = true
 font-thicken = true
-font-thicken-strength = 255
+font-thicken-strength = 125
 
 alpha-blending = native
 
@@ -89,7 +89,7 @@ selection-foreground = #1A1A1A
 
 
 shell-integration = zsh
-scrollback-limit = 1000000
+scrollback-limit = 10000
 # keybind = ctrl+n=new_window
 # keybind = ctrl+h=goto_split:left
 # keybind = ctrl+j=goto_split:bottom

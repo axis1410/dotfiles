@@ -4,12 +4,12 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "catppuccin",
+  theme = "tomorrow_night",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "catppuccin", "one_light" },
+  theme_toggle = { "tomorrow_night", "one_light" },
   -- transparency: Enable transparent background for some components
-  transparency = false,
+  transparency = true,
   -- integrations: Enable highlight support for these plugins
   --   Available: blink, cmp, conform, diffview, flash, git, gitsigns,
   --              indentline, lazy, mason, navic, noice, notify, nvimtree,
@@ -48,12 +48,12 @@ M.base46 = {
   },
 
   hl_override = {
-    CursorLine   = { bg = "#2E2E2E" },
+    CursorLine = { bg = "#2E2E2E" },
     CursorLineNr = { bold = true },
-    Visual       = { bg = "#3A3A3A" },
-    PmenuSel     = { bold = true },
-    Search       = { bold = true, underline = true },
-    IncSearch    = { reverse = true, bold = true },
+    Visual = { bg = "#3A3A3A" },
+    PmenuSel = { bold = true },
+    Search = { bold = true, underline = true },
+    IncSearch = { reverse = true, bold = true },
   },
 }
 
@@ -142,15 +142,15 @@ M.nvdash = {
   load_on_startup = true,
   -- header: ASCII art header (each string = one line)
   header = {
-    "                            ",
-    "    ▄▄   ▄▄      ▄▄   ▄▄    ",
-    "    ███▄███     ███▄ ███    ",
-    "    ██▀█▀██     ██ █▄███    ",
-    "    ██   ██     ██  ▀███    ",
-    "    ▀▀   ▀▀     ▀▀   ▀▀▀    ",
-    "                            ",
-    "      󰕮  Vim btw            ",
-    "                            ",
+    "                                             ",
+    "    ███╗   ██╗██╗   ██╗██╗███╗   ███╗     ",
+    "    ████╗  ██║██║   ██║██║████╗ ████║     ",
+    "    ██╔██╗ ██║██║   ██║██║██╔████╔██║     ",
+    "    ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║     ",
+    "    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║     ",
+    "    ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝     ",
+    "                                             ",
+    "                                             ",
   },
   -- buttons: Dashboard action buttons
   --   - txt:   Button text (supports icons via 󰕮 etc.)

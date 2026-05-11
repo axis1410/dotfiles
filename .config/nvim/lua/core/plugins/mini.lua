@@ -1,4 +1,47 @@
 return {
+  {
+    "echasnovski/mini.files",
+    version = false,
+    enabled = false,
+    keys = {
+      {
+        "<leader>e",
+        function()
+          local MiniFiles = require "mini.files"
+          if MiniFiles.close() then
+            return
+          end
+
+          MiniFiles.open(vim.api.nvim_buf_get_name(0), true)
+        end,
+        desc = "Open Mini Files",
+      },
+    },
+    opts = {
+      mappings = {
+        close = "<Esc>",
+        go_in = "<CR>",
+        go_in_plus = "L",
+        go_out = "-",
+        go_out_plus = "H",
+        reset = "<BS>",
+        reveal_cwd = "@",
+        show_help = "g?",
+        synchronize = "=",
+        trim_left = "<",
+        trim_right = ">",
+      },
+      options = {
+        permanent_delete = true,
+        use_as_default_explorer = true,
+      },
+      windows = {
+        preview = true,
+        width_focus = 35,
+        width_preview = 70,
+      },
+    },
+  },
 
   {
     "echasnovski/mini.bracketed",
