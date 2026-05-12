@@ -79,4 +79,3 @@ map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
 map("n", "<leader>tt", function()
   require("base46").toggle_transparency()
 end)
-

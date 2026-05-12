@@ -1,3 +1,9 @@
+local function has_jinja_template_syntax(bufnr)
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+  local text = table.concat(lines, "\n")
+  return text:match("{[%%#][%-]?") ~= nil or text:match("{{[%-]?") ~= nil
+end
+
 return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
@@ -6,9 +12,7 @@ return {
       html_prettier = {
         inherit = "prettier",
         condition = function(self, ctx)
-          -- skip Jinja2 templates — prettier mangles {% %} tags
-          local first = vim.api.nvim_buf_get_lines(ctx.buf, 0, 1, false)[1] or ""
-          return not first:match("{%%")
+          return not has_jinja_template_syntax(ctx.buf)
         end,
       },
     },
@@ -31,11 +35,17 @@ return {
     },
 
     format_on_save = function(bufnr)
-      -- disable all formatting for Jinja templates
-      local first = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
-      if first:match("{%%") then
+      local ft = vim.bo[bufnr].filetype
+      if ft == "jinja" or ft == "htmldjango" then
         return false
       end
+
+      -- Disable formatting for HTML files that contain Jinja template syntax.
+      -- Prettier and the HTML LSP both mangle template tags.
+      if has_jinja_template_syntax(bufnr) then
+        return false
+      end
+
       return { timeout_ms = 5000, lsp_format = "fallback" }
     end,
   },

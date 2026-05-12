@@ -1,6 +1,7 @@
 return {
   "folke/flash.nvim",
   lazy = true,
+  enabled = true,
   opts = {
     modes = {
       search = {
@@ -43,11 +44,11 @@ return {
       "S",
       mode = { "n", "x", "o" },
       function()
-        require("flash").treesitter({
+        require("flash").treesitter {
           jump = {
             autojump = false,
           },
-        })
+        }
       end,
       desc = "Flash Treesitter",
     },

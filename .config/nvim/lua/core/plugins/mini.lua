@@ -2,7 +2,7 @@ return {
   {
     "echasnovski/mini.files",
     version = false,
-    enabled = false,
+    enabled = true,
     keys = {
       {
         "<leader>e",
@@ -18,6 +18,11 @@ return {
       },
     },
     opts = {
+      content = {
+        filter = function(entry)
+          return not vim.tbl_contains({ ".git", "__pycache__", "node_modules" }, entry.name)
+        end,
+      },
       mappings = {
         close = "<Esc>",
         go_in = "<CR>",
@@ -41,6 +46,36 @@ return {
         width_preview = 70,
       },
     },
+    config = function(_, opts)
+      require("mini.files").setup(opts)
+
+      local group = vim.api.nvim_create_augroup("MiniFilesLineNumbers", { clear = true })
+      vim.api.nvim_create_autocmd("User", {
+        group = group,
+        pattern = { "MiniFilesWindowOpen", "MiniFilesWindowUpdate" },
+        callback = function(args)
+          local win_id = args.data.win_id
+          if not vim.api.nvim_win_is_valid(win_id) then
+            return
+          end
+
+          vim.wo[win_id].number = true
+          vim.wo[win_id].relativenumber = true
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        group = group,
+        pattern = "MiniFilesBufferCreate",
+        callback = function(args)
+          vim.keymap.set("n", "<CR>", function()
+            for _ = 1, vim.v.count1 do
+              require("mini.files").go_in { close_on_file = true }
+            end
+          end, { buffer = args.data.buf_id, desc = "Open entry and close Mini Files" })
+        end,
+      })
+    end,
   },
 
   {

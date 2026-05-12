@@ -89,6 +89,7 @@ selection-foreground = #1A1A1A
 
 
 shell-integration = zsh
+term = xterm-ghostty
 scrollback-limit = 10000
 # keybind = ctrl+n=new_window
 # keybind = ctrl+h=goto_split:left
