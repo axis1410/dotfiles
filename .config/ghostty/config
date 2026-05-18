@@ -1,25 +1,23 @@
 # font-family = MonaspiceNe Nerd Font Mono
-# font-style-bold = MonaspiceNe Nerd Font Mono Bold
+# # font-style-bold = MonaspiceNe Nerd Font Mono Bold
 # font-style-italic = MonaspiceNe Nerd Font Mono Italic
 # font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
 # font-family = MonoLisa Nerd Font Mono
 # # Only to be used with MonoLisa
-# adjust-cell-height = -2
-adjust-cell-width = 0
+adjust-cell-height = -1
+# adjust-cell-width = 0
 
+font-family = JetBrainsMono Nerd Font Mono
 # font-family = 0xProto Nerd Font Mono
-font-family = CommitMono Nerd Font Mono
-
-
-# font-family = JetBrainsMono Nerd Font Mono
-
+# font-family = CommitMono Nerd Font Mono
+# font-family = Hack Nerd Font Mono
 
 font-size = 14
 # font-size = 18
 font-synthetic-style = true
 font-thicken = true
-font-thicken-strength = 125
+font-thicken-strength = 100
 
 alpha-blending = native
 
@@ -32,7 +30,7 @@ alpha-blending = native
 # theme = "Catppuccin Macchiato"
 # theme = "Nord"
 # theme = "GitHub Dark"
-# theme = "Tomorrow Night"
+theme = "Tomorrow Night"
 
 cursor-style = "block"
 cursor-style-blink = true
@@ -49,6 +47,8 @@ macos-titlebar-style = hidden
 macos-non-native-fullscreen = false
 
 # custom-shader = ./shaders/bloom.glsl
+# custom-shader = ./shaders/cursor_blaze.glsl
+# custom-shader = ./shaders/cursor_tail.glsl
 
 macos-icon = xray
 macos-option-as-alt = true
@@ -56,36 +56,36 @@ maximize = true
 
 window-inherit-font-size = true
 
-background-blur = 95
-background-opacity = 0.95
+background-blur = 90
+background-opacity = 0.8
 background-opacity-cells = true
 
 window-padding-balance = true
 
 
 # Ghostty - Cursor Dark
-palette = 0=#505050
-palette = 1=#BF616A
-palette = 2=#A3BE8C
-palette = 3=#EFB080
-palette = 4=#85C1FC
-palette = 5=#AA9BF5
-palette = 6=#88C0D0
-palette = 7=#D8DEE9
-palette = 8=#505050
-palette = 9=#BF616A
-palette = 10=#A3BE8C
-palette = 11=#EBC88D
-palette = 12=#85C1FC
-palette = 13=#C582BF
-palette = 14=#83D6C5
-palette = 15=#D8DEE9
-background = #1A1A1A
-foreground = #D8DEE9
-cursor-color = #AA9BF5
-cursor-text = #1A1A1A
-selection-background = #D8DEE9
-selection-foreground = #1A1A1A
+# palette = 0=#505050
+# palette = 1=#BF616A
+# palette = 2=#A3BE8C
+# palette = 3=#EFB080
+# palette = 4=#85C1FC
+# palette = 5=#AA9BF5
+# palette = 6=#88C0D0
+# palette = 7=#D8DEE9
+# palette = 8=#505050
+# palette = 9=#BF616A
+# palette = 10=#A3BE8C
+# palette = 11=#EBC88D
+# palette = 12=#85C1FC
+# palette = 13=#C582BF
+# palette = 14=#83D6C5
+# palette = 15=#D8DEE9
+# background = #1A1A1A
+# foreground = #D8DEE9
+# cursor-color = #AA9BF5
+# cursor-text = #1A1A1A
+# selection-background = #D8DEE9
+# selection-foreground = #1A1A1A
 
 
 shell-integration = zsh

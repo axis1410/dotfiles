@@ -98,6 +98,7 @@ export PATH="$HOME/dev/shell_scripts:$PATH"
 
 # history setup
 setopt SHARE_HISTORY
+setopt IGNORE_EOF
 HISTFILE=$HOME/.zhistory
 
 HISTSIZE=5000
@@ -164,7 +165,6 @@ alias pip="pip3"
 alias quit="exit"
 alias mkdir="mkdir -p"
 
-alias zshconfig="code ~/.zshrc"
 alias zsh="source ~/.zshrc"
 
 alias ls="ls --color"
@@ -683,8 +683,12 @@ function nvimf() {
 		-not -path '*/.venv/*' \
 		-not -path '*/venv/*' \
 		-not -path '*/.local/*' \
+		-not -path '*/.ruff_cache/*' \
+		-not -path '*/.pytest_cache/*' \
 		2>/dev/null | fzf --prompt='nvim> ' --preview='bat --color=always --style=numbers --line-range=:500 {}' --height=40%)" && nvim "$file"
 }
+
+alias vimf="nvimf"
 
 # Insert a file or directory from the current working tree into the prompt.
 function __fzf_path_insert() {

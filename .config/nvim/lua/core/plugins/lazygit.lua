@@ -33,6 +33,6 @@ return {
     vim.env.NVIM_LISTEN_ADDRESS = vim.v.servername
     vim.g.lazygit_floating_window_winblend = 1
     vim.g.lazygit_use_custom_config_file_path = 1
-    vim.g.lazygit_config_file_path = vim.fn.expand("~/.config/lazygit/config.yml")
+    vim.g.lazygit_config_file_path = vim.fn.expand "~/.config/lazygit/config.yml"
   end,
 }

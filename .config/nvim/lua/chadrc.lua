@@ -4,12 +4,12 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "tomorrow_night",
+  theme = "catppuccin",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "tomorrow_night", "one_light" },
+  theme_toggle = { "catppuccin", "one_light" },
   -- transparency: Enable transparent background for some components
-  transparency = false,
+  transparency = true,
   -- integrations: Enable highlight support for these plugins
   --   Available: blink, cmp, conform, diffview, flash, git, gitsigns,
   --              indentline, lazy, mason, navic, noice, notify, nvimtree,
@@ -89,7 +89,7 @@ M.ui = {
     --   - vscode: VS Code-like layout
     --   - vscode_colored: VS Code-like layout with more color accents
     --   - minimal: Smaller layout, less visual noise
-    theme = "minimal",
+    theme = "default",
     -- separator_style: Section separators
     --   - default: Standard separators
     --   - round: Rounded separators
@@ -98,7 +98,7 @@ M.ui = {
     --   - { left = "...", right = "..." }: Custom separators
     --   Note: default/round/block/arrow work only with `default` theme.
     --   `minimal` supports only `round` and `block`.
-    separator_style = "round",
+    separator_style = "arrow",
     modules = {
       filepath = function()
         local path = vim.api.nvim_buf_get_name(0)
