@@ -7,10 +7,9 @@ return {
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "saghen/blink.cmp",
-    "ibhagwan/fzf-lua",
   },
   config = function()
-    local fzf = require "fzf-lua"
+    local picker = require "core.picker"
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local function toggle_inlay_hints(bufnr)
@@ -51,24 +50,20 @@ return {
           vim.keymap.set(mode, lhs, rhs, { buffer = event.buf, desc = desc })
         end
 
-        map("n", "gd", fzf.lsp_definitions, "LSP definitions")
-        map("n", "gr", fzf.lsp_references, "LSP references")
-        map("n", "gI", fzf.lsp_implementations, "LSP implementations")
-        map("n", "gy", fzf.lsp_typedefs, "LSP type definitions")
+        map("n", "gd", picker.lsp_definitions, "LSP definitions")
+        map("n", "gr", picker.lsp_references, "LSP references")
+        map("n", "gI", picker.lsp_implementations, "LSP implementations")
+        map("n", "gy", picker.lsp_type_definitions, "LSP type definitions")
         map("n", "gD", vim.lsp.buf.declaration, "LSP declaration")
         map("n", "gh", vim.lsp.buf.hover, "LSP hover")
         map("n", "<leader>ca", vim.lsp.buf.code_action, "LSP code actions")
         map("n", "<leader>rn", vim.lsp.buf.rename, "LSP rename")
-        map("n", "<leader>ds", fzf.lsp_document_symbols, "LSP document symbols")
+        map("n", "<leader>ds", picker.lsp_document_symbols, "LSP document symbols")
         map("n", "<leader>ws", function()
           local query = vim.fn.input "Workspace symbols: "
-          if query == nil or query == "" then
-            fzf.lsp_live_workspace_symbols()
-            return
-          end
-          fzf.lsp_workspace_symbols { lsp_query = query }
+          picker.lsp_workspace_symbols(query)
         end, "LSP workspace symbols")
-        map("n", "<leader>wS", fzf.lsp_live_workspace_symbols, "LSP live workspace symbols")
+        map("n", "<leader>wS", picker.lsp_dynamic_workspace_symbols, "LSP live workspace symbols")
         map("n", "<leader>uh", function()
           toggle_inlay_hints(event.buf)
         end, "Toggle inlay hints")

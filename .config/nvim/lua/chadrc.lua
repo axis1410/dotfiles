@@ -4,12 +4,12 @@ local M = {}
 -- Base46 theme configuration
 M.base46 = {
   -- theme: Colorscheme name (see :Telescope themes for available themes)
-  theme = "catppuccin",
+  theme = "tomorrow_night",
   -- theme_toggle: Pair of themes for toggling light/dark mode
   --   First value should match the theme above
-  theme_toggle = { "catppuccin", "one_light" },
+  theme_toggle = { "tomorrow_night", "one_light" },
   -- transparency: Enable transparent background for some components
-  transparency = true,
+  transparency = false,
   -- integrations: Enable highlight support for these plugins
   --   Available: blink, cmp, conform, diffview, flash, git, gitsigns,
   --              indentline, lazy, mason, navic, noice, notify, nvimtree,

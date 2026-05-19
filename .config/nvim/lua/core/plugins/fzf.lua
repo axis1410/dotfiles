@@ -1,92 +1,8 @@
 return {
   "ibhagwan/fzf-lua",
   cmd = "FzfLua",
-  keys = {
-    {
-      "<leader>fh",
-      function()
-        require("fzf-lua").help_tags()
-      end,
-      desc = "[S]earch [H]elp",
-    },
-    {
-      "<leader>fk",
-      function()
-        require("fzf-lua").keymaps()
-      end,
-      desc = "[S]earch [K]eymaps",
-    },
-    {
-      "<leader>fo",
-      function()
-        require("fzf-lua").oldfiles()
-      end,
-      desc = "Search [O]ld [F]iles",
-    },
-    {
-      "<leader>ff",
-      function()
-        require("fzf-lua").files()
-      end,
-      desc = "[S]earch [F]iles",
-    },
-    {
-      "<leader>fs",
-      function()
-        require("fzf-lua").builtin()
-      end,
-      desc = "[S]earch [S]elect FZF",
-    },
-    {
-      "<leader>fw",
-      function()
-        require("fzf-lua").grep_cword()
-      end,
-      desc = "[S]earch current [W]ord",
-    },
-    {
-      "<leader>fg",
-      function()
-        require("fzf-lua").live_grep_native()
-      end,
-      desc = "[S]earch by [G]rep",
-    },
-    {
-      "<leader>fd",
-      function()
-        require("fzf-lua").diagnostics_document()
-      end,
-      desc = "[S]earch [D]iagnostics",
-    },
-    {
-      "<leader>fr",
-      function()
-        require("fzf-lua").resume()
-      end,
-      desc = "[S]earch [R]esume",
-    },
-    {
-      "<leader><leader>",
-      function()
-        require("fzf-lua").buffers()
-      end,
-      desc = "[ ] Find existing buffers",
-    },
-    {
-      "<leader>/",
-      function()
-        require("fzf-lua").blines()
-      end,
-      desc = "[/] Fuzzily search in current buffer",
-    },
-    {
-      "<leader>th",
-      function()
-        require("nvchad.themes").open { style = "bordered" }
-      end,
-      desc = "Open NvUI themes",
-    },
-  },
+  event = "VeryLazy",
+  enabled = false,
   dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
   config = function()
     local fzf = require "fzf-lua"
@@ -190,5 +106,7 @@ return {
         search = "IncSearch",
       },
     }
+
+    require("core.picker").setup_keymaps()
   end,
 }
