@@ -2,7 +2,7 @@ return {
   {
     "echasnovski/mini.files",
     version = false,
-    enabled = true,
+    enabled = false,
     keys = {
       {
         "<leader>e",

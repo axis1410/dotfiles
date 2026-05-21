@@ -2,7 +2,7 @@ return {
   "ibhagwan/fzf-lua",
   cmd = "FzfLua",
   event = "VeryLazy",
-  enabled = false,
+  enabled = true,
   dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
   config = function()
     local fzf = require "fzf-lua"
@@ -38,34 +38,35 @@ return {
         hidden = true,
         git_icons = true,
         file_ignore_patterns = { [[node_modules]], [[venv]] },
-        previewer = false,
         color_icons = true,
 
         winopts = {
-          height = 0.6,
-          width = 0.6,
+          height = 0.84,
+          width = 0.9,
           row = 0.5,
           col = 0.5,
           border = "rounded",
-
-          -- preview = {
-          --   layout = "flex",
-          --   flex = "column",
-          --   vertical = "right:55%",
-          --   horizontal = "down:45%",
-          -- },
+          preview = {
+            border = "rounded",
+            layout = "vertical",
+            vertical = "right:50%",
+          },
         },
       },
       buffers = {
         file_icons = true,
         color_icons = true,
-        previewer = false,
         winopts = {
-          height = 0.5,
-          width = 0.75,
+          height = 0.84,
+          width = 0.9,
           row = 0.5,
           col = 0.5,
           border = "rounded",
+          preview = {
+            border = "rounded",
+            layout = "vertical",
+            vertical = "right:50%",
+          },
         },
       },
       grep = {
