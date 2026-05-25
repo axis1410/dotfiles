@@ -191,13 +191,8 @@ alias bsra="brew services restart --all"
 alias bssta="brew services start --all"
 alias bsstd="brew services list | grep started"
 
-alias vsc="code ."
 alias cls="clear"
 alias c="clear"
-
-alias dj="python manage.py"
-alias drs="python manage.py runserver"
-alias dmmm="python manage.py makemigrations && python manage.py migrate"
 
 alias tmks="tmux kill-session -t"
 alias tmas="tmux attach -t"
