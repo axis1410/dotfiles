@@ -17,7 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_THEME="eastwood"
+# ZSH_THEME="eastwood"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -148,15 +148,8 @@ bindkey '\e[B' history-search-forward
 eval "$(starship init zsh)"
 # eval "$(fzf --zsh)"
 
-alias drsta="docker restart $(docker ps -q)"
 
 alias lg="lazygit"
-
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
 
 alias py="python3"
 alias python="python3"
@@ -170,27 +163,6 @@ alias zsh="source ~/.zshrc"
 alias ls="ls --color"
 alias ll="ls -alt"
 
-# Git Aliases
-alias gs="git status"
-alias ga="git add"
-alias gaa="git add ."
-alias gcm="git commit -m"
-alias gcout="git checkout"
-alias gst="git stash"
-alias gsdrop="git stash drop"
-alias gspop="git stash pop"
-alias gpl="git pull"
-alias gpp="git push"
-
-alias bsl="brew services list"
-alias bss="brew services start"
-alias bsp="brew services stop"
-alias bsr="brew services restart"
-alias bssa="brew services stop --all"
-alias bsra="brew services restart --all"
-alias bssta="brew services start --all"
-alias bsstd="brew services list | grep started"
-
 alias cls="clear"
 alias c="clear"
 
@@ -203,25 +175,6 @@ export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
 # Created by `pipx` on 2024-11-12 06:07:36
 export PATH="$PATH:/Users/navtech/.local/bin"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-# Bench Aliases
-alias bm="bench set-maintenance-mode"
-alias bs="bench start --no-prefix"
-
-# Ghostty Config path
-alias ghstcon="cd $HOME/Library/Application\ Support/com.mitchellh.ghostty/"
-
-function bmig() {
-	bench --site "$1" migrate --skip-failing
-}
-
-function bcon() {
-	bench --site "$1" console
-}
-
-function buse() {
-	bench use "$1"
-}
 
 function bsetup() {
 	# Store original arguments
@@ -282,189 +235,6 @@ function bsetup() {
 	bench --site "$site_name" set-maintenance-mode off
 }
 
-# function gtag() {
-#     git tag "$1"
-#     git push origin "$1"
-# }
-
-# function gtagd() {
-#     git tag -d "$1"
-#     git push origin :refs/tags/"$1"
-#     git tag "$1"
-#     git push origin "$1"
-# }
-
-function gtag() {
-	if [ $# -lt 2 ]; then
-		echo "Usage: gtag <version> <message>"
-		echo "Example: gtag v1.1.0-stable 'Added new features and fixed bugs'"
-		return 1
-	fi
-
-	VERSION=$1
-	shift        # Remove first parameter
-	MESSAGE="$*" # Combine remaining parameters as message
-
-	# Create annotated tag with version and message
-	git tag -a "$VERSION" -m "Release $VERSION
-
-Changelog:
-$MESSAGE"
-
-	# Push the tag to your repository
-	git push origin "$VERSION"
-
-	echo "✓ Created and pushed tag $VERSION to axis1410/plagiarism-remover"
-}
-
-function gtagd() {
-	if [ $# -lt 1 ]; then
-		echo "Usage: gtagd <version>"
-		echo "Example: gtagd v1.1.0-stable"
-		return 1
-	fi
-
-	VERSION=$1
-
-	# Delete local tag
-	git tag -d "$VERSION"
-	# Delete remote tag
-	git push origin :refs/tags/"$VERSION"
-
-	echo "✓ Deleted tag $VERSION from local and remote repository"
-}
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-#
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-# typeset -g POWERLEVEL10K_INSTANT_PROMPT=quiet
-
-# shellcheck shell=bash
-
-# =============================================================================
-#
-# Utility functions for zoxide.
-#
-
-# pwd based on the value of _ZO_RESOLVE_SYMLINKS.
-function __zoxide_pwd() {
-	\builtin pwd -L
-}
-
-# cd + custom logic based on the value of _ZO_ECHO.
-function __zoxide_cd() {
-	# shellcheck disable=SC2164
-	\builtin cd -- "$@"
-}
-
-# =============================================================================
-#
-# Hook configuration for zoxide.
-#
-
-# Hook to add new entries to the database.
-function __zoxide_hook() {
-	# shellcheck disable=SC2312
-	\command zoxide add -- "$(__zoxide_pwd)"
-}
-
-# Initialize hook.
-# shellcheck disable=SC2154
-if [[ ${precmd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]] && [[ ${chpwd_functions[(Ie)__zoxide_hook]:-} -eq 0 ]]; then
-	chpwd_functions+=(__zoxide_hook)
-fi
-
-# =============================================================================
-#
-# When using zoxide with --no-cmd, alias these internal functions as desired.
-#
-
-# Jump to a directory using only keywords.
-function __zoxide_z() {
-	# shellcheck disable=SC2199
-	if [[ "$" -eq 0 ]]; then
-		__zoxide_cd ~
-	elif [[ "$" -eq 1 ]] && { [[ -d "$1" ]] || [[ "$1" = '-' ]] || [[ "$1" =~ ^[-+][0-9]$ ]]; }; then
-		__zoxide_cd "$1"
-	elif [[ "$" -eq 2 ]] && [[ "$1" = "--" ]]; then
-		__zoxide_cd "$2"
-	else
-		\builtin local result
-		# shellcheck disable=SC2312
-		result="$(\command zoxide query --exclude "$(__zoxide_pwd)" -- "$@")" && __zoxide_cd "${result}"
-	fi
-}
-
-# Jump to a directory using interactive search.
-function __zoxide_zi() {
-	\builtin local result
-	result="$(\command zoxide query --interactive -- "$@")" && __zoxide_cd "${result}"
-}
-
-# =============================================================================
-#
-# Commands for zoxide. Disable these using --no-cmd.
-#
-
-function z() {
-	__zoxide_z "$@"
-}
-
-function zi() {
-	__zoxide_zi "$@"
-}
-
-# Completions.
-if [[ -o zle ]]; then
-	__zoxide_result=''
-
-	function __zoxide_z_complete() {
-		# Only show completions when the cursor is at the end of the line.
-		# shellcheck disable=SC2154
-		[[ "${#words[@]}" -eq "${CURRENT}" ]] || return 0
-
-		if [[ "${#words[@]}" -eq 2 ]]; then
-			# Show completions for local directories.
-			_cd -/
-
-		elif [[ "${words[-1]}" == '' ]]; then
-			# Show completions for Space-Tab.
-			# shellcheck disable=SC2086
-			__zoxide_result="$(\command zoxide query --exclude "$(__zoxide_pwd || \builtin true)" --interactive -- ${words[2,-1]})" || __zoxide_result=''
-
-			# Set a result to ensure completion doesn't re-run
-			compadd -Q ""
-
-			# Bind '\e[0n' to helper function.
-			\builtin bindkey '\e[0n' '__zoxide_z_complete_helper'
-			# Sends query device status code, which results in a '\e[0n' being sent to console input.
-			\builtin printf '\e[5n'
-
-			# Report that the completion was successful, so that we don't fall back
-			# to another completion function.
-			return 0
-		fi
-	}
-
-	function __zoxide_z_complete_helper() {
-		if [[ -n "${__zoxide_result}" ]]; then
-			# shellcheck disable=SC2034,SC2296
-			BUFFER="z ${(q-)__zoxide_result}"
-			__zoxide_result=''
-			\builtin zle reset-prompt
-			\builtin zle accept-line
-		else
-			\builtin zle reset-prompt
-		fi
-	}
-	\builtin zle -N __zoxide_z_complete_helper
-
-	[[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
-fi
-
 # Extract various compressed file types with a mandatory destination directory
 function extract() {
 	if [ $# -lt 2 ]; then
@@ -511,15 +281,6 @@ function extract() {
 	fi
 }
 
-# Create a directory and cd into it
-function mkcd() {
-	mkdir -p -- "$1" && cd -P -- "$1" || return
-}
-
-# Find files containing a string
-function findtext() {
-	grep -r "$1" .
-}
 
 # Get your external IP
 function myip() {
@@ -602,31 +363,6 @@ fh() {
 }
 alias nvchad='NVIM_APPNAME=nvchad nvim'
 
-function nic() {
-	local session_name="${1:-$(basename "$PWD")}"
-	local cwd="$PWD"
-
-	if [[ -n "$TMUX" ]]; then
-		# Already inside tmux — split current window into left (nvim) and right (claude)
-		tmux split-window -h -c "$cwd" -l 30%
-		tmux send-keys 'clear; claude' C-m
-		tmux select-pane -L
-		tmux send-keys 'nvim' C-m
-		return
-	fi
-
-	if tmux has-session -t "$session_name" 2>/dev/null; then
-		tmux attach-session -t "$session_name"
-		return
-	fi
-
-	tmux new-session -d -s "$session_name" -c "$cwd" -x "$(tput cols)" -y "$(tput lines)"
-	tmux split-window -h -t "$session_name" -c "$cwd" -l 30%
-	tmux send-keys -t "$session_name" 'clear; claude' C-m
-	tmux select-pane -t "$session_name" -L
-	tmux send-keys -t "$session_name" 'nvim' C-m
-	tmux attach-session -t "$session_name"
-}
 
 function ghswitch() {
 	gh auth switch --user "$1"
