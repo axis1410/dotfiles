@@ -105,16 +105,13 @@ return {
     vim.lsp.config("just-lsp", { filetypes = { "just" } })
     vim.lsp.config("cssls", { filetypes = { "css" } })
     vim.lsp.config("mbake", { filetypes = { "makefile" } })
-    vim.lsp.config(
-      "taplo",
-      {
-        schema = {
-          associations = {
-            [".*sesh\\.toml$"] = "https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json",
-          },
+    vim.lsp.config("taplo", {
+      schema = {
+        associations = {
+          [".*sesh\\.toml$"] = "https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json",
         },
-      }
-    )
+      },
+    })
 
     local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
     local vue_ts_plugin = mason_packages .. "/vue-language-server/node_modules/@vue/typescript-plugin"

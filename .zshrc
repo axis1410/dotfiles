@@ -39,6 +39,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 zstyle ':completion:*' matcher-list "m:{a-zA-Z}={A-Za-z}"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -83,14 +85,12 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# plugins=(git jsontools vscode docker docker-compose)
+plugins=(fzf-tab zsh-autosuggestions zsh-syntax-highlighting)
 
 MAILCHECK=0
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.config/bench/completion.zsh
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 

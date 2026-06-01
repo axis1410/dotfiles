@@ -5,7 +5,7 @@
 
 # font-family = MonoLisa Nerd Font Mono
 # # Only to be used with MonoLisa
-adjust-cell-height = -1
+# adjust-cell-height = -1
 # adjust-cell-width = 0
 
 font-family = JetBrainsMono Nerd Font Mono
