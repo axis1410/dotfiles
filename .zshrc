@@ -461,6 +461,7 @@ function __fzf_path_insert() {
 
 zle -N __fzf_path_insert
 bindkey '^T' __fzf_path_insert
+alias bs="bench start --no-prefix"
 
 # Added by Antigravity
 export PATH="/Users/navtech/.antigravity/antigravity/bin:$PATH"
@@ -470,3 +471,17 @@ function sp() {
 	sesh picker
 
 }
+# Wizehire Bash Profile
+
+# These flags will tell docker and docker compose to always use the new build tools
+export COMPOSE_DOCKER_CLI_BUILD=1
+export DOCKER_BUILDKIT=1
+# We start many services at once, so we should naturally wait longer
+export COMPOSE_HTTP_TIMEOUT=180
+
+# this is similar to "clear" but actually flush out old logs
+alias empty="clear && printf '\e[3J'"
+# allow you to not have to type the config while developing
+alias wecompose="docker compose -p main -f docker-compose.yml -f docker-compose.code.yml -f docker-compose.arm.yml"
+alias wpm='wecompose exec django uv run python manage.py'
+

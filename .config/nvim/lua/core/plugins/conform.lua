@@ -1,7 +1,7 @@
 local function has_jinja_template_syntax(bufnr)
   local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
   local text = table.concat(lines, "\n")
-  return text:match("{[%%#][%-]?") ~= nil or text:match("{{[%-]?") ~= nil
+  return text:match "{[%%#][%-]?" ~= nil or text:match "{{[%-]?" ~= nil
 end
 
 return {
@@ -26,8 +26,10 @@ return {
       yaml = { "prettier" },
       toml = { "taplo" },
       html = { "html_prettier" },
-      javascript = { "prettier" },
-      typescript = { "prettier" },
+      javascript = { "biome-check" },
+      javascriptreact = { "biome-check" },
+      typescript = { "biome-check" },
+      typescriptreact = { "biome-check" },
       vue = { "prettier" },
       sql = { "sleek" },
       sh = { "shfmt" },
@@ -42,7 +44,7 @@ return {
 
       -- Disable formatting for HTML files that contain Jinja template syntax.
       -- Prettier and the HTML LSP both mangle template tags.
-      if has_jinja_template_syntax(bufnr) then
+      if ft == "html" and has_jinja_template_syntax(bufnr) then
         return false
       end
 
