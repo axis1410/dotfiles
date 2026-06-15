@@ -485,3 +485,6 @@ alias empty="clear && printf '\e[3J'"
 alias wecompose="docker compose -p main -f docker-compose.yml -f docker-compose.code.yml -f docker-compose.arm.yml"
 alias wpm='wecompose exec django uv run python manage.py'
 
+
+export EDITOR="nvim"
+export VISUAL="nvim"

@@ -34,6 +34,7 @@ return {
       sql = { "sleek" },
       sh = { "shfmt" },
       zsh = { "shfmt" },
+      makefile = { "mbake" },
     },
 
     format_on_save = function(bufnr)

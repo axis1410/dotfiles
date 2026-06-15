@@ -23,6 +23,7 @@ return {
 
       image = {
         enabled = true,
+        formats = { svg = false },
         doc = {
           float = false,
           inline = true,
