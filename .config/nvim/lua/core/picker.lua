@@ -133,6 +133,7 @@ function M.colorschemes()
     local action_state = require("telescope.actions.state")
     t().colorscheme({
       enable_preview = true,
+      previewer = false,
       attach_mappings = function(buf, _)
         actions.select_default:replace(function()
           actions.close(buf)

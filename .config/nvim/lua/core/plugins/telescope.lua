@@ -17,8 +17,8 @@ return {
     telescope.setup {
       defaults = {
         prompt_prefix = "  ",
-        selection_caret = " ",
-        multi_icon = " ",
+        selection_caret = "  ",
+        multi_icon = "  ",
         entry_prefix = "  ",
         sorting_strategy = "ascending",
         layout_strategy = "horizontal",
