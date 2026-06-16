@@ -46,35 +46,34 @@ function M.available()
 end
 
 function M.apply(name)
-  if type(name) ~= "string" or not in_list(name) then
-    return false
-  end
+  if type(name) ~= "string" or name == "" then return false end
   local ok = pcall(vim.cmd.colorscheme, name)
   return ok
 end
 
+function M.persist(name)
+  return write_theme(name)
+end
+
 function M.set(name)
-  if not M.apply(name) then
-    return false
-  end
+  if not M.apply(name) then return false end
   return write_theme(name)
 end
 
 function M.apply_saved()
   local saved = M.get_saved()
-  if saved and M.apply(saved) then
-    return true
+  if saved then
+    if M.apply(saved) then return true end
+    -- saved name failed (plugin not loaded yet) — schedule retry after plugins settle
+    vim.schedule(function()
+      if not M.apply(saved) then
+        M.apply("default")
+      end
+    end)
+    return false
   end
-  local available = M.available()
-  if #available > 0 then
-    local fallback = "default"
-    if not in_list(fallback) then
-      fallback = available[1]
-    end
-    M.apply(fallback)
-    write_theme(fallback)
-    return true
-  end
+  -- no saved theme — apply default without persisting
+  M.apply("default")
   return false
 end
 

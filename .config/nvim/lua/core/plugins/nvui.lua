@@ -1,6 +1,7 @@
 return {
   {
     "nvchad/base46",
+    enabled = false,
     lazy = true,
     build = function()
       require("base46").load_all_highlights()
@@ -8,10 +9,12 @@ return {
   },
   {
     "nvzone/volt",
+    enabled = false,
     lazy = true,
   },
   {
     "nvchad/ui",
+    enabled = false,
     event = "UiEnter",
     dependencies = {
       "nvim-lua/plenary.nvim",

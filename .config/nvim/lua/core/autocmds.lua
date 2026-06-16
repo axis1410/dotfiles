@@ -1,4 +1,13 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function(ev)
+    if ev.match and ev.match ~= "" then
+      local cs = require("colorscheme")
+      cs.persist(ev.match)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "jb",
   callback = function()
     require("core.jb_palette").apply()

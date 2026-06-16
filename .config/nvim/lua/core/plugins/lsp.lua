@@ -85,9 +85,7 @@ return {
           workspace = {
             checkThirdParty = false,
           },
-          library = {
-            vim.fn.stdpath "data" .. "/lazy/base46",
-          },
+          library = {},
           completion = {
             callSnippet = "Replace",
           },

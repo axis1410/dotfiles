@@ -3,23 +3,8 @@ local unmap = vim.keymap.del
 local opts = { silent = true, noremap = true }
 
 -- Buffer movement
-map("n", "<Tab>", function()
-  local ok, tabufline = pcall(require, "nvchad.tabufline")
-  if ok then
-    tabufline.next()
-    return
-  end
-  vim.cmd.bnext()
-end, vim.tbl_extend("force", opts, { desc = "Next buffer" }))
-
-map("n", "<S-Tab>", function()
-  local ok, tabufline = pcall(require, "nvchad.tabufline")
-  if ok then
-    tabufline.prev()
-    return
-  end
-  vim.cmd.bprev()
-end, vim.tbl_extend("force", opts, { desc = "Previous buffer" }))
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", vim.tbl_extend("force", opts, { desc = "Next buffer" }))
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", vim.tbl_extend("force", opts, { desc = "Previous buffer" }))
 
 -- Clear highlight
 map("n", "<Esc>", "<Esc><Cmd>nohlsearch<CR>", opts)
@@ -56,10 +41,8 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "<leader>v", "<cmd>vsplit<CR>")
 
 map("n", "<leader>th", function()
-  require("nvchad.themes").open { style = "bordered" }
-end, { desc = "Open NvUI themes" })
-
-map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Open cheatsheet" })
+  require("core.picker").colorschemes()
+end, { desc = "Switch colorscheme" })
 
 -- Close all buffers
 map("n", "<leader>ba", function()
@@ -77,5 +60,6 @@ map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
 -- end
 
 map("n", "<leader>tt", function()
-  require("base46").toggle_transparency()
-end)
+  local ok, transparent = pcall(require, "transparent")
+  if ok then transparent.toggle() end
+end, { desc = "Toggle transparency" })

@@ -118,6 +118,37 @@ function M.lsp_dynamic_workspace_symbols()
   elseif is_fzf() then f().lsp_live_workspace_symbols() end
 end
 
+function M.colorschemes()
+  local cs = require("colorscheme")
+  if is_fzf() then
+    f().colorschemes({
+      actions = {
+        ["default"] = function(selected)
+          if selected and selected[1] then cs.set(selected[1]) end
+        end,
+      },
+    })
+  elseif is_telescope() then
+    local actions = require("telescope.actions")
+    local action_state = require("telescope.actions.state")
+    t().colorscheme({
+      enable_preview = true,
+      attach_mappings = function(buf, _)
+        actions.select_default:replace(function()
+          actions.close(buf)
+          local sel = action_state.get_selected_entry()
+          if sel then cs.set(sel[1]) end
+        end)
+        return true
+      end,
+    })
+  else
+    vim.ui.select(cs.available(), { prompt = "Colorscheme" }, function(choice)
+      if choice then cs.set(choice) end
+    end)
+  end
+end
+
 function M.setup_keymaps()
   local map = vim.keymap.set
   map("n", "<leader>fh", M.help,       { desc = "[S]earch [H]elp" })
@@ -131,9 +162,7 @@ function M.setup_keymaps()
   map("n", "<leader>fr", M.resume,     { desc = "[S]earch [R]esume" })
   map("n", "<leader><leader>", M.buffers, { desc = "[ ] Find existing buffers" })
   map("n", "<leader>/",  M.buf_lines,  { desc = "[/] Fuzzily search in current buffer" })
-  map("n", "<leader>th", function()
-    require("nvchad.themes").open { style = "bordered" }
-  end, { desc = "Open NvUI themes" })
+  map("n", "<leader>th", M.colorschemes, { desc = "Switch colorscheme" })
 end
 
 return M
