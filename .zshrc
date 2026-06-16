@@ -1,3 +1,5 @@
+# zmodload  zsh/zprof
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,6 +9,8 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+ZSH_DISABLE_COMPFIX=true
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -87,12 +91,12 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
 plugins=(fzf-tab zsh-autosuggestions zsh-syntax-highlighting)
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 MAILCHECK=0
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.config/bench/completion.zsh
-
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 export PATH="$HOME/dev/shell_scripts:$PATH"
 
@@ -312,17 +316,19 @@ if command -v eza >/dev/null 2>&1; then
 fi
 
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # fastfetch
 
 . "$HOME/.cargo/env"
-export PATH="/opt/homebrew/opt/mariadb@10.6/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+nvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  unfunction nvm
+  nvm "$@"
+}
 
 # bindkey -v
 # export KEYTIMEOUT=1
@@ -356,7 +362,7 @@ export NVM_DIR="$HOME/.nvm"
 
 alias git-clean-gone="git branch -vv | grep 'gone]' | awk '{print \$1}' | xargs git branch -D"
 
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$HOME/go/bin
 
 fh() {
 	eval "$(history | fzf | sed 's/^ *[0-9]* *//')"
@@ -488,3 +494,5 @@ alias wpm='wecompose exec django uv run python manage.py'
 
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# zprof
