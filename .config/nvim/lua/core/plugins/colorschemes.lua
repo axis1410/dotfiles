@@ -66,7 +66,7 @@ return {
   { "nickkadutskyi/jb.nvim", lazy = true, enabled = true },
   { "deparr/tairiki.nvim", lazy = true, priority = 1000, enabled = true },
   { "pmouraguedes/neodarcula.nvim", lazy = true, priority = 1000, enabled = true },
-  { "frenzyexists/aquarium-vim", lazy = true, priority = 1000, enabled = true },
+  { "frenzyexists/aquarium-vim", lazy = true, priority = 1000, enabled = false },
 
   {
     "vague-theme/vague.nvim",
@@ -121,7 +121,7 @@ return {
       vim.g.adwaita_darker = false
     end,
   },
-
+  { "datsfilipe/vesper.nvim", enabled = true, lazy = false },
   {
     "sainnhe/gruvbox-material",
     lazy = true,

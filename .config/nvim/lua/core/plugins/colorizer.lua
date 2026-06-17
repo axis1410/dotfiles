@@ -5,6 +5,7 @@ return {
     event = "VeryLazy",
     opts = {
       filetypes = {
+        "tmux",
         "css",
         "scss",
         "sass",
