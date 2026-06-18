@@ -35,6 +35,7 @@ return {
       sh = { "shfmt" },
       zsh = { "shfmt" },
       makefile = { "mbake" },
+      glsl = { "glsl_analyzer" },
     },
 
     format_on_save = function(bufnr)
