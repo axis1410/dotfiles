@@ -1,13 +1,14 @@
-# font-family = MonaspiceNe Nerd Font Mono
 # # font-style-bold = MonaspiceNe Nerd Font Mono Bold
 # font-style-italic = MonaspiceNe Nerd Font Mono Italic
 # font-style-bold-italic = MonaspiceNe Nerd Font Mono Bold Italic
 
-# font-family = MonoLisa Nerd Font Mono
 # # Only to be used with MonoLisa
 # adjust-cell-height = -1
 # adjust-cell-width = 0
 
+# font-family = MonaspiceNe Nerd Font Mono
+# font-family = MonoLisa Nerd Font Mono
+# font-family = GeistMono NFM
 font-family = JetBrainsMono Nerd Font Mono
 # font-family = 0xProto Nerd Font Mono
 # font-family = CommitMono Nerd Font Mono
@@ -47,7 +48,7 @@ macos-titlebar-style = hidden
 macos-non-native-fullscreen = false
 
 # custom-shader = ./shaders/bloom.glsl
-# custom-shader = ./shaders/cursor_blaze.glsl
+custom-shader = ./shaders/cursor_blaze.glsl
 # custom-shader = ./shaders/cursor_tail.glsl
 
 macos-icon = xray
