@@ -48,7 +48,7 @@ macos-titlebar-style = hidden
 macos-non-native-fullscreen = false
 
 # custom-shader = ./shaders/bloom.glsl
-custom-shader = ./shaders/cursor_blaze.glsl
+# custom-shader = ./shaders/cursor_blaze.glsl
 # custom-shader = ./shaders/cursor_tail.glsl
 
 macos-icon = xray
