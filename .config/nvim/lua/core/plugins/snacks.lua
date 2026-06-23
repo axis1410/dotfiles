@@ -4,6 +4,7 @@ return {
     event = "VeryLazy",
     opts = {
       lazygit = {
+        enabled = false,
         opts = {},
       },
 

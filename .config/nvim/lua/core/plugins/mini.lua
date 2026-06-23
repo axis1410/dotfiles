@@ -89,7 +89,7 @@ return {
 
   {
     "echasnovski/mini.tabline",
-    enabled = false,
+    enabled = true,
     opts = {
       show_icons = true,
       format = function(buf_id, label)

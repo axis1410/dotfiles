@@ -3,8 +3,8 @@ local unmap = vim.keymap.del
 local opts = { silent = true, noremap = true }
 
 -- Buffer movement
-map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", vim.tbl_extend("force", opts, { desc = "Next buffer" }))
-map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", vim.tbl_extend("force", opts, { desc = "Previous buffer" }))
+map("n", "<Tab>", "<cmd>bnext<CR>", vim.tbl_extend("force", opts, { desc = "Next buffer" }))
+map("n", "<S-Tab>", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous buffer" }))
 
 -- Clear highlight
 map("n", "<Esc>", "<Esc><Cmd>nohlsearch<CR>", opts)

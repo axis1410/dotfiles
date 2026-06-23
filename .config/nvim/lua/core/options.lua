@@ -24,7 +24,7 @@ opt.isfname:append "@-@"
 opt.updatetime = 200
 opt.redrawtime = 1500
 opt.synmaxcol = 240
-opt.colorcolumn = "120"
+-- opt.colorcolumn = "190"
 opt.cmdheight = 1
 opt.clipboard:append "unnamedplus"
 opt.mouse = ""

@@ -23,6 +23,8 @@ vim.api.nvim_create_autocmd("OptionSet", {
   end,
 })
 
+vim.filetype.add({ extension = { mjml = "html" } })
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
   callback = function()

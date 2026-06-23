@@ -23,6 +23,13 @@ return {
   },
 
   {
+    "T-b-t-nchos/Aquavium.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  {
     "rose-pine/neovim",
     name = "rose-pine",
     enabled = true,

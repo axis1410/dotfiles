@@ -122,6 +122,13 @@ function M.colorschemes()
   local cs = require("colorscheme")
   if is_fzf() then
     f().colorschemes({
+      winopts = {
+        height = 0.55,
+        width = 0.35,
+        row = 0.5,
+        col = 0.5,
+        preview = { hidden = "hidden" },
+      },
       actions = {
         ["default"] = function(selected)
           if selected and selected[1] then cs.set(selected[1]) end
