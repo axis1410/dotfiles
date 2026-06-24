@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function(ev)
     if ev.match and ev.match ~= "" then
-      local cs = require("colorscheme")
+      local cs = require "colorscheme"
       cs.persist(ev.match)
     end
   end,
@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("OptionSet", {
   end,
 })
 
-vim.filetype.add({ extension = { mjml = "html" } })
+vim.filetype.add { extension = { mjml = "html" } }
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
@@ -33,3 +33,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 2
   end,
 })
+
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   callback = function(args)
+--     vim.schedule(function()
+--       if #vim.lsp.get_clients { bufnr = args.buf } == 0 then
+--         vim.api.nvim_exec_autocmds("FileType", { buf = args.buf })
+--       end
+--     end)
+--   end,
+-- })

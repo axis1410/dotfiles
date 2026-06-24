@@ -25,6 +25,7 @@ return {
   {
     "T-b-t-nchos/Aquavium.nvim",
     lazy = false,
+    enabled = false,
     priority = 1000,
     opts = {},
   },
@@ -67,17 +68,17 @@ return {
       end,
     },
   },
-  { "sainnhe/sonokai", lazy = true, enabled = true },
-  { "folke/tokyonight.nvim", lazy = true, enabled = true },
-  { "rebelot/kanagawa.nvim", lazy = true, enabled = true },
-  { "nickkadutskyi/jb.nvim", lazy = true, enabled = true },
+  { "sainnhe/sonokai", lazy = true, enabled = false },
+  { "folke/tokyonight.nvim", lazy = true, enabled = false },
+  { "rebelot/kanagawa.nvim", lazy = true, enabled = false },
+  { "nickkadutskyi/jb.nvim", lazy = true, enabled = false },
   { "deparr/tairiki.nvim", lazy = true, priority = 1000, enabled = true },
-  { "pmouraguedes/neodarcula.nvim", lazy = true, priority = 1000, enabled = true },
+  { "pmouraguedes/neodarcula.nvim", lazy = true, priority = 1000, enabled = false },
   { "frenzyexists/aquarium-vim", lazy = true, priority = 1000, enabled = false },
 
   {
     "vague-theme/vague.nvim",
-    lazy = true,
+    lazy = false,
     enabled = true,
     config = function()
       local v = require "vague"
@@ -92,7 +93,7 @@ return {
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
-    enabled = true,
+    enabled = false,
     config = function()
       require("github-theme").setup {
         styles = {
@@ -105,7 +106,8 @@ return {
   },
 
   {
-    "axis1410/cursor-dark.nvim",
+    "ydkulks/cursor-dark.nvim",
+    -- "axis1410/cursor-dark.nvim",
     lazy = true,
     enabled = true,
     priority = 1000,
@@ -122,13 +124,13 @@ return {
 
     "Mofiqul/adwaita.nvim",
     lazy = true,
+    enabled = false,
     priority = 1000,
-
     config = function()
       vim.g.adwaita_darker = false
     end,
   },
-  { "datsfilipe/vesper.nvim", enabled = true, lazy = false },
+  { "datsfilipe/vesper.nvim", enabled = false, lazy = false },
   {
     "sainnhe/gruvbox-material",
     lazy = true,

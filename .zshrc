@@ -488,7 +488,7 @@ export COMPOSE_HTTP_TIMEOUT=180
 # this is similar to "clear" but actually flush out old logs
 alias empty="clear && printf '\e[3J'"
 # allow you to not have to type the config while developing
-alias wecompose="docker compose -p main -f docker-compose.yml -f docker-compose.code.yml -f docker-compose.arm.yml"
+source ~/.config/wizehire/wecompose.zsh
 alias wpm='wecompose exec django uv run python manage.py'
 
 
