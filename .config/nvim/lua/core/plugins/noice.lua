@@ -201,6 +201,7 @@ return {
       stages = "fade",
       timeout = 3200,
       top_down = false,
+      merge_duplicates = true,
       background_colour = "#000000",
       icons = {
         ERROR = "",
