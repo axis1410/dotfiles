@@ -112,21 +112,7 @@ return {
     })
 
     local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
-    local vue_ts_plugin = mason_packages .. "/vue-language-server/node_modules/@vue/typescript-plugin"
     local tsdk = mason_packages .. "/typescript-language-server/node_modules/typescript/lib"
-
-    vim.lsp.config("ts_ls", {
-      init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vue_ts_plugin,
-            languages = { "vue" },
-          },
-        },
-      },
-      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-    })
 
     vim.lsp.config("vue_ls", {
       init_options = {
