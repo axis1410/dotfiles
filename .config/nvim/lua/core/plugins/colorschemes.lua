@@ -1,6 +1,6 @@
 return {
   -- { "0xleodevv/oc-2.nvim", lazy = true, enabled = true },
-  --
+
   {
     "catppuccin/nvim",
     enabled = true,
@@ -20,14 +20,6 @@ return {
       },
       auto_integrations = true,
     },
-  },
-
-  {
-    "T-b-t-nchos/Aquavium.nvim",
-    lazy = false,
-    enabled = false,
-    priority = 1000,
-    opts = {},
   },
 
   {
@@ -68,13 +60,8 @@ return {
       end,
     },
   },
-  { "sainnhe/sonokai", lazy = true, enabled = false },
-  { "folke/tokyonight.nvim", lazy = true, enabled = false },
-  { "rebelot/kanagawa.nvim", lazy = true, enabled = false },
-  { "nickkadutskyi/jb.nvim", lazy = true, enabled = false },
+
   { "deparr/tairiki.nvim", lazy = true, priority = 1000, enabled = true },
-  { "pmouraguedes/neodarcula.nvim", lazy = true, priority = 1000, enabled = false },
-  { "frenzyexists/aquarium-vim", lazy = true, priority = 1000, enabled = false },
 
   {
     "vague-theme/vague.nvim",
@@ -130,7 +117,7 @@ return {
       vim.g.adwaita_darker = false
     end,
   },
-  { "datsfilipe/vesper.nvim", enabled = false, lazy = false },
+
   {
     "sainnhe/gruvbox-material",
     lazy = true,
@@ -152,7 +139,7 @@ return {
       vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted"
     end,
   },
-  --
+
   {
     "sainnhe/edge",
     lazy = true,
@@ -170,4 +157,20 @@ return {
       g.edge_current_word = "underline"
     end,
   },
+
+  { "sainnhe/sonokai", lazy = true, enabled = false },
+  { "folke/tokyonight.nvim", lazy = true, enabled = false },
+  { "rebelot/kanagawa.nvim", lazy = true, enabled = false },
+  { "nickkadutskyi/jb.nvim", lazy = true, enabled = false },
+  { "pmouraguedes/neodarcula.nvim", lazy = true, priority = 1000, enabled = false },
+  { "frenzyexists/aquarium-vim", lazy = true, priority = 1000, enabled = false },
+  { "dgrco/quietink.nvim", lazy = false, priority = 1000, opts = {}, enabled = false },
+  {
+    "T-b-t-nchos/Aquavium.nvim",
+    lazy = false,
+    enabled = false,
+    priority = 1000,
+    opts = {},
+  },
+  { "datsfilipe/vesper.nvim", enabled = false, lazy = false },
 }

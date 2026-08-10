@@ -102,6 +102,9 @@ return {
     vim.lsp.config("html", { filetypes = { "html", "htmldjango", "jinja" } })
     vim.lsp.config("just-lsp", { filetypes = { "just" } })
     vim.lsp.config("cssls", { filetypes = { "css" } })
+    vim.lsp.config("tailwindcss", {
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    })
     vim.lsp.config("mbake", { filetypes = { "makefile" } })
     vim.lsp.config("taplo", {
       schema = {

@@ -26,6 +26,7 @@ return {
       "javascript",
       "typescript",
       "sql",
+      "graphql",
     },
     auto_install = true,
     indent = {

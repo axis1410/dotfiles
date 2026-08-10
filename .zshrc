@@ -471,7 +471,7 @@ alias bs="bench start --no-prefix"
 
 # Added by Antigravity
 export PATH="/Users/navtech/.antigravity/antigravity/bin:$PATH"
-export CLAUDE_CODE_SUBAGENT_MODEL="claude-haiku-4-5"
+# export CLAUDE_CODE_SUBAGENT_MODEL="claude-haiku-4-5"
 
 function sp() {
 	sesh picker
@@ -496,3 +496,15 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # zprof
+
+we_prod() {
+	export AWS_PROFILE=we-prod
+	export AWS_REGION=us-west-2
+	if ! aws eks update-kubeconfig --name eks-we-prod; then
+		aws sso login
+		aws eks update-kubeconfig --name eks-we-prod
+	fi
+}
+alias we-prod=we_prod
+
+export NODE_AUTH_TOKEN="$(gh auth token)"

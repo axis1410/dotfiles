@@ -12,6 +12,7 @@ local ensure_installed = {
   "taplo",
   "vue-language-server",
   "sqlls",
+  "tailwindcss-language-server",
 }
 
 local function do_install_all()
