@@ -15,6 +15,11 @@ o.smartcase = true
 o.ignorecase = true
 o.termguicolors = true
 
+opt.wrap = true
+opt.linebreak = true
+opt.showbreak = "↪ "
+o.breakindent = true
+
 opt.swapfile = false
 opt.backup = false
 opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
@@ -32,7 +37,6 @@ opt.splitbelow = true
 opt.splitright = true
 opt.winborder = "rounded"
 opt.scrolloff = 8
-opt.wrap = false
 opt.pumheight = 10
 opt.timeoutlen = 300
 

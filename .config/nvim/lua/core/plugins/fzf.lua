@@ -98,6 +98,7 @@ return {
         ["--marker"] = "●",
         ["--cycle"] = "",
       },
+      ---@diagnostic disable-next-line: missing-fields
       hls = {
         border = "FloatBorder",
         title = "Title",

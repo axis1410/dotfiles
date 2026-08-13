@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local unmap = vim.keymap.del
+-- local unmap = vim.keymap.del
 local opts = { silent = true, noremap = true }
 
 -- Buffer movement
@@ -61,5 +61,7 @@ map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
 
 map("n", "<leader>tt", function()
   local ok, transparent = pcall(require, "transparent")
-  if ok then transparent.toggle() end
+  if ok then
+    transparent.toggle()
+  end
 end, { desc = "Toggle transparency" })
