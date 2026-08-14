@@ -134,7 +134,9 @@ return {
     })
 
     require("mason-lspconfig").setup {
-      automatic_enable = true,
+      automatic_enable = {
+        exclude = { "ts_ls" },
+      },
     }
   end,
 }
