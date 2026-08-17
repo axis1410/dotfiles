@@ -77,16 +77,24 @@ jobs:
 
   nvim-smoke-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
           version: stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - name: install tree-sitter CLI
+        run: npm install -g tree-sitter-cli
       - name: link config
         run: |
           mkdir -p ~/.config
           ln -s "$GITHUB_WORKSPACE/.config/nvim" ~/.config/nvim
+      - name: install plugins
+        run: nvim --headless -u ~/.config/nvim/init.lua "+Lazy! sync" +qa
       - name: headless startup check
         run: |
           nvim --headless -u ~/.config/nvim/init.lua \
