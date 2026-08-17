@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lua-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: --check .config/nvim
+      - name: luacheck
+        run: |
+          sudo apt-get update && sudo apt-get install -y luarocks
+          sudo luarocks install luacheck
+          luacheck .config/nvim/lua --globals vim --no-max-line-length
+
+  shell-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: shellcheck
+        run: shellcheck -x .zshrc
+      - name: shfmt
+        run: |
+          sudo snap install shfmt || (curl -sSL "https://github.com/mvdan/sh/releases/latest/download/shfmt_linux_amd64" -o /usr/local/bin/shfmt && sudo chmod +x /usr/local/bin/shfmt)
+          shfmt -d .zshrc
+
+  stow-dry-run:
+    runs-on: ubuntu-latest
+    container: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: install stow
+        run: apt-get update && apt-get install -y stow
+      - name: dry-run stow
+        run: stow -n -v .
+
+  nvim-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: stable
+      - name: link config
+        run: |
+          mkdir -p ~/.config
+          ln -s "$GITHUB_WORKSPACE/.config/nvim" ~/.config/nvim
+      - name: headless startup check
+        run: |
+          nvim --headless -u ~/.config/nvim/init.lua \
+            +"lua vim.defer_fn(function() vim.cmd('qa!') end, 5000)" \
+            2>&1 | tee /tmp/nvim.log
+          if grep -Ei "error|traceback" /tmp/nvim.log; then
+            echo "Errors found during nvim startup"
+            exit 1
+          fi
