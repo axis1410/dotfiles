@@ -111,6 +111,21 @@ return {
     vim.lsp.config("cssls", { filetypes = { "css" } })
     vim.lsp.config("tailwindcss", {
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+      on_attach = function(client, _)
+        client.server_capabilities.documentSymbolProvider = false
+      end,
+    })
+
+    vim.lsp.config("biome", {
+      on_attach = function(client, _)
+        client.server_capabilities.documentSymbolProvider = false
+      end,
+    })
+
+    vim.lsp.config("graphql", {
+      on_attach = function(client, _)
+        client.server_capabilities.documentSymbolProvider = false
+      end,
     })
     vim.lsp.config("mbake", { filetypes = { "makefile" } })
     vim.lsp.config("taplo", {
