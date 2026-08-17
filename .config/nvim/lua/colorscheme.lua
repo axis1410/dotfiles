@@ -1,6 +1,6 @@
 local M = {}
 
-local theme_file = vim.fn.stdpath("config") .. "/theme.lua"
+local theme_file = vim.fn.stdpath "config" .. "/theme.lua"
 
 local function in_list(name)
   for _, scheme in ipairs(M.available()) do
@@ -46,7 +46,9 @@ function M.available()
 end
 
 function M.apply(name)
-  if type(name) ~= "string" or name == "" then return false end
+  if type(name) ~= "string" or name == "" then
+    return false
+  end
   local ok = pcall(vim.cmd.colorscheme, name)
   return ok
 end
@@ -56,24 +58,28 @@ function M.persist(name)
 end
 
 function M.set(name)
-  if not M.apply(name) then return false end
+  if not M.apply(name) then
+    return false
+  end
   return write_theme(name)
 end
 
 function M.apply_saved()
   local saved = M.get_saved()
   if saved then
-    if M.apply(saved) then return true end
+    if M.apply(saved) then
+      return true
+    end
     -- saved name failed (plugin not loaded yet) — schedule retry after plugins settle
     vim.schedule(function()
       if not M.apply(saved) then
-        M.apply("default")
+        M.apply "default"
       end
     end)
     return false
   end
   -- no saved theme — apply default without persisting
-  M.apply("default")
+  M.apply "default"
   return false
 end
 

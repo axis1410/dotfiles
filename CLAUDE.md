@@ -21,15 +21,15 @@ zsh
 
 ## Repository Structure
 
-| Path | What it configures |
-|---|---|
-| `.zshrc` | Zsh shell — aliases, functions, PATH, plugins, zoxide |
-| `.config/nvim/` | Neovim — Lua config via lazy.nvim |
-| `.config/tmux/tmux.conf` | Tmux — prefix is `C-a`, pane-base-index 1 |
-| `.config/ghostty/config` | Ghostty terminal |
-| `.config/starship.toml` | Starship prompt |
-| `.config/yazi/` | Yazi file manager |
-| `.wezterm.lua` | WezTerm (legacy/backup terminal config) |
+| Path                     | What it configures                                    |
+| ------------------------ | ----------------------------------------------------- |
+| `.zshrc`                 | Zsh shell — aliases, functions, PATH, plugins, zoxide |
+| `.config/nvim/`          | Neovim — Lua config via lazy.nvim                     |
+| `.config/tmux/tmux.conf` | Tmux — prefix is `C-a`, pane-base-index 1             |
+| `.config/ghostty/config` | Ghostty terminal                                      |
+| `.config/starship.toml`  | Starship prompt                                       |
+| `.config/yazi/`          | Yazi file manager                                     |
+| `.wezterm.lua`           | WezTerm (legacy/backup terminal config)               |
 
 ## Neovim Architecture
 

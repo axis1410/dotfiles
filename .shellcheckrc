@@ -1,0 +1,11 @@
+shell=bash
+# zsh-specific syntax (parameter expansion flags, glob qualifiers) that
+# shellcheck misparses under its closest supported dialect (bash)
+disable=SC2296
+# dotfiles source machine-local / plugin-managed files not present in CI
+disable=SC1090
+disable=SC1091
+# rc-file vars consumed by oh-my-zsh / zsh itself, not by this script
+disable=SC2034
+disable=SC2181
+disable=SC2142

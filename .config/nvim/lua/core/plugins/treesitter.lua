@@ -34,7 +34,7 @@ return {
     },
   },
   config = function(_, opts)
-    local ts = require("nvim-treesitter")
+    local ts = require "nvim-treesitter"
 
     local aliases = {
       TsInstall = "TSInstall",
@@ -54,7 +54,7 @@ return {
     end
 
     vim.api.nvim_create_user_command("TSInstallInfo", function()
-      local config = require("nvim-treesitter.config")
+      local config = require "nvim-treesitter.config"
       local installed = config.get_installed()
       local available = config.get_available()
       local missing = vim.tbl_filter(function(parser)

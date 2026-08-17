@@ -95,8 +95,8 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 MAILCHECK=0
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.config/bench/completion.zsh
+source "$ZSH"/oh-my-zsh.sh
+source "$HOME"/.config/bench/completion.zsh
 
 export PATH="$HOME/dev/shell_scripts:$PATH"
 
@@ -152,7 +152,6 @@ bindkey '\e[B' history-search-forward
 eval "$(starship init zsh)"
 # eval "$(fzf --zsh)"
 
-
 alias lg="lazygit"
 
 alias py="python3"
@@ -181,114 +180,115 @@ export PATH="$PATH:/Users/navtech/.local/bin"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 function bsetup() {
-	# Store original arguments
-	local site_name="$1"
-	local backup_file="$2"
+  # Store original arguments
+  local site_name="$1"
+  local backup_file="$2"
 
-	# Extract backup directory path
-	local backup_dir=$(dirname "$backup_file")
+  # Extract backup directory path
+  local backup_dir
+  backup_dir=$(dirname "$backup_file")
 
-	# Check if config.json exists
-	local config_file="${backup_dir}/config.json"
-	if [ ! -f "$config_file" ]; then
-		echo "Warning: Config file not found at $config_file"
-		echo "Proceeding without encryption key..."
-	else
-		# Extract the encryption key from config.json
-		local encryption_key=$(grep -o '"encryption_key": "[^"]*"' "$config_file" | cut -d'"' -f4)
+  # Check if config.json exists
+  local config_file="${backup_dir}/config.json"
+  if [ ! -f "$config_file" ]; then
+    echo "Warning: Config file not found at $config_file"
+    echo "Proceeding without encryption key..."
+  else
+    # Extract the encryption key from config.json
+    local encryption_key
+    encryption_key=$(grep -o '"encryption_key": "[^"]*"' "$config_file" | cut -d'"' -f4)
 
-		if [ -z "$encryption_key" ]; then
-			echo "Warning: encryption_key not found in config.json"
-			echo "Proceeding without encryption key..."
-		else
-			echo "Found encryption key in config.json"
-		fi
-	fi
+    if [ -z "$encryption_key" ]; then
+      echo "Warning: encryption_key not found in config.json"
+      echo "Proceeding without encryption key..."
+    else
+      echo "Found encryption key in config.json"
+    fi
+  fi
 
-	if [ -d "./sites/$site_name" ]; then
-		echo "Site $site_name exists. Dropping it now..."
-		bench drop-site "$site_name" --force --no-backup --db-root-password root
-	else
-		echo "Site $site_name does not exist. Proceeding to setup."
-	fi
+  if [ -d "./sites/$site_name" ]; then
+    echo "Site $site_name exists. Dropping it now..."
+    bench drop-site "$site_name" --force --no-backup --db-root-password root
+  else
+    echo "Site $site_name does not exist. Proceeding to setup."
+  fi
 
-	# Run the setup commands
-	bench new-site "$site_name" --db-name "db_$site_name" --db-root-password root --db-root-username root --admin-password admin
-	bench --site "$site_name" restore "$backup_file" --db-root-password root
-	bench --site "$site_name" migrate --skip-failing
-	bench --site "$site_name" set-config allow_tests true
+  # Run the setup commands
+  bench new-site "$site_name" --db-name "db_$site_name" --db-root-password root --db-root-username root --admin-password admin
+  bench --site "$site_name" restore "$backup_file" --db-root-password root
+  bench --site "$site_name" migrate --skip-failing
+  bench --site "$site_name" set-config allow_tests true
 
-	if [ ! -z "$encryption_key" ]; then
-		echo "Setting encryption key in site_config.json..."
-		local site_config_path="./sites/${site_name}/site_config.json"
+  if [ ! -z "$encryption_key" ]; then
+    echo "Setting encryption key in site_config.json..."
+    local site_config_path="./sites/${site_name}/site_config.json"
 
-		if [ -f "$site_config_path" ]; then
-			if grep -q "encryption_key" "$site_config_path"; then
-				sed -i '' "s/\"encryption_key\": \"[^\"]*\"/\"encryption_key\": \"$encryption_key\"/" "$site_config_path"
-			else
-				sed -i '' "s/}$/,\n\t\"encryption_key\": \"$encryption_key\"\n}/" "$site_config_path"
-			fi
-			echo "Encryption key has been set successfully."
-		else
-			echo "Error: site_config.json not found at $site_config_path"
-		fi
-	fi
+    if [ -f "$site_config_path" ]; then
+      if grep -q "encryption_key" "$site_config_path"; then
+        sed -i '' "s/\"encryption_key\": \"[^\"]*\"/\"encryption_key\": \"$encryption_key\"/" "$site_config_path"
+      else
+        sed -i '' "s/}$/,\n\t\"encryption_key\": \"$encryption_key\"\n}/" "$site_config_path"
+      fi
+      echo "Encryption key has been set successfully."
+    else
+      echo "Error: site_config.json not found at $site_config_path"
+    fi
+  fi
 
-	echo "Setup completed for site: $site_name"
+  echo "Setup completed for site: $site_name"
 
-	bench --site "$site_name" set-maintenance-mode off
+  bench --site "$site_name" set-maintenance-mode off
 }
 
 # Extract various compressed file types with a mandatory destination directory
 function extract() {
-	if [ $# -lt 2 ]; then
-		echo "Usage: extract <archive_file> <destination_directory>"
-		echo "Example: extract archive.tar.gz ~/extracted_files"
-		return 1
-	fi
+  if [ $# -lt 2 ]; then
+    echo "Usage: extract <archive_file> <destination_directory>"
+    echo "Example: extract archive.tar.gz ~/extracted_files"
+    return 1
+  fi
 
-	if [ ! -f "$1" ]; then
-		echo "Error: '$1' is not a valid file"
-		return 1
-	fi
+  if [ ! -f "$1" ]; then
+    echo "Error: '$1' is not a valid file"
+    return 1
+  fi
 
-	local archive_file="$1"
-	local extract_dir="$2"
+  local archive_file="$1"
+  local extract_dir="$2"
 
-	# Create the directory if it doesn't exist
-	mkdir -p "$extract_dir" || return 1
+  # Create the directory if it doesn't exist
+  mkdir -p "$extract_dir" || return 1
 
-	echo "Extracting '$archive_file' to '$extract_dir'..."
+  echo "Extracting '$archive_file' to '$extract_dir'..."
 
-	case "$archive_file" in
-	*.tar.bz2) tar -jxvf "$archive_file" -C "$extract_dir" ;;
-	*.tar.gz) tar -zxvf "$archive_file" -C "$extract_dir" ;;
-	*.tar) tar -xvf "$archive_file" -C "$extract_dir" ;;
-	*.tbz2) tar -jxvf "$archive_file" -C "$extract_dir" ;;
-	*.tgz) tar -zxvf "$archive_file" -C "$extract_dir" ;;
-	*.bz2) bunzip2 -c "$archive_file" >"$extract_dir/$(basename "$archive_file" .bz2)" ;;
-	*.gz) gunzip -c "$archive_file" >"$extract_dir/$(basename "$archive_file" .gz)" ;;
-	*.zip) unzip "$archive_file" -d "$extract_dir" ;;
-	*.Z) uncompress "$archive_file" -c >"$extract_dir/$(basename "$archive_file" .Z)" ;;
-	*.7z) 7z x "$archive_file" -o"$extract_dir" ;;
-	*.rar) unrar x "$archive_file" "$extract_dir" ;;
-	*.xz) tar -Jxvf "$archive_file" -C "$extract_dir" ;;
-	*.zst) zstd -d "$archive_file" -o "$extract_dir/$(basename "$archive_file" .zst)" ;;
-	*) echo "Error: '$archive_file' has an unsupported format" && return 1 ;;
-	esac
+  case "$archive_file" in
+    *.tar.bz2) tar -jxvf "$archive_file" -C "$extract_dir" ;;
+    *.tar.gz) tar -zxvf "$archive_file" -C "$extract_dir" ;;
+    *.tar) tar -xvf "$archive_file" -C "$extract_dir" ;;
+    *.tbz2) tar -jxvf "$archive_file" -C "$extract_dir" ;;
+    *.tgz) tar -zxvf "$archive_file" -C "$extract_dir" ;;
+    *.bz2) bunzip2 -c "$archive_file" >"$extract_dir/$(basename "$archive_file" .bz2)" ;;
+    *.gz) gunzip -c "$archive_file" >"$extract_dir/$(basename "$archive_file" .gz)" ;;
+    *.zip) unzip "$archive_file" -d "$extract_dir" ;;
+    *.Z) uncompress "$archive_file" -c >"$extract_dir/$(basename "$archive_file" .Z)" ;;
+    *.7z) 7z x "$archive_file" -o"$extract_dir" ;;
+    *.rar) unrar x "$archive_file" "$extract_dir" ;;
+    *.xz) tar -Jxvf "$archive_file" -C "$extract_dir" ;;
+    *.zst) zstd -d "$archive_file" -o "$extract_dir/$(basename "$archive_file" .zst)" ;;
+    *) echo "Error: '$archive_file' has an unsupported format" && return 1 ;;
+  esac
 
-	if [ $? -eq 0 ]; then
-		echo "✅ Extraction complete"
-	else
-		echo "❌ Extraction failed"
-		return 1
-	fi
+  if [ $? -eq 0 ]; then
+    echo "✅ Extraction complete"
+  else
+    echo "❌ Extraction failed"
+    return 1
+  fi
 }
-
 
 # Get your external IP
 function myip() {
-	curl -s https://api.ipify.org
+  curl -s https://api.ipify.org
 }
 
 alias vim=nvim
@@ -299,20 +299,20 @@ alias tmns="tmux new -s"
 
 # eza integration (modern ls replacement)
 if command -v eza >/dev/null 2>&1; then
-	# Basic eza aliases
-	alias ls="eza --icons"
-	alias ll="eza --icons --long --header --git"
-	alias la="eza --icons --long --header --git --all"
-	alias lt="eza --icons --tree --level=2"
-	alias lta="eza --icons --tree --level=2 --all"
+  # Basic eza aliases
+  alias ls="eza --icons"
+  alias ll="eza --icons --long --header --git"
+  alias la="eza --icons --long --header --git --all"
+  alias lt="eza --icons --tree --level=2"
+  alias lta="eza --icons --tree --level=2 --all"
 
-	# Sort aliases
-	alias lls="eza --icons --long --header --git --sort=size"
-	alias llm="eza --icons --long --header --git --sort=modified"
+  # Sort aliases
+  alias lls="eza --icons --long --header --git --sort=size"
+  alias llm="eza --icons --long --header --git --sort=modified"
 
-	# More detailed view
-	alias llg="eza --icons --long --header --git --grid"
-	alias llx="eza --icons --long --header --git --extended"
+  # More detailed view
+  alias llg="eza --icons --long --header --git --grid"
+  alias llx="eza --icons --long --header --git --extended"
 fi
 
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -365,104 +365,103 @@ alias git-clean-gone="git branch -vv | grep 'gone]' | awk '{print \$1}' | xargs 
 export PATH=$PATH:$HOME/go/bin
 
 fh() {
-	eval "$(history | fzf | sed 's/^ *[0-9]* *//')"
+  eval "$(history | fzf | sed 's/^ *[0-9]* *//')"
 }
 alias nvchad='NVIM_APPNAME=nvchad nvim'
 
-
 function ghswitch() {
-	gh auth switch --user "$1"
-	case "$1" in
-	axis1410)
-		git config --global user.email "adityasingh14102001@gmail.com"
-		;;
-	aditya-singh-n1410)
-		git config --global user.email "aditya.s@navtech.io"
-		;;
-	esac
-	echo "Switched to $1"
+  gh auth switch --user "$1"
+  case "$1" in
+    axis1410)
+      git config --global user.email "adityasingh14102001@gmail.com"
+      ;;
+    aditya-singh-n1410)
+      git config --global user.email "aditya.s@navtech.io"
+      ;;
+  esac
+  echo "Switched to $1"
 }
 
 _ghswitch() {
-	local users
-	users=(
-		'axis1410:adityasingh14102001@gmail.com'
-		'aditya-singh-n1410:aditya.s@navtech.io'
-	)
-	_describe 'github account' users
+  local users
+  users=(
+    'axis1410:adityasingh14102001@gmail.com'
+    'aditya-singh-n1410:aditya.s@navtech.io'
+  )
+  _describe 'github account' users
 }
 
 compdef _ghswitch ghswitch
 
 function cdmenu() {
-	local dir
-	dir="$(find "$HOME" "$HOME/dev" "$HOME/projects" "$HOME/Desktop" "$HOME/Documents" "$HOME/Downloads" -maxdepth 5 -type d \
-		-not -path '*/node_modules/*' \
-		-not -path '*/.local/lib/*' \
-		-not -path '*/site-packages/*' \
-		-not -path '*/__pycache__/*' \
-		-not -path '*/.venv/*' \
-		-not -path '*/venv/*' \
-		-not -path '*/.git/' \
-		-not -path '*/.git' \
-		-not -path '*/.git/*' \
-		2>/dev/null | fzf --prompt='cd> ' --preview='ls -A {} | head -20' --height=40%)" && cd "$dir"
+  local dir
+  dir="$(find "$HOME" "$HOME/dev" "$HOME/projects" "$HOME/Desktop" "$HOME/Documents" "$HOME/Downloads" -maxdepth 5 -type d \
+    -not -path '*/node_modules/*' \
+    -not -path '*/.local/lib/*' \
+    -not -path '*/site-packages/*' \
+    -not -path '*/__pycache__/*' \
+    -not -path '*/.venv/*' \
+    -not -path '*/venv/*' \
+    -not -path '*/.git/' \
+    -not -path '*/.git' \
+    -not -path '*/.git/*' \
+    2>/dev/null | fzf --prompt='cd> ' --preview='ls -A {} | head -20' --height=40%)" && cd "$dir"
 }
 
 # Fuzzy find files and open in nvim
 function nvimf() {
-	local file
-	file="$(find . -type f \
-		-not -path '*/__pycache__/*' \
-		-not -path '*/node_modules/*' \
-		-not -path '*/site-packages/*' \
-		-not -path '*/.git/*' \
-		-not -path '*/.venv/*' \
-		-not -path '*/venv/*' \
-		-not -path '*/.local/*' \
-		-not -path '*/.ruff_cache/*' \
-		-not -path '*/.pytest_cache/*' \
-		2>/dev/null | fzf --prompt='nvim> ' --preview='bat --color=always --style=numbers --line-range=:500 {}' --height=40%)" && nvim "$file"
+  local file
+  file="$(find . -type f \
+    -not -path '*/__pycache__/*' \
+    -not -path '*/node_modules/*' \
+    -not -path '*/site-packages/*' \
+    -not -path '*/.git/*' \
+    -not -path '*/.venv/*' \
+    -not -path '*/venv/*' \
+    -not -path '*/.local/*' \
+    -not -path '*/.ruff_cache/*' \
+    -not -path '*/.pytest_cache/*' \
+    2>/dev/null | fzf --prompt='nvim> ' --preview='bat --color=always --style=numbers --line-range=:500 {}' --height=40%)" && nvim "$file"
 }
 
 alias vimf="nvimf"
 
 # Insert a file or directory from the current working tree into the prompt.
 function __fzf_path_insert() {
-	local selected preview_cmd
+  local selected preview_cmd
 
-	if ! command -v fzf >/dev/null 2>&1; then
-		zle -M "fzf not found"
-		return 1
-	fi
+  if ! command -v fzf >/dev/null 2>&1; then
+    zle -M "fzf not found"
+    return 1
+  fi
 
-	if command -v bat >/dev/null 2>&1; then
-		preview_cmd='if [ -d {} ]; then ls -A {}; else bat --color=always --style=numbers --line-range=:500 {}; fi'
-	else
-		preview_cmd='if [ -d {} ]; then ls -A {}; else sed -n "1,200p" {}; fi'
-	fi
+  if command -v bat >/dev/null 2>&1; then
+    preview_cmd='if [ -d {} ]; then ls -A {}; else bat --color=always --style=numbers --line-range=:500 {}; fi'
+  else
+    preview_cmd='if [ -d {} ]; then ls -A {}; else sed -n "1,200p" {}; fi'
+  fi
 
-	if command -v fd >/dev/null 2>&1; then
-		selected="$(fd --hidden --follow --exclude .git --exclude node_modules --exclude __pycache__ --exclude site-packages --exclude .venv --exclude venv --exclude .local . . |
-			fzf --prompt='path> ' --height=40% --preview="$preview_cmd")"
-	else
-		selected="$(find . \( \
-			-path '*/.git/*' -o \
-			-path '*/node_modules/*' -o \
-			-path '*/__pycache__/*' -o \
-			-path '*/site-packages/*' -o \
-			-path '*/.venv/*' -o \
-			-path '*/venv/*' -o \
-			-path '*/.local/*' \
-			\) -prune -o \( -type f -o -type d \) -print 2>/dev/null |
-			sed 's#^\./##' |
-			fzf --prompt='path> ' --height=40% --preview="$preview_cmd")"
-	fi
+  if command -v fd >/dev/null 2>&1; then
+    selected="$(fd --hidden --follow --exclude .git --exclude node_modules --exclude __pycache__ --exclude site-packages --exclude .venv --exclude venv --exclude .local . . \
+      | fzf --prompt='path> ' --height=40% --preview="$preview_cmd")"
+  else
+    selected="$(find . \( \
+      -path '*/.git/*' -o \
+      -path '*/node_modules/*' -o \
+      -path '*/__pycache__/*' -o \
+      -path '*/site-packages/*' -o \
+      -path '*/.venv/*' -o \
+      -path '*/venv/*' -o \
+      -path '*/.local/*' \
+      \) -prune -o \( -type f -o -type d \) -print 2>/dev/null \
+      | sed 's#^\./##' \
+      | fzf --prompt='path> ' --height=40% --preview="$preview_cmd")"
+  fi
 
-	[[ -n "$selected" ]] || return 0
+  [[ -n "$selected" ]] || return 0
 
-	LBUFFER+="${(q-)selected}"
-	zle reset-prompt
+  LBUFFER+="${(q-)selected}"
+  zle reset-prompt
 }
 
 zle -N __fzf_path_insert
@@ -474,7 +473,7 @@ export PATH="/Users/navtech/.antigravity/antigravity/bin:$PATH"
 # export CLAUDE_CODE_SUBAGENT_MODEL="claude-haiku-4-5"
 
 function sp() {
-	sesh picker
+  sesh picker
 
 }
 # Wizehire Bash Profile
@@ -491,20 +490,20 @@ alias empty="clear && printf '\e[3J'"
 source ~/.config/wizehire/wecompose.zsh
 alias wpm='wecompose exec django uv run python manage.py'
 
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 
 # zprof
 
 we_prod() {
-	export AWS_PROFILE=we-prod
-	export AWS_REGION=us-west-2
-	if ! aws eks update-kubeconfig --name eks-we-prod; then
-		aws sso login
-		aws eks update-kubeconfig --name eks-we-prod
-	fi
+  export AWS_PROFILE=we-prod
+  export AWS_REGION=us-west-2
+  if ! aws eks update-kubeconfig --name eks-we-prod; then
+    aws sso login
+    aws eks update-kubeconfig --name eks-we-prod
+  fi
 }
 alias we-prod=we_prod
 
-export NODE_AUTH_TOKEN="$(gh auth token)"
+NODE_AUTH_TOKEN=$(gh auth token)
+export NODE_AUTH_TOKEN

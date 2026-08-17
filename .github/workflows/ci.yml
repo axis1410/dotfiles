@@ -15,23 +15,55 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
-          args: --check .config/nvim
+          args: --config-path .config/nvim/.stylua.toml --check .config/nvim .wezterm.lua
       - name: luacheck
         run: |
           sudo apt-get update && sudo apt-get install -y luarocks
           sudo luarocks install luacheck
-          luacheck .config/nvim/lua --globals vim --no-max-line-length
+          luacheck .config/nvim/lua .wezterm.lua
 
   shell-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: mfinelli/setup-shfmt@v3
+      - name: shfmt
+        run: shfmt -i 2 -ci -bn -d .zshrc
       - name: shellcheck
         run: shellcheck -x .zshrc
-      - name: shfmt
+
+  toml-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: baptiste0928/cargo-install@v3
+        with:
+          crate: taplo-cli
+          locked: true
+      - name: taplo
         run: |
-          sudo snap install shfmt || (curl -sSL "https://github.com/mvdan/sh/releases/latest/download/shfmt_linux_amd64" -o /usr/local/bin/shfmt && sudo chmod +x /usr/local/bin/shfmt)
-          shfmt -d .zshrc
+          taplo format --check \
+            .config/starship.toml \
+            .config/alacritty/alacritty.toml \
+            .config/sesh/sesh.toml \
+            .config/yazi/yazi.toml \
+            .config/yazi/theme.toml
+
+  prettier-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - run: npm install -g prettier
+      - name: prettier
+        run: |
+          prettier --check \
+            CLAUDE.md README.md .config/nvim/README.md \
+            .config/fastfetch/config.jsonc \
+            .config/lazygit/config.yml \
+            .github/workflows/*.yml
 
   stow-dry-run:
     runs-on: ubuntu-latest
