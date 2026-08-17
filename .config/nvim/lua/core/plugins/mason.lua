@@ -55,7 +55,7 @@ end
 return {
   {
     "mason-org/mason.nvim",
-    lazy = false,
+    event = "VeryLazy",
     cmd = {
       "Mason",
       "MasonInstall",
