@@ -2,15 +2,6 @@ local M = {}
 
 local theme_file = vim.fn.stdpath "config" .. "/theme.lua"
 
-local function in_list(name)
-  for _, scheme in ipairs(M.available()) do
-    if scheme == name then
-      return true
-    end
-  end
-  return false
-end
-
 local function write_theme(name)
   local file = io.open(theme_file, "w")
   if not file then

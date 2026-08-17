@@ -148,7 +148,7 @@ return {
     })
 
     vim.lsp.config("sqls", {
-      on_attach = function(client, bufnr)
+      on_attach = function(client, _bufnr)
         -- disable sqls formatter (it breaks Postgres $1 → $ 1)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false

@@ -16,8 +16,8 @@ return {
     local version = (" v%d.%d.%d"):format(v.major, v.minor, v.patch)
 
     local function lazy_startup_summary()
-      local ok, lazy_mod = pcall(require, "lazy")
-      if not ok or type(lazy_mod) ~= "table" then
+      local ok_lazy, lazy_mod = pcall(require, "lazy")
+      if not ok_lazy or type(lazy_mod) ~= "table" then
         return ""
       end
 
@@ -43,7 +43,7 @@ return {
     end
 
     local function diag_counts()
-      local ok_diag, diag = pcall(vim.diagnostic.get, 0)
+      local ok_diag = pcall(vim.diagnostic.get, 0)
       if not ok_diag then
         return ""
       end

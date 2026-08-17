@@ -52,7 +52,7 @@ return {
         Directory = { fg = "pine", bold = false },
       },
 
-      before_highlight = function(group, highlight, palette)
+      before_highlight = function(group, highlight, _palette)
         if group:match "^DiagnosticVirtualText" and highlight.bg == nil then
           highlight.bg = highlight.fg
           highlight.blend = 10

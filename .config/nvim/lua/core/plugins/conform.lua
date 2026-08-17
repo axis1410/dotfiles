@@ -11,7 +11,7 @@ return {
     formatters = {
       html_prettier = {
         inherit = "prettier",
-        condition = function(self, ctx)
+        condition = function(_self, ctx)
           return not has_jinja_template_syntax(ctx.buf)
         end,
       },
