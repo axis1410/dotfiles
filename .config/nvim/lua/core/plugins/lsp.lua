@@ -97,6 +97,13 @@ return {
       filetypes = { "markdown" },
     })
 
+    vim.lsp.config("djls", {
+      filetypes = { "htmldjango", "html", "python" },
+      on_attach = function(client, _)
+        client.server_capabilities.documentSymbolProvider = false
+      end,
+    })
+
     vim.lsp.config("hydra_lsp", { filetypes = { "yaml" } })
     vim.lsp.config("bashls", { filetypes = { "sh", "zsh" } })
     vim.lsp.config("html", { filetypes = { "html", "htmldjango", "jinja" } })
