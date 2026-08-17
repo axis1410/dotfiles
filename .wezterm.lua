@@ -1,7 +1,7 @@
 local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
-config = {
+local options = {
   automatically_reload_config = true,
   enable_tab_bar = false,
   window_close_confirmation = "NeverPrompt",
@@ -31,6 +31,10 @@ config = {
   window_decorations = "RESIZE",
   freetype_load_target = "VerticalLcd",
 }
+
+for k, v in pairs(options) do
+  config[k] = v
+end
 
 local function center_window_once(window)
   wezterm.GLOBAL.windows_centered = wezterm.GLOBAL.windows_centered or {}
