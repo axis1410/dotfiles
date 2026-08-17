@@ -72,6 +72,13 @@ return {
       grep = {
         prompt = "Rg❯ ",
         file_ignore_patterns = { "node_modules", ".git", ".venv" },
+        winopts = {
+          preview = {
+            layout = "vertical",
+            vertical = "right:50%",
+            wrap = true,
+          },
+        },
         rg_opts = table.concat({
           "--column",
           "--line-number",
@@ -87,6 +94,14 @@ return {
           "-e",
         }, " "),
         git_icons = true,
+      },
+      grep_curbuf = {
+        winopts = {
+          preview = {
+            layout = "vertical",
+            vertical = "right:50%",
+          },
+        },
       },
       fzf_colors = {
         true,
