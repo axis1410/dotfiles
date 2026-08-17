@@ -219,7 +219,7 @@ function bsetup() {
   bench --site "$site_name" migrate --skip-failing
   bench --site "$site_name" set-config allow_tests true
 
-  if [ ! -z "$encryption_key" ]; then
+  if [ -n "$encryption_key" ]; then
     echo "Setting encryption key in site_config.json..."
     local site_config_path="./sites/${site_name}/site_config.json"
 
@@ -405,7 +405,7 @@ function cdmenu() {
     -not -path '*/.git/' \
     -not -path '*/.git' \
     -not -path '*/.git/*' \
-    2>/dev/null | fzf --prompt='cd> ' --preview='ls -A {} | head -20' --height=40%)" && cd "$dir"
+    2>/dev/null | fzf --prompt='cd> ' --preview='ls -A {} | head -20' --height=40%)" && cd "$dir" || return
 }
 
 # Fuzzy find files and open in nvim
