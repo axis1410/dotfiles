@@ -34,6 +34,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- .env values (PEM keys etc.) can exceed global synmaxcol, leaving the tail unhighlighted
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "env", "dotenv" },
+  callback = function()
+    vim.opt_local.synmaxcol = 0
+  end,
+})
+
 -- vim.api.nvim_create_autocmd("BufWinEnter", {
 --   callback = function(args)
 --     vim.schedule(function()
