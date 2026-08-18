@@ -13,6 +13,9 @@ return {
         wrap = false,
         show_relative_numbers = true,
       },
+      providers = {
+        priority = { "lsp", "coc", "markdown", "norg", "man", "env" },
+      },
     }
   end,
 }
