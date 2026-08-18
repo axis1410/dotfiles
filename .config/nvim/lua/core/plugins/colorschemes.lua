@@ -161,7 +161,7 @@ return {
   { "sainnhe/sonokai", lazy = true, enabled = false },
   { "folke/tokyonight.nvim", lazy = true, enabled = false },
   { "rebelot/kanagawa.nvim", lazy = true, enabled = false },
-  { "nickkadutskyi/jb.nvim", lazy = true, enabled = false },
+  { "nickkadutskyi/jb.nvim", lazy = true, enabled = true },
   { "pmouraguedes/neodarcula.nvim", lazy = true, priority = 1000, enabled = false },
   { "frenzyexists/aquarium-vim", lazy = true, priority = 1000, enabled = false },
   { "dgrco/quietink.nvim", lazy = false, priority = 1000, opts = {}, enabled = false },
