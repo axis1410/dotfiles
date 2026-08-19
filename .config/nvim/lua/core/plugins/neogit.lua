@@ -1,7 +1,7 @@
 return {
   "NeogitOrg/neogit",
   lazy = true,
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvim-lua/plenary.nvim", -- required
 
@@ -16,7 +16,6 @@ return {
     -- "folke/snacks.nvim", -- optional
   },
   cmd = "Neogit",
-  keys = {
-    { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" },
-  },
+
+  opts = {},
 }

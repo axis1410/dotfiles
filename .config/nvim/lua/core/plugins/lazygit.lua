@@ -1,7 +1,7 @@
 -- nvim v0.8.0
 return {
   "kdheepak/lazygit.nvim",
-  enabled = true,
+  enabled = false,
   lazy = true,
   cmd = {
     "LazyGit",
@@ -14,16 +14,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  -- setting the keybinding for LazyGit with 'keys' is recommended in
-  -- order to load the plugin when the command is run for the first time
-  keys = {
-    {
-      "<leader>gg",
-      "<cmd>LazyGit<CR>",
-      desc = "Open LazyGit",
-    },
-  },
-
   init = function()
     if vim.v.servername == "" then
       vim.fn.serverstart()
