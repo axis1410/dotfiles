@@ -179,6 +179,11 @@ end
 
 function M.colorschemes()
   local cs = require "colorscheme"
+  -- Priming call: appends every installed (even lazy-loaded) colorscheme
+  -- plugin's dir to &rtp, so the builtin fzf-lua/telescope pickers below —
+  -- which enumerate vim.fn.getcompletion("", "color") and live-preview by
+  -- calling :colorscheme as you move the cursor — can find and preview them.
+  cs.available()
   if is_fzf() then
     f().colorschemes {
       winopts = {
