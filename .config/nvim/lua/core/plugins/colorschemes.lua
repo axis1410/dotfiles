@@ -1,6 +1,10 @@
 return {
   -- { "0xleodevv/oc-2.nvim", lazy = true, enabled = true },
 
+  { "nickkadutskyi/jb.nvim", lazy = true, enabled = true },
+
+  { "datsfilipe/vesper.nvim", enabled = true, lazy = false },
+
   {
     "catppuccin/nvim",
     enabled = true,
@@ -161,7 +165,6 @@ return {
   { "sainnhe/sonokai", lazy = true, enabled = false },
   { "folke/tokyonight.nvim", lazy = true, enabled = false },
   { "rebelot/kanagawa.nvim", lazy = true, enabled = false },
-  { "nickkadutskyi/jb.nvim", lazy = true, enabled = true },
   { "pmouraguedes/neodarcula.nvim", lazy = true, priority = 1000, enabled = false },
   { "frenzyexists/aquarium-vim", lazy = true, priority = 1000, enabled = false },
   { "dgrco/quietink.nvim", lazy = false, priority = 1000, opts = {}, enabled = false },
@@ -172,5 +175,4 @@ return {
     priority = 1000,
     opts = {},
   },
-  { "datsfilipe/vesper.nvim", enabled = false, lazy = false },
 }
